@@ -40,5 +40,8 @@ namespace Arcade
 		//! @brief Handle one event (A key press, a click, a close event...)
 		//! @param event The event to handle.
 		virtual void handleEvent(Event event) = 0;
+
+		//! @brief Get the score (used for saving/displaying)
+		virtual unsigned long getScore() = 0;
 	};
 }
