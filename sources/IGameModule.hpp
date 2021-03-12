@@ -7,10 +7,13 @@
 
 #pragma once
 
-#include "LibInfo.hpp"
+#include "ModInfo.hpp"
+#include "GameObject.hpp"
+#include <vector>
 
 namespace Arcade
 {
+	//! @brief The interface of all games.
 	class IGameModule
 	{
 	public:
@@ -19,10 +22,10 @@ namespace Arcade
 
 		//! @brief Get the library's header.
 		//! @info Used to verify the integrity of the lib.
-		virtual LibInfo getHeader() const = 0;
+		virtual ModInfo getHeader() const = 0;
 
-		//! @brief Initialize this library. (Create windows & so on)
-		//! @return True if the initialization was successfull. False otherwise.
-		virtual bool init() = 0;
+		//! @brief Return a list of game objects to display.
+		//! @return The list of objects
+		virtual std::vector<GameObject> getObjects() = 0;
 	};
 }
