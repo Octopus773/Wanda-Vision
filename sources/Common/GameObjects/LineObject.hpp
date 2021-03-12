@@ -9,7 +9,7 @@
 
 #include "GameObject.hpp"
 
-namespace Arcade
+namespace Arcade::GameObject
 {
 	//! @brief A base class for every objects in the game.
 	class LineObject : public GameObject

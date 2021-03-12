@@ -26,7 +26,7 @@ namespace Arcade
 		//! @brief Default copy constructor
 		GameObject(const GameObject &) = default;
 		//! @brief Default destructor
-		~GameObject() = default;
+		virtual ~GameObject() = default;
 		//! @brief Default assignement operator
 		GameObject &operator=(const GameObject &) = default;
 	};

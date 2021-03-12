@@ -9,7 +9,7 @@
 
 #include "GameObject.hpp"
 
-namespace Arcade
+namespace Arcade::GameObject
 {
 	//! @brief A Sprite game objecct.
 	class SpriteObject : public GameObject
@@ -21,6 +21,8 @@ namespace Arcade
 		unsigned int sizeY;
 		//! @brief number between 0 and 360 clock wise
 		unsigned short rotation;
+
+		// TODO handle fallbacks
 
 		//! @brief Default constructor
 		SpriteObject() = default;

@@ -36,4 +36,4 @@ extern "C" struct ModInfo getHeader();
 
 //! @brief Get the module class.
 //! @return A new instance of a IDisplayModule or IGameModule.
-extern "C" IModule getModule();
+extern "C" IModule *getModule();
