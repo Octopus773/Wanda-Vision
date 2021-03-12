@@ -9,6 +9,7 @@
 
 #include "ModInfo.hpp"
 
+//! @brief A base module interface
 class IModule
 {
 public:
@@ -16,8 +17,16 @@ public:
 	virtual ~IModule() = default;
 
 	//! @brief Initialize this library. (Create windows & so on)
-	//! @return True if the initialization was successfull. False otherwise.
+	//! @return True if the initialization was successful. False otherwise.
 	virtual bool init() = 0;
+
+    //! @brief Allow to say to the library  t shutdown and free it's content
+	//! @return True if the shutdown was successful. False otherwise.
+	virtual bool close() = 0;
+
+	//! @brief Should this module be closed?
+	//! @return True if this module should be closed. False otherwise.
+	virtual bool shouldClose() = 0;
 };
 
 

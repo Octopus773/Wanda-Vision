@@ -14,12 +14,12 @@ namespace Arcade
 	{
 	public:
 		//! @brief Get the X position of this object
-		//! @return A percentage representing the position. 0 is left, 100 right.
-		int getX() const;
+		//! @info A percentage representing the position. 0 is left, 100 right.
+		int x;
 
 		//! @brief Get the Y position of this object
-		//! @return A percentage representing the position. 0 is top, 100 bottom.
-		int getY() const;
+		//! @info A percentage representing the position. 0 is top, 100 bottom.
+		int y;
 
 		//! @brief Default constructor
 		GameObject() = default;
