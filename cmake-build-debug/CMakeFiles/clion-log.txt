@@ -1,0 +1,4 @@
+/home/anonymus-raccoon/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/203.7148.70/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=/usr/bin/gcc -DCMAKE_CXX_COMPILER=/usr/bin/g++ -G "CodeBlocks - Unix Makefiles" /home/anonymus-raccoon/Projects/Tek2/OOP/Arcade
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/anonymus-raccoon/Projects/Tek2/OOP/Arcade/cmake-build-debug

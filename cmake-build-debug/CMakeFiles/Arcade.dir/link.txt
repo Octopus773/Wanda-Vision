@@ -1,0 +1,1 @@
+/usr/bin/g++  -g   CMakeFiles/Arcade.dir/main.cpp.o  -o Arcade 
