@@ -28,7 +28,7 @@ namespace Arcade
 
 		//! @brief Return a list of game objects to display.
 		//! @return The list of objects
-		virtual std::vector<GameObject> getObjects() = 0;
+		virtual const std::vector<GameObject> &getObjects() = 0;
 
 		//! @brief Advance the game of x seconds
 		//! @param tick The number of ticks that occured since the last call.
