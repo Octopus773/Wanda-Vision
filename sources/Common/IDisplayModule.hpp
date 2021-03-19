@@ -43,5 +43,8 @@ namespace Arcade
 		//! @brief Draw a sprite.
 		//! @param obj The sprite to draw.
 		virtual void drawSprite(GameObjects::SpriteObject obj) = 0;
+		
+		//! @brief Refresh the screen, clear left-overs and draw requested objects.
+		virtual void refresh() const = 0;
 	};
 }
