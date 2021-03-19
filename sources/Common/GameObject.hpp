@@ -22,7 +22,7 @@ namespace Arcade
 		int y;
 		
 		//! @brief The color of this object.
-		int color;
+		unsigned color;
 
 		//! @brief Default constructor
 		GameObject() = default;
