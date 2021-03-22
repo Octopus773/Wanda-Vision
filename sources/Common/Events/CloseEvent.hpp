@@ -11,5 +11,5 @@
 
 namespace Arcade::Events
 {
-	struct CloseEvent : public Event { }
+	struct CloseEvent : public Event { };
 }
