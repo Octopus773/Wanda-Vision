@@ -30,19 +30,23 @@ namespace Arcade
 
 		//! @brief Draw a line.
 		//! @param obj The line to draw.
-		virtual void drawLine(GameObjects::LineObject obj) = 0;
+		virtual void drawLine(GameObjects::LineObject &obj) = 0;
 
 		//! @brief Draw a rectangle.
 		//! @param obj The rectangle to draw.
-		virtual void drawRectangle(GameObjects::RectangleObject obj) = 0;
+		virtual void drawRectangle(GameObjects::RectangleObject &obj) = 0;
 
 		//! @brief Draw a circle.
 		//! @param obj The circle to draw.
-		virtual void drawCircle(GameObjects::CircleObject obj) = 0;
+		virtual void drawCircle(GameObjects::CircleObject &obj) = 0;
 		
 		//! @brief Draw a sprite.
 		//! @param obj The sprite to draw.
-		virtual void drawSprite(GameObjects::SpriteObject obj) = 0;
+		virtual void drawSprite(GameObjects::SpriteObject &obj) = 0;
+		
+		//! @brief Draw a text.
+		//! @param obj The text to draw.
+		virtual void drawText(GameObjects::TextObject &obj) = 0;
 		
 		//! @brief Refresh the screen, clear left-overs and draw requested objects.
 		virtual void refresh() const = 0;
