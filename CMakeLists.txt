@@ -3,7 +3,9 @@ project(Arcade)
 
 set(CMAKE_CXX_STANDARD 20)
 
-include_directories(sources)
+find_package(SDL2 REQUIRED)
+
+include_directories(sources/Common)
 
 add_executable(arcade
         main.cpp
@@ -20,6 +22,12 @@ add_executable(arcade
         sources/Common/IGameModule.hpp
         sources/Common/ModInfo.hpp
         sources/Common/Module.hpp
+        )
+
+add_library(SDL2Display
+        SHARED
         sources/DisplayModules/SDLDisplay.cpp
         sources/DisplayModules/SDLDisplay.hpp
         )
+
+target_link_libraries(SDL2Display SDL2)
