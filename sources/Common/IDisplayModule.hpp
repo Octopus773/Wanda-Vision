@@ -12,6 +12,7 @@
 #include "GameObjects/RectangleObject.hpp"
 #include "GameObjects/CircleObject.hpp"
 #include "GameObjects/SpriteObject.hpp"
+#include "GameObjects/TextObject.hpp"
 #include "Event.hpp"
 #include <list>
 #include <memory>
