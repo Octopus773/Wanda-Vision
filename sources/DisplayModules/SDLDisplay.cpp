@@ -5,6 +5,10 @@
 #include "SDLDisplay.hpp"
 #include <SDL2/SDL.h>
 #include <iostream>
+#include "Events/ClickEvent.hpp"
+#include "Events/KeyEvent.hpp"
+#include "Events/CloseEvent.hpp"
+#include "Event.hpp"
 
 namespace Arcade
 {
@@ -55,7 +59,27 @@ namespace Arcade
 
 	std::list<Event> Arcade::SDLDisplay::pullEvents()
 	{
-		return std::list<Event>();
+		SDL_Event e;
+		std::list<Event> events;
+		Event event;
+		while(SDL_PollEvent(&e) != 0)
+		{
+			switch (e.type) {
+			case SDL_QUIT:
+				event = Events::CloseEvent();
+				break;
+			case SDL_KEYDOWN:
+				event = Events::KeyEvent();
+				break;
+			case SDL_MOUSEBUTTONDOWN:
+				event = Events::ClickEvent();
+				break;
+			default:
+				continue;
+			}
+			events.push_back(event);
+		}
+		return events;
 	}
 
 	void SDLDisplay::drawLine(GameObjects::LineObject obj)
