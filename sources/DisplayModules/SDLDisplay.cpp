@@ -4,6 +4,7 @@
 
 #include "SDLDisplay.hpp"
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include <iostream>
 #include "Events/ClickEvent.hpp"
 #include "Events/KeyEvent.hpp"
@@ -43,6 +44,10 @@ namespace Arcade
 
 	bool SDLDisplay::close()
 	{
+		std::for_each(this->_loadedTextures.begin(), this->_loadedTextures.end(), [](const std::pair<std::string, SDL_Texture *>&pair) {
+			SDL_DestroyTexture(pair.second);
+		});
+		this->_loadedTextures.clear();
 		SDL_DestroyRenderer(this->_windowRenderer);
 		this->_windowRenderer = nullptr;
 		SDL_DestroyWindow(this->_window);
@@ -113,31 +118,36 @@ namespace Arcade
 
 	void SDLDisplay::drawSprite(GameObjects::SpriteObject obj)
 	{
-		// TODO cache when a new path is requested
-		//Put your own bmp image here
-		SDL_Surface *bmpSurf = SDL_LoadBMP("x.bmp");
-		SDL_Texture *bmpTex = SDL_CreateTextureFromSurface(this->_windowRenderer, bmpSurf);
-		SDL_FreeSurface(bmpSurf);
+		int w;
+		int h;
+		// TODO use the real path given by obj
+		std::string path = "x.bmp";
+		SDL_Rect rect;
+		SDL_Texture *img;
 
-		//Make a target texture to render too
-		SDL_Texture *texTarget = SDL_CreateTexture(this->_windowRenderer, SDL_PIXELFORMAT_RGBA8888,
-												   SDL_TEXTUREACCESS_TARGET, this->_windowWidth, this->_windowHeight);
-
-		//Now render to the texture
-		SDL_SetRenderTarget(this->_windowRenderer, texTarget);
-		SDL_RenderClear(this->_windowRenderer);
-		SDL_RenderCopy(this->_windowRenderer, bmpTex, NULL, NULL);
-		//Detach the texture
-		SDL_SetRenderTarget(this->_windowRenderer, NULL);
-
-		//Now render the texture target to our screen, but upside down
-		SDL_RenderClear(this->_windowRenderer);
-		SDL_RenderCopyEx(this->_windowRenderer, texTarget, NULL, NULL, 0, NULL, SDL_FLIP_VERTICAL);
+		if (this->_loadedTextures.find(path) == this->_loadedTextures.end()) {
+			img = IMG_LoadTexture(this->_windowRenderer, path.c_str());
+			if (!img) {
+				std::cerr << "Error couldn't load Sprite: " << path << std::endl;
+				return;
+			}
+			this->_loadedTextures[path] = img;
+		}
+		else {
+			img = this->_loadedTextures[path];
+		}
+		SDL_QueryTexture(img, nullptr, nullptr, &w, &h);
+		rect.x = obj.x - (w / 2);
+		rect.y = obj.y - (h / 2);
+		rect.w = static_cast<int>(obj.sizeX);
+		rect.h = static_cast<int>(obj.sizeY);
+		SDL_RenderCopyEx(this->_windowRenderer, img, nullptr, &rect, obj.rotation, nullptr, SDL_FLIP_NONE);
 	}
 
 	void SDLDisplay::refresh() const
 	{
 		SDL_RenderPresent(this->_windowRenderer);
+		SDL_RenderClear(this->_windowRenderer);
 	}
 
 	Events::KeyEvent SDLDisplay::createKeyEvent(unsigned int key)
@@ -166,4 +176,5 @@ namespace Arcade
 							   (color & (0xFF << 8)) >> 8,
 							   color & 0xFF);
 	}
+
 }
