@@ -8,7 +8,6 @@
 #include "Events/ClickEvent.hpp"
 #include "Events/KeyEvent.hpp"
 #include "Events/CloseEvent.hpp"
-#include "Event.hpp"
 
 namespace Arcade
 {
@@ -69,10 +68,11 @@ namespace Arcade
 				event = Events::CloseEvent();
 				break;
 			case SDL_KEYDOWN:
-				event = Events::KeyEvent();
+				event = this->createKeyEvent(e.key.keysym.sym);
 				break;
 			case SDL_MOUSEBUTTONDOWN:
-				event = Events::ClickEvent();
+				// TODO give % for x and y
+				event = this->createClickEvent(e.button.x, e.button.y, e.button.button);
 				break;
 			default:
 				continue;
@@ -105,5 +105,23 @@ namespace Arcade
 	void SDLDisplay::refresh() const
 	{
 		SDL_UpdateWindowSurface(this->_window);
+	}
+
+	Events::KeyEvent SDLDisplay::createKeyEvent(unsigned int key)
+	{
+		Events::KeyEvent e;
+
+		e.key = key;
+		return e;
+	}
+
+	Events::ClickEvent SDLDisplay::createClickEvent(unsigned int x, unsigned int y, unsigned int id)
+	{
+		Events::ClickEvent e;
+
+		e.x = x;
+		e.y = y;
+		e.id = id;
+		return e;
 	}
 }

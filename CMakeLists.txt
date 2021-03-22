@@ -24,10 +24,10 @@ add_executable(arcade
         sources/Common/Module.hpp
         )
 
-add_library(SDL2Display
+add_library(arcade_sdl2
         SHARED
         sources/DisplayModules/SDLDisplay.cpp
         sources/DisplayModules/SDLDisplay.hpp
         )
 
-target_link_libraries(SDL2Display SDL2)
+target_link_libraries(arcade_sdl2 SDL2)
