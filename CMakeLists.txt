@@ -3,6 +3,8 @@ project(Arcade)
 
 set(CMAKE_CXX_STANDARD 20)
 
+include_directories(sources)
+
 add_executable(arcade
         main.cpp
         sources/Common/GameObjects/CircleObject.hpp
@@ -18,4 +20,6 @@ add_executable(arcade
         sources/Common/IGameModule.hpp
         sources/Common/ModInfo.hpp
         sources/Common/Module.hpp
-)
+        sources/DisplayModules/SDLDisplay.cpp
+        sources/DisplayModules/SDLDisplay.hpp
+        )
