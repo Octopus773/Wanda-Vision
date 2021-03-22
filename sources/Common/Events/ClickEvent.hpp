@@ -9,7 +9,7 @@
 
 #include "Event.hpp"
 
-namespace Arcade::Event
+namespace Arcade::Events
 {
 	struct ClickEvent : public Event
 	{
