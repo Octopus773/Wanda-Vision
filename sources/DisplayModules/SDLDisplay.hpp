@@ -10,6 +10,7 @@
 #include "Events/ClickEvent.hpp"
 #include "Events/KeyEvent.hpp"
 #include "Events/CloseEvent.hpp"
+#include <map>
 
 namespace Arcade
 {
@@ -28,7 +29,10 @@ namespace Arcade
 		//! @brief window title when init
 		std::string _windowTitle = "SDL2 Display Module";
 		//! @brief When true the caller should close this instance
-		bool _shouldClose = false;
+		bool _shouldClose = true;
+		//! @brief A list of all the sprite that are cached and then not needed to open again
+		//! @details saving string for the path (used to check if the texture is already loaded) and the Texture ptr
+		std::map<std::string, SDL_Texture *> _loadedTextures;
 
 		//! @brief Binding of a constructor for KeyEvent struct
 		//! @param key Value of key attribute of struct Events::KeyEvent
@@ -43,6 +47,7 @@ namespace Arcade
 		//! @brief Used to set the color of the SDL2 renderer
 		//! @param color The color format: RRGGBBAA (1 byte each)
 		void setRendererColor(unsigned color);
+
 	public:
 		SDLDisplay() = default;
 		~SDLDisplay() override =  default;

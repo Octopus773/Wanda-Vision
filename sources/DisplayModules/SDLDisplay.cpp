@@ -15,11 +15,12 @@ namespace Arcade
 
 	bool SDLDisplay::init()
 	{
-		if( SDL_Init(SDL_INIT_VIDEO) < 0 )
+		if(SDL_Init(SDL_INIT_VIDEO) < 0)
 		{
 			std::cerr << "SDL could not initialize! SDL_Error: " << SDL_GetError() << std::endl;
 			return false;
 		}
+		// TODO Might not need this
 		SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
 		this->_window = SDL_CreateWindow(this->_windowTitle.c_str(),
 										 SDL_WINDOWPOS_UNDEFINED,
