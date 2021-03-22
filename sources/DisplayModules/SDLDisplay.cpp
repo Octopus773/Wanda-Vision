@@ -19,6 +19,7 @@ namespace Arcade
 			std::cerr << "SDL could not initialize! SDL_Error: " << SDL_GetError() << std::endl;
 			return false;
 		}
+		SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
 		this->_window = SDL_CreateWindow(this->_windowTitle.c_str(),
 										 SDL_WINDOWPOS_UNDEFINED,
 										 SDL_WINDOWPOS_UNDEFINED,
@@ -30,10 +31,10 @@ namespace Arcade
 			std::cerr << "Window could not be created! SDL_Error: " << SDL_GetError() << std::endl;
 			return false;
 		}
-		this->_windowSurface = SDL_GetWindowSurface(this->_window);
-		if(this->_windowSurface == nullptr)
+		this->_windowRenderer = SDL_CreateRenderer(this->_window, -1, SDL_RENDERER_ACCELERATED);
+		if(this->_windowRenderer == nullptr)
 		{
-			std::cerr << "Window Surface could not be created!" << std::endl;
+			std::cerr << "Renderer could not be created! SDL Error: " << SDL_GetError() << std::endl;
 			return false;
 		}
 		this->_shouldClose = false;
@@ -42,8 +43,8 @@ namespace Arcade
 
 	bool SDLDisplay::close()
 	{
-		SDL_FreeSurface(this->_windowSurface);
-		this->_windowSurface = nullptr;
+		SDL_DestroyRenderer(this->_windowRenderer);
+		this->_windowRenderer = nullptr;
 		SDL_DestroyWindow(this->_window);
 		this->_window = nullptr;
 		SDL_Quit();
@@ -89,7 +90,13 @@ namespace Arcade
 
 	void SDLDisplay::drawRectangle(GameObjects::RectangleObject obj)
 	{
-
+		SDL_Rect fillRect = { obj.x * this->_windowWidth,
+							obj.y * this->_windowHeight,
+							obj.endX * this->_windowWidth,
+							obj.endY * this->_windowHeight
+		};
+		SDL_SetRenderDrawColor(this->_windowRenderer, 0xFF, 0x00, 0x00, 0xFF);
+		SDL_RenderFillRect(this->_windowRenderer, &fillRect);
 	}
 
 	void SDLDisplay::drawCircle(GameObjects::CircleObject obj)
@@ -104,7 +111,7 @@ namespace Arcade
 
 	void SDLDisplay::refresh() const
 	{
-		SDL_UpdateWindowSurface(this->_window);
+		SDL_RenderPresent(this->_windowRenderer);
 	}
 
 	Events::KeyEvent SDLDisplay::createKeyEvent(unsigned int key)

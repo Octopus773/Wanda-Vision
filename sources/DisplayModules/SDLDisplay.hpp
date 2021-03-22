@@ -20,7 +20,7 @@ namespace Arcade
 		//! @brief The window we're rendering on
 		SDL_Window* _window = nullptr;
 		//! @brief The surface of the window (renderer)
-		SDL_Surface *_windowSurface = nullptr;
+		SDL_Renderer *_windowRenderer = nullptr;
 		//! @brief window height when init
 		int _windowHeight = 480;
 		//! @brief window width when init
