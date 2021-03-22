@@ -20,6 +20,9 @@ namespace Arcade
 		//! @brief Get the Y position of this object
 		//! @info A percentage representing the position. 0 is top, 100 bottom.
 		int y;
+		
+		//! @brief The color of this object.
+		unsigned color;
 
 		//! @brief Default constructor
 		GameObject() = default;
