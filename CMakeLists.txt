@@ -29,5 +29,6 @@ add_library(arcade_sdl2
         sources/DisplayModules/SDLDisplay.cpp
         sources/DisplayModules/SDLDisplay.hpp
         )
+SET_TARGET_PROPERTIES(arcade_sdl2 PROPERTIES PREFIX "")
 
 target_link_libraries(arcade_sdl2 SDL2)

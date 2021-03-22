@@ -113,6 +113,7 @@ namespace Arcade
 
 	void SDLDisplay::drawSprite(GameObjects::SpriteObject obj)
 	{
+		// TODO cache when a new path is requested
 		//Put your own bmp image here
 		SDL_Surface *bmpSurf = SDL_LoadBMP("x.bmp");
 		SDL_Texture *bmpTex = SDL_CreateTextureFromSurface(this->_windowRenderer, bmpSurf);
