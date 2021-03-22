@@ -9,6 +9,7 @@
 #include <Common/IGameModule.hpp>
 #include <memory>
 #include <Common/IDisplayModule.hpp>
+#include <Core/Library.hpp>
 #include "Common/ModInfo.hpp"
 
 namespace Arcade::Core
@@ -17,34 +18,43 @@ namespace Arcade::Core
 	{
 	private:
 		//! @brief A list of available games
-		std::vector<ModInfo> _games;
+		std::vector<Library> _games;
 		//! @brief A list of available renderers
-		std::vector<ModInfo> _graphs;
+		std::vector<Library> _renderers;
 		//! @brief The current game instance
 		std::unique_ptr<IGameModule> _game;
 		//! @brief The current renderer instance
 		std::unique_ptr<IDisplayModule> _renderer;
 	public:
 		//! @brief Set this runner's game library.
-		void setGame(const std::string &path);
+		void setGame(Library &lib);
 		//! @brief Set this runner's graphical library.
-		void setRenderer(const std::string &path);
+		void setRenderer(Library &lib);
 		//! @brief List game libraries
-		std::vector<ModInfo> getGames() const;
-		//! @brief List graphial libraries
-		std::vector<ModInfo> getRenderers() const;
+		std::vector<Library> getGames() const;
+		//! @brief List renderers libraries
+		std::vector<Library> getRenderers() const;
 
-		int runParser();
+		//! @brief run the game.
+		//! @return The return status of the game
+		int runGame();
+
+		//! @brief Run the shell.
+		//! @return The return status of the shell.
+		int runShell();
+
+		//! @brief Load available libraries from the path
+		void loadLibraries(const std::string &path);
 
 		//! @brief Default constructor
-		Runner() = default;
+		Runner();
 		//! @brief Constructor that sets a graphical library.
 		explicit Runner(const std::string &graphicLib);
 		//! @brief Default copy constructor
-		Runner(const Runner &) = default;
+		Runner(const Runner &) = delete;
 		//! @brief Default destructor
 		~Runner() = default;
 		//! @brief Default  assignment operator
-		Runner &operator=(const Runner &) = default;
+		Runner &operator=(const Runner &) = delete;
 	};
 }

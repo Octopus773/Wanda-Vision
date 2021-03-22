@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include "sources/Core/Runner.hpp"
+#include "Core/Runner/Runner.hpp"
 
 using namespace Arcade::Core;
 
@@ -18,5 +18,5 @@ int main(int argc, char **argv)
 	if (argc != 2)
 		return usage(argv[0]);
 	Runner runner(argv[1]);
-	return runner.StartShell();
+	return runner.runShell();
 }

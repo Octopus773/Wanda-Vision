@@ -20,4 +20,11 @@ add_executable(arcade
         sources/Common/IGameModule.hpp
         sources/Common/ModInfo.hpp
         sources/Common/Module.hpp
-        sources/Core/Runner.cpp sources/Core/Runner.hpp)
+        sources/Core/Runner/Runner.cpp
+        sources/Core/Runner/Runner.hpp
+        sources/Core/Library.hpp
+        sources/Core/Library.cpp
+        sources/Exceptions/InvalidLibraryException.hpp
+)
+
+target_link_libraries(arcade dl)

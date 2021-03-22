@@ -35,7 +35,7 @@ namespace Arcade
 
 //! @brief Get the library's header.
 //! @info Used to verify the integrity of the lib.
-extern "C" struct ModInfo getHeader();
+extern "C" Arcade::ModInfo getHeader();
 
 //! @brief Get the module class.
 //! @return A new instance of a IDisplayModule or IGameModule.
