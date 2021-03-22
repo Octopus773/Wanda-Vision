@@ -9,7 +9,7 @@
 
 #include "GameObject.hpp"
 
-namespace Arcade::GameObject
+namespace Arcade::GameObjects
 {
 	//! @brief A Sprite game objecct.
 	class SpriteObject : public GameObject

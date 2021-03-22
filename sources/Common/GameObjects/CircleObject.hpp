@@ -9,7 +9,7 @@
 
 #include "GameObject.hpp"
 
-namespace Arcade::GameObject
+namespace Arcade::GameObjects
 {
 	//! @brief A circle game objecct.
 	class CircleObject : public GameObject

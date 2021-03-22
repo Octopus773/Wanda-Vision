@@ -9,7 +9,7 @@
 
 #include "GameObject.hpp"
 
-namespace Arcade::GameObject
+namespace Arcade::GameObjects
 {
 	//! @brief A rectangle object.
 	class RectangleObject : public GameObject
