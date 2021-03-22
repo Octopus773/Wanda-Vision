@@ -13,19 +13,19 @@
 namespace Arcade::GameObjects
 {
 	//! @brief A rectangle object.
-	class RectangleObject : public GameObject
+	class TextObject : public GameObject
 	{
 	public:
 		//! @brief The text to display
 		std::string text;
 
 		//! @brief Default constructor
-		RectangleObject() = default;
+		TextObject() = default;
 		//! @brief Default copy constructor
-		RectangleObject(const RectangleObject &) = default;
+		TextObject(const TextObject &) = default;
 		//! @brief Default destructor
-		~RectangleObject() = default;
+		~TextObject() = default;
 		//! @brief Default assignement operator
-		RectangleObject &operator=(const RectangleObject &) = default;
+		TextObject &operator=(const TextObject &) = default;
 	};
 }
