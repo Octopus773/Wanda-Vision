@@ -108,12 +108,30 @@ namespace Arcade
 
 	void SDLDisplay::drawCircle(GameObjects::CircleObject obj)
 	{
-
+		std::cerr << "Circle rendering isn't yet supported with SDL2 display module" << std::endl;
 	}
 
 	void SDLDisplay::drawSprite(GameObjects::SpriteObject obj)
 	{
+		//Put your own bmp image here
+		SDL_Surface *bmpSurf = SDL_LoadBMP("x.bmp");
+		SDL_Texture *bmpTex = SDL_CreateTextureFromSurface(this->_windowRenderer, bmpSurf);
+		SDL_FreeSurface(bmpSurf);
 
+		//Make a target texture to render too
+		SDL_Texture *texTarget = SDL_CreateTexture(this->_windowRenderer, SDL_PIXELFORMAT_RGBA8888,
+												   SDL_TEXTUREACCESS_TARGET, this->_windowWidth, this->_windowHeight);
+
+		//Now render to the texture
+		SDL_SetRenderTarget(this->_windowRenderer, texTarget);
+		SDL_RenderClear(this->_windowRenderer);
+		SDL_RenderCopy(this->_windowRenderer, bmpTex, NULL, NULL);
+		//Detach the texture
+		SDL_SetRenderTarget(this->_windowRenderer, NULL);
+
+		//Now render the texture target to our screen, but upside down
+		SDL_RenderClear(this->_windowRenderer);
+		SDL_RenderCopyEx(this->_windowRenderer, texTarget, NULL, NULL, 0, NULL, SDL_FLIP_VERTICAL);
 	}
 
 	void SDLDisplay::refresh() const
