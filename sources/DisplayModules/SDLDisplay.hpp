@@ -7,6 +7,9 @@
 #include <SDL2/SDL.h>
 #include <string>
 #include "IDisplayModule.hpp"
+#include "Events/ClickEvent.hpp"
+#include "Events/KeyEvent.hpp"
+#include "Events/CloseEvent.hpp"
 
 namespace Arcade
 {
@@ -26,6 +29,17 @@ namespace Arcade
 		std::string _windowTitle = "SDL2 Display Module";
 		//! @brief When true the caller should close this instance
 		bool _shouldClose = false;
+
+		//! @brief Binding of a constructor for KeyEvent struct
+		//! @param key Value of key attribute of struct Events::KeyEvent
+		//! @return A KeyEvent struct with it's values correctly filled
+		static Events::KeyEvent createKeyEvent(unsigned key);
+		//! @brief Binding of a constructor for ClickEvent struct
+		//! @param x The x position (in percentage)
+		//! @param y The y position (in percentage)
+		//! @param id The ID of this click.
+		//! @return A ClickEvent struct with it's values correctly filled
+		static Events::ClickEvent createClickEvent(unsigned x, unsigned y, unsigned id);
 	public:
 		SDLDisplay() = default;
 		~SDLDisplay() override =  default;
