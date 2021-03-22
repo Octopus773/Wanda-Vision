@@ -40,6 +40,9 @@ namespace Arcade
 		//! @param id The ID of this click.
 		//! @return A ClickEvent struct with it's values correctly filled
 		static Events::ClickEvent createClickEvent(unsigned x, unsigned y, unsigned id);
+		//! @brief Used to set the color of the SDL2 renderer
+		//! @param color The color format: RRGGBBAA (1 byte each)
+		void setRendererColor(unsigned color);
 	public:
 		SDLDisplay() = default;
 		~SDLDisplay() override =  default;

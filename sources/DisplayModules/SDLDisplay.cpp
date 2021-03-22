@@ -85,7 +85,14 @@ namespace Arcade
 
 	void SDLDisplay::drawLine(GameObjects::LineObject obj)
 	{
-
+		SDL_SetRenderDrawColor(this->_windowRenderer, 0x00, 0x00, 0xFF, 0xFF);
+		this->setRendererColor(obj.color);
+		SDL_RenderDrawLine(this->_windowRenderer,
+					       obj.x * this->_windowWidth,
+						   obj.y * this->_windowHeight,
+						   obj.endX * this->_windowWidth,
+						   obj.endY * this->_windowHeight
+						   );
 	}
 
 	void SDLDisplay::drawRectangle(GameObjects::RectangleObject obj)
@@ -95,7 +102,7 @@ namespace Arcade
 							obj.endX * this->_windowWidth,
 							obj.endY * this->_windowHeight
 		};
-		SDL_SetRenderDrawColor(this->_windowRenderer, 0xFF, 0x00, 0x00, 0xFF);
+		this->setRendererColor(obj.color);
 		SDL_RenderFillRect(this->_windowRenderer, &fillRect);
 	}
 
@@ -130,5 +137,14 @@ namespace Arcade
 		e.y = y;
 		e.id = id;
 		return e;
+	}
+
+	void SDLDisplay::setRendererColor(unsigned int color)
+	{
+		SDL_SetRenderDrawColor(this->_windowRenderer,
+							   (color & (0xFF << 24)) >> 24,
+							   (color & (0xFF << 16)) >> 16,
+							   (color & (0xFF << 8)) >> 8,
+							   color & 0xFF);
 	}
 }
