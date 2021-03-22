@@ -14,6 +14,7 @@
 #include "GameObjects/SpriteObject.hpp"
 #include "Event.hpp"
 #include <list>
+#include <memory>
 
 namespace Arcade
 {
@@ -26,7 +27,7 @@ namespace Arcade
 
 		//! @brief Pull events (Keys, Clicks, Closes...)
 		//! @return The list of events that occured.
-		virtual std::list<Event> pullEvents() = 0;
+		virtual std::list<std::unique_ptr<Event>> pullEvents() = 0;
 
 		//! @brief Draw a line.
 		//! @param obj The line to draw.
