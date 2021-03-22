@@ -12,6 +12,7 @@
 #include "Module.hpp"
 #include "Event.hpp"
 #include <vector>
+#include <memory>
 
 namespace Arcade
 {
