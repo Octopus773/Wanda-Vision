@@ -31,9 +31,9 @@ namespace Arcade::Core
 		//! @brief Set this runner's graphical library.
 		void setRenderer(Library &lib);
 		//! @brief List game libraries
-		std::vector<Library> getGames() const;
+		const std::vector<Library> &getGames() const;
 		//! @brief List renderers libraries
-		std::vector<Library> getRenderers() const;
+		const std::vector<Library> &getRenderers() const;
 
 		//! @brief run the game.
 		//! @return The return status of the game

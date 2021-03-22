@@ -7,7 +7,7 @@
 namespace Arcade::Core
 {
 	Library::Library(const std::string &path)
-		: _handle(dlopen(path.c_str(), RTLD_NOW | RTLD_LOCAL))
+		: path(path), _handle(dlopen(path.c_str(), RTLD_NOW | RTLD_LOCAL))
 	{
 		if (!this->_handle)
 			throw InvalidLibraryException("Invalid library path.");
@@ -23,5 +23,11 @@ namespace Arcade::Core
 	Library::~Library()
 	{
 		dlclose(this->_handle);
+	}
+
+	Library::Library(Library &&other) noexcept
+		: _handle(other._handle), path(other.path), info(other.info)
+	{
+		other._handle = nullptr;
 	}
 }

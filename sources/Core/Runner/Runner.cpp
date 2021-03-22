@@ -4,6 +4,7 @@
 
 #include <filesystem>
 #include <Exceptions/InvalidLibraryException.hpp>
+#include <Exceptions/InvalidArgumentException.hpp>
 #include "Runner.hpp"
 
 namespace Arcade::Core
@@ -16,7 +17,12 @@ namespace Arcade::Core
 	Runner::Runner(const std::string &graphicLib)
 	{
 		this->loadLibraries("./lib");
-		this->setRenderer(graphicLib);
+		auto lib = std::find_if(this->_renderers.begin(), this->_renderers.end(), [&graphicLib](Library &x) {
+			return x.path == graphicLib;
+		});
+		if (lib == this->_renderers.end())
+			throw InvalidArgumentException("Renderer library not found.");
+		this->setRenderer(*lib);
 	}
 
 	void Runner::loadLibraries(const std::string &path)
@@ -24,20 +30,20 @@ namespace Arcade::Core
 		for (auto &item : std::filesystem::directory_iterator(path)) {
 			Library library(item.path());
 			if (library.info.type == ModInfo::GAME)
-				this->_games.push_back(library);
+				this->_games.push_back(std::move(library));
 			else if (library.info.type == ModInfo::GRAPHIC)
-				this->_renderers.push_back(library);
+				this->_renderers.push_back(std::move(library));
 			else
 				throw InvalidLibraryException("Invalid library type.");
 		}
 	}
 
-	std::vector<Library> Runner::getGames() const
+	const std::vector<Library> &Runner::getGames() const
 	{
 		return this->_games;
 	}
 
-	std::vector<Library> Runner::getRenderers() const
+	const std::vector<Library> &Runner::getRenderers() const
 	{
 		return this->_renderers;
 	}

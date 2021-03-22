@@ -20,6 +20,8 @@ namespace Arcade::Core
 		//! @brief dlopen handle.
 		void *_handle;
 	public:
+		//! @brief The path of this library.
+		std::string path;
 		//! @brief Information about this library.
 		ModInfo info;
 		//! @brief Initialize the library and get the functions.
@@ -39,6 +41,8 @@ namespace Arcade::Core
 		explicit Library(const std::string &path);
 		//! @brief No copy constructor
 		Library(const Library &) = delete;
+		//! @brief A move constructor
+		Library(Library &&) noexcept;
 		//! @brief Destructor that close the library.
 		~Library();
 		//! @brief No assignment operator.

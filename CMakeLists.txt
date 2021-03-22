@@ -25,6 +25,7 @@ add_executable(arcade
         sources/Core/Library.hpp
         sources/Core/Library.cpp
         sources/Exceptions/InvalidLibraryException.hpp
+        sources/Exceptions/InvalidArgumentException.hpp
 )
 
 target_link_libraries(arcade dl)
