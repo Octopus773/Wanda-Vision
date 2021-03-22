@@ -14,13 +14,15 @@ namespace Arcade
 	class SDLDisplay : public IDisplayModule
 	{
 	private:
-		//!! @brief The _window we're rendering on
+		//! @brief The window we're rendering on
 		SDL_Window* _window = nullptr;
-		//! @brief _window height when init
+		//! @brief The surface of the window (renderer)
+		SDL_Surface *_windowSurface = nullptr;
+		//! @brief window height when init
 		int _windowHeight = 480;
-		//! @brief _window width when init
+		//! @brief window width when init
 		int _windowWidth = 640;
-		//! @brief _window title when init
+		//! @brief window title when init
 		std::string _windowTitle = "SDL2 Display Module";
 		//! @brief When true the caller should close this instance
 		bool _shouldClose = false;
