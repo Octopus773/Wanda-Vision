@@ -25,7 +25,7 @@ namespace Arcade::GameObjects
 		//! @brief Path of the sprite to display (this should be cached by the renderer).
 		std::string path;
 		//! @brief GameObject to use if the renderer can't display sprites.
-		GameObject &fallback;
+		GameObject fallback;
 
 		//! @brief Default constructor
 		SpriteObject() = default;
