@@ -34,6 +34,7 @@ namespace Arcade::Core
 			auto value = module();
 			if (!value)
 				throw InvalidLibraryException("Invalid module returned.");
+			value->init();
 			return std::unique_ptr<T>(value);
 		}
 

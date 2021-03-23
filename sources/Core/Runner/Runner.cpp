@@ -69,6 +69,10 @@ namespace Arcade::Core
 
 	int Runner::runGame()
 	{
-		return 0;
+		while (!this->_game->shouldClose()) {
+			for (auto obj : this->_game->getObjects()) {
+				if (dynamic_cast<GameObjects::SpriteObject>(obj))
+			}
+		}
 	}
 }
