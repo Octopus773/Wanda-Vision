@@ -63,23 +63,23 @@ namespace Arcade
 		return this->_shouldClose;
 	}
 
-	std::list<Event> Arcade::SDLDisplay::pullEvents()
+	std::list<std::unique_ptr<Event>> SDLDisplay::pullEvents()
 	{
 		SDL_Event e;
-		std::list<Event> events;
-		Event event;
+		std::list<std::unique_ptr<Event>> events;
+		std::unique_ptr<Event> event;
 		while(SDL_PollEvent(&e) != 0)
 		{
 			switch (e.type) {
 			case SDL_QUIT:
-				event = Events::CloseEvent();
+				event = std::make_unique<Event>(Events::CloseEvent());
 				break;
 			case SDL_KEYDOWN:
-				event = this->createKeyEvent(e.key.keysym.sym);
+				event = std::make_unique<Event>(createKeyEvent(e.key.keysym.sym));
 				break;
 			case SDL_MOUSEBUTTONDOWN:
 				// TODO give % for x and y
-				event = this->createClickEvent(e.button.x, e.button.y, e.button.button);
+				event = std::make_unique<Event>(createClickEvent(e.button.x, e.button.y, e.button.button));
 				break;
 			default:
 				continue;
@@ -89,7 +89,7 @@ namespace Arcade
 		return events;
 	}
 
-	void SDLDisplay::drawLine(GameObjects::LineObject obj)
+	void SDLDisplay::drawLine(GameObjects::LineObject &obj)
 	{
 		SDL_SetRenderDrawColor(this->_windowRenderer, 0x00, 0x00, 0xFF, 0xFF);
 		this->setRendererColor(obj.color);
@@ -101,7 +101,7 @@ namespace Arcade
 						   );
 	}
 
-	void SDLDisplay::drawRectangle(GameObjects::RectangleObject obj)
+	void SDLDisplay::drawRectangle(GameObjects::RectangleObject &obj)
 	{
 		SDL_Rect fillRect = { obj.x * this->_windowWidth,
 							obj.y * this->_windowHeight,
@@ -112,12 +112,12 @@ namespace Arcade
 		SDL_RenderFillRect(this->_windowRenderer, &fillRect);
 	}
 
-	void SDLDisplay::drawCircle(GameObjects::CircleObject obj)
+	void SDLDisplay::drawCircle(GameObjects::CircleObject &)
 	{
 		std::cerr << "Circle rendering isn't yet supported with SDL2 display module" << std::endl;
 	}
 
-	void SDLDisplay::drawSprite(GameObjects::SpriteObject obj)
+	void SDLDisplay::drawSprite(GameObjects::SpriteObject &obj)
 	{
 		int w;
 		int h;
