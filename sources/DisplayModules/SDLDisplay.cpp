@@ -84,7 +84,7 @@ namespace Arcade
 			default:
 				continue;
 			}
-			events.push_back(event);
+			events.emplace_back(std::move(event));
 		}
 		return events;
 	}
