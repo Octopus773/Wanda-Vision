@@ -23,11 +23,11 @@ namespace Arcade
 		// TODO Might not need this
 		SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
 		this->_window = SDL_CreateWindow(this->_windowTitle.c_str(),
-										 SDL_WINDOWPOS_UNDEFINED,
-										 SDL_WINDOWPOS_UNDEFINED,
-										 this->_windowWidth,
-										 this->_windowHeight,
-										 SDL_WINDOW_SHOWN);
+						 SDL_WINDOWPOS_UNDEFINED,
+						 SDL_WINDOWPOS_UNDEFINED,
+						 this->_windowWidth,
+						 this->_windowHeight,
+						 SDL_WINDOW_SHOWN);
 		if(this->_window == nullptr)
 		{
 			std::cerr << "Window could not be created! SDL_Error: " << SDL_GetError() << std::endl;
@@ -94,20 +94,19 @@ namespace Arcade
 		SDL_SetRenderDrawColor(this->_windowRenderer, 0x00, 0x00, 0xFF, 0xFF);
 		this->setRendererColor(obj.color);
 		SDL_RenderDrawLine(this->_windowRenderer,
-					       obj.x * this->_windowWidth,
-						   obj.y * this->_windowHeight,
-						   obj.endX * this->_windowWidth,
-						   obj.endY * this->_windowHeight
+				   obj.x * this->_windowWidth,
+				   obj.y * this->_windowHeight,
+				   obj.endX * this->_windowWidth,
+				   obj.endY * this->_windowHeight
 						   );
 	}
 
 	void SDLDisplay::drawRectangle(GameObjects::RectangleObject &obj)
 	{
-		SDL_Rect fillRect = { obj.x * this->_windowWidth,
-							obj.y * this->_windowHeight,
-							obj.endX * this->_windowWidth,
-							obj.endY * this->_windowHeight
-		};
+		SDL_Rect fillRect = {obj.x * this->_windowWidth,
+				     obj.y * this->_windowHeight,
+				     obj.endX * this->_windowWidth,
+				     obj.endY * this->_windowHeight};
 		this->setRendererColor(obj.color);
 		SDL_RenderFillRect(this->_windowRenderer, &fillRect);
 	}
@@ -172,10 +171,10 @@ namespace Arcade
 	void SDLDisplay::setRendererColor(unsigned int color)
 	{
 		SDL_SetRenderDrawColor(this->_windowRenderer,
-							   (color & (0xFF << 24)) >> 24,
-							   (color & (0xFF << 16)) >> 16,
-							   (color & (0xFF << 8)) >> 8,
-							   color & 0xFF);
+				      (color & (0xFF << 24)) >> 24,
+				      (color & (0xFF << 16)) >> 16,
+				      (color & (0xFF << 8)) >> 8,
+				       color & 0xFF);
 	}
 
 }
