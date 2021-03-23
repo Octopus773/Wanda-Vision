@@ -78,8 +78,9 @@ namespace Arcade
 				event = std::make_unique<Event>(createKeyEvent(e.key.keysym.sym));
 				break;
 			case SDL_MOUSEBUTTONDOWN:
-				// TODO give % for x and y
-				event = std::make_unique<Event>(createClickEvent(e.button.x, e.button.y, e.button.button));
+				event = std::make_unique<Event>(createClickEvent((e.button.x * 100) / this->_windowWidth,
+													 			 (e.button.y * 100) / this->_windowHeight,
+													 			  e.button.button));
 				break;
 			default:
 				continue;
