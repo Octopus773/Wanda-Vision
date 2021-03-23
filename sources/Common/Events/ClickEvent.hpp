@@ -9,7 +9,7 @@
 
 #include "Event.hpp"
 
-namespace Arcade::Event
+namespace Arcade::Events
 {
 	struct ClickEvent : public Event
 	{
@@ -19,5 +19,5 @@ namespace Arcade::Event
 		unsigned y;
 		//! @brief The ID of this click.
 		unsigned id;
-	}
+	};
 }

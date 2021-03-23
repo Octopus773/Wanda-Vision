@@ -10,7 +10,7 @@
 namespace Arcade
 {
 	//! @brief An empty event used as a base class.
-	struct Event 
+	struct Event
 	{
 		virtual ~Event() = default;
 	};

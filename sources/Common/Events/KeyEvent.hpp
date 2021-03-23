@@ -9,9 +9,9 @@
 
 #include "Event.hpp"
 
-namespace Arcade::Event
+namespace Arcade::Events
 {
-	struct KeyEvent : Event
+	struct KeyEvent : public Event
 	{
 		//! @brief The key clicked
 		unsigned key;
