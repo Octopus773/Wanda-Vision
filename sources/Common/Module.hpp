@@ -23,7 +23,7 @@ namespace Arcade
 		//! @return True if the initialization was successful. False otherwise.
 		virtual bool init() = 0;
 
-		//! @brief Allow to say to the library  t shutdown and free it's content
+		//! @brief Allow to say to the library to shutdown and free it's content
 		//! @return True if the shutdown was successful. False otherwise.
 		virtual bool close() = 0;
 
