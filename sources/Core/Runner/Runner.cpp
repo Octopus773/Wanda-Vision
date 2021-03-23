@@ -105,5 +105,7 @@ namespace Arcade::Core
 			this->_game->addTicks(duration);
 			timer = newTimer;
 		}
+		// TODO handle scores here.
+		return 0;
 	}
 }

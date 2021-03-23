@@ -6,10 +6,12 @@
 
 #include <string>
 #include <vector>
-#include <Common/IGameModule.hpp>
 #include <memory>
-#include <Common/IDisplayModule.hpp>
-#include <Core/Library.hpp>
+#include <map>
+#include <functional>
+#include "Common/IGameModule.hpp"
+#include "Common/IDisplayModule.hpp"
+#include "Core/Library.hpp"
 #include "Common/ModInfo.hpp"
 
 namespace Arcade::Core
