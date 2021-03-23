@@ -49,16 +49,22 @@ namespace Arcade
 		void setRendererColor(unsigned color);
 
 	public:
+		//! @brief Default constructor
+		//! @warning In order to properly use this class you must call the init member function
 		SDLDisplay() = default;
+		//! @brief Default copy constructor.
+		//! @warning You must call the close member function before the destructor if you called the init member function
 		~SDLDisplay() override =  default;
+		//! @brief Default copy constructor.
 		SDLDisplay(const SDLDisplay &) = default;
+		//! @brief Default  assignment operator
 		SDLDisplay &operator=(const SDLDisplay &) = default;
 
 		//! @brief Initialize this library. (Create windows & so on)
 		//! @return True if the initialization was successful. False otherwise.
 		bool init() override;
 
-		//! @brief Allow to say to the library  t shutdown and free it's content
+		//! @brief Allow to say to the library to shutdown and free it's content
 		//! @return True if the shutdown was successful. False otherwise.
 		bool close() override;
 

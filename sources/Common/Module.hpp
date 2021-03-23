@@ -13,7 +13,8 @@ namespace Arcade
 {
 
 	//! @brief A base module interface
-	class IModule {
+	class IModule
+	{
 	public:
 		//! @brief Virtual destructor
 		virtual ~IModule() = default;
