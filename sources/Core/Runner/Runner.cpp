@@ -5,6 +5,7 @@
 #include <filesystem>
 #include <Exceptions/InvalidLibraryException.hpp>
 #include <Exceptions/InvalidArgumentException.hpp>
+#include <Common/Events/KeyEvent.hpp>
 #include "Runner.hpp"
 
 namespace Arcade::Core
@@ -62,6 +63,29 @@ namespace Arcade::Core
 		this->_game = lib.start<IGameModule>();
 	}
 
+	void Runner::_drawObject(const std::unique_ptr<GameObject> &obj)
+	{
+		if (auto sprite = dynamic_cast<GameObjects::SpriteObject *>(obj.get()))
+			this->_renderer->drawSprite(*sprite);
+		if (auto rec = dynamic_cast<GameObjects::RectangleObject *>(obj.get()))
+			this->_renderer->drawRectangle(*rec);
+		if (auto circle = dynamic_cast<GameObjects::CircleObject *>(obj.get()))
+			this->_renderer->drawCircle(*circle);
+		if (auto line = dynamic_cast<GameObjects::LineObject *>(obj.get()))
+			this->_renderer->drawLine(*line);
+		if (auto text = dynamic_cast<GameObjects::TextObject *>(obj.get()))
+			this->_renderer->drawText(*text);
+	}
+
+	void Runner::_handleEvent(const std::unique_ptr<Event> &event)
+	{
+		if (auto key = dynamic_cast<Events::KeyEvent *>(event.get())) {
+			// TODO handle local keys here
+			return;
+		}
+		this->_game->handleEvent(*event);
+	}
+
 	int Runner::runShell()
 	{
 		return 0;
@@ -69,10 +93,17 @@ namespace Arcade::Core
 
 	int Runner::runGame()
 	{
+		auto timer = std::chrono::steady_clock::now();
 		while (!this->_game->shouldClose()) {
-			for (auto obj : this->_game->getObjects()) {
-				if (dynamic_cast<GameObjects::SpriteObject>(obj))
-			}
+			for (auto &event : this->_renderer->pullEvents())
+				this->_handleEvent(event);
+			for (auto &obj : this->_game->getObjects())
+				this->_drawObject(obj);
+			this->_renderer->refresh();
+			auto newTimer = std::chrono::steady_clock::now();
+			auto duration = std::chrono::duration_cast<std::chrono::microseconds>(newTimer - timer).count();
+			this->_game->addTicks(duration);
+			timer = newTimer;
 		}
 	}
 }
