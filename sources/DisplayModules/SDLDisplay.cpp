@@ -79,8 +79,8 @@ namespace Arcade
 				break;
 			case SDL_MOUSEBUTTONDOWN:
 				event = std::make_unique<Event>(createClickEvent((e.button.x * 100) / this->_windowWidth,
-													 			 (e.button.y * 100) / this->_windowHeight,
-													 			  e.button.button));
+										 (e.button.y * 100) / this->_windowHeight,
+										  e.button.button));
 				break;
 			default:
 				continue;
