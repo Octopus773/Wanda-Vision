@@ -12,7 +12,7 @@
 
 namespace Arcade::GameObjects
 {
-	//! @brief A rectangle object.
+	//! @brief A text object.
 	class TextObject : public GameObject
 	{
 	public:

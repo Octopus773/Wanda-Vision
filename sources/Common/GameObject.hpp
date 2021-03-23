@@ -22,6 +22,7 @@ namespace Arcade
 		int y;
 		
 		//! @brief The color of this object.
+		//! @info color format is RRGGBBAA, 1 byte for each
 		unsigned color;
 
 		//! @brief Default constructor
