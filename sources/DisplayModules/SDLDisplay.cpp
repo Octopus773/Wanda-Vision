@@ -45,9 +45,8 @@ namespace Arcade
 
 	bool SDLDisplay::close()
 	{
-		std::for_each(this->_loadedTextures.begin(), this->_loadedTextures.end(), [](const std::pair<std::string, SDL_Texture *>&pair) {
+		for (const auto &pair : this->_loadedTextures)
 			SDL_DestroyTexture(pair.second);
-		});
 		this->_loadedTextures.clear();
 		SDL_DestroyRenderer(this->_windowRenderer);
 		this->_windowRenderer = nullptr;
