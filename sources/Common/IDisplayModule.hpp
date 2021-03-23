@@ -7,15 +7,6 @@
 
 #pragma once
 
-<<<<<<< Updated upstream
-#include "Module.hpp"
-#include "GameObjects/LineObject.hpp"
-#include "GameObjects/RectangleObject.hpp"
-#include "GameObjects/CircleObject.hpp"
-#include "GameObjects/SpriteObject.hpp"
-#include "GameObjects/TextObject.hpp"
-#include "Event.hpp"
-=======
 #include "Common/Module.hpp"
 #include "Common/GameObjects/LineObject.hpp"
 #include "Common/GameObjects/RectangleObject.hpp"
@@ -23,7 +14,6 @@
 #include "Common/GameObjects/SpriteObject.hpp"
 #include "Common/GameObjects/TextObject.hpp"
 #include "Common/Event.hpp"
->>>>>>> Stashed changes
 #include <list>
 #include <memory>
 
