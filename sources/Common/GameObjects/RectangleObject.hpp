@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include "GameObject.hpp"
+#include "Common/GameObject.hpp"
 
 namespace Arcade::GameObjects
 {

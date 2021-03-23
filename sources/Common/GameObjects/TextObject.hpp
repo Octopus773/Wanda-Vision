@@ -8,23 +8,24 @@
 #pragma once
 
 #include "Common/GameObject.hpp"
+#include <string>
 
 namespace Arcade::GameObjects
 {
-	//! @brief A circle game objecct.
-	class CircleObject : public GameObject
+	//! @brief A rectangle object.
+	class TextObject : public GameObject
 	{
 	public:
-		//! @brief The size of this circle (in percentage)
-		unsigned size;
+		//! @brief The text to display
+		std::string text;
 
 		//! @brief Default constructor
-		CircleObject() = default;
+		TextObject() = default;
 		//! @brief Default copy constructor
-		CircleObject(const CircleObject &) = default;
+		TextObject(const TextObject &) = default;
 		//! @brief Default destructor
-		~CircleObject() = default;
+		~TextObject() = default;
 		//! @brief Default assignement operator
-		CircleObject &operator=(const CircleObject &) = default;
+		TextObject &operator=(const TextObject &) = default;
 	};
 }

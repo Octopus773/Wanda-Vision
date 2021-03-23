@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include "ModInfo.hpp"
+#include "Common/ModInfo.hpp"
 
 namespace Arcade
 {
