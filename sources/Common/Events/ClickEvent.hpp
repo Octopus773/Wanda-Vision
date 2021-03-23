@@ -19,5 +19,5 @@ namespace Arcade::Events
 		unsigned y;
 		//! @brief The ID of this click.
 		unsigned id;
-	}
+	};
 }
