@@ -13,9 +13,9 @@ namespace Arcade::Events
 {
 	//! @brief The enum to allow standardized values between graphical libs
 	typedef enum {
-    	UNDEFINED = 0,
-        BACKSPACE = 8,
-    	TAB = 9,
+		UNDEFINED = 0,
+		BACKSPACE = 8,
+		TAB = 9,
 		ENTER = 13,
 		SHIFT = 16,
 		CTRL = 17,
@@ -113,7 +113,7 @@ namespace Arcade::Events
 		BACK_SLASH = 220,
 		CLOSE_BRACKET = 221,
 		SINGLE_QUOTE = 222
-    } KeyCode;
+	} KeyCode;
 
 	struct KeyEvent : public Event
 	{
