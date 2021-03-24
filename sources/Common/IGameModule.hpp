@@ -7,10 +7,10 @@
 
 #pragma once
 
-#include "ModInfo.hpp"
-#include "GameObject.hpp"
-#include "Module.hpp"
-#include "Event.hpp"
+#include "Common/ModInfo.hpp"
+#include "Common/GameObject.hpp"
+#include "Common/Module.hpp"
+#include "Common/Event.hpp"
 #include <vector>
 #include <memory>
 
@@ -21,11 +21,7 @@ namespace Arcade
 	{
 	public:
 		//! @brief Virtual destructor
-		virtual ~IGameModule() = default;
-
-		//! @brief Get the library's header.
-		//! @info Used to verify the integrity of the lib.
-		virtual ModInfo getHeader() const = 0;
+		~IGameModule() override = default;
 
 		//! @brief Return a list of game objects to display.
 		//! @return The list of objects

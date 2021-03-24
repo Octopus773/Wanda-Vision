@@ -7,13 +7,13 @@
 
 #pragma once
 
-#include "Module.hpp"
-#include "GameObjects/LineObject.hpp"
-#include "GameObjects/RectangleObject.hpp"
-#include "GameObjects/CircleObject.hpp"
-#include "GameObjects/SpriteObject.hpp"
-#include "GameObjects/TextObject.hpp"
-#include "Event.hpp"
+#include "Common/Module.hpp"
+#include "Common/GameObjects/LineObject.hpp"
+#include "Common/GameObjects/RectangleObject.hpp"
+#include "Common/GameObjects/CircleObject.hpp"
+#include "Common/GameObjects/SpriteObject.hpp"
+#include "Common/GameObjects/TextObject.hpp"
+#include "Common/Event.hpp"
 #include <list>
 #include <memory>
 
@@ -24,7 +24,7 @@ namespace Arcade
 	{
 	public:
 		//! @brief Virtual destructror
-		virtual ~IDisplayModule() = default;
+		~IDisplayModule() override = default;
 
 		//! @brief Pull events (Keys, Clicks, Closes...)
 		//! @return The list of events that occured.
@@ -51,6 +51,6 @@ namespace Arcade
 		virtual void drawText(GameObjects::TextObject &obj) = 0;
 		
 		//! @brief Refresh the screen, clear left-overs and draw requested objects.
-		virtual void refresh() const = 0;
+		virtual void refresh() = 0;
 	};
 }
