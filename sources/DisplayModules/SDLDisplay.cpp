@@ -6,9 +6,9 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <iostream>
-#include "Events/ClickEvent.hpp"
-#include "Events/KeyEvent.hpp"
-#include "Events/CloseEvent.hpp"
+#include "Common/Events/ClickEvent.hpp"
+#include "Common/Events/KeyEvent.hpp"
+#include "Common/Events/CloseEvent.hpp"
 
 namespace Arcade
 {
@@ -44,6 +44,7 @@ namespace Arcade
 	}
 
 	bool SDLDisplay::close()
+
 	{
 		for (const auto &pair : this->_loadedTextures)
 			SDL_DestroyTexture(pair.second);
@@ -120,8 +121,7 @@ namespace Arcade
 	{
 		int w;
 		int h;
-		// TODO use the real path given by obj
-		std::string path = "x.bmp";
+		std::string path = obj.path;
 		SDL_Rect rect;
 		SDL_Texture *img;
 

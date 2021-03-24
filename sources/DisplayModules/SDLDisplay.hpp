@@ -6,10 +6,10 @@
 
 #include <SDL2/SDL.h>
 #include <string>
-#include "IDisplayModule.hpp"
-#include "Events/ClickEvent.hpp"
-#include "Events/KeyEvent.hpp"
-#include "Events/CloseEvent.hpp"
+#include "Common/IDisplayModule.hpp"
+#include "Common/Events/ClickEvent.hpp"
+#include "Common/Events/KeyEvent.hpp"
+#include "Common/Events/CloseEvent.hpp"
 #include <map>
 
 namespace Arcade
