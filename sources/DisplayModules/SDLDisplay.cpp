@@ -125,6 +125,8 @@ namespace Arcade
 		SDL_Rect rect;
 		SDL_Texture *img;
 
+		//TODO handle the fallback when loading the image fails
+
 		if (this->_loadedTextures.find(path) == this->_loadedTextures.end()) {
 			img = IMG_LoadTexture(this->_windowRenderer, path.c_str());
 			if (!img) {
