@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include "Event.hpp"
+#include "Common/Event.hpp"
 
 namespace Arcade::Events
 {
