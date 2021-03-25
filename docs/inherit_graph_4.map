@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classArcade_1_1IModule.html" title="A base module interface." alt="" coords="5,31,123,57"/>
+<area shape="rect" id="node2" href="$classArcade_1_1IDisplayModule.html" title="The interface of every display modules." alt="" coords="171,5,332,32"/>
+<area shape="rect" id="node4" href="$classArcade_1_1IGameModule.html" title="The interface of all games." alt="" coords="175,56,327,83"/>
+<area shape="rect" id="node3" href="$classArcade_1_1SDLDisplay.html" title="Implementation of the SDL Graphic Library." alt="" coords="380,5,521,32"/>
+</map>

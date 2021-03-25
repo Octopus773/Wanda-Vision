@@ -1,0 +1,556 @@
+\hypertarget{namespaceArcade_1_1Events}{}\doxysection{Arcade\+::Events Namespace Reference}
+\label{namespaceArcade_1_1Events}\index{Arcade::Events@{Arcade::Events}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structArcade_1_1Events_1_1ClickEvent}{Click\+Event}}
+\item 
+struct \mbox{\hyperlink{structArcade_1_1Events_1_1CloseEvent}{Close\+Event}}
+\item 
+struct \mbox{\hyperlink{structArcade_1_1Events_1_1KeyEvent}{Key\+Event}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0}{Key\+Code}} \{ \newline
+\mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ad10a1358638730fb6c0bfd2b6601df3e}{UNDEFINED}} = 0
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a9b782d21883f86131021835bcb585d03}{BACKSPACE}} = 8
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0af6a93c1965baa5193a777cce09eff7cf}{TAB}} = 9
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a231e97f21314149631db833411f0b389}{ENTER}} = 13
+, \newline
+\mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0afa63eafc020da78142a1cf07998a7f6d}{SHIFT}} = 16
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a3e0e47b09755190245506c4ee4b6710c}{CTRL}} = 17
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a037b44d7dee7daca616afaa514a6bb6c}{ALT}} = 18
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a0279430db22f0d2eb07ff31699ff47b8}{PAUSE}} = 19
+, \newline
+\mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a22e6f44dd0bf5cefd117967ee414aa14}{CAPS\+\_\+\+LOCK}} = 20
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a3a12016fde7aa8af0663adecf10c8d76}{ESCAPE}} = 27
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a547c2b0b88232b6f7eb09e4939be783a}{SPACE}} = 32
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a29f16498850d0de772ebc5a39f3a2599}{PAGE\+\_\+\+UP}} = 33
+, \newline
+\mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0afaff4cb977922c2292645600ffd2b5cf}{PAGE\+\_\+\+DOWN}} = 34
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ac736065f78ed9e66749c929ac94f263c}{END}} = 35
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0aba3d1997a0b14730342bcacfd6e44b75}{HOME}} = 36
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a6164c2d6a43268630d279016e1c54f20}{LEFT\+\_\+\+ARROW}} = 37
+, \newline
+\mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a77f4ecdae76bf96e6ef806416aef5a41}{UP\+\_\+\+ARROW}} = 38
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a616a351bfef23edea21f57855dc83c56}{RIGHT\+\_\+\+ARROW}} = 39
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ae66ac47ff013b01c5a707fa3970dcd74}{DOWN\+\_\+\+ARROW}} = 40
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a326d002708b260e692e2348638b01ff6}{INSERT}} = 45
+, \newline
+\mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a7e72e5051d84b5fb01117fb7497464bc}{DELETE}} = 46
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a49034873ff58e64f356c076b1b86a779}{KEY\+\_\+0}} = 48
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a9842f3a28bcfe917498bb528824088b2}{KEY\+\_\+1}} = 49
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ab65683c7ca18400a18eac2b7e5f11609}{KEY\+\_\+2}} = 50
+, \newline
+\mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ad840088c83552b0b0209533befec3ec5}{KEY\+\_\+3}} = 51
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ad24767762d223e2562494394a643926e}{KEY\+\_\+4}} = 52
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a3a083664e4d68137b513cf8257164302}{KEY\+\_\+5}} = 53
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a74c052ecfa831001d4a7b45b50c307c4}{KEY\+\_\+6}} = 54
+, \newline
+\mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a10afe0fe401d77c6535089c48dd7aeb7}{KEY\+\_\+7}} = 55
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ab27d0721b4c2f256b2ffc85c07dc0406}{KEY\+\_\+8}} = 56
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ab75d50c5dc66827177be501b556d1acc}{KEY\+\_\+9}} = 57
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0aedec8385f8bc9c3cf784173451888f35}{KEY\+\_\+A}} = 65
+, \newline
+\mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a7a48e5c408b2033a86c51f2b8adab70b}{KEY\+\_\+B}} = 66
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ac245624aeaafb14fa89dcbfd583f75ef}{KEY\+\_\+C}} = 67
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ad7017c920098d578fef50de7242edaa2}{KEY\+\_\+D}} = 68
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a0b44aa1c95da5ff0d52ee93035fde5aa}{KEY\+\_\+E}} = 69
+, \newline
+\mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a95aa9bffc3380d2388a17ad25015ce0e}{KEY\+\_\+F}} = 70
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a48e2485ea1abc7850a5ef2f8d144e60f}{KEY\+\_\+G}} = 71
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a7e03e6093492a19530c93af580c954ed}{KEY\+\_\+H}} = 72
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a3b51501dfebe19510ac0c5bdf95a75c2}{KEY\+\_\+I}} = 73
+, \newline
+\mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a9006b8b6bdbc49fff96432311fedabfe}{KEY\+\_\+J}} = 74
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a37cf2f86634bd612798809a0837024f8}{KEY\+\_\+K}} = 75
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0add0e8c29adf779e053dde0ed207c3ac3}{KEY\+\_\+L}} = 76
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ae7454b7756f50b3966b81ce4d83a7709}{KEY\+\_\+M}} = 77
+, \newline
+\mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a3d3d0fe7d35dfeb1ed4642298590aa5c}{KEY\+\_\+N}} = 78
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a8a7ad060ecf6cec97848b3fd8a37c38c}{KEY\+\_\+O}} = 79
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a0cdb62d944b6698d0f8ee2d2c80dfbe6}{KEY\+\_\+P}} = 80
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a946bfb81b6c3a995b9af40fdb1cc1539}{KEY\+\_\+Q}} = 81
+, \newline
+\mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a9711f3eca792e737c8c2f56b1bdfdddc}{KEY\+\_\+R}} = 82
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a5252129621b41de6122441ea049403ef}{KEY\+\_\+S}} = 83
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a208d6b1fa43ff40a1d35507276c35b85}{KEY\+\_\+T}} = 84
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a0b625b4b6aed803778bf6009bcbfe7e2}{KEY\+\_\+U}} = 85
+, \newline
+\mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a1b24ae8458f8985ff8f4ac66afd70e65}{KEY\+\_\+V}} = 86
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a91e1e94f325c29ed1485111dfd881b57}{KEY\+\_\+W}} = 87
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a609927e20b94d20e79ad8e094d81ad6a}{KEY\+\_\+X}} = 88
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a6edb1529d9c1b7dd8b765f4196dc444b}{KEY\+\_\+Y}} = 89
+, \newline
+\mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a7a43994dd391b5e1d31e5123e6b7962d}{KEY\+\_\+Z}} = 90
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0afdc92691b78d1e1a5d2ac6de54d97fa8}{LEFT\+\_\+\+META}} = 91
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a2ad8d7e81bf4514ed8083b0cf7705d05}{RIGHT\+\_\+\+META}} = 92
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a4294bbd496e0395396f03abc571c2f14}{SELECT}} = 93
+, \newline
+\mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a9ad15db9d6979e594fa3f7fe2b06166c}{NUMPAD\+\_\+0}} = 96
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ab66582095efd9df2965bbd086df222d3}{NUMPAD\+\_\+1}} = 97
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0af9c7d4927209040db8c4021fa07ebc92}{NUMPAD\+\_\+2}} = 98
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ad499a6e9bf84384e12b43bf140d66f78}{NUMPAD\+\_\+3}} = 99
+, \newline
+\mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a8ce1d597c0ca5d0d75a8902d9c6c3874}{NUMPAD\+\_\+4}} = 100
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a2ab111bd6148a17ca697ea37877e6707}{NUMPAD\+\_\+5}} = 101
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a9855eee452efa48e80cc7afeea7d177e}{NUMPAD\+\_\+6}} = 102
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ab8a107ea500d2227039be3f366b2ad5d}{NUMPAD\+\_\+7}} = 103
+, \newline
+\mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a9dd1cf6f366722cce70b354bda742963}{NUMPAD\+\_\+8}} = 104
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0af9ddaf4cbcc18a9cb0e3f16f6fcdf515}{NUMPAD\+\_\+9}} = 105
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0aa112d28f2d47e9a0036cb7af74c18901}{MULTIPLY}} = 106
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ac03d15c5f3f19316b0129e5135f8dae7}{ADD}} = 107
+, \newline
+\mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a2512eab5e74e586edd7d92a583f6f1bd}{SUBTRACT}} = 109
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a4de3549676d218a987eb3c939e36a6a7}{DECIMAL}} = 110
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ac8ffed6dbc635c249f6a436894f3212f}{DIVIDE}} = 111
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a551a9a5942613af5806f3cbb7b41d329}{F1}} = 112
+, \newline
+\mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a3839e6592fa47b3e0f3ef1e7e0a078d3}{F2}} = 113
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0aea34d756d045e74d8d80ff2dab360eff}{F3}} = 114
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ac5286a6ca48e4ddb42fa922f041f5c18}{F4}} = 115
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0acb24b8d273e6ef028e190f43e92bd133}{F5}} = 116
+, \newline
+\mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ad9b12b6ec4bea6d8d64b8d28b7160055}{F6}} = 117
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a03bbd274f3d863b9c7a31d3e50ce3a28}{F7}} = 118
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0aa6daa3b75d05033e173414e8952d988d}{F8}} = 119
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0adcc99b7702624660980ad6b8ede54245}{F9}} = 120
+, \newline
+\mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a009ac514806cffd8440fbc12b4e22afe}{F10}} = 121
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a86f84cf72aada4a4f3d4eab45bc47445}{F11}} = 122
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a6f0424ec366c1e5fcef420129934b653}{F12}} = 123
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a333626e69390c26944f3c738b9799573}{NUM\+\_\+\+LOCK}} = 144
+, \newline
+\mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0aa6ab2819103fb919a4d2e4611b8e38e5}{SCROLL\+\_\+\+LOCK}} = 145
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a6ac39aea65cf6946a7c67aad41e8b604}{SEMICOLON}} = 186
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a4d918745e351220f048034d810774d65}{EQUALS}} = 187
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ade124b9c7e9fe69d2796f901de19ebd9}{COMMA}} = 188
+, \newline
+\mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ac5158aaa32fb197a24a351175719cfea}{DASH}} = 189
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ab45ef578300634f8d17397ee80a2e3cf}{PERIOD}} = 190
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ad81ee59cc9e4bfb7aa7a8ad0f4b34bea}{FORWARD\+\_\+\+SLASH}} = 191
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a3715aed5ae36355bc6802691da7e3d15}{GRAVE\+\_\+\+ACCENT}} = 192
+, \newline
+\mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ad0048068e15e649d57327e69ec4c18d0}{OPEN\+\_\+\+BRACKET}} = 219
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a75d7740864834334426b047657fafada}{BACK\+\_\+\+SLASH}} = 220
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a479467e460aba6cfc132dd52cff285e2}{CLOSE\+\_\+\+BRACKET}} = 221
+, \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0aabf98068b8f54a4956aa3128fba737ea}{SINGLE\+\_\+\+QUOTE}} = 222
+ \}
+\begin{DoxyCompactList}\small\item\em The enum to allow standardized values between graphical libs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0}} 
+\index{Arcade::Events@{Arcade::Events}!KeyCode@{KeyCode}}
+\index{KeyCode@{KeyCode}!Arcade::Events@{Arcade::Events}}
+\doxysubsubsection{\texorpdfstring{KeyCode}{KeyCode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0}{Arcade\+::\+Events\+::\+Key\+Code}}}
+
+
+
+The enum to allow standardized values between graphical libs. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UNDEFINED@{UNDEFINED}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!UNDEFINED@{UNDEFINED}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ad10a1358638730fb6c0bfd2b6601df3e}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ad10a1358638730fb6c0bfd2b6601df3e}} 
+UNDEFINED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BACKSPACE@{BACKSPACE}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!BACKSPACE@{BACKSPACE}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a9b782d21883f86131021835bcb585d03}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a9b782d21883f86131021835bcb585d03}} 
+BACKSPACE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TAB@{TAB}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!TAB@{TAB}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0af6a93c1965baa5193a777cce09eff7cf}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0af6a93c1965baa5193a777cce09eff7cf}} 
+TAB&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ENTER@{ENTER}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!ENTER@{ENTER}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a231e97f21314149631db833411f0b389}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a231e97f21314149631db833411f0b389}} 
+ENTER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SHIFT@{SHIFT}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!SHIFT@{SHIFT}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0afa63eafc020da78142a1cf07998a7f6d}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0afa63eafc020da78142a1cf07998a7f6d}} 
+SHIFT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CTRL@{CTRL}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!CTRL@{CTRL}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a3e0e47b09755190245506c4ee4b6710c}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a3e0e47b09755190245506c4ee4b6710c}} 
+CTRL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ALT@{ALT}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!ALT@{ALT}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a037b44d7dee7daca616afaa514a6bb6c}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a037b44d7dee7daca616afaa514a6bb6c}} 
+ALT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAUSE@{PAUSE}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!PAUSE@{PAUSE}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a0279430db22f0d2eb07ff31699ff47b8}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a0279430db22f0d2eb07ff31699ff47b8}} 
+PAUSE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAPS\_LOCK@{CAPS\_LOCK}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!CAPS\_LOCK@{CAPS\_LOCK}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a22e6f44dd0bf5cefd117967ee414aa14}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a22e6f44dd0bf5cefd117967ee414aa14}} 
+CAPS\+\_\+\+LOCK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ESCAPE@{ESCAPE}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!ESCAPE@{ESCAPE}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a3a12016fde7aa8af0663adecf10c8d76}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a3a12016fde7aa8af0663adecf10c8d76}} 
+ESCAPE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPACE@{SPACE}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!SPACE@{SPACE}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a547c2b0b88232b6f7eb09e4939be783a}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a547c2b0b88232b6f7eb09e4939be783a}} 
+SPACE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAGE\_UP@{PAGE\_UP}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!PAGE\_UP@{PAGE\_UP}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a29f16498850d0de772ebc5a39f3a2599}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a29f16498850d0de772ebc5a39f3a2599}} 
+PAGE\+\_\+\+UP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAGE\_DOWN@{PAGE\_DOWN}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!PAGE\_DOWN@{PAGE\_DOWN}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0afaff4cb977922c2292645600ffd2b5cf}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0afaff4cb977922c2292645600ffd2b5cf}} 
+PAGE\+\_\+\+DOWN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{END@{END}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!END@{END}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ac736065f78ed9e66749c929ac94f263c}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ac736065f78ed9e66749c929ac94f263c}} 
+END&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HOME@{HOME}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!HOME@{HOME}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0aba3d1997a0b14730342bcacfd6e44b75}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0aba3d1997a0b14730342bcacfd6e44b75}} 
+HOME&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEFT\_ARROW@{LEFT\_ARROW}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!LEFT\_ARROW@{LEFT\_ARROW}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a6164c2d6a43268630d279016e1c54f20}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a6164c2d6a43268630d279016e1c54f20}} 
+LEFT\+\_\+\+ARROW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UP\_ARROW@{UP\_ARROW}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!UP\_ARROW@{UP\_ARROW}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a77f4ecdae76bf96e6ef806416aef5a41}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a77f4ecdae76bf96e6ef806416aef5a41}} 
+UP\+\_\+\+ARROW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RIGHT\_ARROW@{RIGHT\_ARROW}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!RIGHT\_ARROW@{RIGHT\_ARROW}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a616a351bfef23edea21f57855dc83c56}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a616a351bfef23edea21f57855dc83c56}} 
+RIGHT\+\_\+\+ARROW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DOWN\_ARROW@{DOWN\_ARROW}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!DOWN\_ARROW@{DOWN\_ARROW}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ae66ac47ff013b01c5a707fa3970dcd74}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ae66ac47ff013b01c5a707fa3970dcd74}} 
+DOWN\+\_\+\+ARROW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INSERT@{INSERT}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!INSERT@{INSERT}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a326d002708b260e692e2348638b01ff6}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a326d002708b260e692e2348638b01ff6}} 
+INSERT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DELETE@{DELETE}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!DELETE@{DELETE}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a7e72e5051d84b5fb01117fb7497464bc}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a7e72e5051d84b5fb01117fb7497464bc}} 
+DELETE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_0@{KEY\_0}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_0@{KEY\_0}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a49034873ff58e64f356c076b1b86a779}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a49034873ff58e64f356c076b1b86a779}} 
+KEY\+\_\+0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_1@{KEY\_1}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_1@{KEY\_1}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a9842f3a28bcfe917498bb528824088b2}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a9842f3a28bcfe917498bb528824088b2}} 
+KEY\+\_\+1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_2@{KEY\_2}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_2@{KEY\_2}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ab65683c7ca18400a18eac2b7e5f11609}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ab65683c7ca18400a18eac2b7e5f11609}} 
+KEY\+\_\+2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_3@{KEY\_3}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_3@{KEY\_3}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ad840088c83552b0b0209533befec3ec5}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ad840088c83552b0b0209533befec3ec5}} 
+KEY\+\_\+3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_4@{KEY\_4}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_4@{KEY\_4}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ad24767762d223e2562494394a643926e}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ad24767762d223e2562494394a643926e}} 
+KEY\+\_\+4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_5@{KEY\_5}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_5@{KEY\_5}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a3a083664e4d68137b513cf8257164302}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a3a083664e4d68137b513cf8257164302}} 
+KEY\+\_\+5&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_6@{KEY\_6}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_6@{KEY\_6}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a74c052ecfa831001d4a7b45b50c307c4}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a74c052ecfa831001d4a7b45b50c307c4}} 
+KEY\+\_\+6&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_7@{KEY\_7}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_7@{KEY\_7}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a10afe0fe401d77c6535089c48dd7aeb7}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a10afe0fe401d77c6535089c48dd7aeb7}} 
+KEY\+\_\+7&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_8@{KEY\_8}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_8@{KEY\_8}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ab27d0721b4c2f256b2ffc85c07dc0406}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ab27d0721b4c2f256b2ffc85c07dc0406}} 
+KEY\+\_\+8&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_9@{KEY\_9}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_9@{KEY\_9}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ab75d50c5dc66827177be501b556d1acc}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ab75d50c5dc66827177be501b556d1acc}} 
+KEY\+\_\+9&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_A@{KEY\_A}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_A@{KEY\_A}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0aedec8385f8bc9c3cf784173451888f35}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0aedec8385f8bc9c3cf784173451888f35}} 
+KEY\+\_\+A&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_B@{KEY\_B}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_B@{KEY\_B}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a7a48e5c408b2033a86c51f2b8adab70b}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a7a48e5c408b2033a86c51f2b8adab70b}} 
+KEY\+\_\+B&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_C@{KEY\_C}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_C@{KEY\_C}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ac245624aeaafb14fa89dcbfd583f75ef}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ac245624aeaafb14fa89dcbfd583f75ef}} 
+KEY\+\_\+C&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_D@{KEY\_D}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_D@{KEY\_D}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ad7017c920098d578fef50de7242edaa2}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ad7017c920098d578fef50de7242edaa2}} 
+KEY\+\_\+D&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_E@{KEY\_E}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_E@{KEY\_E}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a0b44aa1c95da5ff0d52ee93035fde5aa}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a0b44aa1c95da5ff0d52ee93035fde5aa}} 
+KEY\+\_\+E&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_F@{KEY\_F}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_F@{KEY\_F}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a95aa9bffc3380d2388a17ad25015ce0e}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a95aa9bffc3380d2388a17ad25015ce0e}} 
+KEY\+\_\+F&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_G@{KEY\_G}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_G@{KEY\_G}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a48e2485ea1abc7850a5ef2f8d144e60f}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a48e2485ea1abc7850a5ef2f8d144e60f}} 
+KEY\+\_\+G&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_H@{KEY\_H}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_H@{KEY\_H}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a7e03e6093492a19530c93af580c954ed}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a7e03e6093492a19530c93af580c954ed}} 
+KEY\+\_\+H&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_I@{KEY\_I}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_I@{KEY\_I}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a3b51501dfebe19510ac0c5bdf95a75c2}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a3b51501dfebe19510ac0c5bdf95a75c2}} 
+KEY\+\_\+I&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_J@{KEY\_J}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_J@{KEY\_J}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a9006b8b6bdbc49fff96432311fedabfe}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a9006b8b6bdbc49fff96432311fedabfe}} 
+KEY\+\_\+J&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_K@{KEY\_K}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_K@{KEY\_K}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a37cf2f86634bd612798809a0837024f8}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a37cf2f86634bd612798809a0837024f8}} 
+KEY\+\_\+K&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_L@{KEY\_L}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_L@{KEY\_L}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0add0e8c29adf779e053dde0ed207c3ac3}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0add0e8c29adf779e053dde0ed207c3ac3}} 
+KEY\+\_\+L&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_M@{KEY\_M}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_M@{KEY\_M}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ae7454b7756f50b3966b81ce4d83a7709}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ae7454b7756f50b3966b81ce4d83a7709}} 
+KEY\+\_\+M&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_N@{KEY\_N}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_N@{KEY\_N}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a3d3d0fe7d35dfeb1ed4642298590aa5c}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a3d3d0fe7d35dfeb1ed4642298590aa5c}} 
+KEY\+\_\+N&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_O@{KEY\_O}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_O@{KEY\_O}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a8a7ad060ecf6cec97848b3fd8a37c38c}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a8a7ad060ecf6cec97848b3fd8a37c38c}} 
+KEY\+\_\+O&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_P@{KEY\_P}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_P@{KEY\_P}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a0cdb62d944b6698d0f8ee2d2c80dfbe6}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a0cdb62d944b6698d0f8ee2d2c80dfbe6}} 
+KEY\+\_\+P&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_Q@{KEY\_Q}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_Q@{KEY\_Q}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a946bfb81b6c3a995b9af40fdb1cc1539}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a946bfb81b6c3a995b9af40fdb1cc1539}} 
+KEY\+\_\+Q&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_R@{KEY\_R}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_R@{KEY\_R}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a9711f3eca792e737c8c2f56b1bdfdddc}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a9711f3eca792e737c8c2f56b1bdfdddc}} 
+KEY\+\_\+R&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_S@{KEY\_S}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_S@{KEY\_S}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a5252129621b41de6122441ea049403ef}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a5252129621b41de6122441ea049403ef}} 
+KEY\+\_\+S&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_T@{KEY\_T}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_T@{KEY\_T}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a208d6b1fa43ff40a1d35507276c35b85}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a208d6b1fa43ff40a1d35507276c35b85}} 
+KEY\+\_\+T&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_U@{KEY\_U}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_U@{KEY\_U}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a0b625b4b6aed803778bf6009bcbfe7e2}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a0b625b4b6aed803778bf6009bcbfe7e2}} 
+KEY\+\_\+U&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_V@{KEY\_V}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_V@{KEY\_V}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a1b24ae8458f8985ff8f4ac66afd70e65}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a1b24ae8458f8985ff8f4ac66afd70e65}} 
+KEY\+\_\+V&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_W@{KEY\_W}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_W@{KEY\_W}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a91e1e94f325c29ed1485111dfd881b57}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a91e1e94f325c29ed1485111dfd881b57}} 
+KEY\+\_\+W&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_X@{KEY\_X}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_X@{KEY\_X}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a609927e20b94d20e79ad8e094d81ad6a}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a609927e20b94d20e79ad8e094d81ad6a}} 
+KEY\+\_\+X&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_Y@{KEY\_Y}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_Y@{KEY\_Y}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a6edb1529d9c1b7dd8b765f4196dc444b}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a6edb1529d9c1b7dd8b765f4196dc444b}} 
+KEY\+\_\+Y&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_Z@{KEY\_Z}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!KEY\_Z@{KEY\_Z}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a7a43994dd391b5e1d31e5123e6b7962d}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a7a43994dd391b5e1d31e5123e6b7962d}} 
+KEY\+\_\+Z&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEFT\_META@{LEFT\_META}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!LEFT\_META@{LEFT\_META}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0afdc92691b78d1e1a5d2ac6de54d97fa8}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0afdc92691b78d1e1a5d2ac6de54d97fa8}} 
+LEFT\+\_\+\+META&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RIGHT\_META@{RIGHT\_META}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!RIGHT\_META@{RIGHT\_META}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a2ad8d7e81bf4514ed8083b0cf7705d05}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a2ad8d7e81bf4514ed8083b0cf7705d05}} 
+RIGHT\+\_\+\+META&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SELECT@{SELECT}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!SELECT@{SELECT}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a4294bbd496e0395396f03abc571c2f14}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a4294bbd496e0395396f03abc571c2f14}} 
+SELECT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUMPAD\_0@{NUMPAD\_0}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!NUMPAD\_0@{NUMPAD\_0}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a9ad15db9d6979e594fa3f7fe2b06166c}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a9ad15db9d6979e594fa3f7fe2b06166c}} 
+NUMPAD\+\_\+0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUMPAD\_1@{NUMPAD\_1}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!NUMPAD\_1@{NUMPAD\_1}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ab66582095efd9df2965bbd086df222d3}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ab66582095efd9df2965bbd086df222d3}} 
+NUMPAD\+\_\+1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUMPAD\_2@{NUMPAD\_2}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!NUMPAD\_2@{NUMPAD\_2}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0af9c7d4927209040db8c4021fa07ebc92}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0af9c7d4927209040db8c4021fa07ebc92}} 
+NUMPAD\+\_\+2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUMPAD\_3@{NUMPAD\_3}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!NUMPAD\_3@{NUMPAD\_3}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ad499a6e9bf84384e12b43bf140d66f78}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ad499a6e9bf84384e12b43bf140d66f78}} 
+NUMPAD\+\_\+3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUMPAD\_4@{NUMPAD\_4}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!NUMPAD\_4@{NUMPAD\_4}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a8ce1d597c0ca5d0d75a8902d9c6c3874}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a8ce1d597c0ca5d0d75a8902d9c6c3874}} 
+NUMPAD\+\_\+4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUMPAD\_5@{NUMPAD\_5}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!NUMPAD\_5@{NUMPAD\_5}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a2ab111bd6148a17ca697ea37877e6707}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a2ab111bd6148a17ca697ea37877e6707}} 
+NUMPAD\+\_\+5&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUMPAD\_6@{NUMPAD\_6}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!NUMPAD\_6@{NUMPAD\_6}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a9855eee452efa48e80cc7afeea7d177e}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a9855eee452efa48e80cc7afeea7d177e}} 
+NUMPAD\+\_\+6&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUMPAD\_7@{NUMPAD\_7}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!NUMPAD\_7@{NUMPAD\_7}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ab8a107ea500d2227039be3f366b2ad5d}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ab8a107ea500d2227039be3f366b2ad5d}} 
+NUMPAD\+\_\+7&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUMPAD\_8@{NUMPAD\_8}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!NUMPAD\_8@{NUMPAD\_8}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a9dd1cf6f366722cce70b354bda742963}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a9dd1cf6f366722cce70b354bda742963}} 
+NUMPAD\+\_\+8&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUMPAD\_9@{NUMPAD\_9}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!NUMPAD\_9@{NUMPAD\_9}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0af9ddaf4cbcc18a9cb0e3f16f6fcdf515}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0af9ddaf4cbcc18a9cb0e3f16f6fcdf515}} 
+NUMPAD\+\_\+9&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MULTIPLY@{MULTIPLY}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!MULTIPLY@{MULTIPLY}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0aa112d28f2d47e9a0036cb7af74c18901}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0aa112d28f2d47e9a0036cb7af74c18901}} 
+MULTIPLY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADD@{ADD}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!ADD@{ADD}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ac03d15c5f3f19316b0129e5135f8dae7}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ac03d15c5f3f19316b0129e5135f8dae7}} 
+ADD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SUBTRACT@{SUBTRACT}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!SUBTRACT@{SUBTRACT}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a2512eab5e74e586edd7d92a583f6f1bd}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a2512eab5e74e586edd7d92a583f6f1bd}} 
+SUBTRACT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DECIMAL@{DECIMAL}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!DECIMAL@{DECIMAL}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a4de3549676d218a987eb3c939e36a6a7}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a4de3549676d218a987eb3c939e36a6a7}} 
+DECIMAL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DIVIDE@{DIVIDE}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!DIVIDE@{DIVIDE}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ac8ffed6dbc635c249f6a436894f3212f}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ac8ffed6dbc635c249f6a436894f3212f}} 
+DIVIDE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F1@{F1}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!F1@{F1}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a551a9a5942613af5806f3cbb7b41d329}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a551a9a5942613af5806f3cbb7b41d329}} 
+F1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F2@{F2}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!F2@{F2}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a3839e6592fa47b3e0f3ef1e7e0a078d3}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a3839e6592fa47b3e0f3ef1e7e0a078d3}} 
+F2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F3@{F3}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!F3@{F3}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0aea34d756d045e74d8d80ff2dab360eff}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0aea34d756d045e74d8d80ff2dab360eff}} 
+F3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F4@{F4}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!F4@{F4}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ac5286a6ca48e4ddb42fa922f041f5c18}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ac5286a6ca48e4ddb42fa922f041f5c18}} 
+F4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F5@{F5}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!F5@{F5}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0acb24b8d273e6ef028e190f43e92bd133}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0acb24b8d273e6ef028e190f43e92bd133}} 
+F5&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F6@{F6}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!F6@{F6}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ad9b12b6ec4bea6d8d64b8d28b7160055}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ad9b12b6ec4bea6d8d64b8d28b7160055}} 
+F6&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F7@{F7}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!F7@{F7}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a03bbd274f3d863b9c7a31d3e50ce3a28}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a03bbd274f3d863b9c7a31d3e50ce3a28}} 
+F7&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F8@{F8}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!F8@{F8}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0aa6daa3b75d05033e173414e8952d988d}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0aa6daa3b75d05033e173414e8952d988d}} 
+F8&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F9@{F9}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!F9@{F9}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0adcc99b7702624660980ad6b8ede54245}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0adcc99b7702624660980ad6b8ede54245}} 
+F9&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F10@{F10}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!F10@{F10}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a009ac514806cffd8440fbc12b4e22afe}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a009ac514806cffd8440fbc12b4e22afe}} 
+F10&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F11@{F11}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!F11@{F11}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a86f84cf72aada4a4f3d4eab45bc47445}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a86f84cf72aada4a4f3d4eab45bc47445}} 
+F11&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F12@{F12}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!F12@{F12}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a6f0424ec366c1e5fcef420129934b653}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a6f0424ec366c1e5fcef420129934b653}} 
+F12&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUM\_LOCK@{NUM\_LOCK}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!NUM\_LOCK@{NUM\_LOCK}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a333626e69390c26944f3c738b9799573}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a333626e69390c26944f3c738b9799573}} 
+NUM\+\_\+\+LOCK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SCROLL\_LOCK@{SCROLL\_LOCK}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!SCROLL\_LOCK@{SCROLL\_LOCK}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0aa6ab2819103fb919a4d2e4611b8e38e5}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0aa6ab2819103fb919a4d2e4611b8e38e5}} 
+SCROLL\+\_\+\+LOCK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SEMICOLON@{SEMICOLON}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!SEMICOLON@{SEMICOLON}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a6ac39aea65cf6946a7c67aad41e8b604}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a6ac39aea65cf6946a7c67aad41e8b604}} 
+SEMICOLON&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EQUALS@{EQUALS}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!EQUALS@{EQUALS}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a4d918745e351220f048034d810774d65}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a4d918745e351220f048034d810774d65}} 
+EQUALS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COMMA@{COMMA}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!COMMA@{COMMA}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ade124b9c7e9fe69d2796f901de19ebd9}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ade124b9c7e9fe69d2796f901de19ebd9}} 
+COMMA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DASH@{DASH}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!DASH@{DASH}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ac5158aaa32fb197a24a351175719cfea}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ac5158aaa32fb197a24a351175719cfea}} 
+DASH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PERIOD@{PERIOD}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!PERIOD@{PERIOD}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ab45ef578300634f8d17397ee80a2e3cf}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ab45ef578300634f8d17397ee80a2e3cf}} 
+PERIOD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FORWARD\_SLASH@{FORWARD\_SLASH}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!FORWARD\_SLASH@{FORWARD\_SLASH}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ad81ee59cc9e4bfb7aa7a8ad0f4b34bea}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ad81ee59cc9e4bfb7aa7a8ad0f4b34bea}} 
+FORWARD\+\_\+\+SLASH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GRAVE\_ACCENT@{GRAVE\_ACCENT}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!GRAVE\_ACCENT@{GRAVE\_ACCENT}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a3715aed5ae36355bc6802691da7e3d15}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a3715aed5ae36355bc6802691da7e3d15}} 
+GRAVE\+\_\+\+ACCENT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OPEN\_BRACKET@{OPEN\_BRACKET}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!OPEN\_BRACKET@{OPEN\_BRACKET}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ad0048068e15e649d57327e69ec4c18d0}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0ad0048068e15e649d57327e69ec4c18d0}} 
+OPEN\+\_\+\+BRACKET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BACK\_SLASH@{BACK\_SLASH}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!BACK\_SLASH@{BACK\_SLASH}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a75d7740864834334426b047657fafada}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a75d7740864834334426b047657fafada}} 
+BACK\+\_\+\+SLASH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOSE\_BRACKET@{CLOSE\_BRACKET}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!CLOSE\_BRACKET@{CLOSE\_BRACKET}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a479467e460aba6cfc132dd52cff285e2}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0a479467e460aba6cfc132dd52cff285e2}} 
+CLOSE\+\_\+\+BRACKET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SINGLE\_QUOTE@{SINGLE\_QUOTE}!Arcade::Events@{Arcade::Events}}\index{Arcade::Events@{Arcade::Events}!SINGLE\_QUOTE@{SINGLE\_QUOTE}}}\mbox{\Hypertarget{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0aabf98068b8f54a4956aa3128fba737ea}\label{namespaceArcade_1_1Events_a1ee00ed977cda2b573580f65e0cdbbe0aabf98068b8f54a4956aa3128fba737ea}} 
+SINGLE\+\_\+\+QUOTE&\\
+\hline
+
+\end{DoxyEnumFields}

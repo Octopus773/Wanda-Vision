@@ -1,0 +1,6 @@
+<map id="Arcade::IModule" name="Arcade::IModule">
+<area shape="rect" id="node1" title="A base module interface." alt="" coords="118,5,235,127"/>
+<area shape="rect" id="node2" href="$classArcade_1_1IDisplayModule.html" title="The interface of every display modules." alt="" coords="5,175,167,355"/>
+<area shape="rect" id="node4" href="$classArcade_1_1IGameModule.html" title="The interface of all games." alt="" coords="191,189,343,340"/>
+<area shape="rect" id="node3" href="$classArcade_1_1SDLDisplay.html" title="Implementation of the SDL Graphic Library." alt="" coords="15,403,157,788"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="Arcade::Event" name="Arcade::Event">
+<area shape="rect" id="node1" title="An empty event used as a base class." alt="" coords="255,5,361,83"/>
+<area shape="rect" id="node2" href="$structArcade_1_1Events_1_1ClickEvent.html" title=" " alt="" coords="5,131,189,237"/>
+<area shape="rect" id="node3" href="$structArcade_1_1Events_1_1CloseEvent.html" title=" " alt="" coords="214,145,402,223"/>
+<area shape="rect" id="node4" href="$structArcade_1_1Events_1_1KeyEvent.html" title=" " alt="" coords="426,145,603,223"/>
+</map>

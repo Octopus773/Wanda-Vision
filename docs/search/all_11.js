@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['scroll_5flock_307',['SCROLL_LOCK',['../namespaceArcade_1_1Events.html#a1ee00ed977cda2b573580f65e0cdbbe0aa6ab2819103fb919a4d2e4611b8e38e5',1,'Arcade::Events']]],
+  ['sdldisplay_308',['SDLDisplay',['../classArcade_1_1SDLDisplay.html',1,'Arcade::SDLDisplay'],['../classArcade_1_1SDLDisplay.html#a5498ab741a44a97e88f1b9bce9763f4d',1,'Arcade::SDLDisplay::SDLDisplay()=default'],['../classArcade_1_1SDLDisplay.html#a53674e76c5d0e4b83548ed1d51ff9193',1,'Arcade::SDLDisplay::SDLDisplay(const SDLDisplay &amp;)=default']]],
+  ['sdldisplay_2ecpp_309',['SDLDisplay.cpp',['../SDLDisplay_8cpp.html',1,'']]],
+  ['sdldisplay_2ehpp_310',['SDLDisplay.hpp',['../SDLDisplay_8hpp.html',1,'']]],
+  ['select_311',['SELECT',['../namespaceArcade_1_1Events.html#a1ee00ed977cda2b573580f65e0cdbbe0a4294bbd496e0395396f03abc571c2f14',1,'Arcade::Events']]],
+  ['semicolon_312',['SEMICOLON',['../namespaceArcade_1_1Events.html#a1ee00ed977cda2b573580f65e0cdbbe0a6ac39aea65cf6946a7c67aad41e8b604',1,'Arcade::Events']]],
+  ['setgame_313',['setGame',['../classArcade_1_1Core_1_1Runner.html#a2848f36973ef13bac7e726b0f35e2027',1,'Arcade::Core::Runner']]],
+  ['setrenderer_314',['setRenderer',['../classArcade_1_1Core_1_1Runner.html#af96c9a51bbe0d9b33427f0715b861e17',1,'Arcade::Core::Runner']]],
+  ['setrenderercolor_315',['setRendererColor',['../classArcade_1_1SDLDisplay.html#a57fa3e75e5aa8e1692fa88f29e0a6cc0',1,'Arcade::SDLDisplay']]],
+  ['shift_316',['SHIFT',['../namespaceArcade_1_1Events.html#a1ee00ed977cda2b573580f65e0cdbbe0afa63eafc020da78142a1cf07998a7f6d',1,'Arcade::Events']]],
+  ['shouldclose_317',['shouldClose',['../classArcade_1_1SDLDisplay.html#aebe5e5f669486522532c3d4eb51760ca',1,'Arcade::SDLDisplay::shouldClose()'],['../classArcade_1_1IModule.html#a7cefb3047a6c4b99ae5288138ea80ccc',1,'Arcade::IModule::shouldClose()']]],
+  ['single_5fquote_318',['SINGLE_QUOTE',['../namespaceArcade_1_1Events.html#a1ee00ed977cda2b573580f65e0cdbbe0aabf98068b8f54a4956aa3128fba737ea',1,'Arcade::Events']]],
+  ['size_319',['size',['../classArcade_1_1GameObjects_1_1CircleObject.html#af4e74d3deafafc0a35510b38fc3f77b1',1,'Arcade::GameObjects::CircleObject']]],
+  ['sizex_320',['sizeX',['../classArcade_1_1GameObjects_1_1SpriteObject.html#ab7baa2e402676b2e0428ac25e84474d6',1,'Arcade::GameObjects::SpriteObject']]],
+  ['sizey_321',['sizeY',['../classArcade_1_1GameObjects_1_1SpriteObject.html#a340af307a91c83970e87147d6a219a9e',1,'Arcade::GameObjects::SpriteObject']]],
+  ['soname_322',['soname',['../arcade__sdl2_8dir_2link_8txt.html#a3962585c62abb91d7d5d3af4259a0568',1,'link.txt']]],
+  ['space_323',['SPACE',['../namespaceArcade_1_1Events.html#a1ee00ed977cda2b573580f65e0cdbbe0a547c2b0b88232b6f7eb09e4939be783a',1,'Arcade::Events']]],
+  ['spriteobject_324',['SpriteObject',['../classArcade_1_1GameObjects_1_1SpriteObject.html',1,'Arcade::GameObjects::SpriteObject'],['../classArcade_1_1GameObjects_1_1SpriteObject.html#afb850916025a4382ad477410d5b36972',1,'Arcade::GameObjects::SpriteObject::SpriteObject()=default'],['../classArcade_1_1GameObjects_1_1SpriteObject.html#a91241249b96124561ece27519f83aeb7',1,'Arcade::GameObjects::SpriteObject::SpriteObject(const SpriteObject &amp;)=default']]],
+  ['spriteobject_2ehpp_325',['SpriteObject.hpp',['../SpriteObject_8hpp.html',1,'']]],
+  ['start_326',['start',['../structArcade_1_1Core_1_1Library.html#a04f1393f3e44a45c1bd9470e8b99ed61',1,'Arcade::Core::Library']]],
+  ['stringify_327',['STRINGIFY',['../CMakeCCompilerId_8c.html#a43e1cad902b6477bec893cb6430bd6c8',1,'STRINGIFY():&#160;CMakeCCompilerId.c'],['../CMakeCXXCompilerId_8cpp.html#a43e1cad902b6477bec893cb6430bd6c8',1,'STRINGIFY():&#160;CMakeCXXCompilerId.cpp']]],
+  ['stringify_5fhelper_328',['STRINGIFY_HELPER',['../CMakeCCompilerId_8c.html#a2ae9b72bb13abaabfcf2ee0ba7d3fa1d',1,'STRINGIFY_HELPER():&#160;CMakeCCompilerId.c'],['../CMakeCXXCompilerId_8cpp.html#a2ae9b72bb13abaabfcf2ee0ba7d3fa1d',1,'STRINGIFY_HELPER():&#160;CMakeCXXCompilerId.cpp']]],
+  ['subtract_329',['SUBTRACT',['../namespaceArcade_1_1Events.html#a1ee00ed977cda2b573580f65e0cdbbe0a2512eab5e74e586edd7d92a583f6f1bd',1,'Arcade::Events']]]
+];

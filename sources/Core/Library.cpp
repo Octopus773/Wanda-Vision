@@ -9,11 +9,12 @@ namespace Arcade::Core
 	Library::Library(const std::string &path)
 		: path(path), _handle(dlopen(path.c_str(), RTLD_NOW | RTLD_LOCAL))
 	{
-		if (!this->_handle)
-			throw InvalidLibraryException("Invalid library path.");
+		if (!this->_handle) {
+			throw InvalidLibraryException(dlerror());
+		}
 		auto header = reinterpret_cast<ModInfo *(*)()>(dlsym(this->_handle, "getHeader"));
 		if (!header)
-			throw InvalidLibraryException("No getHeader function found in the library.");
+			throw InvalidLibraryException(dlerror());
 		auto value = header();
 		if (!value || value->magicNumber != 0xBA0BAB)
 			throw InvalidLibraryException("Invalid header returned.");

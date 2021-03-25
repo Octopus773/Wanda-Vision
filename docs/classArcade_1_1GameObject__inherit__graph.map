@@ -1,0 +1,8 @@
+<map id="Arcade::GameObject" name="Arcade::GameObject">
+<area shape="rect" id="node1" title="A base class for every objects in the game." alt="" coords="358,5,502,156"/>
+<area shape="rect" id="node2" href="$classArcade_1_1GameObjects_1_1CircleObject.html" title="A circle game objecct." alt="" coords="5,233,156,369"/>
+<area shape="rect" id="node3" href="$classArcade_1_1GameObjects_1_1LineObject.html" title="A base class for every objects in the game." alt="" coords="180,226,331,377"/>
+<area shape="rect" id="node4" href="$classArcade_1_1GameObjects_1_1RectangleObject.html" title="A rectangle object." alt="" coords="355,226,505,377"/>
+<area shape="rect" id="node5" href="$classArcade_1_1GameObjects_1_1SpriteObject.html" title="A Sprite game objecct." alt="" coords="529,204,680,399"/>
+<area shape="rect" id="node6" href="$classArcade_1_1GameObjects_1_1TextObject.html" title="A text object." alt="" coords="704,233,855,369"/>
+</map>

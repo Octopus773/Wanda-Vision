@@ -1,0 +1,4 @@
+<map id="Arcade::GameObjects::SpriteObject" name="Arcade::GameObjects::SpriteObject">
+<area shape="rect" id="node1" title="A Sprite game objecct." alt="" coords="5,219,156,399"/>
+<area shape="rect" id="node2" href="$classArcade_1_1GameObject.html" title="A base class for every objects in the game." alt="" coords="9,5,153,156"/>
+</map>
