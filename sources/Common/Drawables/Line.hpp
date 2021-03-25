@@ -7,12 +7,12 @@
 
 #pragma once
 
-#include "Common/GameObject.hpp"
+#include "Common/ADrawable.hpp"
 
-namespace Arcade::GameObjects
+namespace Arcade::Drawables
 {
 	//! @brief A base class for every objects in the game.
-	class LineObject : public GameObject
+	class Line : public ADrawable
 	{
 	public:
 		//! @brief Get the end X position of the line
@@ -23,12 +23,12 @@ namespace Arcade::GameObjects
 		int endY;
 
 		//! @brief Default constructor
-		LineObject() = default;
+		Line() = default;
 		//! @brief Default copy constructor
-		LineObject(const LineObject &) = default;
+		Line(const Line &) = default;
 		//! @brief Default destructor
-		~LineObject() = default;
+		~Line() = default;
 		//! @brief Default assignement operator
-		LineObject &operator=(const LineObject &) = default;
+		Line &operator=(const Line &) = default;
 	};
 }
