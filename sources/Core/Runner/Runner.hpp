@@ -16,6 +16,7 @@
 
 namespace Arcade::Core
 {
+	//! @brief Core class to run libs and games.
 	class Runner
 	{
 	private:
@@ -57,11 +58,11 @@ namespace Arcade::Core
 		Runner();
 		//! @brief Constructor that sets a graphical library.
 		explicit Runner(const std::string &graphicLib);
-		//! @brief Default copy constructor
+		//! @brief Deleted copy constructor
 		Runner(const Runner &) = delete;
 		//! @brief Default destructor
 		~Runner() = default;
-		//! @brief Default  assignment operator
+		//! @brief Deleted assignment operator
 		Runner &operator=(const Runner &) = delete;
 	};
 }

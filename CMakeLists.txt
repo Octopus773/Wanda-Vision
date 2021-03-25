@@ -4,7 +4,6 @@ project(Arcade)
 set(CMAKE_CXX_STANDARD 20)
 
 include_directories(sources)
-include_directories(sources/Common)
 
 add_executable(arcade
         main.cpp
