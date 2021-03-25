@@ -30,7 +30,7 @@ namespace Arcade::Core
 		std::unique_ptr<IDisplayModule> _renderer;
 
 		//! @brief Draw an object with the current renderer.
-		void _drawObject(const std::unique_ptr<ADrawable> &obj);
+		bool _drawObject(const std::unique_ptr<ADrawable> &obj);
 		//! @brief Handle a single event (short handle it if this is a runner event or sent it to the game)
 		void _handleEvent(const std::unique_ptr<Event> &event);
 	public:
