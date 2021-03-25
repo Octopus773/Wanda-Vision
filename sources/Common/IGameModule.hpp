@@ -8,7 +8,7 @@
 #pragma once
 
 #include "Common/ModInfo.hpp"
-#include "Common/ADrawable.hpp"
+#include "Common/Drawables/ADrawable.hpp"
 #include "Common/Module.hpp"
 #include "Common/Events/Event.hpp"
 #include <vector>

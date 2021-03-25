@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include "Common/ADrawable.hpp"
+#include "Common/Drawables/ADrawable.hpp"
 
 namespace Arcade::Drawables
 {
