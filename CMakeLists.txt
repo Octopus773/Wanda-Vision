@@ -7,15 +7,15 @@ include_directories(sources)
 
 add_executable(arcade
         main.cpp
-        sources/Common/GameObjects/CircleObject.hpp
-        sources/Common/GameObjects/LineObject.hpp
-        sources/Common/GameObjects/RectangleObject.hpp
-        sources/Common/GameObjects/SpriteObject.hpp
-        sources/Common/Events/ClickEvent.hpp
-        sources/Common/Events/CloseEvent.hpp
-        sources/Common/Events/KeyEvent.hpp
-        sources/Common/Event.hpp
-        sources/Common/GameObject.hpp
+        sources/Common/Drawables/Circle.hpp
+        sources/Common/Drawables/Line.hpp
+        sources/Common/Drawables/Rectangle.hpp
+        sources/Common/Drawables/Sprite.hpp
+        sources/Common/Events/MouseClickEvent.hpp
+        sources/Common/Events/MouseMoveEvent.hpp
+        sources/Common/Events/KeyBoardEvent.hpp
+        sources/Common/Events/Event.hpp
+        sources/Common/Drawables/ADrawable.hpp
         sources/Common/IDisplayModule.hpp
         sources/Common/IGameModule.hpp
         sources/Common/ModInfo.hpp
