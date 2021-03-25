@@ -3,9 +3,9 @@
 //
 
 #include <filesystem>
-#include <Exceptions/InvalidLibraryException.hpp>
-#include <Exceptions/InvalidArgumentException.hpp>
-#include <Common/Events/KeyEvent.hpp>
+#include "Exceptions/InvalidLibraryException.hpp"
+#include "Exceptions/InvalidArgumentException.hpp"
+#include "Common/Events/KeyBoardEvent.hpp"
 #include "Runner.hpp"
 
 namespace Arcade::Core
@@ -63,18 +63,18 @@ namespace Arcade::Core
 		this->_game = lib.start<IGameModule>();
 	}
 
-	void Runner::_drawObject(const std::unique_ptr<GameObject> &obj)
+	void Runner::_drawObject(const std::unique_ptr<ADrawable> &obj)
 	{
-		if (auto sprite = dynamic_cast<GameObjects::SpriteObject *>(obj.get()))
-			return this->_renderer->drawSprite(*sprite);
-		if (auto rec = dynamic_cast<GameObjects::RectangleObject *>(obj.get()))
-			return this->_renderer->drawRectangle(*rec);
-		if (auto circle = dynamic_cast<GameObjects::CircleObject *>(obj.get()))
-			return this->_renderer->drawCircle(*circle);
-		if (auto line = dynamic_cast<GameObjects::LineObject *>(obj.get()))
-			return this->_renderer->drawLine(*line);
-		if (auto text = dynamic_cast<GameObjects::TextObject *>(obj.get()))
-			return this->_renderer->drawText(*text);
+		if (auto sprite = dynamic_cast<Drawables::Sprite *>(obj.get()))
+			return this->_renderer->draw(*sprite);
+		if (auto rec = dynamic_cast<Drawables::Rectangle *>(obj.get()))
+			return this->_renderer->draw(*rec);
+		if (auto circle = dynamic_cast<Drawables::Circle *>(obj.get()))
+			return this->_renderer->draw(*circle);
+		if (auto line = dynamic_cast<Drawables::Line *>(obj.get()))
+			return this->_renderer->draw(*line);
+		if (auto text = dynamic_cast<Drawables::Text *>(obj.get()))
+			return this->_renderer->draw(*text);
 		throw std::runtime_error("Unknown game object time met. Aborting...");
 	}
 
