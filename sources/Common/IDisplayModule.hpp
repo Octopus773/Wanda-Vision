@@ -8,11 +8,11 @@
 #pragma once
 
 #include "Common/Module.hpp"
-#include "Common/GameObjects/LineObject.hpp"
-#include "Common/GameObjects/RectangleObject.hpp"
-#include "Common/GameObjects/CircleObject.hpp"
-#include "Common/GameObjects/SpriteObject.hpp"
-#include "Common/GameObjects/TextObject.hpp"
+#include "Common/Drawables/Line.hpp"
+#include "Common/Drawables/Rectangle.hpp"
+#include "Common/Drawables/Circle.hpp"
+#include "Common/Drawables/Sprite.hpp"
+#include "Common/Drawables/Text.hpp"
 #include "Common/Event.hpp"
 #include <list>
 #include <memory>
@@ -32,25 +32,40 @@ namespace Arcade
 
 		//! @brief Draw a line.
 		//! @param obj The line to draw.
-		virtual void drawLine(GameObjects::LineObject &obj) = 0;
+		//! @return True if the line could be drawned. False otherwise.
+		virtual bool draw(Drawables::Line &obj) = 0;
 
 		//! @brief Draw a rectangle.
 		//! @param obj The rectangle to draw.
-		virtual void drawRectangle(GameObjects::RectangleObject &obj) = 0;
+		//! @return True if the rectangle could be drawned. False otherwise.
+		virtual bool draw(Drawables::Rectangle &obj) = 0;
 
 		//! @brief Draw a circle.
 		//! @param obj The circle to draw.
-		virtual void drawCircle(GameObjects::CircleObject &obj) = 0;
-		
+		//! @return True if the circle could be drawned. False otherwise.
+		virtual bool draw(Drawables::Circle &obj) = 0;
+
 		//! @brief Draw a sprite.
 		//! @param obj The sprite to draw.
-		virtual void drawSprite(GameObjects::SpriteObject &obj) = 0;
-		
+		//! @return True if the sprite could be drawned. False otherwise.
+		virtual bool draw(Drawables::Sprite &obj) = 0;
+
 		//! @brief Draw a text.
 		//! @param obj The text to draw.
-		virtual void drawText(GameObjects::TextObject &obj) = 0;
-		
+		//! @return True if the text could be drawned. False otherwise.
+		virtual bool draw(Drawables::Text &obj) = 0;
+
 		//! @brief Refresh the screen, clear left-overs and draw requested objects.
-		virtual void refresh() = 0;
+		virtual bool refresh() = 0;
+
+		//! @brief Load a sprite
+		//! @return Return true if the texture was successfully loaded. False otherwise
+		virtual bool load(const std::string &path) = 0;
+
+		//! @brief Unload a sprite
+		virtual void unload(const std::string &path) = 0;
+
+		//! @brief Unload all sprites loaded.
+		virtual void unloadAll() = 0;
 	};
 }

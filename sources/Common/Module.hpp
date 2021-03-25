@@ -11,7 +11,6 @@
 
 namespace Arcade
 {
-
 	//! @brief A base module interface
 	class IModule
 	{
@@ -30,6 +29,9 @@ namespace Arcade
 		//! @brief Should this module be closed?
 		//! @return True if this module should be closed. False otherwise.
 		virtual bool shouldClose() = 0;
+
+		//! @brief Get the type of this module
+		virtual ModInfo::Modtype getType() const = 0;
 	};
 }
 

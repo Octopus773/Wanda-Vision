@@ -7,17 +7,16 @@
 
 #pragma once
 
-#include "Common/Event.hpp"
+#include "Common/Events/Event.hpp"
 
 namespace Arcade::Events
 {
-	struct ClickEvent : public Event
+	//! @brief Event called when the mouse moved.
+	struct MouseMoveEvent : public Event
 	{
 		//! @brief The x position (in percentage)
 		unsigned x;
 		//! @brief The y position (in percentage)
 		unsigned y;
-		//! @brief The ID of this click.
-		unsigned id;
 	};
 }

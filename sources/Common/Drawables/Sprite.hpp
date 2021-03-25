@@ -7,13 +7,13 @@
 
 #pragma once
 
-#include "Common/GameObject.hpp"
+#include "Common/ADrawable.hpp"
 #include <string>
 
-namespace Arcade::GameObjects
+namespace Arcade::Drawables
 {
 	//! @brief A Sprite game objecct.
-	class SpriteObject : public GameObject
+	class Sprite : public ADrawable
 	{
 	public:
 		//! @brief The size of this sprite (percentage in X)
@@ -24,16 +24,14 @@ namespace Arcade::GameObjects
 		unsigned short rotation;
 		//! @brief Path of the sprite to display (this should be cached by the renderer).
 		std::string path;
-		//! @brief GameObject to use if the renderer can't display sprites.
-		GameObject fallback;
 
 		//! @brief Default constructor
-		SpriteObject() = default;
+		Sprite() = default;
 		//! @brief Default copy constructor
-		SpriteObject(const SpriteObject &) = default;
+		Sprite(const Sprite &) = default;
 		//! @brief Default destructor
-		~SpriteObject() = default;
+		~Sprite() = default;
 		//! @brief Default assignement operator
-		SpriteObject &operator=(const SpriteObject &) = default;
+		Sprite &operator=(const Sprite &) = default;
 	};
 }
