@@ -13,7 +13,7 @@
 #include "Common/Drawables/Circle.hpp"
 #include "Common/Drawables/Sprite.hpp"
 #include "Common/Drawables/Text.hpp"
-#include "Common/Event.hpp"
+#include "Common/Events/Event.hpp"
 #include <list>
 #include <memory>
 
