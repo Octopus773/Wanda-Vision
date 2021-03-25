@@ -37,7 +37,7 @@ namespace Arcade
 		//! @brief Binding of a constructor for KeyEvent struct
 		//! @param key Value of key attribute of struct Events::KeyEvent
 		//! @return A KeyEvent struct with it's values correctly filled
-		static Events::KeyEvent createKeyEvent(unsigned key);
+		static Events::KeyEvent createKeyEvent(Events::KeyCode key);
 		//! @brief Binding of a constructor for ClickEvent struct
 		//! @param x The x position (in percentage)
 		//! @param y The y position (in percentage)
@@ -93,7 +93,7 @@ namespace Arcade
 		void drawSprite(GameObjects::SpriteObject &obj) override;
 
 		//! @brief Refresh the screen, clear left-overs and draw requested objects.
-		void refresh() const override;
+		void refresh() override;
 	};
 
 }

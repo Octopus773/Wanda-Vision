@@ -75,7 +75,7 @@ namespace Arcade
 				event = std::make_unique<Event>(Events::CloseEvent());
 				break;
 			case SDL_KEYDOWN:
-				event = std::make_unique<Event>(createKeyEvent(e.key.keysym.sym));
+				event = std::make_unique<Event>(createKeyEvent(static_cast<Events::KeyCode>(e.key.keysym.sym)));
 				break;
 			case SDL_MOUSEBUTTONDOWN:
 				event = std::make_unique<Event>(createClickEvent((e.button.x * 100) / this->_windowWidth,
@@ -146,13 +146,13 @@ namespace Arcade
 		SDL_RenderCopyEx(this->_windowRenderer, img, nullptr, &rect, obj.rotation, nullptr, SDL_FLIP_NONE);
 	}
 
-	void SDLDisplay::refresh() const
+	void SDLDisplay::refresh()
 	{
 		SDL_RenderPresent(this->_windowRenderer);
 		SDL_RenderClear(this->_windowRenderer);
 	}
 
-	Events::KeyEvent SDLDisplay::createKeyEvent(unsigned int key)
+	Events::KeyEvent SDLDisplay::createKeyEvent(Events::KeyCode key)
 	{
 		Events::KeyEvent e;
 
