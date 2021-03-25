@@ -1,4 +1,0 @@
-<map id="Arcade::GameObjects::TextObject" name="Arcade::GameObjects::TextObject">
-<area shape="rect" id="node1" title="A text object." alt="" coords="5,204,156,340"/>
-<area shape="rect" id="node2" href="$classArcade_1_1GameObject.html" title="A base class for every objects in the game." alt="" coords="9,5,153,156"/>
-</map>

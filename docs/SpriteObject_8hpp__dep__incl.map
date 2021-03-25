@@ -1,9 +1,0 @@
-<map id="sources/Common/GameObjects/SpriteObject.hpp" name="sources/Common/GameObjects/SpriteObject.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="162,5,371,47"/>
-<area shape="rect" id="node2" href="$IDisplayModule_8hpp.html" title=" " alt="" coords="145,95,389,121"/>
-<area shape="rect" id="node3" href="$Runner_8hpp.html" title=" " alt="" coords="104,169,251,211"/>
-<area shape="rect" id="node6" href="$SDLDisplay_8hpp.html" title=" " alt="" coords="275,169,440,211"/>
-<area shape="rect" id="node4" href="$main_8cpp.html" title=" " alt="" coords="5,266,80,293"/>
-<area shape="rect" id="node5" href="$Runner_8cpp.html" title=" " alt="" coords="104,259,251,300"/>
-<area shape="rect" id="node7" href="$SDLDisplay_8cpp.html" title=" " alt="" coords="275,259,440,300"/>
-</map>
