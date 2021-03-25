@@ -7,24 +7,24 @@
 
 #pragma once
 
-#include "Common/GameObject.hpp"
+#include "Common/Drawables/ADrawable.hpp"
 
-namespace Arcade::GameObjects
+namespace Arcade::Drawables
 {
 	//! @brief A circle game objecct.
-	class CircleObject : public GameObject
+	class Circle : public ADrawable
 	{
 	public:
 		//! @brief The size of this circle (in percentage)
 		unsigned size;
 
 		//! @brief Default constructor
-		CircleObject() = default;
+		Circle() = default;
 		//! @brief Default copy constructor
-		CircleObject(const CircleObject &) = default;
+		Circle(const Circle &) = default;
 		//! @brief Default destructor
-		~CircleObject() = default;
+		~Circle() = default;
 		//! @brief Default assignement operator
-		CircleObject &operator=(const CircleObject &) = default;
+		Circle &operator=(const Circle &) = default;
 	};
 }

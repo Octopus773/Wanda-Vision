@@ -7,25 +7,25 @@
 
 #pragma once
 
-#include "Common/GameObject.hpp"
+#include "Common/Drawables/ADrawable.hpp"
 #include <string>
 
-namespace Arcade::GameObjects
+namespace Arcade::Drawables
 {
 	//! @brief A text object.
-	class TextObject : public GameObject
+	class Text : public ADrawable
 	{
 	public:
 		//! @brief The text to display
 		std::string text;
 
 		//! @brief Default constructor
-		TextObject() = default;
+		Text() = default;
 		//! @brief Default copy constructor
-		TextObject(const TextObject &) = default;
+		Text(const Text &) = default;
 		//! @brief Default destructor
-		~TextObject() = default;
+		~Text() = default;
 		//! @brief Default assignement operator
-		TextObject &operator=(const TextObject &) = default;
+		Text &operator=(const Text &) = default;
 	};
 }

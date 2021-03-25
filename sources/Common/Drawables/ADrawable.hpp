@@ -7,10 +7,12 @@
 
 #pragma once
 
+#include <memory>
+
 namespace Arcade
 {
 	//! @brief A base class for every objects in the game.
-	class GameObject
+	class ADrawable
 	{
 	public:
 		//! @brief Get the X position of this object
@@ -25,13 +27,17 @@ namespace Arcade
 		//! @info color format is RRGGBBAA, 1 byte for each
 		unsigned color;
 
-		//! @brief Default constructor
-		GameObject() = default;
-		//! @brief Default copy constructor
-		GameObject(const GameObject &) = default;
+		//! @brief Drawable to use if the renderer can't display the current object (can be nullptr).
+		std::unique_ptr<ADrawable> fallback;
+
 		//! @brief Default destructor
-		virtual ~GameObject() = default;
+		virtual ~ADrawable() = default;
 		//! @brief Default assignement operator
-		GameObject &operator=(const GameObject &) = default;
+		ADrawable &operator=(const ADrawable &) = default;
+	protected:
+		//! @brief Default constructor (protected because the class is abstract)
+		ADrawable() = default;
+		//! @brief Default copy constructor (protected because the class is abstract)
+		ADrawable(const ADrawable &) = default;
 	};
 }

@@ -7,9 +7,9 @@
 #include <SDL2/SDL.h>
 #include <string>
 #include "Common/IDisplayModule.hpp"
-#include "Common/Events/ClickEvent.hpp"
-#include "Common/Events/KeyEvent.hpp"
-#include "Common/Events/CloseEvent.hpp"
+#include "Common/Events/MouseClickEvent.hpp"
+#include "Common/Events/KeyBoardEvent.hpp"
+#include "Common/Events/Event.hpp"
 #include <map>
 
 namespace Arcade
@@ -37,13 +37,13 @@ namespace Arcade
 		//! @brief Binding of a constructor for KeyEvent struct
 		//! @param key Value of key attribute of struct Events::KeyEvent
 		//! @return A KeyEvent struct with it's values correctly filled
-		static Events::KeyEvent createKeyEvent(Events::KeyCode key);
+		static Events::KeyboardEvent createKeyEvent(Events::KeyboardEvent::KeyCode key);
 		//! @brief Binding of a constructor for ClickEvent struct
 		//! @param x The x position (in percentage)
 		//! @param y The y position (in percentage)
 		//! @param id The ID of this click.
 		//! @return A ClickEvent struct with it's values correctly filled
-		static Events::ClickEvent createClickEvent(unsigned x, unsigned y, unsigned id);
+		static Events::MouseClickEvent createClickEvent(unsigned x, unsigned y, unsigned id);
 		//! @brief Used to set the color of the SDL2 renderer
 		//! @param color The color format: RRGGBBAA (1 byte each)
 		void setRendererColor(unsigned color);
@@ -78,22 +78,22 @@ namespace Arcade
 
 		//! @brief Draw a line.
 		//! @param obj The line to draw.
-		void drawLine(GameObjects::LineObject &obj) override;
+		bool draw(Drawables::Line &obj) override;
 
 		//! @brief Draw a rectangle.
 		//! @param obj The rectangle to draw.
-		void drawRectangle(GameObjects::RectangleObject &obj) override;
+		bool draw(Drawables::Rectangle &obj) override;
 
 		//! @brief Draw a circle.
 		//! @param obj The circle to draw.
-		void drawCircle(GameObjects::CircleObject &obj) override;
+		bool draw(Drawables::Circle &obj) override;
 
 		//! @brief Draw a sprite.
 		//! @param obj The sprite to draw.
-		void drawSprite(GameObjects::SpriteObject &obj) override;
+		bool draw(Drawables::Sprite &obj) override;
 
 		//! @brief Refresh the screen, clear left-overs and draw requested objects.
-		void refresh() override;
+		bool refresh() override;
 	};
 
 }
