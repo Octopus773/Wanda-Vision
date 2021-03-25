@@ -6,9 +6,9 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <iostream>
-#include "Common/Events/ClickEvent.hpp"
-#include "Common/Events/KeyEvent.hpp"
-#include "Common/Events/CloseEvent.hpp"
+#include "Common/Events/MouseClickEvent.hpp"
+#include "Common/Events/KeyBoardEvent.hpp"
+#include "Common/Events/Event.hpp"
 
 namespace Arcade
 {
@@ -20,8 +20,6 @@ namespace Arcade
 			std::cerr << "SDL could not initialize! SDL_Error: " << SDL_GetError() << std::endl;
 			return false;
 		}
-		// TODO Might not need this
-		SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
 		this->_window = SDL_CreateWindow(this->_windowTitle.c_str(),
 						 SDL_WINDOWPOS_UNDEFINED,
 						 SDL_WINDOWPOS_UNDEFINED,
@@ -72,10 +70,10 @@ namespace Arcade
 		{
 			switch (e.type) {
 			case SDL_QUIT:
-				event = std::make_unique<Event>(Events::CloseEvent());
+				event = std::make_unique<Event>(Event());
 				break;
 			case SDL_KEYDOWN:
-				event = std::make_unique<Event>(createKeyEvent(static_cast<Events::KeyCode>(e.key.keysym.sym)));
+				event = std::make_unique<Event>(createKeyEvent(static_cast<Events::KeyboardEvent::KeyCode>(e.key.keysym.sym)));
 				break;
 			case SDL_MOUSEBUTTONDOWN:
 				event = std::make_unique<Event>(createClickEvent((e.button.x * 100) / this->_windowWidth,
@@ -90,7 +88,7 @@ namespace Arcade
 		return events;
 	}
 
-	void SDLDisplay::drawLine(GameObjects::LineObject &obj)
+	bool SDLDisplay::draw(Drawables::Line &obj)
 	{
 		SDL_SetRenderDrawColor(this->_windowRenderer, 0x00, 0x00, 0xFF, 0xFF);
 		this->setRendererColor(obj.color);
@@ -100,9 +98,10 @@ namespace Arcade
 				   obj.endX * this->_windowWidth,
 				   obj.endY * this->_windowHeight
 						   );
+		return true;
 	}
 
-	void SDLDisplay::drawRectangle(GameObjects::RectangleObject &obj)
+	bool SDLDisplay::draw(Drawables::Rectangle &obj)
 	{
 		SDL_Rect fillRect = {obj.x * this->_windowWidth,
 				     obj.y * this->_windowHeight,
@@ -110,14 +109,15 @@ namespace Arcade
 				     obj.endY * this->_windowHeight};
 		this->setRendererColor(obj.color);
 		SDL_RenderFillRect(this->_windowRenderer, &fillRect);
+		return true;
 	}
 
-	void SDLDisplay::drawCircle(GameObjects::CircleObject &)
+	bool SDLDisplay::draw(Drawables::Circle &)
 	{
-		std::cerr << "Circle rendering isn't yet supported with SDL2 display module" << std::endl;
+		return false;
 	}
 
-	void SDLDisplay::drawSprite(GameObjects::SpriteObject &obj)
+	bool SDLDisplay::draw(Drawables::Sprite &obj)
 	{
 		int w;
 		int h;
@@ -131,7 +131,7 @@ namespace Arcade
 			img = IMG_LoadTexture(this->_windowRenderer, path.c_str());
 			if (!img) {
 				std::cerr << "Error couldn't load Sprite: " << path << std::endl;
-				return;
+				return false;
 			}
 			this->_loadedTextures[path] = img;
 		}
@@ -144,25 +144,27 @@ namespace Arcade
 		rect.w = static_cast<int>(obj.sizeX);
 		rect.h = static_cast<int>(obj.sizeY);
 		SDL_RenderCopyEx(this->_windowRenderer, img, nullptr, &rect, obj.rotation, nullptr, SDL_FLIP_NONE);
+		return true;
 	}
 
-	void SDLDisplay::refresh()
+	bool SDLDisplay::refresh()
 	{
 		SDL_RenderPresent(this->_windowRenderer);
 		SDL_RenderClear(this->_windowRenderer);
+		return true;
 	}
 
-	Events::KeyEvent SDLDisplay::createKeyEvent(Events::KeyCode key)
+	Events::KeyboardEvent SDLDisplay::createKeyEvent(Events::KeyboardEvent::KeyCode key)
 	{
-		Events::KeyEvent e;
+		Events::KeyboardEvent e;
 
 		e.key = key;
 		return e;
 	}
 
-	Events::ClickEvent SDLDisplay::createClickEvent(unsigned int x, unsigned int y, unsigned int id)
+	Events::MouseClickEvent SDLDisplay::createClickEvent(unsigned int x, unsigned int y, unsigned int id)
 	{
-		Events::ClickEvent e;
+		Events::MouseClickEvent e;
 
 		e.x = x;
 		e.y = y;
