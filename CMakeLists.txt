@@ -3,6 +3,8 @@ project(Arcade)
 
 set(CMAKE_CXX_STANDARD 20)
 
+include_directories(sources)
+
 add_executable(arcade
         main.cpp
         sources/Common/GameObjects/CircleObject.hpp
@@ -18,4 +20,12 @@ add_executable(arcade
         sources/Common/IGameModule.hpp
         sources/Common/ModInfo.hpp
         sources/Common/Module.hpp
+        sources/Core/Runner/Runner.cpp
+        sources/Core/Runner/Runner.hpp
+        sources/Core/Library.hpp
+        sources/Core/Library.cpp
+        sources/Exceptions/InvalidLibraryException.hpp
+        sources/Exceptions/InvalidArgumentException.hpp
 )
+
+target_link_libraries(arcade dl)
