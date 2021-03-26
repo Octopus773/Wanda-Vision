@@ -73,6 +73,7 @@ namespace Arcade
 				event = std::make_unique<Event>(Event());
 				break;
 			case SDL_KEYDOWN:
+				// TODO make transition function to link SDL keysym to the correct keycode
 				event = std::make_unique<Event>(createKeyEvent(static_cast<Events::KeyboardEvent::KeyCode>(e.key.keysym.sym)));
 				break;
 			case SDL_MOUSEBUTTONDOWN:
@@ -133,16 +134,10 @@ namespace Arcade
 		SDL_Texture *img;
 
 		if (this->_loadedTextures.find(path) == this->_loadedTextures.end()) {
-			img = IMG_LoadTexture(this->_windowRenderer, path.c_str());
-			if (!img) {
-				std::cerr << "Error couldn't load Sprite: " << path << std::endl;
-				return false;
-			}
-			this->_loadedTextures[path] = img;
+			std::cerr << "Error resource isn't loaded: " << path << std::endl;
+			return false;
 		}
-		else {
-			img = this->_loadedTextures[path];
-		}
+		img = this->_loadedTextures[path];
 		SDL_QueryTexture(img, nullptr, nullptr, &w, &h);
 		rect.x = obj.x - (w / 2);
 		rect.y = obj.y - (h / 2);
