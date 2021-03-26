@@ -114,6 +114,13 @@ namespace Arcade
 
 	bool SDLDisplay::draw(Drawables::Circle &)
 	{
+		std::cerr << "Circles not implemented" << std::endl;
+		return false;
+	}
+
+	bool SDLDisplay::draw(Drawables::Text &obj)
+	{
+		std::cerr << "Text not implemented" << std::endl;
 		return false;
 	}
 
@@ -186,7 +193,20 @@ namespace Arcade
 		return ModInfo::GRAPHIC;
 	}
 
-	ModInfo getHeader()
+	bool SDLDisplay::load(const std::string &)
+	{
+		return false;
+	}
+
+	void SDLDisplay::unload(const std::string &)
+	{
+	}
+
+	void SDLDisplay::unloadAll()
+	{
+	}
+
+	extern "C" ModInfo getHeader()
 	{
 		ModInfo m;
 
@@ -194,5 +214,10 @@ namespace Arcade
 		m.name = "SugarDaddy";
 		m.type = ModInfo::Modtype::GRAPHIC;
 		return m;
+	}
+
+	extern "C" Arcade::IModule *getModule()
+	{
+		return new SDLDisplay;
 	}
 }
