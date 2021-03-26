@@ -39,4 +39,4 @@ add_library(arcade_sdl2
         )
 SET_TARGET_PROPERTIES(arcade_sdl2 PROPERTIES PREFIX "")
 
-target_link_libraries(arcade_sdl2 SDL2)
+target_link_libraries(arcade_sdl2 SDL2 SDL2_image)
