@@ -94,6 +94,10 @@ namespace Arcade
 
 		//! @brief Refresh the screen, clear left-overs and draw requested objects.
 		bool refresh() override;
+
+		//! @brief Gives the library type
+		//! @return A value of the enum ModType representing the type of the library
+		ModInfo::Modtype getType() const override;
 	};
 
 }

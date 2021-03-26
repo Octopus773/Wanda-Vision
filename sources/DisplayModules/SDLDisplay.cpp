@@ -181,4 +181,18 @@ namespace Arcade
 				       color & 0xFF);
 	}
 
+	ModInfo::Modtype SDLDisplay::getType() const
+	{
+		return ModInfo::GRAPHIC;
+	}
+
+	ModInfo getHeader()
+	{
+		ModInfo m;
+
+		m.magicNumber = 0xBA0BAB;
+		m.name = "SugarDaddy";
+		m.type = ModInfo::Modtype::GRAPHIC;
+		return m;
+	}
 }
