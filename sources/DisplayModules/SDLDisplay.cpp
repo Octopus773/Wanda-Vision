@@ -132,8 +132,6 @@ namespace Arcade
 		SDL_Rect rect;
 		SDL_Texture *img;
 
-		//TODO handle the fallback when loading the image fails
-
 		if (this->_loadedTextures.find(path) == this->_loadedTextures.end()) {
 			img = IMG_LoadTexture(this->_windowRenderer, path.c_str());
 			if (!img) {
@@ -193,17 +191,35 @@ namespace Arcade
 		return ModInfo::GRAPHIC;
 	}
 
-	bool SDLDisplay::load(const std::string &)
+	bool SDLDisplay::load(const std::string &path)
 	{
+		SDL_Texture *img;
+		// TODO in future multiple types of textures will be added
+		if (this->_loadedTextures.find(path) == this->_loadedTextures.end()) {
+			img = IMG_LoadTexture(this->_windowRenderer, path.c_str());
+			if (!img) {
+				return false;
+			}
+			this->_loadedTextures[path] = img;
+			return true;
+		}
 		return false;
 	}
 
-	void SDLDisplay::unload(const std::string &)
+	void SDLDisplay::unload(const std::string &path)
 	{
+		// TODO be able to handle multiple types of ressources
+		if (this->_loadedTextures.find(path) != this->_loadedTextures.end()) {
+			SDL_DestroyTexture(this->_loadedTextures[path]);
+			this->_loadedTextures.erase(path);
+		}
 	}
 
 	void SDLDisplay::unloadAll()
 	{
+		for (const auto &pair : this->_loadedTextures)
+			SDL_DestroyTexture(pair.second);
+		this->_loadedTextures.clear();
 	}
 
 	extern "C" ModInfo getHeader()
