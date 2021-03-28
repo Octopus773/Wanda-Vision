@@ -3,8 +3,6 @@ project(Arcade)
 
 set(CMAKE_CXX_STANDARD 20)
 
-find_package(SDL2 REQUIRED)
-
 include_directories(sources)
 
 add_executable(arcade
