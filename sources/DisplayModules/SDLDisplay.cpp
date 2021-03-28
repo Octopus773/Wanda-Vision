@@ -229,6 +229,7 @@ namespace Arcade
 
 	extern "C" Arcade::IModule *getModule()
 	{
+		// test ci
 		return new SDLDisplay;
 	}
 }
