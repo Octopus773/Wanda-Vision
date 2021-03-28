@@ -63,7 +63,7 @@ namespace Arcade::Core
 		this->_game = lib.start<IGameModule>();
 	}
 
-	void Runner::_drawObject(const std::unique_ptr<ADrawable> &obj)
+	bool Runner::_drawObject(const std::unique_ptr<ADrawable> &obj)
 	{
 		if (auto sprite = dynamic_cast<Drawables::Sprite *>(obj.get()))
 			return this->_renderer->draw(*sprite);
@@ -80,7 +80,7 @@ namespace Arcade::Core
 
 	void Runner::_handleEvent(const std::unique_ptr<Event> &event)
 	{
-		if (auto key = dynamic_cast<Events::KeyEvent *>(event.get())) {
+		if (auto key = dynamic_cast<Events::KeyboardEvent *>(event.get())) {
 			// TODO handle local keys here
 			return;
 		}
@@ -98,7 +98,7 @@ namespace Arcade::Core
 		while (!this->_game->shouldClose()) {
 			for (auto &event : this->_renderer->pullEvents())
 				this->_handleEvent(event);
-			for (auto &obj : this->_game->getObjects())
+			for (auto &obj : this->_game->getDrawables())
 				this->_drawObject(obj);
 			this->_renderer->refresh();
 			auto newTimer = std::chrono::steady_clock::now();
