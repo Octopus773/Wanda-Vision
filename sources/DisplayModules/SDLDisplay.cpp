@@ -203,7 +203,7 @@ namespace Arcade
 
 	void SDLDisplay::unload(const std::string &path)
 	{
-		// TODO be able to handle multiple types of ressources
+		// TODO be able to handle multiple types of resources
 		if (this->_loadedTextures.find(path) != this->_loadedTextures.end()) {
 			SDL_DestroyTexture(this->_loadedTextures[path]);
 			this->_loadedTextures.erase(path);
