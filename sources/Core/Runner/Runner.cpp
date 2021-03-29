@@ -19,7 +19,7 @@ namespace Arcade::Core
 	{
 		this->loadLibraries("./lib");
 		auto lib = std::find_if(this->_renderers.begin(), this->_renderers.end(), [&graphicLib](Library &x) {
-			return x.path == graphicLib;
+			return std::filesystem::path(x.path) == std::filesystem::path(graphicLib);
 		});
 		if (lib == this->_renderers.end())
 			throw InvalidArgumentException("Renderer library not found.");
@@ -29,13 +29,15 @@ namespace Arcade::Core
 	void Runner::loadLibraries(const std::string &path)
 	{
 		for (auto &item : std::filesystem::directory_iterator(path)) {
-			Library library(item.path());
-			if (library.info.type == ModInfo::GAME)
-				this->_games.push_back(std::move(library));
-			else if (library.info.type == ModInfo::GRAPHIC)
-				this->_renderers.push_back(std::move(library));
-			else
-				throw InvalidLibraryException("Invalid library type.");
+			try {
+				Library library(item.path());
+				if (library.info.type == ModInfo::GAME)
+					this->_games.push_back(std::move(library));
+				else if (library.info.type == ModInfo::GRAPHIC)
+					this->_renderers.push_back(std::move(library));
+			} catch (const InvalidLibraryException &) {
+				continue;
+			}
 		}
 	}
 
