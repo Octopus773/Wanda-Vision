@@ -12,7 +12,7 @@
 
 namespace Arcade::Drawables
 {
-	//! @brief A Sprite game objecct.
+	//! @brief A Sprite game object.
 	class Sprite : public ADrawable
 	{
 	public:
