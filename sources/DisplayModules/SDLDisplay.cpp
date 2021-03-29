@@ -45,9 +45,7 @@ namespace Arcade
 	bool SDLDisplay::close()
 
 	{
-		for (const auto &pair : this->_loadedResources)
-			SDL_DestroyTexture(pair.second);
-		this->_loadedResources.clear();
+		this->unloadAll();
 		SDL_DestroyRenderer(this->_windowRenderer);
 		this->_windowRenderer = nullptr;
 		SDL_DestroyWindow(this->_window);
