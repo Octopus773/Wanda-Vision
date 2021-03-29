@@ -58,14 +58,14 @@ namespace Arcade
 		//! @brief Refresh the screen, clear left-overs and draw requested objects.
 		virtual bool refresh() = 0;
 
-		//! @brief Load a sprite
-		//! @return Return true if the texture was successfully loaded. False otherwise
-		virtual bool load(const std::string &path) = 0;
+		//! @brief Load a resource
+		//! @return Return true if the resource was successfully loaded. False otherwise
+		virtual bool load(const std::string &type, const std::string &path) = 0;
 
-		//! @brief Unload a sprite
-		virtual void unload(const std::string &path) = 0;
+		//! @brief Unload a resource
+		virtual void unload(const std::string &type, const std::string &path) = 0;
 
-		//! @brief Unload all sprites loaded.
+		//! @brief Unload all resources loaded.
 		virtual void unloadAll() = 0;
 	};
 }

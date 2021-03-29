@@ -24,13 +24,14 @@ namespace Arcade
 		//! @brief Virtual destructor
 		~IGameModule() override = default;
 
-		//! @brief Get sprites to preload.
+		//! @brief Get resources to preload.
 		//! @info Only called once.
-		virtual const std::vector<std::string> &getSprites() const = 0;
+		//! @return A vector of tupple of (type of resource, path of the resource).
+		virtual const std::vector<std::pair<std::string, std::string>> &getResources() const = 0;
 
 		//! @brief Return a list of drawables to display.
 		//! @return The list of objects
-		virtual const std::vector<std::unique_ptr<ADrawable>> &getDrawables() = 0;
+		virtual const std::vector<std::unique_ptr<Drawables::ADrawable>> &getDrawables() = 0;
 
 		//! @brief Advance the game of x seconds
 		//! @param tick The number of ticks that occured since the last call.
