@@ -13,19 +13,9 @@
 namespace Arcade::Drawables
 {
 	//! @brief A text object.
-	class Text : public ADrawable
+	struct Text : public ADrawable
 	{
-	public:
 		//! @brief The text to display
 		std::string text;
-
-		//! @brief Default constructor
-		Text() = default;
-		//! @brief Default copy constructor
-		Text(const Text &) = default;
-		//! @brief Default destructor
-		~Text() = default;
-		//! @brief Default assignement operator
-		Text &operator=(const Text &) = default;
 	};
 }

@@ -13,7 +13,7 @@
 namespace Arcade::Drawables
 {
 	//! @brief A Sprite game objecct.
-	class Sprite : public ADrawable
+	struct Sprite : public ADrawable
 	{
 	public:
 		//! @brief The size of this sprite (percentage in X)
@@ -24,14 +24,5 @@ namespace Arcade::Drawables
 		unsigned short rotation;
 		//! @brief Path of the sprite to display (this should be cached by the renderer).
 		std::string path;
-
-		//! @brief Default constructor
-		Sprite() = default;
-		//! @brief Default copy constructor
-		Sprite(const Sprite &) = default;
-		//! @brief Default destructor
-		~Sprite() = default;
-		//! @brief Default assignement operator
-		Sprite &operator=(const Sprite &) = default;
 	};
 }
