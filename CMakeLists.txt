@@ -29,3 +29,12 @@ add_executable(arcade
 )
 
 target_link_libraries(arcade dl)
+
+add_library(arcade_sdl2
+        SHARED
+        sources/DisplayModules/SDLDisplay.cpp
+        sources/DisplayModules/SDLDisplay.hpp
+        )
+SET_TARGET_PROPERTIES(arcade_sdl2 PROPERTIES PREFIX "")
+
+target_link_libraries(arcade_sdl2 SDL2 SDL2_image)

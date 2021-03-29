@@ -7,6 +7,8 @@
 
 #pragma once
 
+#include <memory>
+
 namespace Arcade
 {
 	//! @brief A base class for every objects in the game.
