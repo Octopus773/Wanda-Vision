@@ -63,7 +63,7 @@ namespace Arcade::Core
 		this->_game = lib.start<IGameModule>();
 	}
 
-	bool Runner::_drawObject(const std::unique_ptr<ADrawable> &obj)
+	void Runner::_drawObject(const std::unique_ptr<ADrawable> &obj)
 	{
 		bool ret = false;
 
