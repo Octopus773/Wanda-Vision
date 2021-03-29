@@ -9,7 +9,7 @@
 
 #include <memory>
 
-namespace Arcade
+namespace Arcade::Drawables
 {
 	//! @brief A base class for every objects in the game.
 	class ADrawable

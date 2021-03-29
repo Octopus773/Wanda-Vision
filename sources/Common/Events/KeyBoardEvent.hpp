@@ -14,7 +14,7 @@ namespace Arcade::Events
 	//! @brief Event of a keyboard interaction.
 	struct KeyboardEvent : public Event
 	{
-		//! @brief The enum to allow standardized values between graphical libs
+		//! @brief The enum for keyboard keys to allow standardized values between graphical libs
 		enum KeyCode {
 			UNDEFINED = 0,
 			BACKSPACE = 8,
