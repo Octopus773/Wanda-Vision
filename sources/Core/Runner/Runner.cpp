@@ -77,7 +77,9 @@ namespace Arcade::Core
 			ret = this->_renderer->draw(*line);
 		if (auto text = dynamic_cast<Drawables::Text *>(obj.get()))
 			ret = this->_renderer->draw(*text);
-		if (!ret && obj->fallback)
+		if (ret)
+			return;
+		if (obj->fallback)
 			this->_drawObject(obj->fallback);
 		throw std::runtime_error("Unknown game object time met. Aborting...");
 	}
