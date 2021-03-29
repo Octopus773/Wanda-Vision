@@ -2,7 +2,7 @@
 #### Epitech's Arcade project
 
 ---
-![example workflow](https://github.com/EpitechIT2020/B-OOP-400-NAN-4-1-arcade-clement.le-bihan/actions/workflows/build.yml/badge.svg)
+  <a href="https://github.com/EpitechIT2020/B-OOP-400-NAN-4-1-arcade-clement.le-bihan/actions/workflows/build.yml/badge.svg"><img src="https://github.com/EpitechIT2020/B-OOP-400-NAN-4-1-arcade-clement.le-bihan/actions/workflows/build.yml/badge.svg" alt="Build"></a>
 ---
 
 ## Documentation wiki like for users will be ready soon :)
