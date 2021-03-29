@@ -30,7 +30,7 @@ namespace Arcade
 
 		//! @brief Return a list of drawables to display.
 		//! @return The list of objects
-		virtual const std::vector<std::unique_ptr<ADrawable>> &getDrawables() = 0;
+		virtual const std::vector<std::unique_ptr<Drawables::ADrawable>> &getDrawables() = 0;
 
 		//! @brief Advance the game of x seconds
 		//! @param tick The number of ticks that occured since the last call.
