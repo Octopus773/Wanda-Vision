@@ -18,6 +18,8 @@ namespace Arcade::Drawables
 	public:
 		//! @brief The text to display
 		std::string text;
+		//! @brief The size of the text to display
+		unsigned fontSize;
 
 		//! @brief Default constructor
 		Text() = default;
