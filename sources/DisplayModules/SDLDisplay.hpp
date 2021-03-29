@@ -46,7 +46,8 @@ namespace Arcade
 		//! @param id The ID of this click.
 		//! @param clickType The type of the click registered (Up, Down or Hold)
 		//! @return A ClickEvent struct with it's values correctly filled
-		static Events::MouseClickEvent createClickEvent(unsigned int x, unsigned int y, unsigned int id, Event::Type clickType);
+		static Events::MouseClickEvent
+		createClickEvent(unsigned int x, unsigned int y, Events::MouseClickEvent::MouseButton button, Event::Type clickType);
 		//! @brief Binding of a constructor for MoveEvent struct
 		//! @param x The x position (in percentage)
 		//! @param y The y position (in percentage)
@@ -101,22 +102,22 @@ namespace Arcade
 
 		//! @brief Draw a rectangle.
 		//! @param obj The rectangle to draw.
-		//! @return True if the text could be drawned. False otherwise.
+		//! @return True if the draw was successful. False otherwise.
 		bool draw(Drawables::Rectangle &obj) override;
 
 		//! @brief Draw a circle.
 		//! @param obj The circle to draw.
-		//! @return True if the text could be drawned. False otherwise.
+		//! @return True if the draw was successful. False otherwise.
 		bool draw(Drawables::Circle &obj) override;
 
 		//! @brief Draw a sprite.
 		//! @param obj The sprite to draw.
-		//! @return True if the text could be drawned. False otherwise.
+		//! @return True if the draw was successful. False otherwise.
 		bool draw(Drawables::Sprite &obj) override;
 
 		//! @brief Draw a text.
 		//! @param obj The text to draw.
-		//! @return True if the text could be drawned. False otherwise.
+		//! @return True if the draw was successful. False otherwise.
 		bool draw(Drawables::Text &obj) override;
 
 		//! @brief Refresh the screen, clear left-overs and draw requested objects.

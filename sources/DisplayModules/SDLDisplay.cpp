@@ -180,13 +180,13 @@ namespace Arcade
 		return e;
 	}
 
-	Events::MouseClickEvent SDLDisplay::createClickEvent(unsigned int x, unsigned int y, unsigned int id, Event::Type clickType)
+	Events::MouseClickEvent SDLDisplay::createClickEvent(unsigned int x, unsigned int y, Events::MouseClickEvent::MouseButton button, Event::Type clickType)
 	{
 		Events::MouseClickEvent e;
 
 		e.x = x;
 		e.y = y;
-		e.id = id;
+		e.button = button;
 		e.type = clickType;
 		return e;
 	}
