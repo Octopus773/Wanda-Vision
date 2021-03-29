@@ -9,6 +9,7 @@
 #include "Common/IDisplayModule.hpp"
 #include "Common/Events/MouseClickEvent.hpp"
 #include "Common/Events/KeyBoardEvent.hpp"
+#include "Common/Events/MouseMoveEvent.hpp"
 #include "Common/Events/Event.hpp"
 #include <map>
 
@@ -46,6 +47,11 @@ namespace Arcade
 		//! @param clickType The type of the click registered (Up, Down or Hold)
 		//! @return A ClickEvent struct with it's values correctly filled
 		static Events::MouseClickEvent createClickEvent(unsigned int x, unsigned int y, unsigned int id, Event::Type clickType);
+		//! @brief Binding of a constructor for MoveEvent struct
+		//! @param x The x position (in percentage)
+		//! @param y The y position (in percentage)
+		//! @return A MoveEvent struct with it's values correctly filled
+		static Events::MouseMoveEvent createMoveEvent(unsigned int x, unsigned int y);
 		//! @brief Used to set the color of the SDL2 renderer
 		//! @param color The color format: RRGGBBAA (1 byte each)
 		void setRendererColor(unsigned color);

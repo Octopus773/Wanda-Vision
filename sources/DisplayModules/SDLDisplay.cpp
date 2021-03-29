@@ -86,6 +86,15 @@ namespace Arcade
 																	 (e.button.y * 100) / this->_windowHeight,
 																	 e.button.button, Event::KeyDown));
 				break;
+			case SDL_MOUSEBUTTONUP:
+				eventList = std::make_unique<Event>(createClickEvent((e.button.x * 100) / this->_windowWidth,
+																	 (e.button.y * 100) / this->_windowHeight,
+																	 e.button.button, Event::KeyUp));
+				break;
+			case SDL_MOUSEMOTION:
+				eventList = std::make_unique<Event>(createMoveEvent((e.button.x * 100) / this->_windowWidth,
+																	 (e.button.y * 100) / this->_windowHeight));
+				break;
 			default:
 				event.type = Event::Type::Unknown;
 				eventList = std::make_unique<Event>(event);
@@ -170,8 +179,7 @@ namespace Arcade
 		return e;
 	}
 
-	Events::MouseClickEvent
-	SDLDisplay::createClickEvent(unsigned int x, unsigned int y, unsigned int id, Event::Type clickType)
+	Events::MouseClickEvent SDLDisplay::createClickEvent(unsigned int x, unsigned int y, unsigned int id, Event::Type clickType)
 	{
 		Events::MouseClickEvent e;
 
@@ -344,6 +352,16 @@ namespace Arcade
 		case SDL_KeyCode::SDLK_LGUI: return Events::KeyboardEvent::LEFT_META;
 		default: return Events::KeyboardEvent::UNDEFINED;
 		}
+	}
+
+	Events::MouseMoveEvent SDLDisplay::createMoveEvent(unsigned int x, unsigned int y)
+	{
+		Events::MouseMoveEvent e;
+
+		e.x = x;
+		e.y = y;
+		e.type = Event::Type::MouseMove;
+		return e;
 	}
 
 	extern "C" ModInfo getHeader()
