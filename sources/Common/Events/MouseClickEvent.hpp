@@ -16,11 +16,12 @@ namespace Arcade::Events
 	{
 		//! @brief The enum for mouse buttons to allow standardized values between graphical libs
 		enum MouseButton {
-			LEFT = 0,
-			MIDDLE = 1,
-			RIGHT = 2,
-			XBUTTON1 = 3,
-			XBUTTON2 = 4
+			UNDEFINED = 0,
+			LEFT = 1,
+			MIDDLE = 2,
+			RIGHT = 3,
+			XBUTTON1 = 4,
+			XBUTTON2 = 5
 		};
 
 		//! @brief The x position (in percentage)
