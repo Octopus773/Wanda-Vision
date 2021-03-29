@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 	if (argc != 2)
 		return usage(argv[0]);
 	try {
-		Runner runner(argv[1])
+		Runner runner(argv[1]);
 		return runner.runShell();
 	} catch(const std::exception &ex) {
 		std::cerr << ex.what() << std::endl;
