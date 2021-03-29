@@ -1,0 +1,27 @@
+name: Build for linux
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  Building:
+    runs-on: [ubuntu-18.04]
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Update G++
+        run: sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 100
+      - name: Build Makefile with CMake
+        run: mkdir -p build && cd build && cmake ..
+      - name: Build with Makefile
+        run: make -C build arcade
+      - name: Archive production artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: arcade
+          path: build/arcade
