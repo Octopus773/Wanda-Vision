@@ -65,16 +65,20 @@ namespace Arcade::Core
 
 	bool Runner::_drawObject(const std::unique_ptr<ADrawable> &obj)
 	{
+		bool ret = false;
+
 		if (auto sprite = dynamic_cast<Drawables::Sprite *>(obj.get()))
-			return this->_renderer->draw(*sprite);
+			ret = this->_renderer->draw(*sprite);
 		if (auto rec = dynamic_cast<Drawables::Rectangle *>(obj.get()))
-			return this->_renderer->draw(*rec);
+			ret = this->_renderer->draw(*rec);
 		if (auto circle = dynamic_cast<Drawables::Circle *>(obj.get()))
-			return this->_renderer->draw(*circle);
+			ret = this->_renderer->draw(*circle);
 		if (auto line = dynamic_cast<Drawables::Line *>(obj.get()))
-			return this->_renderer->draw(*line);
+			ret = this->_renderer->draw(*line);
 		if (auto text = dynamic_cast<Drawables::Text *>(obj.get()))
-			return this->_renderer->draw(*text);
+			ret = this->_renderer->draw(*text);
+		if (!ret && obj->fallback)
+			this->_drawObject(obj->fallback);
 		throw std::runtime_error("Unknown game object time met. Aborting...");
 	}
 
