@@ -213,7 +213,7 @@ namespace Arcade
 			if (!img) {
 				return false;
 			}
-			// TODO in future multiple types of textures will be added
+			// TODO in future multiple types of textures or ttf files will be added
 			this->_loadedResources[path] = std::make_pair("image", img);
 			return true;
 		}
@@ -223,10 +223,7 @@ namespace Arcade
 	void SDLDisplay::unload(const std::string &path)
 	{
 		if (this->_loadedResources.find(path) != this->_loadedResources.end()) {
-			if (this->_loadedResources[path].first != "image") {
-				return;
-			}
-			SDL_DestroyTexture(static_cast<SDL_Texture *>(this->_loadedResources[path].second));
+			this->destroyResource(this->_loadedResources[path]);
 			this->_loadedResources.erase(path);
 		}
 	}
@@ -234,7 +231,7 @@ namespace Arcade
 	void SDLDisplay::unloadAll()
 	{
 		for (const auto &pair : this->_loadedResources)
-			SDL_DestroyTexture(static_cast<SDL_Texture *>(pair.second.second));
+			this->destroyResource(pair.second);
 		this->_loadedResources.clear();
 	}
 
@@ -398,7 +395,6 @@ namespace Arcade
 
 	extern "C" Arcade::IModule *getModule()
 	{
-		// test ci
 		return new SDLDisplay;
 	}
 }
