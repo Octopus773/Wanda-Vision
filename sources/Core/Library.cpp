@@ -16,14 +16,15 @@ namespace Arcade::Core
 		if (!header)
 			throw InvalidLibraryException(dlerror());
 		auto value = header();
-		if (!value || value->magicNumber != 0xBA0BAB)
+		if (!value || value->magicNumber != MagicNumber)
 			throw InvalidLibraryException("Invalid header returned.");
 		this->info = *value;
 	}
 
 	Library::~Library()
 	{
-		dlclose(this->_handle);
+		if (this->_handle)
+			dlclose(this->_handle);
 	}
 
 	Library::Library(Library &&other) noexcept

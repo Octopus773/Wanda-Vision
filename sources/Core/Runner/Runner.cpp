@@ -19,7 +19,7 @@ namespace Arcade::Core
 	{
 		this->loadLibraries("./lib");
 		auto lib = std::find_if(this->_renderers.begin(), this->_renderers.end(), [&graphicLib](Library &x) {
-			return x.path == graphicLib;
+			return std::filesystem::path(x.path) == std::filesystem::path(graphicLib);
 		});
 		if (lib == this->_renderers.end())
 			throw InvalidArgumentException("Renderer library not found.");
@@ -29,13 +29,15 @@ namespace Arcade::Core
 	void Runner::loadLibraries(const std::string &path)
 	{
 		for (auto &item : std::filesystem::directory_iterator(path)) {
-			Library library(item.path());
-			if (library.info.type == ModInfo::GAME)
-				this->_games.push_back(std::move(library));
-			else if (library.info.type == ModInfo::GRAPHIC)
-				this->_renderers.push_back(std::move(library));
-			else
-				throw InvalidLibraryException("Invalid library type.");
+			try {
+				Library library(item.path());
+				if (library.info.type == ModInfo::GAME)
+					this->_games.push_back(std::move(library));
+				else if (library.info.type == ModInfo::GRAPHIC)
+					this->_renderers.push_back(std::move(library));
+			} catch (const InvalidLibraryException &) {
+				continue;
+			}
 		}
 	}
 
@@ -63,18 +65,24 @@ namespace Arcade::Core
 		this->_game = lib.start<IGameModule>();
 	}
 
-	bool Runner::_drawObject(const std::unique_ptr<ADrawable> &obj)
+	void Runner::_drawObject(const std::unique_ptr<ADrawable> &obj)
 	{
+		bool ret = false;
+
 		if (auto sprite = dynamic_cast<Drawables::Sprite *>(obj.get()))
-			return this->_renderer->draw(*sprite);
+			ret = this->_renderer->draw(*sprite);
 		if (auto rec = dynamic_cast<Drawables::Rectangle *>(obj.get()))
-			return this->_renderer->draw(*rec);
+			ret = this->_renderer->draw(*rec);
 		if (auto circle = dynamic_cast<Drawables::Circle *>(obj.get()))
-			return this->_renderer->draw(*circle);
+			ret = this->_renderer->draw(*circle);
 		if (auto line = dynamic_cast<Drawables::Line *>(obj.get()))
-			return this->_renderer->draw(*line);
+			ret = this->_renderer->draw(*line);
 		if (auto text = dynamic_cast<Drawables::Text *>(obj.get()))
-			return this->_renderer->draw(*text);
+			ret = this->_renderer->draw(*text);
+		if (ret)
+			return;
+		if (obj->fallback)
+			this->_drawObject(obj->fallback);
 		throw std::runtime_error("Unknown game object time met. Aborting...");
 	}
 
