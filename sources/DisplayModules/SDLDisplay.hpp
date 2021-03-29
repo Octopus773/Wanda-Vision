@@ -47,6 +47,11 @@ namespace Arcade
 		//! @brief Used to set the color of the SDL2 renderer
 		//! @param color The color format: RRGGBBAA (1 byte each)
 		void setRendererColor(unsigned color);
+		//! @brief Allows to get the standard KeyCode for a key
+		//! @param key The key given by the SDL2 library
+		//! @return A a value for the key in the standard enum KeyCode
+		//! @warning If no equivalence found the value KeyCode::UNDEFINED is returned
+		Events::KeyboardEvent::KeyCode getStdKey(unsigned int key);
 
 	public:
 		//! @brief Default constructor

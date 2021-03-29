@@ -218,6 +218,69 @@ namespace Arcade
 		this->_loadedTextures.clear();
 	}
 
+	Events::KeyboardEvent::KeyCode SDLDisplay::getStdKey(unsigned int key)
+	{
+		switch (key) {
+		case SDL_KeyCode::SDLK_a: return Events::KeyboardEvent::KEY_A;
+		case SDL_KeyCode::SDLK_b: return Events::KeyboardEvent::KEY_B;
+		case SDL_KeyCode::SDLK_c: return Events::KeyboardEvent::KEY_C;
+		case SDL_KeyCode::SDLK_d: return Events::KeyboardEvent::KEY_D;
+		case SDL_KeyCode::SDLK_e: return Events::KeyboardEvent::KEY_E;
+		case SDL_KeyCode::SDLK_f: return Events::KeyboardEvent::KEY_F;
+		case SDL_KeyCode::SDLK_g: return Events::KeyboardEvent::KEY_G;
+		case SDL_KeyCode::SDLK_h: return Events::KeyboardEvent::KEY_H;
+		case SDL_KeyCode::SDLK_i: return Events::KeyboardEvent::KEY_I;
+		case SDL_KeyCode::SDLK_j: return Events::KeyboardEvent::KEY_J;
+		case SDL_KeyCode::SDLK_k: return Events::KeyboardEvent::KEY_K;
+		case SDL_KeyCode::SDLK_l: return Events::KeyboardEvent::KEY_L;
+		case SDL_KeyCode::SDLK_m: return Events::KeyboardEvent::KEY_M;
+		case SDL_KeyCode::SDLK_n: return Events::KeyboardEvent::KEY_N;
+		case SDL_KeyCode::SDLK_o: return Events::KeyboardEvent::KEY_O;
+		case SDL_KeyCode::SDLK_p: return Events::KeyboardEvent::KEY_P;
+		case SDL_KeyCode::SDLK_q: return Events::KeyboardEvent::KEY_Q;
+		case SDL_KeyCode::SDLK_r: return Events::KeyboardEvent::KEY_R;
+		case SDL_KeyCode::SDLK_s: return Events::KeyboardEvent::KEY_S;
+		case SDL_KeyCode::SDLK_t: return Events::KeyboardEvent::KEY_T;
+		case SDL_KeyCode::SDLK_u: return Events::KeyboardEvent::KEY_U;
+		case SDL_KeyCode::SDLK_v: return Events::KeyboardEvent::KEY_V;
+		case SDL_KeyCode::SDLK_w: return Events::KeyboardEvent::KEY_W;
+		case SDL_KeyCode::SDLK_x: return Events::KeyboardEvent::KEY_X;
+		case SDL_KeyCode::SDLK_y: return Events::KeyboardEvent::KEY_Y;
+		case SDL_KeyCode::SDLK_z: return Events::KeyboardEvent::KEY_Z;
+		case SDL_KeyCode::SDLK_0: return Events::KeyboardEvent::KEY_0;
+		case SDL_KeyCode::SDLK_1: return Events::KeyboardEvent::KEY_1;
+		case SDL_KeyCode::SDLK_2: return Events::KeyboardEvent::KEY_2;
+		case SDL_KeyCode::SDLK_3: return Events::KeyboardEvent::KEY_3;
+		case SDL_KeyCode::SDLK_4: return Events::KeyboardEvent::KEY_4;
+		case SDL_KeyCode::SDLK_5: return Events::KeyboardEvent::KEY_5;
+		case SDL_KeyCode::SDLK_6: return Events::KeyboardEvent::KEY_6;
+		case SDL_KeyCode::SDLK_7: return Events::KeyboardEvent::KEY_7;
+		case SDL_KeyCode::SDLK_8: return Events::KeyboardEvent::KEY_8;
+		case SDL_KeyCode::SDLK_9: return Events::KeyboardEvent::KEY_9;
+		case SDL_KeyCode::SDLK_KP_0: return Events::KeyboardEvent::NUMPAD_0;
+		case SDL_KeyCode::SDLK_KP_1: return Events::KeyboardEvent::NUMPAD_1;
+		case SDL_KeyCode::SDLK_KP_2: return Events::KeyboardEvent::NUMPAD_2;
+		case SDL_KeyCode::SDLK_KP_3: return Events::KeyboardEvent::NUMPAD_3;
+		case SDL_KeyCode::SDLK_KP_4: return Events::KeyboardEvent::NUMPAD_4;
+		case SDL_KeyCode::SDLK_KP_5: return Events::KeyboardEvent::NUMPAD_5;
+		case SDL_KeyCode::SDLK_KP_6: return Events::KeyboardEvent::NUMPAD_6;
+		case SDL_KeyCode::SDLK_KP_7: return Events::KeyboardEvent::NUMPAD_7;
+		case SDL_KeyCode::SDLK_KP_8: return Events::KeyboardEvent::NUMPAD_8;
+		case SDL_KeyCode::SDLK_KP_9: return Events::KeyboardEvent::NUMPAD_9;
+		case SDL_KeyCode::SDLK_BACKSPACE: return Events::KeyboardEvent::BACKSPACE;
+		case SDL_KeyCode::SDLK_TAB: return Events::KeyboardEvent::TAB;
+		case SDL_KeyCode::SDLK_KP_ENTER: return Events::KeyboardEvent::ENTER;
+		case SDL_KeyCode::SDLK_LSHIFT:
+		case SDL_KeyCode::SDLK_RSHIFT: return Events::KeyboardEvent::SHIFT;
+		case SDL_KeyCode::SDLK_RCTRL:
+		case SDL_KeyCode::SDLK_LCTRL: return Events::KeyboardEvent::CTRL;
+		case SDL_KeyCode::SDLK_RALT:
+		case SDL_KeyCode::SDLK_LALT: return Events::KeyboardEvent::ALT;
+		case SDL_KeyCode::SDLK_PAUSE: return Events::KeyboardEvent::PAUSE;
+		default: return Events::KeyboardEvent::UNDEFINED;
+		}
+	}
+
 	extern "C" ModInfo getHeader()
 	{
 		ModInfo m;
