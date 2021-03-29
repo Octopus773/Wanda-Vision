@@ -51,7 +51,7 @@ namespace Arcade
 		//! @param key The key given by the SDL2 library
 		//! @return A a value for the key in the standard enum KeyCode
 		//! @warning If no equivalence found the value KeyCode::UNDEFINED is returned
-		Events::KeyboardEvent::KeyCode getStdKey(unsigned int key);
+		static Events::KeyboardEvent::KeyCode getStdKey(unsigned int key);
 
 	public:
 		//! @brief Default constructor

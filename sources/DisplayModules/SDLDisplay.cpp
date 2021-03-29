@@ -66,26 +66,27 @@ namespace Arcade
 	{
 		SDL_Event e;
 		std::list<std::unique_ptr<Event>> events;
-		std::unique_ptr<Event> event;
+		Event event;
+		std::unique_ptr<Event> eventList;
 		while(SDL_PollEvent(&e) != 0)
 		{
 			switch (e.type) {
 			case SDL_QUIT:
-				event = std::make_unique<Event>(Event());
+				event.type = Event::Type::Close;
+				eventList = std::make_unique<Event>(event);
 				break;
 			case SDL_KEYDOWN:
-				// TODO make transition function to link SDL keysym to the correct keycode
-				event = std::make_unique<Event>(createKeyEvent(static_cast<Events::KeyboardEvent::KeyCode>(e.key.keysym.sym)));
+				eventList = std::make_unique<Event>(createKeyEvent(getStdKey(e.key.keysym.sym)));
 				break;
 			case SDL_MOUSEBUTTONDOWN:
-				event = std::make_unique<Event>(createClickEvent((e.button.x * 100) / this->_windowWidth,
+				eventList = std::make_unique<Event>(createClickEvent((e.button.x * 100) / this->_windowWidth,
 										 (e.button.y * 100) / this->_windowHeight,
-										  e.button.button));
+																	 e.button.button));
 				break;
 			default:
 				continue;
 			}
-			events.emplace_back(std::move(event));
+			events.emplace_back(std::move(eventList));
 		}
 		return events;
 	}
