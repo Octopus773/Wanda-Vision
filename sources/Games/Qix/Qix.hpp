@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include <map>
 #include "Common/IGameModule.hpp"
 
 namespace Arcade::Qix
@@ -11,6 +12,41 @@ namespace Arcade::Qix
 	///! @brief The qix game's module.
 	class Qix : public IGameModule
 	{
+	private:
+		//! @brief Enum of draw types.
+		enum DrawType {
+			None,
+			Slow,
+			Fast
+		};
+		//! @brief Struct used to keep pending moves.
+		struct PendingMoves {
+			//! @brief X direction of the player
+			int moveX;
+			//! @brief Y direction of the player
+			int moveY;
+			//! @brief Draw type (fast, slow or none)
+			DrawType draw;
+		};
+
+		//! @brief The position of the player.
+		std::pair<double, double> _playerPosition;
+		//! @brief Current draw type of the player.
+		DrawType _drawType;
+
+		//! @brief Pending moves.
+		PendingMoves _moves;
+		//! @brief Move speed of the player
+		std::map<DrawType, double> _moveSpeeds = {
+			{None, 1000},
+			{Fast, 1000},
+			{Slow, 500}
+		};
+
+		//! @brief Resources needed by this game.
+		std::vector<std::string> _resources = {};
+		//! @brief Drawables that will be displayed.
+		std::vector<std::unique_ptr<ADrawable>> _drawables = {};
 	public:
 		//! @brief Initialize this library. (Create windows & so on)
 		//! @return True if the initialization was successful. False otherwise.
