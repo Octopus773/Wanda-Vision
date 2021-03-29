@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 20)
 include_directories(sources)
 
 add_executable(arcade
-        main.cpp
+        sources/main.cpp
         sources/Common/Drawables/Circle.hpp
         sources/Common/Drawables/Line.hpp
         sources/Common/Drawables/Rectangle.hpp
@@ -27,14 +27,17 @@ add_executable(arcade
         sources/Exceptions/InvalidLibraryException.hpp
         sources/Exceptions/InvalidArgumentException.hpp
 )
-
 target_link_libraries(arcade dl)
 
-add_library(arcade_sdl2
-        SHARED
+add_library(arcade_sdl2 SHARED
         sources/DisplayModules/SDLDisplay.cpp
         sources/DisplayModules/SDLDisplay.hpp
-        )
-SET_TARGET_PROPERTIES(arcade_sdl2 PROPERTIES PREFIX "")
-
+)
+set_target_properties(arcade_sdl2 PROPERTIES PREFIX "")
 target_link_libraries(arcade_sdl2 SDL2 SDL2_image)
+
+add_library(arcade_qix SHARED
+        sources/Games/Qix/Qix.cpp
+        sources/Games/Qix/Qix.hpp
+)
+set_target_properties(arcade_qix PROPERTIES PREFIX "")
