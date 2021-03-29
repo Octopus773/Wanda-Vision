@@ -36,14 +36,16 @@ namespace Arcade
 
 		//! @brief Binding of a constructor for KeyEvent struct
 		//! @param key Value of key attribute of struct Events::KeyEvent
+		//! @param keyType The type of the key registered (Up, Down or Hold)
 		//! @return A KeyEvent struct with it's values correctly filled
-		static Events::KeyboardEvent createKeyEvent(Events::KeyboardEvent::KeyCode key);
+		static Events::KeyboardEvent createKeyEvent(Events::KeyboardEvent::KeyCode key, Event::Type keyType);
 		//! @brief Binding of a constructor for ClickEvent struct
 		//! @param x The x position (in percentage)
 		//! @param y The y position (in percentage)
 		//! @param id The ID of this click.
+		//! @param clickType The type of the click registered (Up, Down or Hold)
 		//! @return A ClickEvent struct with it's values correctly filled
-		static Events::MouseClickEvent createClickEvent(unsigned x, unsigned y, unsigned id);
+		static Events::MouseClickEvent createClickEvent(unsigned int x, unsigned int y, unsigned int id, Event::Type clickType);
 		//! @brief Used to set the color of the SDL2 renderer
 		//! @param color The color format: RRGGBBAA (1 byte each)
 		void setRendererColor(unsigned color);

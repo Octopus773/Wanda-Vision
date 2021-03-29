@@ -68,23 +68,28 @@ namespace Arcade
 		std::list<std::unique_ptr<Event>> events;
 		Event event;
 		std::unique_ptr<Event> eventList;
+
 		while(SDL_PollEvent(&e) != 0)
 		{
 			switch (e.type) {
 			case SDL_QUIT:
-				event.type = Event::Type::Close;
 				eventList = std::make_unique<Event>(event);
 				break;
 			case SDL_KEYDOWN:
-				eventList = std::make_unique<Event>(createKeyEvent(getStdKey(e.key.keysym.sym)));
+				eventList = std::make_unique<Event>(createKeyEvent(getStdKey(e.key.keysym.sym), Event::Type::KeyDown));
+				break;
+			case SDL_KEYUP:
+				eventList = std::make_unique<Event>(createKeyEvent(getStdKey(e.key.keysym.sym), Event::Type::KeyUp));
 				break;
 			case SDL_MOUSEBUTTONDOWN:
 				eventList = std::make_unique<Event>(createClickEvent((e.button.x * 100) / this->_windowWidth,
-										 (e.button.y * 100) / this->_windowHeight,
-																	 e.button.button));
+																	 (e.button.y * 100) / this->_windowHeight,
+																	 e.button.button, Event::KeyDown));
 				break;
 			default:
-				continue;
+				event.type = Event::Type::Unknown;
+				eventList = std::make_unique<Event>(event);
+				break;
 			}
 			events.emplace_back(std::move(eventList));
 		}
@@ -156,21 +161,24 @@ namespace Arcade
 		return true;
 	}
 
-	Events::KeyboardEvent SDLDisplay::createKeyEvent(Events::KeyboardEvent::KeyCode key)
+	Events::KeyboardEvent SDLDisplay::createKeyEvent(Events::KeyboardEvent::KeyCode key, Event::Type keyType)
 	{
 		Events::KeyboardEvent e;
 
 		e.key = key;
+		e.type = keyType;
 		return e;
 	}
 
-	Events::MouseClickEvent SDLDisplay::createClickEvent(unsigned int x, unsigned int y, unsigned int id)
+	Events::MouseClickEvent
+	SDLDisplay::createClickEvent(unsigned int x, unsigned int y, unsigned int id, Event::Type clickType)
 	{
 		Events::MouseClickEvent e;
 
 		e.x = x;
 		e.y = y;
 		e.id = id;
+		e.type = clickType;
 		return e;
 	}
 
