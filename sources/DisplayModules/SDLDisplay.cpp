@@ -84,12 +84,12 @@ namespace Arcade
 			case SDL_MOUSEBUTTONDOWN:
 				eventList = std::make_unique<Event>(createClickEvent((e.button.x * 100) / this->_windowWidth,
 																	 (e.button.y * 100) / this->_windowHeight,
-																	 e.button.button, Event::KeyDown));
+																	 getStdClickType(e.button.button), Event::KeyDown));
 				break;
 			case SDL_MOUSEBUTTONUP:
 				eventList = std::make_unique<Event>(createClickEvent((e.button.x * 100) / this->_windowWidth,
 																	 (e.button.y * 100) / this->_windowHeight,
-																	 e.button.button, Event::KeyUp));
+																	 getStdClickType(e.button.button), Event::KeyUp));
 				break;
 			case SDL_MOUSEMOTION:
 				eventList = std::make_unique<Event>(createMoveEvent((e.button.x * 100) / this->_windowWidth,
@@ -365,11 +365,15 @@ namespace Arcade
 		return e;
 	}
 
-	Events::MouseClickEvent::MouseButton SDLDisplay::getStdClickType(unsigned int type)
+	Events::MouseClickEvent::MouseButton SDLDisplay::getStdClickType(uint8_t type)
 	{
 		switch (type) {
-		default:
-			return Events::MouseClickEvent::MouseButton::UNDEFINED;
+		case SDL_BUTTON_LEFT: return Events::MouseClickEvent::MouseButton::LEFT;
+		case SDL_BUTTON_MIDDLE: return Events::MouseClickEvent::MouseButton::MIDDLE;
+		case SDL_BUTTON_RIGHT: return Events::MouseClickEvent::MouseButton::RIGHT;
+		case SDL_BUTTON_X1: return Events::MouseClickEvent::MouseButton::XBUTTON1;
+		case SDL_BUTTON_X2: return Events::MouseClickEvent::MouseButton::XBUTTON2;
+		default: return Events::MouseClickEvent::MouseButton::UNDEFINED;
 		}
 	}
 

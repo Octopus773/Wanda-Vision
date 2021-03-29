@@ -58,13 +58,13 @@ namespace Arcade
 		//! @brief Allows to get the standard KeyCode for a key
 		//! @param key The key given by the SDL2 library
 		//! @return A a value for the key in the standard enum KeyCode
-		//! @warning If no equivalence found the value KeyCode::UNDEFINED is returned
+		//! @info If no equivalence found the value KeyCode::UNDEFINED is returned
 		static Events::KeyboardEvent::KeyCode getStdKey(unsigned int key);
 		//! @brief Allows to get the standard Click type for a click
 		//! @param type The type of click given by the SDL2 library
 		//! @return A a value for the click type in the standard enum Type of MouseClickEvent
-		//! @warning If no equivalence found the value Type::UNDEFINED is returned
-		static Events::MouseClickEvent::MouseButton getStdClickType(unsigned int type);
+		//! @info If no equivalence found the value Type::UNDEFINED is returned
+		static Events::MouseClickEvent::MouseButton getStdClickType(uint8_t type);
 
 	public:
 		//! @brief Default constructor
