@@ -9,6 +9,7 @@
 #include "Common/Events/MouseClickEvent.hpp"
 #include "Common/Events/KeyBoardEvent.hpp"
 #include "Common/Events/Event.hpp"
+#include "Common/ModInfo.hpp"
 
 namespace Arcade
 {
@@ -221,8 +222,8 @@ namespace Arcade
 	{
 		ModInfo m;
 
-		m.magicNumber = 0xBA0BAB;
-		m.name = "SugarDaddy";
+		m.magicNumber = MagicNumber;
+		m.name = "SDL2";
 		m.type = ModInfo::Modtype::GRAPHIC;
 		return m;
 	}
