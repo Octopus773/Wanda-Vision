@@ -31,9 +31,10 @@ namespace Arcade
 		std::string _windowTitle = "SDL2 Display Module";
 		//! @brief When true the caller should close this instance
 		bool _shouldClose = true;
-		//! @brief A list of all the sprite that are cached and then not needed to open again
+		//! @brief A list of all the resources that are loaded and cached and then not needed to open again
+		//! @info the pair is holding the type of the resource type and pointer to the resource
 		//! @details saving string for the path (used to check if the texture is already loaded) and the Texture ptr
-		std::map<std::string, SDL_Texture *> _loadedTextures;
+		std::map<std::string, std::pair<std::string, void *>> _loadedResources;
 
 		//! @brief Binding of a constructor for KeyEvent struct
 		//! @param key Value of key attribute of struct Events::KeyEvent
@@ -64,8 +65,11 @@ namespace Arcade
 		//! @brief Allows to get the standard Click type for a click
 		//! @param type The type of click given by the SDL2 library
 		//! @return A a value for the click type in the standard enum Type of MouseClickEvent
-		//! @info If no equivalence found the value Type::UNDEFINED is returned
+		//! @info If no equivalence found the value MouseButton::UNDEFINED is returned
 		static Events::MouseClickEvent::MouseButton getStdClickType(uint8_t type);
+		//! @brief Free the resource given as param
+		//! @param resource the pair is holding the type of the resource type and pointer to the resource
+		void destroyResource(const std::pair<std::string, void *> &resource);
 
 	public:
 		//! @brief Default constructor

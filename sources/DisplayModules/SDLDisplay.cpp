@@ -45,9 +45,9 @@ namespace Arcade
 	bool SDLDisplay::close()
 
 	{
-		for (const auto &pair : this->_loadedTextures)
+		for (const auto &pair : this->_loadedResources)
 			SDL_DestroyTexture(pair.second);
-		this->_loadedTextures.clear();
+		this->_loadedResources.clear();
 		SDL_DestroyRenderer(this->_windowRenderer);
 		this->_windowRenderer = nullptr;
 		SDL_DestroyWindow(this->_window);
@@ -131,14 +131,11 @@ namespace Arcade
 
 	bool SDLDisplay::draw(Drawables::Circle &)
 	{
-		std::cerr << "Circles not implemented" << std::endl;
 		return false;
 	}
 
 	bool SDLDisplay::draw(Drawables::Text &obj)
 	{
-		std::cerr << "Text not implemented" << std::endl;
-		this->setRendererColor(obj.color);
 		return false;
 	}
 
@@ -150,11 +147,13 @@ namespace Arcade
 		SDL_Rect rect;
 		SDL_Texture *img;
 
-		if (this->_loadedTextures.find(path) == this->_loadedTextures.end()) {
-			std::cerr << "Error resource isn't loaded: " << path << std::endl;
+		if (this->_loadedResources.find(path) == this->_loadedResources.end()) {
 			return false;
 		}
-		img = this->_loadedTextures[path];
+		if (this->_loadedResources[path].first != "image") {
+			return false;
+		}
+		img = static_cast<SDL_Texture *>(this->_loadedResources[path].second);
 		SDL_QueryTexture(img, nullptr, nullptr, &w, &h);
 		rect.x = obj.x - (w / 2);
 		rect.y = obj.y - (h / 2);
@@ -180,7 +179,8 @@ namespace Arcade
 		return e;
 	}
 
-	Events::MouseClickEvent SDLDisplay::createClickEvent(unsigned int x, unsigned int y, Events::MouseClickEvent::MouseButton button, Event::Type clickType)
+	Events::MouseClickEvent
+	SDLDisplay::createClickEvent(unsigned int x, unsigned int y, Events::MouseClickEvent::MouseButton button, Event::Type clickType)
 	{
 		Events::MouseClickEvent e;
 
@@ -208,13 +208,13 @@ namespace Arcade
 	bool SDLDisplay::load(const std::string &path)
 	{
 		SDL_Texture *img;
-		// TODO in future multiple types of textures will be added
-		if (this->_loadedTextures.find(path) == this->_loadedTextures.end()) {
+		if (this->_loadedResources.find(path) == this->_loadedResources.end()) {
 			img = IMG_LoadTexture(this->_windowRenderer, path.c_str());
 			if (!img) {
 				return false;
 			}
-			this->_loadedTextures[path] = img;
+			// TODO in future multiple types of textures will be added
+			this->_loadedResources[path] = std::make_pair("image", img);
 			return true;
 		}
 		return false;
@@ -222,18 +222,20 @@ namespace Arcade
 
 	void SDLDisplay::unload(const std::string &path)
 	{
-		// TODO be able to handle multiple types of resources
-		if (this->_loadedTextures.find(path) != this->_loadedTextures.end()) {
-			SDL_DestroyTexture(this->_loadedTextures[path]);
-			this->_loadedTextures.erase(path);
+		if (this->_loadedResources.find(path) != this->_loadedResources.end()) {
+			if (this->_loadedResources[path].first != "image") {
+				return;
+			}
+			SDL_DestroyTexture(static_cast<SDL_Texture *>(this->_loadedResources[path].second));
+			this->_loadedResources.erase(path);
 		}
 	}
 
 	void SDLDisplay::unloadAll()
 	{
-		for (const auto &pair : this->_loadedTextures)
-			SDL_DestroyTexture(pair.second);
-		this->_loadedTextures.clear();
+		for (const auto &pair : this->_loadedResources)
+			SDL_DestroyTexture(static_cast<SDL_Texture *>(pair.second.second));
+		this->_loadedResources.clear();
 	}
 
 	Events::KeyboardEvent::KeyCode SDLDisplay::getStdKey(unsigned int key)
@@ -374,6 +376,13 @@ namespace Arcade
 		case SDL_BUTTON_X1: return Events::MouseClickEvent::MouseButton::XBUTTON1;
 		case SDL_BUTTON_X2: return Events::MouseClickEvent::MouseButton::XBUTTON2;
 		default: return Events::MouseClickEvent::MouseButton::UNDEFINED;
+		}
+	}
+
+	void SDLDisplay::destroyResource(const std::pair<std::string, void *> &resource)
+	{
+		if (resource.first == "image") {
+			SDL_DestroyTexture(static_cast<SDL_Texture *>(resource.second));
 		}
 	}
 
