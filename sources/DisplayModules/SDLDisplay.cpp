@@ -138,6 +138,7 @@ namespace Arcade
 	bool SDLDisplay::draw(Drawables::Text &obj)
 	{
 		std::cerr << "Text not implemented" << std::endl;
+		this->setRendererColor(obj.color);
 		return false;
 	}
 
@@ -362,6 +363,14 @@ namespace Arcade
 		e.y = y;
 		e.type = Event::Type::MouseMove;
 		return e;
+	}
+
+	Events::MouseClickEvent::MouseButton SDLDisplay::getStdClickType(unsigned int type)
+	{
+		switch (type) {
+		default:
+			return Events::MouseClickEvent::MouseButton::UNDEFINED;
+		}
 	}
 
 	extern "C" ModInfo getHeader()
