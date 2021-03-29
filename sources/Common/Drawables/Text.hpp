@@ -20,6 +20,8 @@ namespace Arcade::Drawables
 		std::string text;
 		//! @brief The size of the text to display
 		unsigned fontSize;
+		//! @brief The font file 
+		std::string path;
 
 		//! @brief Default constructor
 		Text() = default;
