@@ -11,6 +11,7 @@
 #include "Common/Drawables/ADrawable.hpp"
 #include "Common/Module.hpp"
 #include "Common/Events/Event.hpp"
+#include "Common/Sound.hpp"
 #include <vector>
 #include <memory>
 #include <string>
@@ -24,13 +25,18 @@ namespace Arcade
 		//! @brief Virtual destructor
 		~IGameModule() override = default;
 
-		//! @brief Get sprites to preload.
+		//! @brief Get resources to preload.
 		//! @info Only called once.
-		virtual const std::vector<std::string> &getSprites() const = 0;
+		//! @return A vector of tupple of (type of resource, path of the resource).
+		virtual const std::vector<std::pair<std::string, std::string>> &getResources() const = 0;
 
 		//! @brief Return a list of drawables to display.
 		//! @return The list of objects
 		virtual const std::vector<std::unique_ptr<Drawables::ADrawable>> &getDrawables() = 0;
+
+		//! @brief Return a list of sounds to make.
+		//! @return The list of sounds
+		virtual const std::vector<Sound> &getSounds() = 0;
 
 		//! @brief Advance the game of x seconds
 		//! @param tick The number of ticks that occured since the last call.

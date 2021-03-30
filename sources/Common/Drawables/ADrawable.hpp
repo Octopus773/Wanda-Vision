@@ -11,10 +11,9 @@
 
 namespace Arcade::Drawables
 {
-	//! @brief A base class for every objects in the game.
-	class ADrawable
+	//! @brief A base struct for every objects in the game.
+	struct ADrawable
 	{
-	public:
 		//! @brief Get the X position of this object
 		//! @info A percentage representing the position. 0 is left, 100 right.
 		int x;
@@ -32,12 +31,8 @@ namespace Arcade::Drawables
 
 		//! @brief Default destructor
 		virtual ~ADrawable() = default;
-		//! @brief Default assignement operator
-		ADrawable &operator=(const ADrawable &) = default;
 	protected:
 		//! @brief Default constructor (protected because the class is abstract)
 		ADrawable() = default;
-		//! @brief Default copy constructor (protected because the class is abstract)
-		ADrawable(const ADrawable &) = default;
 	};
 }

@@ -2,13 +2,15 @@
 #### Epitech's Arcade project
 
 ---
-  <a href="https://github.com/EpitechIT2020/B-OOP-400-NAN-4-1-arcade-clement.le-bihan/actions/workflows/build.yml/badge.svg"><img src="https://github.com/EpitechIT2020/B-OOP-400-NAN-4-1-arcade-clement.le-bihan/actions/workflows/build.yml/badge.svg" alt="Build"></a>
+[![Build for linux](https://github.com/Octopus773/Wanda-Vision/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/Octopus773/Wanda-Vision/actions/workflows/build.yml)
+[![Update the documentation](https://github.com/Octopus773/Wanda-Vision/actions/workflows/doc.yml/badge.svg?branch=master)](https://octopus773.github.io/Wanda-Vision/)
 ---
 
 ## Documentation wiki like for users will be ready soon :)
 
-## The Doxygen documentation for the current commit on master is in the Documentation branch
-
+## Documentation
+- [Doxygen Documentation](https://octopus773.github.io/Wanda-Vision/)
+- ReadTheDoc documentation (work in progress)
 
 ### Wanda Vision's contributors:
 - [Zoe Roux](https://github.com/AnonymusRaccoon "Anonymus Raccoon")
@@ -16,11 +18,11 @@
 
 ### Arcade project mates (common interfaces):
 Group: Bad Nintendo
-- Arthur Jamet
-- Louis Auzuret
+- [Arthur Jamet](https://github.com/Arthi-chaud "Arthi-Chaud")
+- [Louis Auzuret](https://github.com/GitBluub "Bluub")
 - Ugo Généreau
 
-Group: Capcom will learn from us
+Group: Capcom will learn from us (losers of the dice)
 - Baptiste Moulard
-- Romain Lucas
+- [Romain Lucas](https://github.com/roromainlcs "roromainlcs")
 - Simon Thibaut
