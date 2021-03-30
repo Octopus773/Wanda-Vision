@@ -15,12 +15,12 @@
 - [Clément Le Bihan](https://github.com/Octopus773 "Octopus")
 
 ### Arcade project mates (common interfaces):
-Group: Bad Nintendo (losers of the dice)
+Group: Bad Nintendo
 - Arthur Jamet
 - Louis Auzuret
 - Ugo Généreau
 
-Group: Capcom will learn from us
+Group: Capcom will learn from us (losers of the dice)
 - Baptiste Moulard
 - Romain Lucas
 - Simon Thibaut
