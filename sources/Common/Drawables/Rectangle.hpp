@@ -18,7 +18,7 @@ namespace Arcade::Drawables
 		//! @info A percentage representing the position. 0 is left, 100 right.
 		int endX;
 		//! @brief Get the end Y position of the line
-		//! @info A percentage representing the position. 0 is left, 100 right.
+		//! @info A percentage representing the position. 0 is top, 100 bottom.
 		int endY;
 	};
 }

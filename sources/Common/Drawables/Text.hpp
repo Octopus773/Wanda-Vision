@@ -17,5 +17,9 @@ namespace Arcade::Drawables
 	{
 		//! @brief The text to display
 		std::string text;
+		//! @brief The size of the text to display
+		unsigned fontSize;
+		//! @brief The font file 
+		std::string path;
 	};
 }
