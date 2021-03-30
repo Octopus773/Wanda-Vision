@@ -14,6 +14,7 @@
 #include "Common/Drawables/Sprite.hpp"
 #include "Common/Drawables/Text.hpp"
 #include "Common/Events/Event.hpp"
+#include "Common/Sound.hpp"
 #include <list>
 #include <memory>
 
@@ -67,5 +68,8 @@ namespace Arcade
 
 		//! @brief Unload all resources loaded.
 		virtual void unloadAll() = 0;
+
+		//! @brief Play a sound
+		virtual void playSound(Sound &sound) = 0;
 	};
 }
