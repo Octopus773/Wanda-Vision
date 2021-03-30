@@ -67,6 +67,11 @@ namespace Arcade
 		//! @return A a value for the click type in the standard enum Type of MouseClickEvent
 		//! @info If no equivalence found the value MouseButton::UNDEFINED is returned
 		static Events::MouseClickEvent::MouseButton getStdClickType(uint8_t type);
+		//! @brief Allocate the resource given as param
+		//! @param type The type of the resource
+		//! @param path The location of the resource file
+		//! @return A pointer to the resource or nullptr if a problem occurred
+		void *createResource(const std::string &type, const std::string &path);
 		//! @brief Free the resource given as param
 		//! @param resource the pair is holding the type of the resource type and pointer to the resource
 		void destroyResource(const std::pair<std::string, void *> &resource);
@@ -134,11 +139,11 @@ namespace Arcade
 		//! @brief Load a sprite
 		//! @param path The path to the texture to load
 		//! @return Return true if the texture was successfully loaded. False otherwise
-		bool load(const std::string &path) override;
+		bool load(const std::string &type, const std::string &path) override;
 
 		//! @brief Unload a sprite
 		//! @param path The path to the texture to load
-		void unload(const std::string &path) override;
+		void unload(const std::string &type, const std::string &path) override;
 
 		//! @brief Unload all sprites loaded.
 		void unloadAll() override;

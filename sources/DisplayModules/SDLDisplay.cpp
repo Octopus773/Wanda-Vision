@@ -203,22 +203,22 @@ namespace Arcade
 		return ModInfo::GRAPHIC;
 	}
 
-	bool SDLDisplay::load(const std::string &path)
+	bool SDLDisplay::load(const std::string &type, const std::string &path)
 	{
-		SDL_Texture *img;
-		if (this->_loadedResources.find(path) == this->_loadedResources.end()) {
-			img = IMG_LoadTexture(this->_windowRenderer, path.c_str());
-			if (!img) {
-				return false;
-			}
-			// TODO in future multiple types of textures or ttf files will be added
-			this->_loadedResources[path] = std::make_pair("image", img);
-			return true;
+		void *resource;
+
+		if (this->_loadedResources.find(path) != this->_loadedResources.end()) {
+			return false;
 		}
-		return false;
+		resource = this->createResource(type, path);
+		if (!resource) {
+			return false;
+		}
+		this->_loadedResources[path] = std::make_pair(type, resource);
+		return true;
 	}
 
-	void SDLDisplay::unload(const std::string &path)
+	void SDLDisplay::unload(const std::string &type, const std::string &path)
 	{
 		if (this->_loadedResources.find(path) != this->_loadedResources.end()) {
 			this->destroyResource(this->_loadedResources[path]);
@@ -379,6 +379,20 @@ namespace Arcade
 		if (resource.first == "image") {
 			SDL_DestroyTexture(static_cast<SDL_Texture *>(resource.second));
 		}
+	}
+
+	void *SDLDisplay::createResource(const std::string &type, const std::string &path)
+	{
+		void *ret = nullptr;
+
+		if (type == "sprite") {
+			return IMG_LoadTexture(this->_windowRenderer, path.c_str());
+		} else if (type == "font") {
+			return nullptr;
+		} else {
+			return nullptr;
+		}
+		return ret;
 	}
 
 	extern "C" ModInfo getHeader()
