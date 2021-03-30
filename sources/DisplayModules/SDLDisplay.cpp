@@ -5,6 +5,7 @@
 #include "SDLDisplay.hpp"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 #include <iostream>
 #include "Common/Events/MouseClickEvent.hpp"
 #include "Common/Events/KeyBoardEvent.hpp"
@@ -376,8 +377,10 @@ namespace Arcade
 
 	void SDLDisplay::destroyResource(const std::pair<std::string, void *> &resource)
 	{
-		if (resource.first == "image") {
+		if (resource.first == "sprite") {
 			SDL_DestroyTexture(static_cast<SDL_Texture *>(resource.second));
+		} else if (resource.first == "font") {
+			TTF_CloseFont(static_cast<TTF_Font *>(resource.second));
 		}
 	}
 
@@ -388,7 +391,8 @@ namespace Arcade
 		if (type == "sprite") {
 			return IMG_LoadTexture(this->_windowRenderer, path.c_str());
 		} else if (type == "font") {
-			return nullptr;
+			//! @info 250 is an arbitrary value, this number only needs to keep a decent definition when resizing the text via texture scaling
+			return TTF_OpenFont(path.c_str(), 250);
 		} else {
 			return nullptr;
 		}
