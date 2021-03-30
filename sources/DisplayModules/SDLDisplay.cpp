@@ -149,7 +149,7 @@ namespace Arcade
 		if (this->_loadedResources.find(path) == this->_loadedResources.end()) {
 			return false;
 		}
-		if (this->_loadedResources[path].first != "image") {
+		if (this->_loadedResources[path].first != "sprite") {
 			return false;
 		}
 		img = static_cast<SDL_Texture *>(this->_loadedResources[path].second);
