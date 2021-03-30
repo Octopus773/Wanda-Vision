@@ -2,7 +2,8 @@
 #### Epitech's Arcade project
 
 ---
-  <a href="https://github.com/Octopus773/Wanda-Vision/actions/workflows/build.yml/badge.svg"><img src="https://github.com/Octopus773/Wanda-Vision/actions/workflows/build.yml/badge.svg" alt="Build"></a>
+[![Build for linux](https://github.com/Octopus773/Wanda-Vision/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/Octopus773/Wanda-Vision/actions/workflows/build.yml)
+[![Update the documentation](https://github.com/Octopus773/Wanda-Vision/actions/workflows/doc.yml/badge.svg?branch=master)](https://octopus773.github.io/Wanda-Vision/)
 ---
 
 ## Documentation wiki like for users will be ready soon :)
