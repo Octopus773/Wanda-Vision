@@ -147,5 +147,8 @@ namespace Arcade
 
 		//! @brief Unload all sprites loaded.
 		void unloadAll() override;
+
+		//! @brief Play a sound
+		void playSound(Sound &sound) override;
 	};
 }

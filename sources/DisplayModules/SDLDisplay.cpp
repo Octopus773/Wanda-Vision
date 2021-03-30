@@ -395,6 +395,11 @@ namespace Arcade
 		return ret;
 	}
 
+	void SDLDisplay::playSound(Sound &)
+	{
+		std::cerr << "Not implemented yet" << std::endl;
+	}
+
 	extern "C" ModInfo getHeader()
 	{
 		ModInfo m;
