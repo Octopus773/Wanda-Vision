@@ -164,7 +164,7 @@ namespace Arcade
 		rect.y = obj.y;
 		rect.h = static_cast<int>(obj.fontSize);
 		rect.w = static_cast<int>((obj.fontSize * w) / h);
-		SDL_RenderCopyEx(this->_windowRenderer, texture, NULL, &rect, 0, NULL, SDL_FLIP_NONE);
+		SDL_RenderCopyEx(this->_windowRenderer, texture, nullptr, &rect, 0, nullptr, SDL_FLIP_NONE);
 		SDL_DestroyTexture(texture);
 		SDL_FreeSurface(surface);
 		return true;
