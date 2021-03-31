@@ -7,6 +7,7 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_mixer.h>
+#include <SDL2/SDL2_gfxPrimitives.h>
 #include <iostream>
 #include "Common/Events/MouseClickEvent.hpp"
 #include "Common/Events/KeyBoardEvent.hpp"
@@ -110,28 +111,31 @@ namespace Arcade
 		SDL_SetRenderDrawColor(this->_windowRenderer, 0x00, 0x00, 0xFF, 0xFF);
 		this->setRendererColor(obj.color);
 		SDL_RenderDrawLine(this->_windowRenderer,
-				   obj.x * this->_windowWidth,
-				   obj.y * this->_windowHeight,
-				   obj.endX * this->_windowWidth,
-				   obj.endY * this->_windowHeight
+				   obj.x * (this->_windowWidth / 100),
+				   obj.y * (this->_windowHeight / 100),
+				   obj.endX * (this->_windowWidth / 100),
+				   obj.endY * (this->_windowHeight / 100)
 						   );
 		return true;
 	}
 
 	bool SDLDisplay::draw(Drawables::Rectangle &obj)
 	{
-		SDL_Rect fillRect = {obj.x * this->_windowWidth,
-				     obj.y * this->_windowHeight,
-				     obj.endX * this->_windowWidth,
-				     obj.endY * this->_windowHeight};
+		SDL_Rect fillRect = {obj.x * (this->_windowWidth / 100),
+				     obj.y * (this->_windowHeight / 100),
+				     obj.endX * (this->_windowWidth / 100),
+				     obj.endY * (this->_windowHeight / 100)};
 		this->setRendererColor(obj.color);
 		SDL_RenderFillRect(this->_windowRenderer, &fillRect);
 		return true;
 	}
 
-	bool SDLDisplay::draw(Drawables::Circle &)
+	bool SDLDisplay::draw(Drawables::Circle &obj)
 	{
-		return false;
+		return filledCircleColor(this->_windowRenderer,
+					obj.x * (this->_windowHeight / 100),
+					obj.y * (this->_windowWidth / 100),
+					obj.size, obj.color) == 0;
 	}
 
 	bool SDLDisplay::draw(Drawables::Text &obj)
