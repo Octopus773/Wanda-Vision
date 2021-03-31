@@ -156,6 +156,7 @@ namespace Arcade
 		}
 		texture = SDL_CreateTextureFromSurface(this->_windowRenderer, surface);
 		if (!texture) {
+			SDL_FreeSurface(surface);
 			return false;
 		}
 		SDL_QueryTexture(texture, nullptr, nullptr, &w, &h);
@@ -164,7 +165,9 @@ namespace Arcade
 		rect.h = static_cast<int>(obj.fontSize);
 		rect.w = static_cast<int>((obj.fontSize * w) / h);
 		SDL_RenderCopyEx(this->_windowRenderer, texture, NULL, &rect, 0, NULL, SDL_FLIP_NONE);
-		return false;
+		SDL_DestroyTexture(texture);
+		SDL_FreeSurface(surface);
+		return true;
 	}
 
 	bool SDLDisplay::draw(Drawables::Sprite &obj)
