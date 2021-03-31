@@ -37,7 +37,7 @@ namespace Arcade::Drawables
 		ADrawable(ADrawable &&move) = default;
 		//! @brief Default destructor
 		virtual ~ADrawable() = default;
-		//! @brief Default assignment operator
+		//! @brief Deleted assignment operator
 		ADrawable &operator=(const ADrawable &) = delete;
 	};
 }
