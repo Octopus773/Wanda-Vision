@@ -84,17 +84,19 @@ namespace Arcade
 				break;
 			case SDL_MOUSEBUTTONDOWN:
 				eventList = std::make_unique<Event>(createClickEvent((e.button.x * 100) / this->_windowWidth,
-																	 (e.button.y * 100) / this->_windowHeight,
-																	 getStdClickType(e.button.button), Event::KeyDown));
+														 (e.button.y * 100) / this->_windowHeight,
+														 getStdClickType(e.button.button),
+														 Event::KeyDown));
 				break;
 			case SDL_MOUSEBUTTONUP:
 				eventList = std::make_unique<Event>(createClickEvent((e.button.x * 100) / this->_windowWidth,
-																	 (e.button.y * 100) / this->_windowHeight,
-																	 getStdClickType(e.button.button), Event::KeyUp));
+														 (e.button.y * 100) / this->_windowHeight,
+														 getStdClickType(e.button.button),
+														 Event::KeyUp));
 				break;
 			case SDL_MOUSEMOTION:
 				eventList = std::make_unique<Event>(createMoveEvent((e.button.x * 100) / this->_windowWidth,
-																	 (e.button.y * 100) / this->_windowHeight));
+														(e.button.y * 100) / this->_windowHeight));
 				break;
 			default:
 				event.type = Event::Type::Unknown;
@@ -156,10 +158,12 @@ namespace Arcade
 		}
 		// TODO might need to cache the texture of the font directly internally if it's too laggy (cache for each color and text)
 		surface = TTF_RenderText_Solid(static_cast<TTF_Font *>(this->_loadedResources[obj.path].second),
-									   obj.text.c_str(),
-									   (SDL_Color){static_cast<Uint8>((obj.color & (0xFF << 24)) >> 24),
-														   static_cast<Uint8>((obj.color & (0xFF << 16)) >> 16),
-														   static_cast<Uint8>((obj.color & (0xFF << 8)) >> 8)});
+								 obj.text.c_str(),
+								 (SDL_Color){
+									static_cast<Uint8>((obj.color & (0xFF << 24)) >> 24),
+									static_cast<Uint8>((obj.color & (0xFF << 16)) >> 16),
+									static_cast<Uint8>((obj.color & (0xFF << 8)) >> 8)
+									});
 		if (!surface) {
 			return false;
 		}
