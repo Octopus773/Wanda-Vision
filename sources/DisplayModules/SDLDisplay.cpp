@@ -6,6 +6,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_mixer.h>
 #include <iostream>
 #include "Common/Events/MouseClickEvent.hpp"
 #include "Common/Events/KeyBoardEvent.hpp"
@@ -17,7 +18,7 @@ namespace Arcade
 
 	bool SDLDisplay::init()
 	{
-		if(SDL_Init(SDL_INIT_VIDEO) < 0)
+		if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) != 0)
 		{
 			std::cerr << "SDL could not initialize! SDL_Error: " << SDL_GetError() << std::endl;
 			return false;
@@ -178,10 +179,8 @@ namespace Arcade
 		SDL_Rect rect;
 		SDL_Texture *img;
 
-		if (this->_loadedResources.find(path) == this->_loadedResources.end()) {
-			return false;
-		}
-		if (this->_loadedResources[path].first != "sprite") {
+		if (this->_loadedResources.find(path) == this->_loadedResources.end()
+			|| this->_loadedResources[path].first != "sprite") {
 			return false;
 		}
 		img = static_cast<SDL_Texture *>(this->_loadedResources[path].second);
@@ -413,27 +412,36 @@ namespace Arcade
 			SDL_DestroyTexture(static_cast<SDL_Texture *>(resource.second));
 		} else if (resource.first == "font") {
 			TTF_CloseFont(static_cast<TTF_Font *>(resource.second));
+		} else if (resource.first == "music") {
+			Mix_FreeMusic(static_cast<Mix_Music *>(resource.second));
 		}
 	}
 
 	void *SDLDisplay::createResource(const std::string &type, const std::string &path)
 	{
-		void *ret = nullptr;
-
 		if (type == "sprite") {
 			return IMG_LoadTexture(this->_windowRenderer, path.c_str());
 		} else if (type == "font") {
 			//! @info 250 is an arbitrary value, this number only needs to keep a decent definition when resizing the text via texture scaling
 			return TTF_OpenFont(path.c_str(), 250);
+		} else if (type == "music") {
+			return Mix_LoadMUS(path.c_str());
 		} else {
 			return nullptr;
 		}
-		return ret;
 	}
 
-	void SDLDisplay::playSound(Sound &)
+	void SDLDisplay::playSound(Sound &sound)
 	{
-		std::cerr << "Not implemented yet" << std::endl;
+		int loops = 1;
+		if (this->_loadedResources.find(sound.path) == this->_loadedResources.end()
+			|| this->_loadedResources[sound.path].first != "music") {
+			return;
+		}
+		if (sound.loop) {
+			loops = -1;
+		}
+		Mix_PlayMusic(static_cast<Mix_Music *>(this->_loadedResources[sound.path].second), loops);
 	}
 
 	extern "C" ModInfo getHeader()
