@@ -143,7 +143,7 @@ namespace Arcade
 		SDL_Rect rect;
 
 		if (this->_loadedResources.find(obj.path) == this->_loadedResources.end()
-			|| this->_loadedResources[obj.path].first != "font") {
+			|| this->_loadedResources[obj.path].first != resourceFontType) {
 			return false;
 		}
 		// TODO might need to cache the texture of the font directly internally if it's too laggy (cache for each color and text)
@@ -180,7 +180,7 @@ namespace Arcade
 		SDL_Texture *img;
 
 		if (this->_loadedResources.find(path) == this->_loadedResources.end()
-			|| this->_loadedResources[path].first != "sprite") {
+			|| this->_loadedResources[path].first != resourceSpriteType) {
 			return false;
 		}
 		img = static_cast<SDL_Texture *>(this->_loadedResources[path].second);
@@ -408,23 +408,23 @@ namespace Arcade
 
 	void SDLDisplay::destroyResource(const std::pair<std::string, void *> &resource)
 	{
-		if (resource.first == "sprite") {
+		if (resource.first == resourceFontType) {
 			SDL_DestroyTexture(static_cast<SDL_Texture *>(resource.second));
-		} else if (resource.first == "font") {
+		} else if (resource.first == resourceFontType) {
 			TTF_CloseFont(static_cast<TTF_Font *>(resource.second));
-		} else if (resource.first == "music") {
+		} else if (resource.first == resourceMusicType) {
 			Mix_FreeMusic(static_cast<Mix_Music *>(resource.second));
 		}
 	}
 
 	void *SDLDisplay::createResource(const std::string &type, const std::string &path)
 	{
-		if (type == "sprite") {
+		if (type == resourceSpriteType) {
 			return IMG_LoadTexture(this->_windowRenderer, path.c_str());
-		} else if (type == "font") {
+		} else if (type == resourceFontType) {
 			//! @info 250 is an arbitrary value, this number only needs to keep a decent definition when resizing the text via texture scaling
 			return TTF_OpenFont(path.c_str(), 250);
-		} else if (type == "music") {
+		} else if (type == resourceMusicType) {
 			return Mix_LoadMUS(path.c_str());
 		} else {
 			return nullptr;
@@ -435,7 +435,7 @@ namespace Arcade
 	{
 		int loops = 1;
 		if (this->_loadedResources.find(sound.path) == this->_loadedResources.end()
-			|| this->_loadedResources[sound.path].first != "music") {
+			|| this->_loadedResources[sound.path].first != resourceMusicType) {
 			return;
 		}
 		if (sound.loop) {

@@ -35,6 +35,12 @@ namespace Arcade
 		//! @info the pair is holding the type of the resource type and pointer to the resource
 		//! @details saving string for the path (used to check if the texture is already loaded) and the Texture ptr
 		std::map<std::string, std::pair<std::string, void *>> _loadedResources;
+		//! @brief Music type resource
+		static constexpr char resourceMusicType[] = "music";
+		//! @brief Font type resource
+		static constexpr char resourceFontType[] = "font";
+		//! @brief Sprite type resource
+		static constexpr char resourceSpriteType[] = "sprite";
 
 		//! @brief Binding of a constructor for KeyEvent struct
 		//! @param key Value of key attribute of struct Events::KeyEvent
