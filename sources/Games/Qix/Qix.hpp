@@ -32,10 +32,10 @@ namespace Arcade::Qix
 		//! @brief The position of the player.
 		std::pair<double, double> _playerPosition;
 		//! @brief Current draw type of the player.
-		DrawType _drawType;
+		DrawType _drawType = None;
 
 		//! @brief Pending moves.
-		PendingMoves _moves;
+		PendingMoves _moves = {};
 		//! @brief Move speed of the player
 		std::map<DrawType, double> _moveSpeeds = {
 			{None, 1000},
@@ -44,9 +44,11 @@ namespace Arcade::Qix
 		};
 
 		//! @brief Resources needed by this game.
-		std::vector<std::string> _resources = {};
+		std::vector<std::pair<std::string, std::string>> _resources = {};
 		//! @brief Drawables that will be displayed.
-		std::vector<std::unique_ptr<ADrawable>> _drawables = {};
+		std::vector<std::unique_ptr<Drawables::ADrawable>> _drawables = {};
+		//! @brief Sounds that will be started in the next frame
+		std::vector<Sound> _sounds = {};
 	public:
 		//! @brief Initialize this library. (Create windows & so on)
 		//! @return True if the initialization was successful. False otherwise.
@@ -63,13 +65,18 @@ namespace Arcade::Qix
 		//! @brief Get the type of this module
 		ModInfo::Modtype getType() const override;
 
-		//! @brief Get sprites to preload.
+		//! @brief Get resources to preload.
 		//! @info Only called once.
-		const std::vector<std::string> &getSprites() const override;
+		//! @return A vector of tuple of (type of resource, path of the resource).
+		const std::vector<std::pair<std::string, std::string>> &getResources() const override;
 
 		//! @brief Return a list of drawables to display.
 		//! @return The list of objects
-		const std::vector<std::unique_ptr<ADrawable>> &getDrawables() override;
+		const std::vector<std::unique_ptr<Drawables::ADrawable>> &getDrawables() override;
+
+		//! @brief Return a list of sounds to make.
+		//! @return The list of sounds
+		const std::vector<Sound> &getSounds() override;
 
 		//! @brief Advance the game of x seconds
 		//! @param tick The number of ticks that occurred since the last call.

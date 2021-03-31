@@ -11,14 +11,14 @@ namespace Arcade::Qix
 {
 	bool Qix::init()
 	{
-		Drawables::Circle player;
-		player.size = 1;
-		player.color = 0xFF0000;
+		auto player = std::make_unique<Drawables::Circle>();
+		player->size = 1;
+		player->color = 0xFF0000;
 		Drawables::Rectangle fallback;
 		fallback.color = 0xFF0000;
-		player.fallback = std::make_unique<Drawables::Rectangle>(std::move(fallback));
+		player->fallback = std::make_unique<Drawables::Rectangle>(std::move(fallback));
 
-		this->_drawables.emplace_back(std::move(player))
+		this->_drawables.push_back(std::move(player));
 		return true;
 	}
 
@@ -37,18 +37,22 @@ namespace Arcade::Qix
 		return ModInfo::GAME;
 	}
 
-	const std::vector<std::string> &Qix::getSprites() const
+	const std::vector<std::pair<std::string, std::string>> &Qix::getResources() const
 	{
 		return this->_resources;
 	}
 
-	const std::vector<std::unique_ptr<ADrawable>> &Qix::getDrawables()
+	const std::vector<std::unique_ptr<Drawables::ADrawable>> &Qix::getDrawables()
 	{
 		this->_drawables.front()->x = this->_playerPosition.first;
 		this->_drawables.front()->y = this->_playerPosition.second;
 		return this->_drawables;
 	}
 
+	const std::vector<Sound> &Qix::getSounds()
+	{
+		return this->_sounds;
+	}
 
 	void Qix::addTicks(unsigned int tick)
 	{
