@@ -135,6 +135,35 @@ namespace Arcade
 
 	bool SDLDisplay::draw(Drawables::Text &obj)
 	{
+		int w;
+		int h;
+		SDL_Surface *surface;
+		SDL_Texture *texture;
+		SDL_Rect rect;
+
+		if (this->_loadedResources.find(obj.path) == this->_loadedResources.end()
+			|| this->_loadedResources[obj.path].first != "font") {
+			return false;
+		}
+		// TODO might need to cache the texture of the font directly internally if it's too laggy (cache for each color and text)
+		surface = TTF_RenderText_Solid(static_cast<TTF_Font *>(this->_loadedResources[obj.path].second),
+									   obj.text.c_str(),
+									   (SDL_Color){static_cast<Uint8>((obj.color & (0xFF << 24)) >> 24),
+														   static_cast<Uint8>((obj.color & (0xFF << 16)) >> 16),
+														   static_cast<Uint8>((obj.color & (0xFF << 8)) >> 8)});
+		if (!surface) {
+			return false;
+		}
+		texture = SDL_CreateTextureFromSurface(this->_windowRenderer, surface);
+		if (!texture) {
+			return false;
+		}
+		SDL_QueryTexture(texture, nullptr, nullptr, &w, &h);
+		rect.x = obj.x;
+		rect.y = obj.y;
+		rect.h = static_cast<int>(obj.fontSize);
+		rect.w = static_cast<int>((obj.fontSize * w) / h);
+		SDL_RenderCopyEx(this->_windowRenderer, texture, NULL, &rect, 0, NULL, SDL_FLIP_NONE);
 		return false;
 	}
 
