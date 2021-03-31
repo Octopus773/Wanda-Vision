@@ -17,7 +17,7 @@ jobs:
       - name: Update G++
         run: sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 100
       - name: Install the SDL
-        run: sudo apt-get install libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-mixer-dev
+        run: sudo apt-get install libsdl2 libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-mixer-dev
       - name: Build Makefile with CMake
         run: mkdir -p build && cd build && cmake ..
       - name: Build with Makefile
