@@ -3,6 +3,7 @@
 //
 
 #include <filesystem>
+#include <iostream>
 #include "Exceptions/InvalidLibraryException.hpp"
 #include "Exceptions/InvalidArgumentException.hpp"
 #include "Common/Events/KeyBoardEvent.hpp"
@@ -35,7 +36,8 @@ namespace Arcade::Core
 					this->_games.push_back(std::move(library));
 				else if (library.info.type == ModInfo::GRAPHIC)
 					this->_renderers.push_back(std::move(library));
-			} catch (const InvalidLibraryException &) {
+			} catch (const InvalidLibraryException &ex) {
+				std::cerr << "Invalid library found: " << ex.what() << std::endl;
 				continue;
 			}
 		}
