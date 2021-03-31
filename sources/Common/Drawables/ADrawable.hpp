@@ -31,8 +31,5 @@ namespace Arcade::Drawables
 
 		//! @brief Default destructor
 		virtual ~ADrawable() = default;
-	protected:
-		//! @brief Default constructor (protected because the class is abstract)
-		ADrawable() = default;
 	};
 }
