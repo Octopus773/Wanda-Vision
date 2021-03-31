@@ -268,7 +268,7 @@ namespace Arcade
 
 	Events::KeyboardEvent::KeyCode SDLDisplay::getStdKey(unsigned int key)
 	{
-		switch (key) {
+	/*	switch (key) {
 		case SDL_KeyCode::SDLK_a: return Events::KeyboardEvent::KEY_A;
 		case SDL_KeyCode::SDLK_b: return Events::KeyboardEvent::KEY_B;
 		case SDL_KeyCode::SDLK_c: return Events::KeyboardEvent::KEY_C;
@@ -382,7 +382,7 @@ namespace Arcade
 		case SDL_KeyCode::SDLK_RGUI: return Events::KeyboardEvent::RIGHT_META;
 		case SDL_KeyCode::SDLK_LGUI: return Events::KeyboardEvent::LEFT_META;
 		default: return Events::KeyboardEvent::UNDEFINED;
-		}
+		}*/
 	}
 
 	Events::MouseMoveEvent SDLDisplay::createMoveEvent(unsigned int x, unsigned int y)
