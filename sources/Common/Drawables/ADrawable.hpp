@@ -29,7 +29,15 @@ namespace Arcade::Drawables
 		//! @brief Drawable to use if the renderer can't display the current object (can be nullptr).
 		std::unique_ptr<ADrawable> fallback;
 
+		//! @brief Default constructor
+		ADrawable() = default;
+		//! @brief Deleted copy constructor
+		ADrawable(const ADrawable &) = delete;
+		//! @brief Default move operator (needed because the unique_ptr set it as deleted)
+		ADrawable(ADrawable &&move) = default;
 		//! @brief Default destructor
 		virtual ~ADrawable() = default;
+		//! @brief Default assignment operator
+		ADrawable &operator=(const ADrawable &) = delete;
 	};
 }
