@@ -2,15 +2,15 @@
 #### Epitech's Arcade project
 
 ---
-[![Build for linux](https://github.com/Octopus773/Wanda-Vision/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/Octopus773/Wanda-Vision/actions/workflows/build.yml)
+[![Build for linux](https://github.com/Octopus773/Wanda-Vision/actions/workflows/build_arcade.yml/badge.svg)](https://github.com/Octopus773/Wanda-Vision/actions/workflows/build_arcade.yml)
 [![Update the documentation](https://github.com/Octopus773/Wanda-Vision/actions/workflows/doc.yml/badge.svg?branch=master)](https://octopus773.github.io/Wanda-Vision/)
 ---
 
-## Documentation wiki like for users will be ready soon :)
+## Documentation wiki like for users Is in great progress
 
 ## Documentation
 - [Doxygen Documentation](https://octopus773.github.io/Wanda-Vision/)
-- ReadTheDoc documentation (work in progress)
+- [ReadTheDoc documentation](https://wanda-vision.readthedocs.io/)
 
 ### Wanda Vision's contributors:
 - [Zoe Roux](https://github.com/AnonymusRaccoon "Anonymus Raccoon")
