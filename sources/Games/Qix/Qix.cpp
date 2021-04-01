@@ -52,6 +52,8 @@ namespace Arcade::Qix
 			fallback->endY = fallback->y + 5;
 		}
 		this->_drawables.push_back(std::make_unique<Drawables::ADrawable>(this->_playerDrawable));
+		for (auto &shape : this->_lines)
+			this->_drawables.push_back(std::make_unique<Drawables::ADrawable>(shape));
 		return this->_drawables;
 	}
 
@@ -68,6 +70,28 @@ namespace Arcade::Qix
 
 		this->_playerPosition.first += moveSpeed * this->_moves.moveX * tick;
 		this->_playerPosition.second += moveSpeed * this->_moves.moveY * tick;
+
+		if (this->_drawType != None) {
+			if (this->_lines.empty())
+				this->_startLine();
+			auto current = this->_lines.back();
+			current.endX = this->_playerPosition.first;
+			current.endY = this->_playerPosition.second;
+			if (this->_moves.moveX != 0 && current.y != current.endY
+				|| this->_moves.moveY != 0 && current.x != current.endX)
+				this->_startLine();
+		}
+	}
+
+	void Qix::_startLine()
+	{
+		Drawables::Line line;
+		line.x = this->_playerPosition.first;
+		line.y = this->_playerPosition.second;
+		line.endX = this->_playerPosition.first;
+		line.endY = this->_playerPosition.second;
+		line.color = 0xFFFFFFFF;
+		this->_lines.push_back(line);
 	}
 
 	void Qix::restart()

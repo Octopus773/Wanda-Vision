@@ -2,3 +2,5 @@
 .vscode
 docs/
 cmake-build-debug
+lib/
+arcade
