@@ -32,7 +32,6 @@ Contributors
 ============
 
 Wanda Vision's contributors:
------------------------------
 
 - `Zoe Roux <https://github.com/AnonymusRaccoon>`_
 - `Clément Le Bihan <https://github.com/Octopus773>`_
