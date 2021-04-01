@@ -94,6 +94,12 @@ namespace Arcade
 				eventList = std::make_unique<Event>(createMoveEvent((e.button.x * 100) / this->_windowWidth,
 				                                                    (e.button.y * 100) / this->_windowHeight));
 				break;
+			case SDL_WINDOWEVENT:
+				if (e.window.event != SDL_WINDOWEVENT_RESIZED) {
+					continue;
+				}
+				this->_windowWidth = e.window.data1;
+				this->_windowHeight = e.window.data2;
 			default:
 				continue;
 			}
