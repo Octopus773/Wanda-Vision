@@ -44,3 +44,9 @@ add_library(arcade_qix SHARED
         sources/Games/Qix/Qix.hpp
 )
 set_target_properties(arcade_qix PROPERTIES PREFIX "")
+
+add_library(arcade_pacman SHARED
+        sources/Games/Pacman/Pacman.cpp
+        sources/Games/Pacman/Pacman.hpp
+        )
+set_target_properties(arcade_pacman PROPERTIES PREFIX "")
