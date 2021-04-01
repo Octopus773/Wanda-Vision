@@ -4,13 +4,18 @@
    contain the root `toctree` directive.
 
 Welcome to Wanda Vision's documentation!
-========================================
+########################################
 
 .. toctree::
    :numbered:
+   :maxdepth: 2
    :caption: Contents:
 
+   glossaryTerms
    graphicLibraries
+   gameLibraries
+   tutoCreateGame
+   tutoCreateDisplay
 
 Introduction
 ============

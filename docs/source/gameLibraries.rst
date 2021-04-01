@@ -4,8 +4,10 @@ Game Libraries
 Introduction
 ----------------
 
-j'aime le chocolat
+This page will explain the purpose of game interface step by step
 
+.. warning::
+    This page is under construction
 
 Comments
 --------
