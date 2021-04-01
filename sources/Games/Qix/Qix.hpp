@@ -43,6 +43,9 @@ namespace Arcade::Qix
 			{Slow, 500}
 		};
 
+		//! @brief The player's drawable
+		Drawables::Circle _playerDrawable;
+
 		//! @brief Resources needed by this game.
 		std::vector<std::pair<std::string, std::string>> _resources = {};
 		//! @brief Drawables that will be displayed.

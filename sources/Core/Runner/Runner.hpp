@@ -32,7 +32,7 @@ namespace Arcade::Core
 		//! @brief Draw an object with the current renderer.
 		void _drawObject(Drawables::ADrawable *obj);
 		//! @brief Handle a single event (short handle it if this is a runner event or sent it to the game)
-		void _handleEvent(const std::unique_ptr<Event> &event);
+		bool _handleEvent(const std::unique_ptr<Event> &event);
 	public:
 		//! @brief Set this runner's game library.
 		void setGame(Library &lib);

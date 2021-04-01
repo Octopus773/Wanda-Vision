@@ -99,17 +99,20 @@ namespace Arcade::Core
 		if (ret)
 			return;
 		if (obj->fallback)
-			this->_drawObject(obj->fallback.get());
+			return this->_drawObject(obj->fallback.get());
 		throw std::runtime_error("Unknown game object time met. Aborting...");
 	}
 
-	void Runner::_handleEvent(const std::unique_ptr<Event> &event)
+	bool Runner::_handleEvent(const std::unique_ptr<Event> &event)
 	{
+		if (event->type == Event::Close)
+			return true;
 		if (auto key = dynamic_cast<Events::KeyboardEvent *>(event.get())) {
 			// TODO handle local keys here
-			return;
+			return false;
 		}
 		this->_game->handleEvent(*event);
+		return false;
 	}
 
 	int Runner::runShell()
@@ -122,7 +125,8 @@ namespace Arcade::Core
 		auto timer = std::chrono::steady_clock::now();
 		while (!this->_game->shouldClose()) {
 			for (auto &event : this->_renderer->pullEvents())
-				this->_handleEvent(event);
+				if (this->_handleEvent(event))
+					return 0;
 			for (auto &obj : this->_game->getDrawables())
 				this->_drawObject(obj.get());
 			this->_renderer->refresh();
