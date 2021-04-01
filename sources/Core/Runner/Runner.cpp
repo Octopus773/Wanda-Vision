@@ -67,24 +67,24 @@ namespace Arcade::Core
 		this->_game = lib.start<IGameModule>();
 	}
 
-	void Runner::_drawObject(const std::unique_ptr<Drawables::ADrawable> &obj)
+	void Runner::_drawObject(Drawables::ADrawable *obj)
 	{
 		bool ret = false;
 
-		if (auto sprite = dynamic_cast<Drawables::Sprite *>(obj.get()))
+		if (auto sprite = dynamic_cast<Drawables::Sprite *>(obj))
 			ret = this->_renderer->draw(*sprite);
-		if (auto rec = dynamic_cast<Drawables::Rectangle *>(obj.get()))
+		if (auto rec = dynamic_cast<Drawables::Rectangle *>(obj))
 			ret = this->_renderer->draw(*rec);
-		if (auto circle = dynamic_cast<Drawables::Circle *>(obj.get()))
+		if (auto circle = dynamic_cast<Drawables::Circle *>(obj))
 			ret = this->_renderer->draw(*circle);
-		if (auto line = dynamic_cast<Drawables::Line *>(obj.get()))
+		if (auto line = dynamic_cast<Drawables::Line *>(obj))
 			ret = this->_renderer->draw(*line);
-		if (auto text = dynamic_cast<Drawables::Text *>(obj.get()))
+		if (auto text = dynamic_cast<Drawables::Text *>(obj))
 			ret = this->_renderer->draw(*text);
 		if (ret)
 			return;
 		if (obj->fallback)
-			this->_drawObject(obj->fallback);
+			this->_drawObject(obj->fallback.get());
 		throw std::runtime_error("Unknown game object time met. Aborting...");
 	}
 
@@ -109,7 +109,7 @@ namespace Arcade::Core
 			for (auto &event : this->_renderer->pullEvents())
 				this->_handleEvent(event);
 			for (auto &obj : this->_game->getDrawables())
-				this->_drawObject(obj);
+				this->_drawObject(obj.get());
 			this->_renderer->refresh();
 			auto newTimer = std::chrono::steady_clock::now();
 			auto duration = std::chrono::duration_cast<std::chrono::microseconds>(newTimer - timer).count();
