@@ -28,7 +28,7 @@ namespace Arcade
 		                                 SDL_WINDOWPOS_UNDEFINED,
 		                                 this->_windowWidth,
 		                                 this->_windowHeight,
-		                                 SDL_WINDOW_SHOWN);
+		                                 SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
 		if (this->_window == nullptr) {
 			std::cerr << "Window could not be created! SDL_Error: " << SDL_GetError() << std::endl;
 			return false;
