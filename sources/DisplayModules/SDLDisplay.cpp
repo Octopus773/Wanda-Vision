@@ -9,6 +9,7 @@
 #include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL2_gfxPrimitives.h>
 #include <iostream>
+#include <algorithm>
 #include "Common/Events/MouseClickEvent.hpp"
 #include "Common/Events/KeyBoardEvent.hpp"
 #include "Common/Events/Event.hpp"
@@ -74,9 +75,12 @@ namespace Arcade
 				break;
 			case SDL_KEYDOWN:
 				eventList = std::make_unique<Event>(createKeyEvent(getStdKey(e.key.keysym.sym), Event::Type::KeyDown));
+				this->_keysHolded.push_back(getStdKey(e.key.keysym.sym));
 				break;
 			case SDL_KEYUP:
 				eventList = std::make_unique<Event>(createKeyEvent(getStdKey(e.key.keysym.sym), Event::Type::KeyUp));
+				this->_keysHolded.erase(std::remove(this->_keysHolded.begin(), this->_keysHolded.end(), getStdKey(e.key.keysym.sym)),
+				                        this->_keysHolded.end());
 				break;
 			case SDL_MOUSEBUTTONDOWN:
 				eventList = std::make_unique<Event>(createClickEvent((e.button.x * 100) / this->_windowWidth,
@@ -90,10 +94,10 @@ namespace Arcade
 				                                                     getStdClickType(e.button.button),
 				                                                     Event::KeyUp));
 				break;
-			case SDL_MOUSEMOTION:
+		/*	case SDL_MOUSEMOTION:
 				eventList = std::make_unique<Event>(createMoveEvent((e.button.x * 100) / this->_windowWidth,
 				                                                    (e.button.y * 100) / this->_windowHeight));
-				break;
+				break; */
 			case SDL_WINDOWEVENT:
 				if (e.window.event != SDL_WINDOWEVENT_RESIZED) {
 					continue;
@@ -104,6 +108,9 @@ namespace Arcade
 				continue;
 			}
 			events.emplace_back(std::move(eventList));
+		}
+		for (const auto &i : this->_keysHolded) {
+			events.emplace_back(std::make_unique<Event>(createKeyEvent(i, Event::Type::KeyHold)));
 		}
 		return events;
 	}

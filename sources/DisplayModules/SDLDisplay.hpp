@@ -12,6 +12,7 @@
 #include "Common/Events/MouseMoveEvent.hpp"
 #include "Common/Events/Event.hpp"
 #include <map>
+#include <vector>
 
 namespace Arcade
 {
@@ -35,6 +36,9 @@ namespace Arcade
 		//! @info the pair is holding the type of the resource type and pointer to the resource
 		//! @details saving string for the path (used to check if the texture is already loaded) and the Texture ptr
 		std::map<std::string, std::pair<std::string, void *>> _loadedResources;
+		//! @brief A list of the keys that are currently hold
+		//! @info keys are inserted in the list when an event keyDown as occurred and pop out when a keyUp occurred
+		std::vector<Events::KeyboardEvent::KeyCode> _keysHolded;
 		//! @brief Music type resource
 		static constexpr std::string_view resourceMusicType = "music";
 		//! @brief Font type resource
