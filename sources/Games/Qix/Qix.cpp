@@ -4,6 +4,7 @@
 
 #include <Common/Drawables/Circle.hpp>
 #include <Common/Drawables/Rectangle.hpp>
+#include <iostream>
 #include "Qix.hpp"
 #include "Common/Events/KeyBoardEvent.hpp"
 
