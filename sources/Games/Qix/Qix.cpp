@@ -11,14 +11,12 @@ namespace Arcade::Qix
 {
 	bool Qix::init()
 	{
-		auto player = std::make_unique<Drawables::Circle>();
-		player->size = 1;
-		player->color = 0xFF0000;
+		this->_playerDrawable = Drawables::Circle();
+		this->_playerDrawable.size = 1;
+		this->_playerDrawable.color = 0xFF0000FF;
 		Drawables::Rectangle fallback;
-		fallback.color = 0xFF0000;
-		player->fallback = std::make_unique<Drawables::Rectangle>(std::move(fallback));
-
-		this->_drawables.push_back(std::move(player));
+		fallback.color = 0xFF0000FF;
+		this->_playerDrawable.fallback = std::make_unique<Drawables::Rectangle>(fallback);
 		return true;
 	}
 
@@ -44,8 +42,16 @@ namespace Arcade::Qix
 
 	const std::vector<std::unique_ptr<Drawables::ADrawable>> &Qix::getDrawables()
 	{
-		this->_drawables.front()->x = this->_playerPosition.first;
-		this->_drawables.front()->y = this->_playerPosition.second;
+		this->_drawables.clear();
+		this->_playerDrawable.x = this->_playerPosition.first;
+		this->_playerDrawable.y = this->_playerPosition.second;
+		this->_playerDrawable.fallback->x = this->_playerPosition.first - 5;
+		this->_playerDrawable.fallback->y = this->_playerPosition.second - 5;
+		if (auto fallback = dynamic_cast<Drawables::Rectangle *>(this->_playerDrawable.fallback.get())) {
+			fallback->endX = fallback->x + 5;
+			fallback->endY = fallback->y + 5;
+		}
+		this->_drawables.push_back(std::make_unique<Drawables::ADrawable>(this->_playerDrawable));
 		return this->_drawables;
 	}
 

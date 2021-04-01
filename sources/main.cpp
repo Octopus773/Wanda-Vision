@@ -19,8 +19,10 @@ int main(int argc, char **argv)
 		return usage(argv[0]);
 	try {
 		Runner runner(argv[1]);
-		if (argv[2])
+		if (argv[2]) {
 			runner.setGame(argv[2]);
+			return runner.runGame();
+		}
 		return runner.runShell();
 	} catch(const std::exception &ex) {
 		std::cerr << ex.what() << std::endl;
