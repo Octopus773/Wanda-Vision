@@ -6,6 +6,7 @@
 
 #include <map>
 #include "Common/IGameModule.hpp"
+#include "Common/Drawables/Line.hpp"
 
 namespace Arcade::Qix
 {
@@ -30,7 +31,7 @@ namespace Arcade::Qix
 		};
 
 		//! @brief The position of the player.
-		std::pair<double, double> _playerPosition;
+		std::pair<double, double> _playerPosition = {50, 10};
 		//! @brief Current draw type of the player.
 		DrawType _drawType = None;
 
@@ -43,8 +44,13 @@ namespace Arcade::Qix
 			{Slow, 500}
 		};
 
+		//! @brief Start a new line at the current player's position.
+		void _startLine();
+
 		//! @brief The player's drawable
 		Drawables::Circle _playerDrawable;
+		//! @brief The list of lines of the current shape
+		std::vector<Drawables::Line> _lines = {};
 
 		//! @brief Resources needed by this game.
 		std::vector<std::pair<std::string, std::string>> _resources = {};

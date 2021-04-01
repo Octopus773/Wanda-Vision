@@ -5,6 +5,9 @@ set(CMAKE_CXX_STANDARD 20)
 
 include_directories(sources)
 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)
+
 add_executable(arcade
         sources/main.cpp
         sources/Common/Drawables/Circle.hpp
