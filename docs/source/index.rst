@@ -10,41 +10,60 @@ Welcome to Wanda Vision's documentation!
    :numbered:
    :caption: Contents:
 
-   abc
+   graphicLibraries
 
+Introduction
+============
 
+Wanda Vision allows you to play games with different graphic libraries and switch them at runtime !
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
-Features
-========
-
-- Be awesome
-- Make things faster
+Wanda Vision is the Epitech's Arcade Project
 
 Installation
 ============
 
-Install $project by running:
+Install Wanda Vision by running::
 
-    install project
+   git clone https://github.com/Octopus773/Wanda-Vision.git WandaVision
+   cd WandaVison && mkdir build && cd build && cmake .. && make
+
+
+Contributors
+============
+
+Wanda Vision's contributors:
+-----------------------------
+
+- `Zoe Roux <https://github.com/AnonymusRaccoon>`_
+- `Clément Le Bihan <https://github.com/Octopus773>`_
+
+
+Group: Bad Nintendo
+
+- `Arthur Jamet <https://github.com/Arthi-chaud>`_
+- `Louis Auzuret <https://github.com/GitBluub>`_
+- Ugo Généreau
+
+Group: Capcom will learn from us (losers of the dice)
+
+- Baptiste Moulard
+- `Romain Lucas <https://github.com/roromainlcs>`_
+- Simon Thibaut
+
 
 Contribute
 ==========
 
-- Issue Tracker: github.com/$project/$project/issues
-- Source Code: github.com/$project/$project
+- Issue Tracker: https://github.com/Octopus773/Wanda-Vision/issues
+- Source Code: https://github.com/Octopus773/Wanda-Vision
 
 Support
 =======
 
 If you are having issues, please let us know.
-We have a mailing list located at: project@google=groups.com
+Contact me via the mail on my Github profile
 
 License
 =======
+
+none
