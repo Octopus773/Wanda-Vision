@@ -69,6 +69,7 @@ namespace Arcade
 		while (SDL_PollEvent(&e) != 0) {
 			switch (e.type) {
 			case SDL_QUIT:
+				event.type = Event::Type::Close;
 				eventList = std::make_unique<Event>(event);
 				break;
 			case SDL_KEYDOWN:
@@ -94,9 +95,7 @@ namespace Arcade
 				                                                    (e.button.y * 100) / this->_windowHeight));
 				break;
 			default:
-				event.type = Event::Type::Unknown;
-				eventList = std::make_unique<Event>(event);
-				break;
+				continue;
 			}
 			events.emplace_back(std::move(eventList));
 		}
