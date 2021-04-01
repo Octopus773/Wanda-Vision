@@ -4,6 +4,8 @@
 ---
 [![Build for linux](https://github.com/Octopus773/Wanda-Vision/actions/workflows/build_arcade.yml/badge.svg)](https://github.com/Octopus773/Wanda-Vision/actions/workflows/build_arcade.yml)
 [![Update the documentation](https://github.com/Octopus773/Wanda-Vision/actions/workflows/doc.yml/badge.svg?branch=master)](https://octopus773.github.io/Wanda-Vision/)
+[![Documentation Status](https://readthedocs.org/projects/wanda-vision/badge/?version=latest)](https://wanda-vision.readthedocs.io/en/latest/?badge=latest)
+
 ---
 
 ## Documentation wiki like for users Is in great progress
