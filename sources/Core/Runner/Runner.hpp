@@ -36,8 +36,12 @@ namespace Arcade::Core
 	public:
 		//! @brief Set this runner's game library.
 		void setGame(Library &lib);
+		//! @brief Set this runner's game library using the path.
+		void setGame(const std::string & path);
 		//! @brief Set this runner's graphical library.
 		void setRenderer(Library &lib);
+		//! @brief Set this runner's graphical library using the path.
+		void setRenderer(const std::string & path);
 		//! @brief List game libraries
 		const std::vector<Library> &getGames() const;
 		//! @brief List renderers libraries

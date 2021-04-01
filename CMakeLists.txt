@@ -34,7 +34,7 @@ add_library(arcade_sdl2 SHARED
         sources/DisplayModules/SDLDisplay.hpp
 )
 set_target_properties(arcade_sdl2 PROPERTIES PREFIX "")
-target_link_libraries(arcade_sdl2 SDL2 SDL2_image)
+target_link_libraries(arcade_sdl2 SDL2 SDL2_image SDL2_ttf SDL2_mixer)
 
 add_library(arcade_qix SHARED
         sources/Games/Qix/Qix.cpp

@@ -19,12 +19,7 @@ namespace Arcade::Core
 	Runner::Runner(const std::string &graphicLib)
 	{
 		this->loadLibraries("./lib");
-		auto lib = std::find_if(this->_renderers.begin(), this->_renderers.end(), [&graphicLib](Library &x) {
-			return std::filesystem::path(x.path) == std::filesystem::path(graphicLib);
-		});
-		if (lib == this->_renderers.end())
-			throw InvalidArgumentException("Renderer library not found.");
-		this->setRenderer(*lib);
+		this->setRenderer(graphicLib);
 	}
 
 	void Runner::loadLibraries(const std::string &path)
@@ -60,11 +55,31 @@ namespace Arcade::Core
 		this->_renderer = lib.start<IDisplayModule>();
 	}
 
+	void Runner::setRenderer(const std::string &path)
+	{
+		auto lib = std::find_if(this->_renderers.begin(), this->_renderers.end(), [&path](Library &x) {
+			return std::filesystem::path(x.path) == std::filesystem::path(path);
+		});
+		if (lib == this->_renderers.end())
+			throw InvalidArgumentException("Renderer library not found.");
+		this->setRenderer(*lib);
+	}
+
 	void Runner::setGame(Library &lib)
 	{
 		if (lib.info.type != ModInfo::GAME)
 			throw std::invalid_argument("Can't use a non game as a game.");
 		this->_game = lib.start<IGameModule>();
+	}
+
+	void Runner::setGame(const std::string &path)
+	{
+		auto lib = std::find_if(this->_games.begin(), this->_games.end(), [&path](Library &x) {
+			return std::filesystem::path(x.path) == std::filesystem::path(path);
+		});
+		if (lib == this->_games.end())
+			throw InvalidArgumentException("Game library not found.");
+		this->setGame(*lib);
 	}
 
 	void Runner::_drawObject(Drawables::ADrawable *obj)
