@@ -112,6 +112,7 @@ namespace Arcade
 		                   obj.endX * (this->_windowWidth / 100),
 		                   obj.endY * (this->_windowHeight / 100)
 		);
+		this->setRendererColor(0);
 		return true;
 	}
 
@@ -123,20 +124,24 @@ namespace Arcade
 		                     obj.endY * (this->_windowHeight / 100)};
 		this->setRendererColor(obj.color);
 		SDL_RenderFillRect(this->_windowRenderer, &fillRect);
+		this->setRendererColor(0);
 		return true;
 	}
 
 	bool SDLDisplay::draw(Drawables::Circle &obj)
 	{
+		if (filledCircleRGBA(this->_windowRenderer,
+		                        obj.x * (this->_windowHeight / 100),
+		                        obj.y * (this->_windowWidth / 100),
+		                        obj.size * (this->_windowWidth / 100),
+		                        (obj.color & (0xFF << 24)) >> 24,
+		                        (obj.color & (0xFF << 16)) >> 16,
+		                        (obj.color & (0xFF << 8)) >> 8,
+		                        obj.color & 0xFF) == 0) {
+			this->setRendererColor(0);
+			return true;
+		}
 		return false;
-//		return filledCircleRGBA(this->_windowRenderer,
-//		                        obj.x * (this->_windowHeight / 100),
-//		                        obj.y * (this->_windowWidth / 100),
-//		                        obj.size,
-//		                        (obj.color & (0xFF << 24)) >> 24,
-//		                        (obj.color & (0xFF << 16)) >> 16,
-//		                        (obj.color & (0xFF << 8)) >> 8,
-//		                        obj.color & 0xFF) == 0;
 	}
 
 	bool SDLDisplay::draw(Drawables::Text &obj)
