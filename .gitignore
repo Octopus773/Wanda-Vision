@@ -1,6 +1,6 @@
 .idea
 .vscode
-docs/
+docs/build/*
 cmake-build-debug
 lib/
 arcade
