@@ -95,7 +95,7 @@ namespace Arcade
 				                                                     Event::KeyUp));
 				break;
 			case SDL_MOUSEMOTION:
-				eventList = std::make_unique<Event>(createMoveEvent((e.button.x * 100) / this->_windowWidth,
+				eventList = std::make_unique<Events::MouseMoveEvent>(createMoveEvent((e.button.x * 100) / this->_windowWidth,
 				                                                    (e.button.y * 100) / this->_windowHeight));
 				break;
 			case SDL_WINDOWEVENT:
