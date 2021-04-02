@@ -39,6 +39,10 @@ namespace Arcade
 			std::cerr << "Renderer could not be created! SDL Error: " << SDL_GetError() << std::endl;
 			return false;
 		}
+		if (TTF_Init()) {
+			std::cerr << "TTF engine failed to start" << std::endl;
+			return false;
+		}
 		this->_shouldClose = false;
 		return true;
 	}
@@ -117,13 +121,12 @@ namespace Arcade
 
 	bool SDLDisplay::draw(Drawables::Line &obj)
 	{
-		SDL_SetRenderDrawColor(this->_windowRenderer, 0x00, 0x00, 0xFF, 0xFF);
 		this->setRendererColor(obj.color);
 		SDL_RenderDrawLine(this->_windowRenderer,
-		                   obj.x * (this->_windowWidth / 100),
-		                   obj.y * (this->_windowHeight / 100),
-		                   obj.endX * (this->_windowWidth / 100),
-		                   obj.endY * (this->_windowHeight / 100)
+		                   preciseCrossProduct(obj.x, this->_windowWidth),
+		                   preciseCrossProduct(obj.y, this->_windowHeight),
+		                   preciseCrossProduct(obj.endX, this->_windowWidth),
+		                   preciseCrossProduct(obj.endY, this->_windowHeight)
 		);
 		this->setRendererColor(0);
 		return true;
@@ -131,10 +134,11 @@ namespace Arcade
 
 	bool SDLDisplay::draw(Drawables::Rectangle &obj)
 	{
-		SDL_Rect fillRect = {obj.x * (this->_windowWidth / 100),
-		                     obj.y * (this->_windowHeight / 100),
-		                     obj.endX * (this->_windowWidth / 100),
-		                     obj.endY * (this->_windowHeight / 100)};
+		// TODO check width and height of rectangle surely wrong
+		SDL_Rect fillRect = {preciseCrossProduct(obj.x, this->_windowWidth),
+		                     preciseCrossProduct(obj.y, this->_windowHeight),
+		                     preciseCrossProduct(obj.endX, this->_windowWidth),
+		                     preciseCrossProduct(obj.endY, this->_windowHeight)};
 		this->setRendererColor(obj.color);
 		SDL_RenderFillRect(this->_windowRenderer, &fillRect);
 		this->setRendererColor(0);
@@ -144,9 +148,9 @@ namespace Arcade
 	bool SDLDisplay::draw(Drawables::Circle &obj)
 	{
 		if (filledCircleRGBA(this->_windowRenderer,
-		                        obj.x * (this->_windowHeight / 100),
-		                        obj.y * (this->_windowWidth / 100),
-		                        obj.size * (this->_windowWidth / 100),
+		                     preciseCrossProduct(obj.x, this->_windowWidth),
+		                     preciseCrossProduct(obj.y, this->_windowHeight),
+		                     preciseCrossProduct(static_cast<int>(obj.size), this->_windowWidth),
 		                        (obj.color & (0xFF << 24)) >> 24,
 		                        (obj.color & (0xFF << 16)) >> 16,
 		                        (obj.color & (0xFF << 8)) >> 8,
@@ -186,8 +190,8 @@ namespace Arcade
 			return false;
 		}
 		SDL_QueryTexture(texture, nullptr, nullptr, &w, &h);
-		rect.x = obj.x;
-		rect.y = obj.y;
+		rect.x = preciseCrossProduct(obj.x, this->_windowWidth);
+		rect.y = preciseCrossProduct(obj.y, this->_windowHeight);
 		rect.h = static_cast<int>(obj.fontSize);
 		rect.w = static_cast<int>((obj.fontSize * w) / h);
 		SDL_RenderCopyEx(this->_windowRenderer, texture, nullptr, &rect, 0, nullptr, SDL_FLIP_NONE);
@@ -210,10 +214,12 @@ namespace Arcade
 		}
 		img = static_cast<SDL_Texture *>(this->_loadedResources[path].second);
 		SDL_QueryTexture(img, nullptr, nullptr, &w, &h);
-		rect.x = obj.x - (w / 2);
-		rect.y = obj.y - (h / 2);
-		rect.w = static_cast<int>(obj.sizeX);
-		rect.h = static_cast<int>(obj.sizeY);
+		rect.x = preciseCrossProduct(obj.x, this->_windowWidth);
+		rect.y = preciseCrossProduct(obj.y, this->_windowHeight);
+		rect.w = preciseCrossProduct(static_cast<int>(obj.sizeX), this->_windowWidth);
+		rect.h = preciseCrossProduct(static_cast<int>(obj.sizeY), this->_windowHeight);
+		rect.x -= rect.w / 2;
+		rect.y -= rect.h / 2;
 		SDL_RenderCopyEx(this->_windowRenderer, img, nullptr, &rect, obj.rotation, nullptr, SDL_FLIP_NONE);
 		return true;
 	}
@@ -269,7 +275,11 @@ namespace Arcade
 			return false;
 		}
 		resource = this->createResource(type, path);
-		if (! resource) {
+		if (!resource) {
+			std::cerr << "Failed to load: " << path << " of type " << type << std::endl;
+			if (type == resourceSpriteType) {
+				std::cerr << SDL_GetError() << std::endl;
+			}
 			return false;
 		}
 		this->_loadedResources[path] = std::make_pair(type, resource);
@@ -474,6 +484,11 @@ namespace Arcade
 			loops = - 1;
 		}
 		Mix_PlayMusic(static_cast<Mix_Music *>(this->_loadedResources[sound.path].second), loops);
+	}
+
+	int SDLDisplay::preciseCrossProduct(int percent, int total)
+	{
+		return static_cast<int>(percent * (total / 100.));
 	}
 
 	extern "C" ModInfo getHeader()
