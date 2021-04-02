@@ -107,17 +107,22 @@ namespace Arcade::Qix
 				return false;
 			if (line.y != static_cast<int>(this->_playerPosition.second))
 				return false;
-			return line.x <= static_cast<int>(newX) && static_cast<int>(newX) <= line.endX;
+			return line.x <= static_cast<int>(newX) && static_cast<int>(newX) <= line.endX
+				|| line.x >= static_cast<int>(newX) && static_cast<int>(newX) >= line.endX;
 		});
 		bool canMoveY = std::any_of(this->_zones.begin(), this->_zones.end(), [this, newY](Drawables::Line &line) {
 			if (line.x != line.endX)
 				return false;
 			if (line.x != static_cast<int>(this->_playerPosition.first))
 				return false;
-			return line.y <= static_cast<int>(newY) && static_cast<int>(newY) <= line.endY;
+			return line.y <= static_cast<int>(newY) && static_cast<int>(newY) <= line.endY
+				|| line.y >= static_cast<int>(newY) && static_cast<int>(newY) >= line.endY;
 		});
 
 		if (this->_drawType == None) {
+			if (canMoveX && canMoveY) {
+				// TODO disable the canMove of the closed direction.
+			}
 			if (canMoveX)
 				this->_playerPosition.first = newX;
 			else if (canMoveY)
@@ -144,8 +149,11 @@ namespace Arcade::Qix
 				current.endY = static_cast<int>(this->_playerPosition.second);
 			}
 
-//			if (canMoveX || canMoveY)
-//				this->_drawType = None;
+			if ((canMoveX || canMoveY)
+				&& std::abs(current.endX - current.x) + std::abs(current.endY - current.y) > 2) {
+				this->_drawType = None;
+				this->_closeZone();
+			}
 		}
 		this->_moves.moveX = 0;
 		this->_moves.moveY = 0;
@@ -162,9 +170,18 @@ namespace Arcade::Qix
 		this->_lines.push_back(line);
 	}
 
+	void Qix::_closeZone()
+	{
+		std::move(this->_lines.begin(), this->_lines.end(), std::back_inserter(this->_zones));
+		this->_lines.clear();
+	}
+
 	void Qix::restart()
 	{
-
+		this->_lines.clear();
+		this->_zones.clear();
+		this->_playerPosition = {50, 95};
+		this->init();
 	}
 
 	void Qix::handleEvent(Event &event)

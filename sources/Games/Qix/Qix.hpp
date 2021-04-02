@@ -39,13 +39,15 @@ namespace Arcade::Qix
 		PendingMoves _moves = {};
 		//! @brief Move speed of the player
 		std::map<DrawType, double> _moveSpeeds = {
-			{None, .0001},
-			{Fast, .0001},
-			{Slow, .00005}
+			{None, .00005},
+			{Fast, .00005},
+			{Slow, .000025}
 		};
 
 		//! @brief Start a new line at the current player's position.
 		void _startLine();
+		//! @brief Finish a draw by closing the zone (removing lines from the _lines and adding a finished zone to _zones).
+		void _closeZone();
 
 		//! @brief The player's drawable
 		Drawables::Circle _playerDrawable;
