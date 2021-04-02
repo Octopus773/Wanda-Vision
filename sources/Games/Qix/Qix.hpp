@@ -31,7 +31,7 @@ namespace Arcade::Qix
 		};
 
 		//! @brief The position of the player.
-		std::pair<double, double> _playerPosition = {50, 90};
+		std::pair<double, double> _playerPosition = {50, 95};
 		//! @brief Current draw type of the player.
 		DrawType _drawType = None;
 
@@ -51,6 +51,8 @@ namespace Arcade::Qix
 		Drawables::Circle _playerDrawable;
 		//! @brief The list of lines of the current shape
 		std::vector<Drawables::Line> _lines = {};
+		//! @brief Closed shapes lines & map borders
+		std::vector<Drawables::Line> _zones = {};
 
 		//! @brief Resources needed by this game.
 		std::vector<std::pair<std::string, std::string>> _resources = {};
