@@ -14,43 +14,12 @@ namespace Arcade::Pacman
 	class Pacman : public IGameModule
 	{
 	private:
-		//! @brief Enum of draw types.
-		enum DrawType {
-			None,
-			Slow,
-			Fast
-		};
-		//! @brief Struct used to keep pending moves.
-		struct PendingMoves {
-			//! @brief X direction of the player
-			int moveX;
-			//! @brief Y direction of the player
-			int moveY;
-			//! @brief Draw type (fast, slow or none)
-			DrawType draw;
-		};
 
 		//! @brief The position of the player.
-		std::pair<double, double> _playerPosition = {50, 10};
-		//! @brief Current draw type of the player.
-		DrawType _drawType = None;
-
-		//! @brief Pending moves.
-		PendingMoves _moves = {};
-		//! @brief Move speed of the player
-		std::map<DrawType, double> _moveSpeeds = {
-			{None, 1000},
-			{Fast, 1000},
-			{Slow, 500}
-		};
-
-		//! @brief Start a new line at the current player's position.
-		void _startLine();
+		std::pair<double, double> _playerPosition = {50, 50};
 
 		//! @brief The player's drawable
-		Drawables::Circle _playerDrawable;
-		//! @brief The list of lines of the current shape
-		std::vector<Drawables::Line> _lines = {};
+		Drawables::Sprite _playerDrawable;
 
 		//! @brief Resources needed by this game.
 		std::vector<std::pair<std::string, std::string>> _resources = {};
@@ -58,6 +27,8 @@ namespace Arcade::Pacman
 		std::vector<std::unique_ptr<Drawables::ADrawable>> _drawables = {};
 		//! @brief Sounds that will be started in the next frame
 		std::vector<Sound> _sounds = {};
+
+		std::vector<Drawables::Rectangle> map;
 	public:
 		//! @brief Initialize this library. (Create windows & so on)
 		//! @return True if the initialization was successful. False otherwise.

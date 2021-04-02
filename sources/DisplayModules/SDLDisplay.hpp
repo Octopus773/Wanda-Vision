@@ -85,6 +85,11 @@ namespace Arcade
 		//! @brief Free the resource given as param
 		//! @param resource the pair is holding the type of the resource type and pointer to the resource
 		void destroyResource(const std::pair<std::string, void *> &resource);
+		//! @brief Allows to get the result of crossPruduct as precise as the int can be
+		//! @param percent The percentage
+		//! @param total The total to base the percentage on
+		//! @return The result of the cross product
+		static int preciseCrossProduct(int percent, int total);
 
 	public:
 		//! @brief Default constructor
