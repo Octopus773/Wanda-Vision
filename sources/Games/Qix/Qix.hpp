@@ -31,7 +31,7 @@ namespace Arcade::Qix
 		};
 
 		//! @brief The position of the player.
-		std::pair<double, double> _playerPosition = {50, 10};
+		std::pair<double, double> _playerPosition = {50, 90};
 		//! @brief Current draw type of the player.
 		DrawType _drawType = None;
 
@@ -39,9 +39,9 @@ namespace Arcade::Qix
 		PendingMoves _moves = {};
 		//! @brief Move speed of the player
 		std::map<DrawType, double> _moveSpeeds = {
-			{None, 1000},
-			{Fast, 1000},
-			{Slow, 500}
+			{None, .0001},
+			{Fast, .0001},
+			{Slow, .00005}
 		};
 
 		//! @brief Start a new line at the current player's position.
