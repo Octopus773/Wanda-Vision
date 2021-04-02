@@ -123,10 +123,10 @@ namespace Arcade
 	{
 		this->setRendererColor(obj.color);
 		SDL_RenderDrawLine(this->_windowRenderer,
-		                   obj.x * (this->_windowWidth / 100),
-		                   obj.y * (this->_windowHeight / 100),
-		                   obj.endX * (this->_windowWidth / 100),
-		                   obj.endY * (this->_windowHeight / 100)
+		                   preciseCrossProduct(obj.x, this->_windowWidth),
+		                   preciseCrossProduct(obj.y, this->_windowHeight),
+		                   preciseCrossProduct(obj.endX, this->_windowWidth),
+		                   preciseCrossProduct(obj.endY, this->_windowHeight)
 		);
 		this->setRendererColor(0);
 		return true;
@@ -134,10 +134,11 @@ namespace Arcade
 
 	bool SDLDisplay::draw(Drawables::Rectangle &obj)
 	{
-		SDL_Rect fillRect = {obj.x * (this->_windowWidth / 100),
-		                     obj.y * (this->_windowHeight / 100),
-		                     obj.endX * (this->_windowWidth / 100),
-		                     obj.endY * (this->_windowHeight / 100)};
+		// TODO check width and height of rectangle surely wrong
+		SDL_Rect fillRect = {preciseCrossProduct(obj.x, this->_windowWidth),
+		                     preciseCrossProduct(obj.y, this->_windowHeight),
+		                     preciseCrossProduct(obj.endX, this->_windowWidth),
+		                     preciseCrossProduct(obj.endY, this->_windowHeight)};
 		this->setRendererColor(obj.color);
 		SDL_RenderFillRect(this->_windowRenderer, &fillRect);
 		this->setRendererColor(0);
@@ -147,9 +148,9 @@ namespace Arcade
 	bool SDLDisplay::draw(Drawables::Circle &obj)
 	{
 		if (filledCircleRGBA(this->_windowRenderer,
-		                        obj.x * (this->_windowHeight / 100),
-		                        obj.y * (this->_windowWidth / 100),
-		                        obj.size * (this->_windowWidth / 100),
+		                     preciseCrossProduct(obj.x, this->_windowWidth),
+		                     preciseCrossProduct(obj.y, this->_windowHeight),
+		                     preciseCrossProduct(static_cast<int>(obj.size), this->_windowWidth),
 		                        (obj.color & (0xFF << 24)) >> 24,
 		                        (obj.color & (0xFF << 16)) >> 16,
 		                        (obj.color & (0xFF << 8)) >> 8,
@@ -189,8 +190,8 @@ namespace Arcade
 			return false;
 		}
 		SDL_QueryTexture(texture, nullptr, nullptr, &w, &h);
-		rect.x = obj.x;
-		rect.y = obj.y;
+		rect.x = preciseCrossProduct(obj.x, this->_windowWidth);
+		rect.y = preciseCrossProduct(obj.y, this->_windowHeight);
 		rect.h = static_cast<int>(obj.fontSize);
 		rect.w = static_cast<int>((obj.fontSize * w) / h);
 		SDL_RenderCopyEx(this->_windowRenderer, texture, nullptr, &rect, 0, nullptr, SDL_FLIP_NONE);
@@ -213,10 +214,10 @@ namespace Arcade
 		}
 		img = static_cast<SDL_Texture *>(this->_loadedResources[path].second);
 		SDL_QueryTexture(img, nullptr, nullptr, &w, &h);
-		rect.x = obj.x * (this->_windowWidth / 100);
-		rect.y = obj.y * (this->_windowHeight / 100);
-		rect.w = static_cast<int>(obj.sizeX * (this->_windowWidth / 100));
-		rect.h = static_cast<int>(obj.sizeY * (this->_windowHeight / 100));
+		rect.x = preciseCrossProduct(obj.x, this->_windowWidth);
+		rect.y = preciseCrossProduct(obj.y, this->_windowHeight);
+		rect.w = preciseCrossProduct(static_cast<int>(obj.sizeX), this->_windowWidth);
+		rect.h = preciseCrossProduct(static_cast<int>(obj.sizeY), this->_windowHeight);
 		rect.x -= rect.w / 2;
 		rect.y -= rect.h / 2;
 		SDL_RenderCopyEx(this->_windowRenderer, img, nullptr, &rect, obj.rotation, nullptr, SDL_FLIP_NONE);
@@ -483,6 +484,11 @@ namespace Arcade
 			loops = - 1;
 		}
 		Mix_PlayMusic(static_cast<Mix_Music *>(this->_loadedResources[sound.path].second), loops);
+	}
+
+	int SDLDisplay::preciseCrossProduct(int percent, int total)
+	{
+		return static_cast<int>(percent * (total / 100.));
 	}
 
 	extern "C" ModInfo getHeader()
