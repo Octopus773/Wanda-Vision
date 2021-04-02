@@ -39,6 +39,10 @@ namespace Arcade
 			std::cerr << "Renderer could not be created! SDL Error: " << SDL_GetError() << std::endl;
 			return false;
 		}
+		if (TTF_Init()) {
+			std::cerr << "TTF engine failed to start" << std::endl;
+			return false;
+		}
 		this->_shouldClose = false;
 		return true;
 	}
@@ -210,10 +214,12 @@ namespace Arcade
 		}
 		img = static_cast<SDL_Texture *>(this->_loadedResources[path].second);
 		SDL_QueryTexture(img, nullptr, nullptr, &w, &h);
-		rect.x = obj.x - (w / 2);
-		rect.y = obj.y - (h / 2);
-		rect.w = static_cast<int>(obj.sizeX);
-		rect.h = static_cast<int>(obj.sizeY);
+		rect.x = obj.x * (this->_windowWidth / 100);
+		rect.y = obj.y * (this->_windowHeight / 100);
+		rect.w = static_cast<int>(obj.sizeX * (this->_windowWidth / 100));
+		rect.h = static_cast<int>(obj.sizeY * (this->_windowHeight / 100));
+		rect.x -= rect.w / 2;
+		rect.y -= rect.h / 2;
 		SDL_RenderCopyEx(this->_windowRenderer, img, nullptr, &rect, obj.rotation, nullptr, SDL_FLIP_NONE);
 		return true;
 	}
@@ -269,7 +275,7 @@ namespace Arcade
 			return false;
 		}
 		resource = this->createResource(type, path);
-		if (! resource) {
+		if (!resource) {
 			return false;
 		}
 		this->_loadedResources[path] = std::make_pair(type, resource);

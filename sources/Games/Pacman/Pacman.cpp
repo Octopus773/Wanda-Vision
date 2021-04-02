@@ -12,12 +12,17 @@ namespace Arcade::Pacman
 {
 	bool Pacman::init()
 	{
-		this->_playerDrawable = Drawables::Circle();
-		this->_playerDrawable.size = 1;
-		this->_playerDrawable.color = 0xFF0000FF;
-		Drawables::Rectangle fallback;
-		fallback.color = 0xFF0000FF;
-		this->_playerDrawable.fallback = std::make_unique<Drawables::Rectangle>(fallback);
+		this->_resources.emplace_back(std::make_pair("sprite", "pacman.png"));
+		this->_playerDrawable = Drawables::Sprite();
+		this->_playerDrawable.sizeY = 20;
+		this->_playerDrawable.sizeX = 20;
+		this->_playerDrawable.color = 0;
+		this->_playerDrawable.rotation = 0;
+		this->_playerDrawable.path = "pacman.png";
+		Drawables::Circle fallback;
+		fallback.color = 0xFFFF00FF;
+		fallback.size = 5;
+		this->_playerDrawable.fallback = std::make_unique<Drawables::Circle>(fallback);
 		return true;
 	}
 
@@ -52,9 +57,7 @@ namespace Arcade::Pacman
 			fallback->endX = fallback->x + 5;
 			fallback->endY = fallback->y + 5;
 		}
-		this->_drawables.push_back(std::make_unique<Drawables::ADrawable>(this->_playerDrawable));
-		for (auto &shape : this->_lines)
-			this->_drawables.push_back(std::make_unique<Drawables::ADrawable>(shape));
+		this->_drawables.push_back(std::make_unique<Drawables::Sprite>(this->_playerDrawable));
 		return this->_drawables;
 	}
 
@@ -65,34 +68,6 @@ namespace Arcade::Pacman
 
 	void Pacman::addTicks(unsigned int tick)
 	{
-		if (this->_drawType == None)
-			this->_drawType = this->_moves.draw;
-		double moveSpeed = this->_moveSpeeds[this->_drawType];
-
-		this->_playerPosition.first += moveSpeed * this->_moves.moveX * tick;
-		this->_playerPosition.second += moveSpeed * this->_moves.moveY * tick;
-
-		if (this->_drawType != None) {
-			if (this->_lines.empty())
-				this->_startLine();
-			auto current = this->_lines.back();
-			current.endX = this->_playerPosition.first;
-			current.endY = this->_playerPosition.second;
-			if (this->_moves.moveX != 0 && current.y != current.endY
-				|| this->_moves.moveY != 0 && current.x != current.endX)
-				this->_startLine();
-		}
-	}
-
-	void Pacman::_startLine()
-	{
-		Drawables::Line line;
-		line.x = this->_playerPosition.first;
-		line.y = this->_playerPosition.second;
-		line.endX = this->_playerPosition.first;
-		line.endY = this->_playerPosition.second;
-		line.color = 0xFFFFFFFF;
-		this->_lines.push_back(line);
 	}
 
 	void Pacman::restart()
@@ -104,32 +79,7 @@ namespace Arcade::Pacman
 	{
 		try {
 			auto key = dynamic_cast<Events::KeyboardEvent &>(event);
-			if (key.type == Event::KeyUp)
-				return;
-			if (key.type == Event::KeyDown) {
-				if (key.key == Events::KeyboardEvent::CTRL)
-					this->_moves.draw = Slow;
-				if (key.key == Events::KeyboardEvent::SPACE)
-					this->_moves.draw = Fast;
-				return;
-			}
 			switch (key.key) {
-			case Events::KeyboardEvent::UP_ARROW:
-			case Events::KeyboardEvent::KEY_Z:
-				this->_moves.moveY = std::min(1, this->_moves.moveY + 1);
-				break;
-			case Events::KeyboardEvent::DOWN_ARROW:
-			case Events::KeyboardEvent::KEY_S:
-				this->_moves.moveY = std::max(-1, this->_moves.moveY - 1);
-				break;
-			case Events::KeyboardEvent::RIGHT_ARROW:
-			case Events::KeyboardEvent::KEY_Q:
-				this->_moves.moveX = std::min(1, this->_moves.moveX + 1);
-				break;
-			case Events::KeyboardEvent::LEFT_ARROW:
-			case Events::KeyboardEvent::KEY_D:
-				this->_moves.moveX = std::max(-1, this->_moves.moveX - 1);
-				break;
 			default:
 				return;
 			}
