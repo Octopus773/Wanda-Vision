@@ -97,22 +97,55 @@ namespace Arcade::Qix
 	{
 		if (this->_drawType == None)
 			this->_drawType = this->_moves.draw;
+		this->_moves.draw = None;
 		double moveSpeed = this->_moveSpeeds[this->_drawType];
 
-		this->_playerPosition.first += moveSpeed * this->_moves.moveX * tick;
-		this->_playerPosition.second += moveSpeed * this->_moves.moveY * tick;
+		double newX = this->_playerPosition.first + moveSpeed * this->_moves.moveX * tick;
+		double newY = this->_playerPosition.second + moveSpeed * this->_moves.moveY * tick;
+		bool canMoveX = std::any_of(this->_zones.begin(), this->_zones.end(), [this, newX](Drawables::Line &line) {
+			if (line.y != line.endY)
+				return false;
+			if (line.y != static_cast<int>(this->_playerPosition.second))
+				return false;
+			return line.x <= static_cast<int>(newX) && static_cast<int>(newX) <= line.endX;
+		});
+		bool canMoveY = std::any_of(this->_zones.begin(), this->_zones.end(), [this, newY](Drawables::Line &line) {
+			if (line.x != line.endX)
+				return false;
+			if (line.x != static_cast<int>(this->_playerPosition.first))
+				return false;
+			return line.y <= static_cast<int>(newY) && static_cast<int>(newY) <= line.endY;
+		});
 
-		if (this->_drawType != None) {
+		if (this->_drawType == None) {
+			if (canMoveX)
+				this->_playerPosition.first = newX;
+			else if (canMoveY)
+				this->_playerPosition.second = newY;
+		}
+		else {
 			if (this->_lines.empty())
 				this->_startLine();
 			auto &current = this->_lines.back();
-			if ((this->_moves.moveX != 0 && current.y != static_cast<int>(this->_playerPosition.second))
-				|| (this->_moves.moveY != 0 && current.x != static_cast<int>(this->_playerPosition.first)))
+
+			if ((current.endX <= current.x && this->_moves.moveX == -1) || (current.endX >= current.x && this->_moves.moveX == 1))
+				this->_playerPosition.first = newX;
+			else if (this->_moves.moveX == 0
+				&& (current.endY <= current.y && this->_moves.moveY == -1) || (current.endY >= current.y && this->_moves.moveY == 1))
+				this->_playerPosition.second = newY;
+
+			bool sameX = this->_moves.moveX != 0 && current.y != static_cast<int>(this->_playerPosition.second);
+			bool sameY = this->_moves.moveY != 0 && current.x != static_cast<int>(this->_playerPosition.first);
+
+			if (sameX || (this->_moves.moveX == 0 && sameY))
 				this->_startLine();
 			else {
-				current.endX = this->_playerPosition.first;
-				current.endY = this->_playerPosition.second;
+				current.endX = static_cast<int>(this->_playerPosition.first);
+				current.endY = static_cast<int>(this->_playerPosition.second);
 			}
+
+//			if (canMoveX || canMoveY)
+//				this->_drawType = None;
 		}
 		this->_moves.moveX = 0;
 		this->_moves.moveY = 0;
