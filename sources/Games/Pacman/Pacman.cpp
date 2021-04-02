@@ -12,7 +12,7 @@ namespace Arcade::Pacman
 {
 	bool Pacman::init()
 	{
-		this->_playerDrawable = Drawables::Sprite();
+		this->_playerDrawable = Drawables::Circle();
 		this->_playerDrawable.size = 1;
 		this->_playerDrawable.color = 0xFF0000FF;
 		Drawables::Rectangle fallback;
