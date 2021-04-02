@@ -27,6 +27,8 @@ namespace Arcade::Pacman
 		std::vector<std::unique_ptr<Drawables::ADrawable>> _drawables = {};
 		//! @brief Sounds that will be started in the next frame
 		std::vector<Sound> _sounds = {};
+
+		std::vector<Drawables::Rectangle> map;
 	public:
 		//! @brief Initialize this library. (Create windows & so on)
 		//! @return True if the initialization was successful. False otherwise.
