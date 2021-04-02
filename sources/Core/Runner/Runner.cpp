@@ -127,6 +127,8 @@ namespace Arcade::Core
 			for (auto &event : this->_renderer->pullEvents())
 				if (this->_handleEvent(event))
 					return 0;
+			for (auto &resource : this->_game->getResources())
+				this->_renderer->load(resource.first, resource.second);
 			for (auto &obj : this->_game->getDrawables())
 				this->_drawObject(obj.get());
 			this->_renderer->refresh();
