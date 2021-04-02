@@ -5,6 +5,8 @@
 #include "Common/Drawables/Circle.hpp"
 #include "Common/Drawables/Rectangle.hpp"
 #include "Common/Drawables/Sprite.hpp"
+#include "Common/Drawables/Text.hpp"
+#include "Common/Drawables/Line.hpp"
 #include "Pacman.hpp"
 #include "Common/Events/KeyBoardEvent.hpp"
 
@@ -12,17 +14,24 @@ namespace Arcade::Pacman
 {
 	bool Pacman::init()
 	{
-		this->_resources.emplace_back(std::make_pair("sprite", "resources/pacman.png"));
+		this->_resources.emplace_back(std::make_pair("font", "resources/angelina.ttf"));
+		this->_resources.emplace_back(std::make_pair("sprite", "resources/paucman.png"));
 		this->_playerDrawable = Drawables::Sprite();
 		this->_playerDrawable.sizeY = 20;
 		this->_playerDrawable.sizeX = 20;
 		this->_playerDrawable.color = 0;
 		this->_playerDrawable.rotation = 0;
 		this->_playerDrawable.path = "resources/pacman.png";
-		Drawables::Circle fallback;
+		Drawables::Line fallback;
+		fallback.x = 90;
+		fallback.y = 10;
+		fallback.endX = 10;
+		fallback.endY = 90;
+		fallback.color = 0xFF00FFFF;
+		/*Drawables::Circle fallback;
 		fallback.color = 0xFFFF00FF;
-		fallback.size = 5;
-		this->_playerDrawable.fallback = std::make_unique<Drawables::Circle>(fallback);
+		fallback.size = 5;*/
+		this->_playerDrawable.fallback = std::make_unique<Drawables::Line>(fallback);
 		return true;
 	}
 
@@ -51,8 +60,8 @@ namespace Arcade::Pacman
 		this->_drawables.clear();
 		this->_playerDrawable.x = this->_playerPosition.first;
 		this->_playerDrawable.y = this->_playerPosition.second;
-		this->_playerDrawable.fallback->x = this->_playerPosition.first - 5;
-		this->_playerDrawable.fallback->y = this->_playerPosition.second - 5;
+		//this->_playerDrawable.fallback->x = this->_playerPosition.first - 5;
+		//this->_playerDrawable.fallback->y = this->_playerPosition.second - 5;
 		if (auto fallback = dynamic_cast<Drawables::Rectangle *>(this->_playerDrawable.fallback.get())) {
 			fallback->endX = fallback->x + 5;
 			fallback->endY = fallback->y + 5;

@@ -121,7 +121,6 @@ namespace Arcade
 
 	bool SDLDisplay::draw(Drawables::Line &obj)
 	{
-		SDL_SetRenderDrawColor(this->_windowRenderer, 0x00, 0x00, 0xFF, 0xFF);
 		this->setRendererColor(obj.color);
 		SDL_RenderDrawLine(this->_windowRenderer,
 		                   obj.x * (this->_windowWidth / 100),
