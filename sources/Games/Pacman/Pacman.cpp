@@ -2,8 +2,9 @@
 // Created by Zoe Roux on 3/29/21.
 //
 
-#include <Common/Drawables/Circle.hpp>
-#include <Common/Drawables/Rectangle.hpp>
+#include "Common/Drawables/Circle.hpp"
+#include "Common/Drawables/Rectangle.hpp"
+#include "Common/Drawables/Sprite.hpp"
 #include "Pacman.hpp"
 #include "Common/Events/KeyBoardEvent.hpp"
 
@@ -11,7 +12,7 @@ namespace Arcade::Pacman
 {
 	bool Pacman::init()
 	{
-		this->_playerDrawable = Drawables::Circle();
+		this->_playerDrawable = Drawables::Sprite();
 		this->_playerDrawable.size = 1;
 		this->_playerDrawable.color = 0xFF0000FF;
 		Drawables::Rectangle fallback;
