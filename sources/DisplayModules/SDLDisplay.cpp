@@ -276,6 +276,10 @@ namespace Arcade
 		}
 		resource = this->createResource(type, path);
 		if (!resource) {
+			std::cerr << "Failed to load: " << path << " of type " << type << std::endl;
+			if (type == resourceSpriteType) {
+				std::cerr << SDL_GetError() << std::endl;
+			}
 			return false;
 		}
 		this->_loadedResources[path] = std::make_pair(type, resource);

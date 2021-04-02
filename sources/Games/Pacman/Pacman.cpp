@@ -12,13 +12,13 @@ namespace Arcade::Pacman
 {
 	bool Pacman::init()
 	{
-		this->_resources.emplace_back(std::make_pair("sprite", "pacman.png"));
+		this->_resources.emplace_back(std::make_pair("sprite", "resources/pacman.png"));
 		this->_playerDrawable = Drawables::Sprite();
 		this->_playerDrawable.sizeY = 20;
 		this->_playerDrawable.sizeX = 20;
 		this->_playerDrawable.color = 0;
 		this->_playerDrawable.rotation = 0;
-		this->_playerDrawable.path = "pacman.png";
+		this->_playerDrawable.path = "resources/pacman.png";
 		Drawables::Circle fallback;
 		fallback.color = 0xFFFF00FF;
 		fallback.size = 5;
@@ -68,6 +68,7 @@ namespace Arcade::Pacman
 
 	void Pacman::addTicks(unsigned int tick)
 	{
+		this->_resources.clear();
 	}
 
 	void Pacman::restart()
