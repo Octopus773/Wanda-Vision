@@ -7,6 +7,7 @@
 #include <map>
 #include "Common/IGameModule.hpp"
 #include "Common/Drawables/Line.hpp"
+#include <array>
 
 namespace Arcade::Pacman
 {
@@ -27,8 +28,25 @@ namespace Arcade::Pacman
 		std::vector<std::unique_ptr<Drawables::ADrawable>> _drawables = {};
 		//! @brief Sounds that will be started in the next frame
 		std::vector<Sound> _sounds = {};
+		//! @brief Game map
+		std::vector<Drawables::ADrawable> _map = {};
+		//! @brief The length of a map tile
+		static constexpr int mapTileLength = 5;
 
-		std::vector<Drawables::Rectangle> map;
+		//! @brief Add the correct drawables to the internal drawable member to be able to draw the map on the screen
+		//! @param map The vector of string to represent the actual map (one type of char represent a type/config of drawable)
+		//! @param vOffset The vertical offset in percentage
+		//! @param hOffset The horizontal offset in percentage
+		//! @info Offset can be set to a negative value the function will simply add the offset given to the offset calculated
+		void createDrawablesFromVector(const std::vector<std::string> &map, int hOffset, int vOffset);
+		//! @brief Get the correct Drawable and correctly filled from a char
+		//! @param c The template type
+		//! @param xIndex The x position of the char in the map
+		//! @param yIndex The y position of the char in the map
+		//! @warning This function uses hard coded templates for each char. This function should only be used with the map context in mind
+		//! @return A unique ptr to the correct Drawable
+		//! @throw WrongMapChar when no matching char is found
+		std::unique_ptr<Drawables::ADrawable> getDrawableFromChar(char c, int xIndex, int yIndex);
 	public:
 		//! @brief Initialize this library. (Create windows & so on)
 		//! @return True if the initialization was successful. False otherwise.
