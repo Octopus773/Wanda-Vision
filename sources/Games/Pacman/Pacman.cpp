@@ -36,6 +36,22 @@ namespace Arcade::Pacman
 			                                "w    w       w    w",
 			                                "wwwwwwwwwwwwwwwwwww",
 		                                }, 0, 0);
+
+		this->_resources.emplace_back(std::make_pair("sprite", "resources/pacman.png"));
+		this->_playerDrawable = Drawables::Sprite();
+		this->_playerDrawable.sizeY = 5;
+		this->_playerDrawable.sizeX = 5;
+		this->_playerDrawable.color = 0;
+		this->_playerDrawable.rotation = 0;
+		this->_playerDrawable.x = 50;
+		this->_playerDrawable.y = 50;
+		this->_playerDrawable.path = "resources/pacman.png";
+		Drawables::Line fallback;
+		fallback.x = 90;
+		fallback.y = 10;
+		fallback.endX = 10;
+		fallback.endY = 90;
+		fallback.color = 0xFF00FFFF;
 		return true;
 	}
 
@@ -62,15 +78,16 @@ namespace Arcade::Pacman
 	const std::vector<std::unique_ptr<Drawables::ADrawable>> &Pacman::getDrawables()
 	{
 		//this->_drawables.clear();
-	/*	this->_playerDrawable.x = this->_playerPosition.first;
+		this->_playerDrawable.x = this->_playerPosition.first;
 		this->_playerDrawable.y = this->_playerPosition.second;
-		//this->_playerDrawable.fallback->x = this->_playerPosition.first - 5;
+		std::cout << "x: " << this->_playerDrawable.x << " y: " << this->_playerDrawable.y << std::endl;
+	/*	//this->_playerDrawable.fallback->x = this->_playerPosition.first - 5;
 		//this->_playerDrawable.fallback->y = this->_playerPosition.second - 5;
 		if (auto fallback = dynamic_cast<Drawables::Rectangle *>(this->_playerDrawable.fallback.get())) {
 			fallback->endX = fallback->x + 5;
 			fallback->endY = fallback->y + 5;
-		}
-		this->_drawables.push_back(std::make_unique<Drawables::Sprite>(this->_playerDrawable)); */
+		}*/
+		this->_drawables.push_back(std::make_unique<Drawables::Sprite>(this->_playerDrawable));
 		return this->_drawables;
 	}
 
@@ -81,6 +98,8 @@ namespace Arcade::Pacman
 
 	void Pacman::addTicks(unsigned int tick)
 	{
+		this->_playerPosition.first += 500 * this->_moves.moveX *  tick;
+		this->_playerPosition.second += 500 * this->_moves.moveY *  tick;
 		this->_resources.clear();
 	}
 
@@ -93,7 +112,25 @@ namespace Arcade::Pacman
 	{
 		try {
 			auto key = dynamic_cast<Events::KeyboardEvent &>(event);
+			if (key.type == Event::KeyUp || key.type == Event::KeyDown)
+				return;
 			switch (key.key) {
+			case Events::KeyboardEvent::UP_ARROW:
+			case Events::KeyboardEvent::KEY_Z:
+				this->_moves.moveY = std::min(1, this->_moves.moveY + 1);
+				break;
+			case Events::KeyboardEvent::DOWN_ARROW:
+			case Events::KeyboardEvent::KEY_S:
+				this->_moves.moveY = std::max(-1, this->_moves.moveY - 1);
+				break;
+			case Events::KeyboardEvent::RIGHT_ARROW:
+			case Events::KeyboardEvent::KEY_Q:
+				this->_moves.moveX = std::min(1, this->_moves.moveX + 1);
+				break;
+			case Events::KeyboardEvent::LEFT_ARROW:
+			case Events::KeyboardEvent::KEY_D:
+				this->_moves.moveX = std::max(-1, this->_moves.moveX - 1);
+				break;
 			default:
 				return;
 			}
@@ -114,8 +151,6 @@ namespace Arcade::Pacman
 		for (const auto &i : map) {
 			yIndex++;
 			xIndex = -1;
-		//	if (yIndex == 1)
-		//		return;
 			for (const auto &j : i) {
 				xIndex++;
 				if (j == ' ') {
@@ -138,8 +173,7 @@ namespace Arcade::Pacman
 			rect.y = yIndex * mapTileLength;
 			rect.endX = rect.x + mapTileLength;
 			rect.endY = rect.y + mapTileLength;
-			//std::cout << "x:" << rect.x << " y: " << rect.y << " ex: " << rect.endX << " ey: " << rect.endY << std::endl;
-			rect.color = 0x0033FFFF; // + rand();
+			rect.color = 0x0033FFFF;
 			return std::make_unique<Drawables::Rectangle>(rect);
 		default: throw WrongMapChar(c);
 		}

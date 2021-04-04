@@ -109,7 +109,7 @@ namespace Arcade::Core
 			return true;
 		if (auto key = dynamic_cast<Events::KeyboardEvent *>(event.get())) {
 			// TODO handle local keys here
-			return false;
+			//return false;
 		}
 		this->_game->handleEvent(*event);
 		return false;

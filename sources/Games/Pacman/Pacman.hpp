@@ -15,6 +15,13 @@ namespace Arcade::Pacman
 	class Pacman : public IGameModule
 	{
 	private:
+		//! @brief Struct used to keep pending moves.
+		struct PendingMoves {
+			//! @brief X direction of the player
+			int moveX;
+			//! @brief Y direction of the player
+			int moveY;
+		};
 
 		//! @brief The position of the player.
 		std::pair<double, double> _playerPosition = {50, 50};
@@ -30,6 +37,8 @@ namespace Arcade::Pacman
 		std::vector<Sound> _sounds = {};
 		//! @brief Game map
 		std::vector<Drawables::ADrawable> _map = {};
+		//! @brief Pending moves.
+		PendingMoves _moves = {};
 		//! @brief The length of a map tile
 		static constexpr int mapTileLength = 5;
 
