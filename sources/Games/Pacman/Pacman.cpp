@@ -114,6 +114,8 @@ namespace Arcade::Pacman
 		for (const auto &i : map) {
 			yIndex++;
 			xIndex = -1;
+		//	if (yIndex == 1)
+		//		return;
 			for (const auto &j : i) {
 				xIndex++;
 				if (j == ' ') {
@@ -136,8 +138,8 @@ namespace Arcade::Pacman
 			rect.y = yIndex * mapTileLength;
 			rect.endX = rect.x + mapTileLength;
 			rect.endY = rect.y + mapTileLength;
-			std::cout << "x:" << rect.x << " y: " << rect.y << " ex: " << rect.endX << " ey: " << rect.endY << std::endl;
-			rect.color = 0x0033FFFF + rand();
+			//std::cout << "x:" << rect.x << " y: " << rect.y << " ex: " << rect.endX << " ey: " << rect.endY << std::endl;
+			rect.color = 0x0033FFFF; // + rand();
 			return std::make_unique<Drawables::Rectangle>(rect);
 		default: throw WrongMapChar(c);
 		}
