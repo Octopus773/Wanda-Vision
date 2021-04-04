@@ -108,21 +108,21 @@ namespace Arcade::Pacman
 
 	void Pacman::createDrawablesFromVector(const std::vector<std::string> &map, int hOffset, int vOffset)
 	{
-		int xIndex = 0;
-		int yIndex = 0;
+		int xIndex = -1;
+		int yIndex = -1;
 
 		for (const auto &i : map) {
+			yIndex++;
+			xIndex = -1;
 			for (const auto &j : i) {
+				xIndex++;
 				if (j == ' ') {
 					continue;
 				}
 				this->_drawables.emplace_back(this->getDrawableFromChar(j, xIndex, yIndex));
 				this->_drawables.back()->x += hOffset;
 				this->_drawables.back()->y += vOffset;
-				xIndex++;
 			}
-			xIndex = 0;
-			yIndex++;
 		}
 	}
 
