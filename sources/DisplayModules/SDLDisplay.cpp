@@ -143,7 +143,6 @@ namespace Arcade
 		this->setRendererColor(obj.color);
 		SDL_RenderFillRect(this->_windowRenderer, &fillRect);
 		this->setRendererColor(0);
-		SDL_RenderPresent(this->_windowRenderer);
 		return true;
 	}
 
