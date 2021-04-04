@@ -134,11 +134,12 @@ namespace Arcade
 
 	bool SDLDisplay::draw(Drawables::Rectangle &obj)
 	{
-		// TODO check width and height of rectangle surely wrong
 		SDL_Rect fillRect = {preciseCrossProduct(obj.x, this->_windowWidth),
 		                     preciseCrossProduct(obj.y, this->_windowHeight),
-		                     preciseCrossProduct(obj.endX, this->_windowWidth),
-		                     preciseCrossProduct(obj.endY, this->_windowHeight)};
+		                     0,
+		                     0};
+		fillRect.w = preciseCrossProduct(obj.endX, this->_windowWidth) - fillRect.x;
+		fillRect.h = preciseCrossProduct(obj.endY, this->_windowHeight) - fillRect.y;
 		this->setRendererColor(obj.color);
 		SDL_RenderFillRect(this->_windowRenderer, &fillRect);
 		this->setRendererColor(0);
