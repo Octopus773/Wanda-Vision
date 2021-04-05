@@ -100,33 +100,27 @@ namespace Arcade::Pacman
 
 	void Pacman::addTicks(unsigned int tick)
 	{
-		static int state = 0;
 		static double newX = 0;
 		static double newY = 0;
+		static int saveMoveX = 0;
+		static int saveMoveY = 0;
 
 		this->_resources.clear();
-		if (this->_moves.moveX)
-			state = 1;
-		if (!this->_moves.moveX && this->_moves.moveY)
-			state = 2;
-
-		switch (state) {
-		case 2:
-			newY = .000025 * this->_moves.moveY * tick;
-			state = -1;
-			break;
-		case 1:
-			newX = .000025 * this->_moves.moveX * tick;
-			state = -1;
-		default:
-			break;
+		if (this->_moves.moveX) {
+			saveMoveX = this->_moves.moveX;
+		} else if (!this->_moves.moveX && this->_moves.moveY) {
+			saveMoveY = this->_moves.moveY;
 		}
+
+		newX = .000025 * saveMoveX * tick;
+		newY = .000025 * saveMoveY * tick;
 
 		if (newX) {
 		    if (this->collideWithMap(newX + this->_playerPosition.first - (this->_playerDrawable.sizeX / 2),
 							            this->_playerPosition.second - (this->_playerDrawable.sizeY / 2),
 							            this->_playerDrawable.sizeX,
 							            this->_playerDrawable.sizeY)) {
+		    	saveMoveX = 0;
 		    	newX = 0;
 		    }
 			this->_playerPosition.first += newX;
@@ -136,6 +130,7 @@ namespace Arcade::Pacman
 			                         newY + this->_playerPosition.second - (this->_playerDrawable.sizeY / 2),
 			                         this->_playerDrawable.sizeX,
 			                         this->_playerDrawable.sizeY)) {
+				saveMoveY = 0;
 				newY = 0;
 			}
 			this->_playerPosition.second += newY;
