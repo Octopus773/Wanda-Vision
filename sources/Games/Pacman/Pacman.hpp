@@ -36,26 +36,26 @@ namespace Arcade::Pacman
 		//! @brief Sounds that will be started in the next frame
 		std::vector<Sound> _sounds = {};
 		//! @brief Game map
-		std::vector<Drawables::ADrawable> _map = {};
+		std::vector<Drawables::Rectangle> _map = {};
 		//! @brief Pending moves.
 		PendingMoves _moves = {};
 		//! @brief The length of a map tile
 		static constexpr int mapTileLength = 5;
 
-		//! @brief Add the correct drawables to the internal drawable member to be able to draw the map on the screen
+		//! @brief Gives the correct Rectangles to be able to draw the map on the screen
 		//! @param map The vector of string to represent the actual map (one type of char represent a type/config of drawable)
 		//! @param vOffset The vertical offset in percentage
 		//! @param hOffset The horizontal offset in percentage
 		//! @info Offset can be set to a negative value the function will simply add the offset given to the offset calculated
-		void createDrawablesFromVector(const std::vector<std::string> &map, int hOffset, int vOffset);
-		//! @brief Get the correct Drawable and correctly filled from a char
+		std::vector<Drawables::Rectangle> createMapFromVector(const std::vector<std::string> &map, int hOffset, int vOffset);
+		//! @brief Get the correct Rectangle and correctly filled from a char
 		//! @param c The template type
 		//! @param xIndex The x position of the char in the map
 		//! @param yIndex The y position of the char in the map
 		//! @warning This function uses hard coded templates for each char. This function should only be used with the map context in mind
-		//! @return A unique ptr to the correct Drawable
+		//! @return A instance of a Rectangle
 		//! @throw WrongMapChar when no matching char is found
-		std::unique_ptr<Drawables::ADrawable> getDrawableFromChar(char c, int xIndex, int yIndex);
+		Drawables::Rectangle getRectangleFromChar(char c, int xIndex, int yIndex);
 	public:
 		//! @brief Initialize this library. (Create windows & so on)
 		//! @return True if the initialization was successful. False otherwise.
