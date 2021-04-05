@@ -80,7 +80,6 @@ namespace Arcade::Pacman
 		this->_drawables.clear();
 		this->_playerDrawable.x = this->_playerPosition.first;
 		this->_playerDrawable.y = this->_playerPosition.second;
-		std::cout << "x: " << this->_playerDrawable.x << " y: " << this->_playerDrawable.y << std::endl;
 	/*	//this->_playerDrawable.fallback->x = this->_playerPosition.first - 5;
 		//this->_playerDrawable.fallback->y = this->_playerPosition.second - 5;
 		if (auto fallback = dynamic_cast<Drawables::Rectangle *>(this->_playerDrawable.fallback.get())) {
@@ -101,9 +100,12 @@ namespace Arcade::Pacman
 
 	void Pacman::addTicks(unsigned int tick)
 	{
-		this->_playerPosition.first += 500 * this->_moves.moveX * tick;
-		this->_playerPosition.second += 500 * this->_moves.moveY * tick;
+		this->_playerPosition.first += .000025 * this->_moves.moveX * tick;
+		this->_playerPosition.second += .000025 * this->_moves.moveY * tick;
 		this->_resources.clear();
+
+		this->_moves.moveX = 0;
+		this->_moves.moveY = 0;
 	}
 
 	void Pacman::restart()
@@ -120,18 +122,18 @@ namespace Arcade::Pacman
 			switch (key.key) {
 			case Events::KeyboardEvent::UP_ARROW:
 			case Events::KeyboardEvent::KEY_Z:
-				this->_moves.moveY = std::min(1, this->_moves.moveY + 1);
+				this->_moves.moveY = std::min(-1, this->_moves.moveY + 1);
 				break;
 			case Events::KeyboardEvent::DOWN_ARROW:
 			case Events::KeyboardEvent::KEY_S:
-				this->_moves.moveY = std::max(-1, this->_moves.moveY - 1);
+				this->_moves.moveY = std::max(1, this->_moves.moveY - 1);
 				break;
 			case Events::KeyboardEvent::RIGHT_ARROW:
-			case Events::KeyboardEvent::KEY_Q:
+			case Events::KeyboardEvent::KEY_D:
 				this->_moves.moveX = std::min(1, this->_moves.moveX + 1);
 				break;
 			case Events::KeyboardEvent::LEFT_ARROW:
-			case Events::KeyboardEvent::KEY_D:
+			case Events::KeyboardEvent::KEY_Q:
 				this->_moves.moveX = std::max(-1, this->_moves.moveX - 1);
 				break;
 			default:
