@@ -15,6 +15,12 @@ namespace Arcade::Pacman
 	class Pacman : public IGameModule
 	{
 	private:
+		//! @brief The ghost struct
+		struct Ghost {
+			int speed;
+			Drawables::Sprite drawable;
+		};
+
 		//! @brief Struct used to keep pending moves.
 		struct PendingMoves {
 			//! @brief X direction of the player
@@ -23,13 +29,34 @@ namespace Arcade::Pacman
 			int moveY;
 		};
 
+		enum MapChar {
+			//! @brief Represents a space, nothing should be drawned with it
+			//! @info It's used for padding
+			NOTHING = ' ',
+			//! @brief Representing a wall in the map
+			WALL = 'w',
+			//! @brief Representing a small pacgum in the map
+			SMALL_PACGUM = '.',
+			//! @brief Representing a big pacgum in the map
+			BIG_PACGUM = 'P',
+			//! @brief Ghost Blinky
+			BLINKY = 'B',
+			//! @brief Ghost Inky
+			INKY = 'I',
+			//! @brief Ghost Clyde
+			CLYDE = 'C'
+		};
+
 		//! @brief The position of the player.
 		std::pair<double, double> _playerPosition = {50, 53};
 
 		//! @brief The player's drawable
 		Drawables::Sprite _playerDrawable;
+		//! @brief Information of all the ghosts
+		Ghost _ghosts;
 		//! @brief Game Score
 		long _gameScore = 0;
+		Drawables::Text _scoreDrawable;
 		//! @brief Resources needed by this game.
 		std::vector<std::pair<std::string, std::string>> _resources = {};
 		//! @brief Drawables that will be displayed.
@@ -89,6 +116,14 @@ namespace Arcade::Pacman
 		//! @param h The the height in percentage
 		//! @return The pacgum you collided, otherwise
 		std::vector<Drawables::Sprite>::iterator _collideWithPacgumMap(int x, int y, int w, int h);
+		//! @brief Checks collisions and moves the player rotate texture, etc...
+		//! @param[out] moveX The movement in x
+		//! @param[out] moveY The movement in y
+		//! @param ticks Delta time (number of ticks between two functions calls)
+		//! @info The movement will be kept until hitting an obstacle or a new input is detected
+		void _processPlayerMovement(int &moveX, int &moveY, unsigned int ticks);
+		//! @brief Checks the collision with Pacgums and ghosts and update the score
+		void _processScore();
 	public:
 		//! @brief Initialize this library. (Create windows & so on)
 		//! @return True if the initialization was successful. False otherwise.
