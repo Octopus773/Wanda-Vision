@@ -36,18 +36,22 @@ namespace Arcade::Pacman
 		//! @brief Sounds that will be started in the next frame
 		std::vector<Sound> _sounds = {};
 		//! @brief Game map
-		std::vector<Drawables::Rectangle> _map = {};
+		std::vector<Drawables::Sprite> _map = {};
 		//! @brief Pending moves.
 		PendingMoves _moves = {};
 		//! @brief The length of a map tile
 		static constexpr int mapTileLength = 5;
+		//! @brief The color of the walls
+		//! @info This color is used to check if the block is collidable or not
+		static constexpr int mapWallColor = 0x0033FFFF;
 
-		//! @brief Gives the correct Rectangles to be able to draw the map on the screen
+		//! @brief Gives the correct Drawables to be able to draw the map on the screen
 		//! @param map The vector of string to represent the actual map (one type of char represent a type/config of drawable)
 		//! @param vOffset The vertical offset in percentage
 		//! @param hOffset The horizontal offset in percentage
 		//! @info Offset can be set to a negative value the function will simply add the offset given to the offset calculated
-		std::vector<Drawables::Rectangle> createMapFromVector(const std::vector<std::string> &map, int hOffset, int vOffset);
+		//! @warning Sprites are only used for a "base drawable" some sprites will be purposely ill formed, in order to call the fallback
+		std::vector<Drawables::Sprite> createMapFromVector(const std::vector<std::string> &map, int hOffset, int vOffset);
 		//! @brief Get the correct Rectangle and correctly filled from a char
 		//! @param c The template type
 		//! @param xIndex The x position of the char in the map
@@ -63,6 +67,14 @@ namespace Arcade::Pacman
 		//! @param h The the height in percentage
 		//! @return True if the coords are colliding, otherwise false
 		bool collideWithMap(int x, int y, int w, int h);
+		//! @brief Get the correct Sprite and correctly filled from a char
+		//! @param c The template type
+		//! @param xIndex The x position of the char in the map
+		//! @param yIndex The y position of the char in the map
+		//! @warning This function uses hard coded templates for each char. This function should only be used with the map context in mind
+		//! @return A instance of a Sprite
+		//! @throw WrongMapChar when no matching char is found
+		Drawables::Sprite getSpriteFromChar(char c, int xIndex, int yIndex);
 	public:
 		//! @brief Initialize this library. (Create windows & so on)
 		//! @return True if the initialization was successful. False otherwise.

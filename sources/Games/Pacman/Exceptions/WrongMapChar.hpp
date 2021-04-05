@@ -6,7 +6,7 @@
 
 #include <stdexcept>
 
-namespace Arcade
+namespace Arcade::Pacman
 {
 	class WrongMapChar : public std::runtime_error
 	{

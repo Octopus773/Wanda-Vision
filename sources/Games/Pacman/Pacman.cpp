@@ -25,7 +25,7 @@ namespace Arcade::Pacman
 		//this->_drawables.emplace_back(std::make_unique<Drawables::Rectangle>(rect));
 		this->_map = this->createMapFromVector({
 			                                       "wwwwwwwwwwwwwwwwwww",
-			                                       "w    w       w    w",
+			                                       "wP   w       w    w",
 			                                       "w ww w wwwww w ww w",
 			                                       "  w             w w",
 			                                       "w w ww ww ww ww w w",
@@ -87,7 +87,7 @@ namespace Arcade::Pacman
 			fallback->endY = fallback->y + 5;
 		}*/
 		for (const auto &i : this->_map) {
-			this->_drawables.emplace_back(std::make_unique<Drawables::Rectangle>(i));
+			this->_drawables.emplace_back(std::make_unique<Drawables::Sprite>(i));
 		}
 		this->_drawables.push_back(std::make_unique<Drawables::Sprite>(this->_playerDrawable));
 		return this->_drawables;
@@ -184,9 +184,9 @@ namespace Arcade::Pacman
 		return 0;
 	}
 
-	std::vector<Drawables::Rectangle> Pacman::createMapFromVector(const std::vector<std::string> &map, int hOffset, int vOffset)
+	std::vector<Drawables::Sprite> Pacman::createMapFromVector(const std::vector<std::string> &map, int hOffset, int vOffset)
 	{
-		std::vector<Drawables::Rectangle> ret;
+		std::vector<Drawables::Sprite> ret;
 		int xIndex = -1;
 		int yIndex = -1;
 
@@ -198,7 +198,7 @@ namespace Arcade::Pacman
 				if (j == ' ') {
 					continue;
 				}
-				ret.emplace_back(this->getRectangleFromChar(j, xIndex, yIndex));
+				ret.emplace_back(this->getSpriteFromChar(j, xIndex, yIndex));
 				ret.back().x += hOffset;
 				ret.back().y += vOffset;
 			}
@@ -216,7 +216,14 @@ namespace Arcade::Pacman
 			rect.y = yIndex * mapTileLength;
 			rect.endX = rect.x + mapTileLength;
 			rect.endY = rect.y + mapTileLength;
-			rect.color = 0x0033FFFF;
+			rect.color = mapWallColor;
+			return rect;
+		case 'P':
+			rect.x = (xIndex * mapTileLength) + 2;
+			rect.y = (yIndex * mapTileLength) + 2;
+			rect.endX = rect.x + mapTileLength - 4;
+			rect.endY = rect.y + mapTileLength - 4;
+			rect.color = 0xFFFFFFFF;
 			return rect;
 		default: throw WrongMapChar(c);
 		}
@@ -225,15 +232,42 @@ namespace Arcade::Pacman
 	bool Pacman::collideWithMap(int x, int y, int w, int h)
 	{
 		for (const auto &i : this->_map) {
-			if (x + w <= i.x
-				|| y + h <= i.y
-				|| i.endX <= x
-				|| i.endY <= y) {
-				continue;
-			}
-			return true;
+			try {
+				auto rect = dynamic_cast<Drawables::Rectangle &>(*i.fallback);
+				if (rect.color != mapWallColor)
+					continue;
+				if (x + w <= rect.x
+					|| y + h <= rect.y
+					|| rect.endX <= x
+					|| rect.endY <= y) {
+					continue;
+				}
+				return true;
+			} catch (const std::bad_cast &) { }
 		}
 		return false;
+	}
+
+	Drawables::Sprite Pacman::getSpriteFromChar(char c, int xIndex, int yIndex)
+	{
+		Drawables::Sprite ret;
+
+		switch (c) {
+		case 'w':
+			ret.fallback = std::make_shared<Drawables::Rectangle>(this->getRectangleFromChar(c, xIndex, yIndex));
+			return ret;
+		case 'P':
+			ret.sizeY = 25;
+			ret.sizeX = 25;
+			ret.x = (xIndex * mapTileLength) + (ret.sizeX / 2);
+			ret.y = (yIndex * mapTileLength) + (ret.sizeY / 2);
+			ret.path = "ressources/large_pacgum.png";
+			ret.rotation = 0;
+			ret.fallback = std::make_shared<Drawables::Rectangle>(this->getRectangleFromChar('P', xIndex, yIndex));
+			ret.color = 0;
+			return ret;
+		default: throw WrongMapChar(c);
+		}
 	}
 }
 
