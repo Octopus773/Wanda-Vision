@@ -24,11 +24,12 @@ namespace Arcade::Pacman
 		};
 
 		//! @brief The position of the player.
-		std::pair<double, double> _playerPosition = {50, 70};
+		std::pair<double, double> _playerPosition = {50, 53};
 
 		//! @brief The player's drawable
 		Drawables::Sprite _playerDrawable;
-
+		//! @brief Game Score
+		long _gameScore = 0;
 		//! @brief Resources needed by this game.
 		std::vector<std::pair<std::string, std::string>> _resources = {};
 		//! @brief Drawables that will be displayed.
@@ -44,6 +45,12 @@ namespace Arcade::Pacman
 		//! @brief The color of the walls
 		//! @info This color is used to check if the block is collidable or not
 		static constexpr int mapWallColor = 0x0033FFFF;
+		//! @brief The speed of pacman (the player)
+		static constexpr float pacmanSpeed = .000025;
+		//! @brief Resource location for the large pacgum sprite
+		static constexpr std::string_view largePacgumFilename = "resources/large_pacgum.png";
+		//! @brief Resource location for the small pacgum sprite
+		static constexpr std::string_view smallPacgumFilename = "resources/small_pacgum.png";
 
 		//! @brief Gives the correct Drawables to be able to draw the map on the screen
 		//! @param map The vector of string to represent the actual map (one type of char represent a type/config of drawable)
@@ -66,7 +73,7 @@ namespace Arcade::Pacman
 		//! @param w The width in percentage
 		//! @param h The the height in percentage
 		//! @return True if the coords are colliding, otherwise false
-		bool collideWithMap(int x, int y, int w, int h);
+		bool collideWithWallMap(int x, int y, int w, int h);
 		//! @brief Get the correct Sprite and correctly filled from a char
 		//! @param c The template type
 		//! @param xIndex The x position of the char in the map
@@ -75,6 +82,13 @@ namespace Arcade::Pacman
 		//! @return A instance of a Sprite
 		//! @throw WrongMapChar when no matching char is found
 		Drawables::Sprite getSpriteFromChar(char c, int xIndex, int yIndex);
+		//! @brief Tells if you colliding with one of the pacgums of the _map member
+		//! @param x The x percentage
+		//! @param y The y percentage
+		//! @param w The width in percentage
+		//! @param h The the height in percentage
+		//! @return The pacgum you collided, otherwise
+		std::vector<Drawables::Sprite>::iterator collideWithPacgumMap(int x, int y, int w, int h);
 	public:
 		//! @brief Initialize this library. (Create windows & so on)
 		//! @return True if the initialization was successful. False otherwise.
