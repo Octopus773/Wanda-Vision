@@ -4,6 +4,7 @@
 
 #include <filesystem>
 #include <iostream>
+#include <Games/Menu/Menu.hpp>
 #include "Exceptions/InvalidLibraryException.hpp"
 #include "Exceptions/InvalidArgumentException.hpp"
 #include "Common/Events/KeyBoardEvent.hpp"
@@ -72,6 +73,7 @@ namespace Arcade::Core
 		});
 		if (lib == this->_renderers.end())
 			throw InvalidArgumentException("Renderer library not found.");
+		this->_rendererIndex = std::distance(this->_renderers.begin(), lib);
 		this->setRenderer(*lib);
 	}
 
@@ -91,6 +93,7 @@ namespace Arcade::Core
 		});
 		if (lib == this->_games.end())
 			throw InvalidArgumentException("Game library not found.");
+		this->_gameIndex = std::distance(this->_games.begin(), lib);
 		this->setGame(*lib);
 	}
 
@@ -120,7 +123,26 @@ namespace Arcade::Core
 		if (event->type == Event::Close)
 			return true;
 		if (auto key = dynamic_cast<Events::KeyboardEvent *>(event.get())) {
-			// TODO handle local keys here
+			if (key->type == Event::KeyDown) {
+				switch (key->key) {
+				case Events::KeyboardEvent::KEY_Q:
+					return true;
+				case Events::KeyboardEvent::KEY_1:
+					this->setGame(this->_games[this->_gameIndex++]);
+					break;
+				case Events::KeyboardEvent::KEY_2:
+					this->setGame(this->_games[this->_gameIndex--]);
+					break;
+				case Events::KeyboardEvent::KEY_3:
+					this->setRenderer(this->_renderers[this->_rendererIndex++]);
+					break;
+				case Events::KeyboardEvent::KEY_5:
+					this->setRenderer(this->_renderers[this->_rendererIndex--]);
+					break;
+				default:
+					break;
+				}
+			}
 		}
 		this->_game->handleEvent(*event);
 		return false;
@@ -128,7 +150,11 @@ namespace Arcade::Core
 
 	int Runner::runShell()
 	{
-		return 0;
+		if (this->_game)
+			this->_game->close();
+		this->_game = std::make_unique<Menu::Menu>(*this);
+		this->_game->init();
+		return this->runGame();
 	}
 
 	int Runner::runGame()

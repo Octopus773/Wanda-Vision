@@ -29,7 +29,7 @@ add_executable(arcade
         sources/Core/Library.cpp
         sources/Exceptions/InvalidLibraryException.hpp
         sources/Exceptions/InvalidArgumentException.hpp
-)
+        sources/Games/Menu/Menu.cpp sources/Games/Menu/Menu.hpp)
 target_link_libraries(arcade dl)
 
 add_library(arcade_sdl2 SHARED

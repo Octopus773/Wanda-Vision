@@ -83,14 +83,14 @@ namespace Arcade
 	{
 		if (obj.y == obj.endY) {
 			int length =  this->_getPosX(obj.endX) - this->_getPosX(obj.x);
-			mvaddstr(this->_getPosY(obj.y), this->_getPosX(obj.x), ('+' + std::string(length - 1, '-') + '+').c_str());
+			mvaddstr(this->_getPosY(obj.y), this->_getPosX(obj.x), ('+' + std::string(length - 2, '-') + '+').c_str());
 			return true;
 		}
 		if (obj.x == obj.endX) {
 			int x = this->_getPosX(obj.x);
 			int i = this->_getPosY(obj.y);
 			mvaddch(i, x, '+');
-			for (i++; i < this->_getPosY(obj.endY); i++)
+			for (i++; i < this->_getPosY(obj.endY) - 1; i++)
 				mvaddch(i, x, '|');
 			mvaddch(i, x, '+');
 			return true;
