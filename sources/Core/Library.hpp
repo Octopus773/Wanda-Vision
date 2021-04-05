@@ -48,5 +48,9 @@ namespace Arcade::Core
 		~Library();
 		//! @brief No assignment operator.
 		Library &operator=(const Library &) = delete;
+		//! @brief Equal operator
+		bool operator==(const Library &) const;
+		//! @brief Different operator;
+		bool operator!=(const Library &) const;
 	};
 }

@@ -38,7 +38,7 @@ namespace Arcade::Menu
 			Drawables::Text text;
 			text.x = 60;
 			text.y = 20 + i * 10;
-			text.color = 0xFFFFFFFF;
+			text.color = lib == this->_runner.getRenderer() ? 0xff6e00 : 0xFFFFFFFF;
 			text.fontSize = 13;
 			text.text = lib.info.name;
 			this->_drawables.emplace_back(std::make_unique<Drawables::Text>(text));

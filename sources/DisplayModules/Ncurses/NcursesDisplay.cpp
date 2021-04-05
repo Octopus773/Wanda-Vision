@@ -22,7 +22,6 @@ namespace Arcade
 		keypad(stdscr, TRUE);
 		timeout(500);
 		noecho();
-//		start_color();
 		this->refresh();
 		return true;
 	}
@@ -79,14 +78,27 @@ namespace Arcade
 		return int(this->_height / 100. * y);
 	}
 
+	void NcursesDisplay::_setColor(Drawables::ADrawable &obj) const
+	{
+		int x, y;
+		getyx(stdscr, y, x);
+		printf("\x1B[38;2;%d;%d;%dm\n", (obj.color & (0xFF << 24)) >> 24,
+		       (obj.color & (0xFF << 16)) >> 16,
+		       (obj.color & (0xFF << 8)) >> 8);
+		move(y, x);
+		::refresh();
+	}
+
 	bool NcursesDisplay::draw(Drawables::Line &obj)
 	{
 		if (obj.y == obj.endY) {
+			this->_setColor(obj);
 			int length =  this->_getPosX(obj.endX) - this->_getPosX(obj.x);
 			mvaddstr(this->_getPosY(obj.y), this->_getPosX(obj.x), ('+' + std::string(length - 2, '-') + '+').c_str());
 			return true;
 		}
 		if (obj.x == obj.endX) {
+			this->_setColor(obj);
 			int x = this->_getPosX(obj.x);
 			int i = this->_getPosY(obj.y);
 			mvaddch(i, x, '+');
@@ -100,6 +112,7 @@ namespace Arcade
 
 	bool NcursesDisplay::draw(Drawables::Rectangle &obj)
 	{
+		this->_setColor(obj);
 		int width = this->_getPosX(obj.endX) - this->_getPosX(obj.x);
 		mvaddstr(this->_getPosY(obj.y), this->_getPosX(obj.x), ('+' + std::string(width - 2, '-') + '+').c_str());
 		for (int i = this->_getPosY(obj.y) + 1; i < this->_getPosY(obj.endY) - 1; i++)
@@ -115,6 +128,7 @@ namespace Arcade
 
 	bool NcursesDisplay::draw(Drawables::Text &obj)
 	{
+		this->_setColor(obj);
 		mvaddstr(this->_getPosY(obj.y), this->_getPosX(obj.x), obj.text.c_str());
 		return true;
 	}

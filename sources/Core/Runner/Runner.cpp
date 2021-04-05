@@ -177,4 +177,9 @@ namespace Arcade::Core
 		// TODO handle scores here.
 		return 0;
 	}
+
+	const Library &Runner::getRenderer() const
+	{
+		return this->_renderers[this->_rendererIndex];
+	}
 }
