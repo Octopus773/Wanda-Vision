@@ -10,19 +10,12 @@
 #include "Common/Events/KeyBoardEvent.hpp"
 #include "Exceptions/WrongMapChar.hpp"
 #include <iostream>
+#include <Common/Drawables/Circle.hpp>
 
 namespace Arcade::Pacman
 {
 	bool Pacman::init()
 	{
-	/*	Drawables::Rectangle rect;
-
-		rect.x = 5;
-		rect.y = 5;
-		rect.endY = 50;
-		rect.endX = 2;
-		rect.color = 0x33FFFFF;*/
-		//this->_drawables.emplace_back(std::make_unique<Drawables::Rectangle>(rect));
 		this->_map = this->_createMapFromVector({
 			                                        "wwwwwwwwwwwwwwwwwww",
 			                                        "wP   w       w   Pw",
@@ -34,7 +27,7 @@ namespace Arcade::Pacman
 			                                        "  w             w w",
 			                                        "w ww w wwwww w ww w",
 			                                        "wP   w       w   Pw",
-			                                        "wwwwwwwww wwwwwwwww",
+			                                        "wwwwwwwwwwwwwwwwwww",
 		                                        }, 3, 0);
 
 		this->_resources.emplace_back(std::make_pair("sprite", "resources/pacman.png"));
@@ -43,15 +36,15 @@ namespace Arcade::Pacman
 		this->_playerDrawable.sizeX = 5;
 		this->_playerDrawable.color = 0;
 		this->_playerDrawable.rotation = 0;
-		this->_playerDrawable.x = 50;
-		this->_playerDrawable.y = 50;
+		this->_playerDrawable.x = this->_playerPosition.first;
+		this->_playerDrawable.y = this->_playerPosition.second;
 		this->_playerDrawable.path = "resources/pacman.png";
-		Drawables::Line fallback;
-		fallback.x = 90;
-		fallback.y = 10;
-		fallback.endX = 10;
-		fallback.endY = 90;
-		fallback.color = 0xFF00FFFF;
+		Drawables::Circle fallback;
+		fallback.x = this->_playerPosition.first;
+		fallback.y = this->_playerPosition.second;
+		fallback.size = 2;
+		fallback.color = 0xFFFB00FF;
+		this->_playerDrawable.fallback = std::make_shared<Drawables::Circle>(fallback);
 		return true;
 	}
 
@@ -80,12 +73,8 @@ namespace Arcade::Pacman
 		this->_drawables.clear();
 		this->_playerDrawable.x = this->_playerPosition.first;
 		this->_playerDrawable.y = this->_playerPosition.second;
-	/*	//this->_playerDrawable.fallback->x = this->_playerPosition.first - 5;
-		//this->_playerDrawable.fallback->y = this->_playerPosition.second - 5;
-		if (auto fallback = dynamic_cast<Drawables::Rectangle *>(this->_playerDrawable.fallback.get())) {
-			fallback->endX = fallback->x + 5;
-			fallback->endY = fallback->y + 5;
-		}*/
+		this->_playerDrawable.fallback->x = this->_playerPosition.first;
+		this->_playerDrawable.fallback->y = this->_playerPosition.second;
 		for (const auto &i : this->_map) {
 			this->_drawables.emplace_back(std::make_unique<Drawables::Sprite>(i));
 		}
@@ -111,9 +100,8 @@ namespace Arcade::Pacman
 		} else if (!this->_moves.moveX && this->_moves.moveY) {
 			saveMoveY = this->_moves.moveY;
 		}
-
-		newX = pacmanSpeed * saveMoveX * tick;
-		newY = pacmanSpeed * saveMoveY * tick;
+		newX = this->pacmanSpeed * saveMoveX * tick;
+		newY = this->pacmanSpeed * saveMoveY * tick;
 
 		if (newX) {
 		    if (this->_collideWithWallMap(newX + this->_playerPosition.first - (this->_playerDrawable.sizeX / 2),
@@ -141,7 +129,7 @@ namespace Arcade::Pacman
 		                                      this->_playerDrawable.sizeX,
 		                                      this->_playerDrawable.sizeY);
 		if (it != this->_map.end()) {
-			this->_gameScore += (*it).path == largePacgumFilename ? 100 : 10;
+			this->_gameScore += (*it).path == this->largePacgumFilename ? 100 : 10;
 			this->_map.erase(it);
 		}
 
