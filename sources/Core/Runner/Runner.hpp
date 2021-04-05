@@ -34,8 +34,8 @@ namespace Arcade::Core
 		//! @brief Handle a single event (short handle it if this is a runner event or sent it to the game)
 		bool _handleEvent(const std::unique_ptr<Event> &event);
 
-		int _gameIndex;
-		int _rendererIndex;
+		int _gameIndex = 0;
+		int _rendererIndex = 0;
 	public:
 		//! @brief Set this runner's game library.
 		void setGame(Library &lib);
@@ -59,6 +59,9 @@ namespace Arcade::Core
 		//! @brief Run the shell.
 		//! @return The return status of the shell.
 		int runShell();
+
+		//! @brief Remove the current game and use the menu instead.
+		void setShell();
 
 		//! @brief Load available libraries from the path
 		void loadLibraries(const std::string &path);

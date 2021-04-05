@@ -2,6 +2,7 @@
 // Created by Zoe Roux on 2021-04-05.
 //
 
+#include <Common/Events/KeyBoardEvent.hpp>
 #include "Menu.hpp"
 
 namespace Arcade::Menu
@@ -89,7 +90,7 @@ namespace Arcade::Menu
 
 	bool Menu::shouldClose()
 	{
-		return false;
+		return this->_shouldClose;
 	}
 
 	const std::vector<Sound> &Menu::getSounds()
@@ -99,7 +100,10 @@ namespace Arcade::Menu
 
 	void Menu::handleEvent(Event &event)
 	{
-
+		if (auto key = dynamic_cast<Events::KeyboardEvent *>(&event)) {
+			if (key->key == Events::KeyboardEvent::ESCAPE)
+				this->_shouldClose = true;
+		}
 	}
 
 	void Menu::restart() { }

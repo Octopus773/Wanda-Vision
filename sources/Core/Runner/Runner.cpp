@@ -64,6 +64,10 @@ namespace Arcade::Core
 		if (this->_renderer)
 			this->_renderer->close();
 		this->_renderer = lib.start<IDisplayModule>();
+		if (this->_game) {
+			for (auto &resource : this->_game->getResources())
+				this->_renderer->load(resource.first, resource.second);
+		}
 	}
 
 	void Runner::setRenderer(const std::string &path)
@@ -125,19 +129,24 @@ namespace Arcade::Core
 		if (auto key = dynamic_cast<Events::KeyboardEvent *>(event.get())) {
 			if (key->type == Event::KeyDown) {
 				switch (key->key) {
-				case Events::KeyboardEvent::KEY_Q:
-					return true;
+				case Events::KeyboardEvent::ESCAPE:
+					this->setShell();
+					break;
 				case Events::KeyboardEvent::KEY_1:
-					this->setGame(this->_games[this->_gameIndex++]);
+					this->_gameIndex = (this->_gameIndex - 1) % this->_games.size();
+					this->setGame(this->_games[this->_gameIndex]);
 					break;
 				case Events::KeyboardEvent::KEY_2:
-					this->setGame(this->_games[this->_gameIndex--]);
+					this->_gameIndex = (this->_gameIndex + 1) % this->_games.size();
+					this->setGame(this->_games[this->_gameIndex]);
 					break;
 				case Events::KeyboardEvent::KEY_3:
-					this->setRenderer(this->_renderers[this->_rendererIndex++]);
+					this->_rendererIndex = (this->_rendererIndex - 1) % this->_renderers.size();
+					this->setRenderer(this->_renderers[this->_rendererIndex]);
 					break;
 				case Events::KeyboardEvent::KEY_5:
-					this->setRenderer(this->_renderers[this->_rendererIndex--]);
+					this->_rendererIndex = (this->_rendererIndex + 1) % this->_renderers.size();
+					this->setRenderer(this->_renderers[this->_rendererIndex]);
 					break;
 				default:
 					break;
@@ -148,21 +157,27 @@ namespace Arcade::Core
 		return false;
 	}
 
-	int Runner::runShell()
+	void Runner::setShell()
 	{
 		if (this->_game)
 			this->_game->close();
 		this->_game = std::make_unique<Menu::Menu>(*this);
 		this->_game->init();
+	}
+
+	int Runner::runShell()
+	{
+		this->setShell();
 		return this->runGame();
 	}
 
 	int Runner::runGame()
 	{
+		for (auto &resource : this->_game->getResources())
+			this->_renderer->load(resource.first, resource.second);
+
 		auto timer = std::chrono::steady_clock::now();
 		while (!this->_game->shouldClose()) {
-			for (auto &resource : this->_game->getResources())
-				this->_renderer->load(resource.first, resource.second);
 			for (auto &obj : this->_game->getDrawables())
 				this->_drawObject(obj.get());
 			for (auto &event : this->_renderer->pullEvents())
