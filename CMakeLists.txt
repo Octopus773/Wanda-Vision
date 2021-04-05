@@ -33,11 +33,18 @@ add_executable(arcade
 target_link_libraries(arcade dl)
 
 add_library(arcade_sdl2 SHARED
-        sources/DisplayModules/SDLDisplay.cpp
-        sources/DisplayModules/SDLDisplay.hpp
+        sources/DisplayModules/SDL/SDLDisplay.cpp
+        sources/DisplayModules/SDL/SDLDisplay.hpp
 )
 set_target_properties(arcade_sdl2 PROPERTIES PREFIX "")
 target_link_libraries(arcade_sdl2 SDL2 SDL2_image SDL2_ttf SDL2_mixer SDL2_gfx)
+
+add_library(arcade_ncurses SHARED
+        sources/DisplayModules/Ncurses/NcursesDisplay.hpp
+        sources/DisplayModules/Ncurses/NcursesDisplay.cpp
+)
+set_target_properties(arcade_ncurses PROPERTIES PREFIX "")
+target_link_libraries(arcade_ncurses ncurses)
 
 add_library(arcade_qix SHARED
         sources/Games/Qix/Qix.cpp
@@ -48,5 +55,5 @@ set_target_properties(arcade_qix PROPERTIES PREFIX "")
 add_library(arcade_pacman SHARED
         sources/Games/Pacman/Pacman.cpp
         sources/Games/Pacman/Pacman.hpp
-        )
+)
 set_target_properties(arcade_pacman PROPERTIES PREFIX "")

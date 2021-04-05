@@ -22,6 +22,14 @@ namespace Arcade::Core
 		this->setRenderer(graphicLib);
 	}
 
+	Runner::~Runner()
+	{
+		if (this->_game)
+			this->_game->close();
+		if (this->_renderer)
+			this->_renderer->close();
+	}
+
 	void Runner::loadLibraries(const std::string &path)
 	{
 		for (auto &item : std::filesystem::directory_iterator(path)) {
@@ -52,6 +60,8 @@ namespace Arcade::Core
 	{
 		if (lib.info.type != ModInfo::GRAPHIC)
 			throw std::invalid_argument("Can't use a non renderer as a renderer.");
+		if (this->_renderer)
+			this->_renderer->close();
 		this->_renderer = lib.start<IDisplayModule>();
 	}
 
@@ -69,6 +79,8 @@ namespace Arcade::Core
 	{
 		if (lib.info.type != ModInfo::GAME)
 			throw std::invalid_argument("Can't use a non game as a game.");
+		if (this->_game)
+			this->_game->close();
 		this->_game = lib.start<IGameModule>();
 	}
 
@@ -123,13 +135,13 @@ namespace Arcade::Core
 	{
 		auto timer = std::chrono::steady_clock::now();
 		while (!this->_game->shouldClose()) {
-			for (auto &event : this->_renderer->pullEvents())
-				if (this->_handleEvent(event))
-					return 0;
 			for (auto &resource : this->_game->getResources())
 				this->_renderer->load(resource.first, resource.second);
 			for (auto &obj : this->_game->getDrawables())
 				this->_drawObject(obj.get());
+			for (auto &event : this->_renderer->pullEvents())
+				if (this->_handleEvent(event))
+					return 0;
 			this->_renderer->refresh();
 			auto newTimer = std::chrono::steady_clock::now();
 			auto duration = std::chrono::duration_cast<std::chrono::microseconds>(newTimer - timer).count();

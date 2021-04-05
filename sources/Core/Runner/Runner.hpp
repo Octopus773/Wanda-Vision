@@ -64,8 +64,8 @@ namespace Arcade::Core
 		explicit Runner(const std::string &graphicLib);
 		//! @brief Deleted copy constructor
 		Runner(const Runner &) = delete;
-		//! @brief Default destructor
-		~Runner() = default;
+		//! @brief Custom destructor
+		~Runner();
 		//! @brief Deleted assignment operator
 		Runner &operator=(const Runner &) = delete;
 	};
