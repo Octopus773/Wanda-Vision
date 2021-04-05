@@ -12,7 +12,10 @@ namespace Arcade::Menu
 
 	bool Menu::init()
 	{
+		this->_resources.emplace_back("font", "assets/roboto.ttf");
+
 		Drawables::Text title;
+		title.path = "assets/roboto.ttf";
 		title.x = 10;
 		title.y = 10;
 		title.color = 0xFFFFFFFF;
@@ -25,6 +28,7 @@ namespace Arcade::Menu
 		int i = 0;
 		for (auto &lib : this->_runner.getGames()) {
 			Drawables::Text text;
+			text.path = "assets/roboto.ttf";
 			text.x = 10;
 			text.y = 20 + i * 10;
 			text.color = 0xFFFFFFFF;
@@ -36,6 +40,7 @@ namespace Arcade::Menu
 		i = 0;
 		for (auto &lib : this->_runner.getRenderers()) {
 			Drawables::Text text;
+			text.path = "assets/roboto.ttf";
 			text.x = 60;
 			text.y = 20 + i * 10;
 			text.color = lib == this->_runner.getRenderer() ? 0xff6e00 : 0xFFFFFFFF;
