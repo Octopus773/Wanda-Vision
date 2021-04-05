@@ -24,7 +24,7 @@ namespace Arcade::Pacman
 		};
 
 		//! @brief The position of the player.
-		std::pair<double, double> _playerPosition = {50, 50};
+		std::pair<double, double> _playerPosition = {50, 70};
 
 		//! @brief The player's drawable
 		Drawables::Sprite _playerDrawable;
@@ -56,6 +56,13 @@ namespace Arcade::Pacman
 		//! @return A instance of a Rectangle
 		//! @throw WrongMapChar when no matching char is found
 		Drawables::Rectangle getRectangleFromChar(char c, int xIndex, int yIndex);
+		//! @brief Tells if you colliding with one of the rectangle of the _map member
+		//! @param x The x percentage
+		//! @param y The y percentage
+		//! @param w The width in percentage
+		//! @param h The the height in percentage
+		//! @return True if the coords are colliding, otherwise false
+		bool collideWithMap(int x, int y, int w, int h);
 	public:
 		//! @brief Initialize this library. (Create windows & so on)
 		//! @return True if the initialization was successful. False otherwise.

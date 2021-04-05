@@ -34,7 +34,7 @@ namespace Arcade::Pacman
 			                                       "  w             w w",
 			                                       "w ww w wwwww w ww w",
 			                                       "w    w       w    w",
-			                                       "wwwwwwwwwwwwwwwwwww",
+			                                       "wwwwwwwww wwwwwwwww",
 		                                       }, 0, 0);
 
 		this->_resources.emplace_back(std::make_pair("sprite", "resources/pacman.png"));
@@ -100,10 +100,46 @@ namespace Arcade::Pacman
 
 	void Pacman::addTicks(unsigned int tick)
 	{
-		this->_playerPosition.first += .000025 * this->_moves.moveX * tick;
-		this->_playerPosition.second += .000025 * this->_moves.moveY * tick;
-		this->_resources.clear();
+		static int state = 0;
+		static double newX = 0;
+		static double newY = 0;
 
+		this->_resources.clear();
+		if (this->_moves.moveX)
+			state = 1;
+		if (!this->_moves.moveX && this->_moves.moveY)
+			state = 2;
+
+		switch (state) {
+		case 2:
+			newY = .000025 * this->_moves.moveY * tick;
+			state = -1;
+			break;
+		case 1:
+			newX = .000025 * this->_moves.moveX * tick;
+			state = -1;
+		default:
+			break;
+		}
+
+		if (newX) {
+		    if (this->collideWithMap(newX + this->_playerPosition.first - (this->_playerDrawable.sizeX / 2),
+							            this->_playerPosition.second - (this->_playerDrawable.sizeY / 2),
+							            this->_playerDrawable.sizeX,
+							            this->_playerDrawable.sizeY)) {
+		    	newX = 0;
+		    }
+			this->_playerPosition.first += newX;
+		}
+		if (newY) {
+			if (this->collideWithMap(this->_playerPosition.first - (this->_playerDrawable.sizeX / 2),
+			                         newY + this->_playerPosition.second - (this->_playerDrawable.sizeY / 2),
+			                         this->_playerDrawable.sizeX,
+			                         this->_playerDrawable.sizeY)) {
+				newY = 0;
+			}
+			this->_playerPosition.second += newY;
+		}
 		this->_moves.moveX = 0;
 		this->_moves.moveY = 0;
 	}
@@ -184,6 +220,20 @@ namespace Arcade::Pacman
 			return rect;
 		default: throw WrongMapChar(c);
 		}
+	}
+
+	bool Pacman::collideWithMap(int x, int y, int w, int h)
+	{
+		for (const auto &i : this->_map) {
+			if (x + w <= i.x
+				|| y + h <= i.y
+				|| i.endX <= x
+				|| i.endY <= y) {
+				continue;
+			}
+			return true;
+		}
+		return false;
 	}
 }
 
