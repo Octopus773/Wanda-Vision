@@ -58,7 +58,7 @@ namespace Arcade::Pacman
 		//! @param hOffset The horizontal offset in percentage
 		//! @info Offset can be set to a negative value the function will simply add the offset given to the offset calculated
 		//! @warning Sprites are only used for a "base drawable" some sprites will be purposely ill formed, in order to call the fallback
-		std::vector<Drawables::Sprite> createMapFromVector(const std::vector<std::string> &map, int hOffset, int vOffset);
+		std::vector<Drawables::Sprite> _createMapFromVector(const std::vector<std::string> &map, int hOffset, int vOffset);
 		//! @brief Get the correct Rectangle and correctly filled from a char
 		//! @param c The template type
 		//! @param xIndex The x position of the char in the map
@@ -66,14 +66,14 @@ namespace Arcade::Pacman
 		//! @warning This function uses hard coded templates for each char. This function should only be used with the map context in mind
 		//! @return A instance of a Rectangle
 		//! @throw WrongMapChar when no matching char is found
-		Drawables::Rectangle getRectangleFromChar(char c, int xIndex, int yIndex);
+		Drawables::Rectangle _getRectangleFromChar(char c, int xIndex, int yIndex);
 		//! @brief Tells if you colliding with one of the rectangle of the _map member
 		//! @param x The x percentage
 		//! @param y The y percentage
 		//! @param w The width in percentage
 		//! @param h The the height in percentage
 		//! @return True if the coords are colliding, otherwise false
-		bool collideWithWallMap(int x, int y, int w, int h);
+		bool _collideWithWallMap(int x, int y, int w, int h);
 		//! @brief Get the correct Sprite and correctly filled from a char
 		//! @param c The template type
 		//! @param xIndex The x position of the char in the map
@@ -81,14 +81,14 @@ namespace Arcade::Pacman
 		//! @warning This function uses hard coded templates for each char. This function should only be used with the map context in mind
 		//! @return A instance of a Sprite
 		//! @throw WrongMapChar when no matching char is found
-		Drawables::Sprite getSpriteFromChar(char c, int xIndex, int yIndex);
+		Drawables::Sprite _getSpriteFromChar(char c, int xIndex, int yIndex);
 		//! @brief Tells if you colliding with one of the pacgums of the _map member
 		//! @param x The x percentage
 		//! @param y The y percentage
 		//! @param w The width in percentage
 		//! @param h The the height in percentage
 		//! @return The pacgum you collided, otherwise
-		std::vector<Drawables::Sprite>::iterator collideWithPacgumMap(int x, int y, int w, int h);
+		std::vector<Drawables::Sprite>::iterator _collideWithPacgumMap(int x, int y, int w, int h);
 	public:
 		//! @brief Initialize this library. (Create windows & so on)
 		//! @return True if the initialization was successful. False otherwise.

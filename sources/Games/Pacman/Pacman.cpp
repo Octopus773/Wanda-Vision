@@ -23,19 +23,19 @@ namespace Arcade::Pacman
 		rect.endX = 2;
 		rect.color = 0x33FFFFF;*/
 		//this->_drawables.emplace_back(std::make_unique<Drawables::Rectangle>(rect));
-		this->_map = this->createMapFromVector({
-			                                       "wwwwwwwwwwwwwwwwwww",
-			                                       "wP   w       w   Pw",
-			                                       "w ww w wwwww w ww w",
-			                                       "  w     ppp     w w",
-			                                       "w w ww ww ww ww w w",
-			                                       "w      w   w      w",
-			                                       "w w ww wwwww ww w w",
-			                                       "  w             w w",
-			                                       "w ww w wwwww w ww w",
-			                                       "wP   w       w   Pw",
-			                                       "wwwwwwwww wwwwwwwww",
-		                                       }, 3, 0);
+		this->_map = this->_createMapFromVector({
+			                                        "wwwwwwwwwwwwwwwwwww",
+			                                        "wP   w       w   Pw",
+			                                        "w ww w wwwww w ww w",
+			                                        "  w     ppp     w w",
+			                                        "w w ww ww ww ww w w",
+			                                        "w      w   w      w",
+			                                        "w w ww wwwww ww w w",
+			                                        "  w             w w",
+			                                        "w ww w wwwww w ww w",
+			                                        "wP   w       w   Pw",
+			                                        "wwwwwwwww wwwwwwwww",
+		                                        }, 3, 0);
 
 		this->_resources.emplace_back(std::make_pair("sprite", "resources/pacman.png"));
 		this->_playerDrawable = Drawables::Sprite();
@@ -116,31 +116,32 @@ namespace Arcade::Pacman
 		newY = pacmanSpeed * saveMoveY * tick;
 
 		if (newX) {
-		    if (this->collideWithWallMap(newX + this->_playerPosition.first - (this->_playerDrawable.sizeX / 2),
-		                                 this->_playerPosition.second - (this->_playerDrawable.sizeY / 2),
-		                                 this->_playerDrawable.sizeX,
-		                                 this->_playerDrawable.sizeY)) {
+		    if (this->_collideWithWallMap(newX + this->_playerPosition.first - (this->_playerDrawable.sizeX / 2),
+		                                  this->_playerPosition.second - (this->_playerDrawable.sizeY / 2),
+		                                  this->_playerDrawable.sizeX,
+		                                  this->_playerDrawable.sizeY)) {
 		    	saveMoveX = 0;
 		    	newX = 0;
 		    }
 			this->_playerPosition.first += newX;
 		}
 		if (newY) {
-			if (this->collideWithWallMap(this->_playerPosition.first - (this->_playerDrawable.sizeX / 2),
-			                             newY + this->_playerPosition.second - (this->_playerDrawable.sizeY / 2),
-			                             this->_playerDrawable.sizeX,
-			                             this->_playerDrawable.sizeY)) {
+			if (this->_collideWithWallMap(this->_playerPosition.first - (this->_playerDrawable.sizeX / 2),
+			                              newY + this->_playerPosition.second - (this->_playerDrawable.sizeY / 2),
+			                              this->_playerDrawable.sizeX,
+			                              this->_playerDrawable.sizeY)) {
 				saveMoveY = 0;
 				newY = 0;
 			}
 			this->_playerPosition.second += newY;
 		}
 
-		auto it = this->collideWithPacgumMap(this->_playerPosition.first - (this->_playerDrawable.sizeX / 2),
-		                           this->_playerPosition.second - (this->_playerDrawable.sizeY / 2),
-		                           this->_playerDrawable.sizeX,
-		                           this->_playerDrawable.sizeY);
+		auto it = this->_collideWithPacgumMap(this->_playerPosition.first - (this->_playerDrawable.sizeX / 2),
+		                                      this->_playerPosition.second - (this->_playerDrawable.sizeY / 2),
+		                                      this->_playerDrawable.sizeX,
+		                                      this->_playerDrawable.sizeY);
 		if (it != this->_map.end()) {
+			this->_gameScore += (*it).path == largePacgumFilename ? 100 : 10;
 			this->_map.erase(it);
 		}
 
@@ -193,7 +194,7 @@ namespace Arcade::Pacman
 		return 0;
 	}
 
-	std::vector<Drawables::Sprite> Pacman::createMapFromVector(const std::vector<std::string> &map, int hOffset, int vOffset)
+	std::vector<Drawables::Sprite> Pacman::_createMapFromVector(const std::vector<std::string> &map, int hOffset, int vOffset)
 	{
 		std::vector<Drawables::Sprite> ret;
 		int xIndex = -1;
@@ -207,13 +208,13 @@ namespace Arcade::Pacman
 				if (j == ' ') {
 					continue;
 				}
-				ret.emplace_back(this->getSpriteFromChar(j, xIndex + vOffset, yIndex + hOffset));
+				ret.emplace_back(this->_getSpriteFromChar(j, xIndex + vOffset, yIndex + hOffset));
 			}
 		}
 		return ret;
 	}
 
-	Drawables::Rectangle Pacman::getRectangleFromChar(char c, int xIndex, int yIndex)
+	Drawables::Rectangle Pacman::_getRectangleFromChar(char c, int xIndex, int yIndex)
 	{
 		Drawables::Rectangle rect;
 
@@ -243,7 +244,7 @@ namespace Arcade::Pacman
 		}
 	}
 
-	bool Pacman::collideWithWallMap(int x, int y, int w, int h)
+	bool Pacman::_collideWithWallMap(int x, int y, int w, int h)
 	{
 		for (const auto &i : this->_map) {
 			try {
@@ -262,13 +263,13 @@ namespace Arcade::Pacman
 		return false;
 	}
 
-	Drawables::Sprite Pacman::getSpriteFromChar(char c, int xIndex, int yIndex)
+	Drawables::Sprite Pacman::_getSpriteFromChar(char c, int xIndex, int yIndex)
 	{
 		Drawables::Sprite ret;
 
 		switch (c) {
 		case 'w':
-			ret.fallback = std::make_shared<Drawables::Rectangle>(this->getRectangleFromChar(c, xIndex, yIndex));
+			ret.fallback = std::make_shared<Drawables::Rectangle>(this->_getRectangleFromChar(c, xIndex, yIndex));
 			return ret;
 		case 'P':
 			ret.sizeY = 5;
@@ -277,7 +278,7 @@ namespace Arcade::Pacman
 			ret.y = (yIndex * mapTileLength) + (ret.sizeY / 2);
 			ret.path = largePacgumFilename;
 			ret.rotation = 0;
-			ret.fallback = std::make_shared<Drawables::Rectangle>(this->getRectangleFromChar('P', xIndex, yIndex));
+			ret.fallback = std::make_shared<Drawables::Rectangle>(this->_getRectangleFromChar('P', xIndex, yIndex));
 			ret.color = 0;
 			return ret;
 		case 'p':
@@ -287,14 +288,14 @@ namespace Arcade::Pacman
 			ret.y = (yIndex * mapTileLength) + (ret.sizeY / 2);
 			ret.path = smallPacgumFilename;
 			ret.rotation = 0;
-			ret.fallback = std::make_shared<Drawables::Rectangle>(this->getRectangleFromChar('p', xIndex, yIndex));
+			ret.fallback = std::make_shared<Drawables::Rectangle>(this->_getRectangleFromChar('p', xIndex, yIndex));
 			ret.color = 0;
 			return ret;
 		default: throw WrongMapChar(c);
 		}
 	}
 
-	std::vector<Drawables::Sprite>::iterator Pacman::collideWithPacgumMap(int x, int y, int w, int h)
+	std::vector<Drawables::Sprite>::iterator Pacman::_collideWithPacgumMap(int x, int y, int w, int h)
 	{
 		int index = -1;
 
