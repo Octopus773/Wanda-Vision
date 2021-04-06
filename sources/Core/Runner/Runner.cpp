@@ -47,12 +47,12 @@ namespace Arcade::Core
 		}
 	}
 
-	const std::vector<Library> &Runner::getGames() const
+	std::vector<Library> &Runner::getGames()
 	{
 		return this->_games;
 	}
 
-	const std::vector<Library> &Runner::getRenderers() const
+	std::vector<Library> &Runner::getRenderers()
 	{
 		return this->_renderers;
 	}

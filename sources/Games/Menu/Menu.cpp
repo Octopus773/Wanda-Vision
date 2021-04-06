@@ -3,6 +3,7 @@
 //
 
 #include <Common/Events/KeyBoardEvent.hpp>
+#include <Common/Events/MouseClickEvent.hpp>
 #include "Menu.hpp"
 
 namespace Arcade::Menu
@@ -44,7 +45,7 @@ namespace Arcade::Menu
 			text.path = "assets/roboto.ttf";
 			text.x = 60;
 			text.y = 20 + i * 10;
-			text.color = lib == this->_runner.getRenderer() ? 0xff6e00 : 0xFFFFFFFF;
+			text.color = lib == this->_runner.getRenderer() ? 0xff6e00ff : 0xFFFFFFFF;
 			text.fontSize = 13;
 			text.text = lib.info.name;
 			this->_drawables.emplace_back(std::make_unique<Drawables::Text>(text));
@@ -103,6 +104,15 @@ namespace Arcade::Menu
 		if (auto key = dynamic_cast<Events::KeyboardEvent *>(&event)) {
 			if (key->key == Events::KeyboardEvent::ESCAPE)
 				this->_shouldClose = true;
+		}
+		if (auto key = dynamic_cast<Events::MouseClickEvent *>(&event)) {
+			if (key->button != Events::MouseClickEvent::LEFT)
+				return;
+			int idx = (key->y - 20) / 10;
+			if (key->x <= 50 && idx >= 0 && this->_runner.getGames().size() > idx)
+				this->_runner.setGame(this->_runner.getGames()[idx]);
+			if (key->x > 50 && idx >= 0 && this->_runner.getRenderers().size() > idx)
+				this->_runner.setRenderer(this->_runner.getRenderers()[idx]);
 		}
 	}
 

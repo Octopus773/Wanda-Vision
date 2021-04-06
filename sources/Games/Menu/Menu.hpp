@@ -27,7 +27,7 @@ namespace Arcade::Menu
 		std::vector<Sound> _sounds = {};
 
 		//! @brief Should the menu close?
-		bool _shouldClose;
+		bool _shouldClose = false;
 	public:
 		//! @brief Initialize this library. (Create windows & so on)
 		//! @return True if the initialization was successful. False otherwise.
