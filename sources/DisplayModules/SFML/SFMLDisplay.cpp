@@ -21,6 +21,7 @@ namespace Arcade
 
 	bool SFMLDisplay::close()
 	{
+		this->unloadAll();
 		this->_mainWindow.close();
 		return false;
 	}
@@ -239,8 +240,7 @@ namespace Arcade
 		return ModInfo::GRAPHIC;
 	}
 
-	std::variant<sf::Texture, sf::Font>
-	SFMLDisplay::createResource(const std::string &type, const std::string &path)
+	SFMLDisplay::Resource SFMLDisplay::createResource(const std::string &type, const std::string &path)
 	{
 		sf::Texture t;
 		sf::Font f;
@@ -265,16 +265,38 @@ namespace Arcade
 
 	bool SFMLDisplay::load(const std::string &type, const std::string &path)
 	{
+		Resource resource;
+
 		if (this->_loadedResources.find(path) != this->_loadedResources.end()) {
 			return false;
 		}
-		this->_loadedResources[path] = this->createResource(type, path);
+		try {
+			resource = this->createResource(type, path);
+		} catch (const ResourceCreationFailure &) { }
+		this->_loadedResources[path] = std::make_pair(type, resource);
 		return false;
 	}
 
-	void SFMLDisplay::destroyResource(const std::pair<std::string, void *> &resource)
+	void SFMLDisplay::destroyResource(const std::pair<std::string, Resource> &)
 	{
+	}
 
+	void SFMLDisplay::unload(const std::string &type, const std::string &path)
+	{
+		if (this->_loadedResources.find(path) == this->_loadedResources.end()) {
+			return;
+		}
+		this->destroyResource(this->_loadedResources[path]);
+		this->_loadedResources.erase(path);
+	}
+
+	void SFMLDisplay::unloadAll()
+	{
+		for(auto iter = this->_loadedResources.begin(); iter != this->_loadedResources.end(); ++iter)
+		{
+			this->unload(iter->first, iter->second.first);
+		}
+		this->_loadedResources.clear();
 	}
 
 	extern "C" ModInfo getHeader()
@@ -290,26 +312,5 @@ namespace Arcade
 	extern "C" Arcade::IModule *getModule()
 	{
 		return new SFMLDisplay;
-	}
-
-	SFMLDisplay::Resource::Resource(const std::string &type, const std::string &path)
-		: type(type)
-	{
-		if (type == resourceSpriteType) {
-			if (!this->t.loadFromFile(path)) {
-				throw ResourceCreationFailure("File error");
-			}
-		} else if (type == resourceFontType) {
-			if (!this->f.loadFromFile(path)) {
-				throw ResourceCreationFailure("File error");
-			}
-		} else if (type == resourceMusicType) {
-			if (!this->m.openFromFile(path)) {
-				throw ResourceCreationFailure("File error");
-			}
-			throw ResourceCreationFailure("Unsupported Music");
-		} else {
-			throw ResourceCreationFailure("Unknown type");
-		}
 	}
 }

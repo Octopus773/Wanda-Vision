@@ -31,7 +31,7 @@ namespace Arcade
 		};
 
 		//! @brief A game resource
-		struct Resource {
+		struct TrashResource {
 			//! @brief The type of this resource used to known witch member is initialised
 			std::string type;
 			//! @brief A Texture
@@ -40,13 +40,9 @@ namespace Arcade
 			sf::Font f;
 			//! @brief A Music
 			sf::Music m;
-			Resource(const std::string &type, const std::string &path);
-			~Resource() = default;
-			Resource(const Resource &) = default;
-			Resource &operator=(const Resource &) = default;
-			//! @brief Force the move constructor
-		//	Resource(const Resource&&) = default;
 		};
+
+		std::variant<sf::Texture, sf::Font> typedef Resource;
 
 		//! @brief The main window
 		sf::RenderWindow _mainWindow;
@@ -60,7 +56,7 @@ namespace Arcade
 		//! @brief A list of all the resources that are loaded and cached and then not needed to open again
 		//! @info the pair is holding the type of the resource type and the resource
 		//! @details saving string for the path (used to check if the texture is already loaded) and the Texture ptr
-		std::map<std::string, std::variant<sf::Texture, sf::Font>> _loadedResources;
+		std::map<std::string, std::pair<std::string, Resource>> _loadedResources;
 		//! @brief Music type resource
 		static constexpr std::string_view resourceMusicType = "music";
 		//! @brief Font type resource
@@ -100,10 +96,11 @@ namespace Arcade
 		//! @param type The type of the resource
 		//! @param path The location of the resource file
 		//! @return A pointer to the resource or nullptr if a problem occurred
-		std::variant<sf::Texture, sf::Font> createResource(const std::string &type, const std::string &path);
+		Resource createResource(const std::string &type, const std::string &path);
 		//! @brief Free the resource given as param
-		//! @param resource the pair is holding the type of the resource type and pointer to the resource
-		void destroyResource(const std::pair<std::string, void *> &resource);
+		//! @param resource the pair is holding the type of the resource type and the resource
+		//! @info Only used if additional steps are required to delete correctly a resource
+		void destroyResource(const std::pair<std::string, Resource> &resource);
 	public:
 		//! @brief Default constructor
 		//! @warning In order to properly use this class you must call the init member function

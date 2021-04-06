@@ -296,8 +296,10 @@ namespace Arcade
 
 	void SDLDisplay::unloadAll()
 	{
-		for (const auto &pair : this->_loadedResources)
-			this->destroyResource(pair.second);
+		for(auto iter = this->_loadedResources.begin(); iter != this->_loadedResources.end(); ++iter)
+		{
+			this->unload(iter->first, iter->second.first);
+		}
 		this->_loadedResources.clear();
 	}
 
