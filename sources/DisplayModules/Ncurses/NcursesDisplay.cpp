@@ -83,12 +83,16 @@ namespace Arcade
 
 	int NcursesDisplay::_getPosX(int x) const
 	{
-		return int(this->_width / 100. * x);
+		int max = std::min(this->_width, this->_height * 2);
+		int off = (this->_width - max) / 2;
+		return off + int(max / 100. * x);
 	}
 
 	int NcursesDisplay::_getPosY(int y) const
 	{
-		return int(this->_height / 100. * y);
+		int max = std::min(this->_width, this->_height);
+		int off = (this->_height - max) / 2;
+		return off + int(max / 100. * y);
 	}
 
 	void NcursesDisplay::_setColor(Drawables::ADrawable &obj) const

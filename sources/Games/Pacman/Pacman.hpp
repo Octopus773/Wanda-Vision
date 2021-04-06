@@ -7,6 +7,7 @@
 #include <map>
 #include "Common/IGameModule.hpp"
 #include "Common/Drawables/Line.hpp"
+#include <array>
 
 namespace Arcade::Pacman
 {
@@ -14,21 +15,115 @@ namespace Arcade::Pacman
 	class Pacman : public IGameModule
 	{
 	private:
+		//! @brief The ghost struct
+		struct Ghost {
+			int speed;
+			Drawables::Sprite drawable;
+		};
+
+		//! @brief Struct used to keep pending moves.
+		struct PendingMoves {
+			//! @brief X direction of the player
+			int moveX;
+			//! @brief Y direction of the player
+			int moveY;
+		};
+
+		enum MapChar {
+			//! @brief Represents a space, nothing should be drawned with it
+			//! @info It's used for padding
+			NOTHING = ' ',
+			//! @brief Representing a wall in the map
+			WALL = 'w',
+			//! @brief Representing a small pacgum in the map
+			SMALL_PACGUM = '.',
+			//! @brief Representing a big pacgum in the map
+			BIG_PACGUM = 'P',
+			//! @brief Ghost Blinky
+			BLINKY = 'B',
+			//! @brief Ghost Inky
+			INKY = 'I',
+			//! @brief Ghost Clyde
+			CLYDE = 'C'
+		};
 
 		//! @brief The position of the player.
-		std::pair<double, double> _playerPosition = {50, 50};
+		std::pair<double, double> _playerPosition = {50, 53};
 
 		//! @brief The player's drawable
 		Drawables::Sprite _playerDrawable;
-
+		//! @brief Information of all the ghosts
+		Ghost _ghosts;
+		//! @brief Game Score
+		long _gameScore = 0;
+		Drawables::Text _scoreDrawable;
 		//! @brief Resources needed by this game.
 		std::vector<std::pair<std::string, std::string>> _resources = {};
 		//! @brief Drawables that will be displayed.
 		std::vector<std::unique_ptr<Drawables::ADrawable>> _drawables = {};
 		//! @brief Sounds that will be started in the next frame
 		std::vector<Sound> _sounds = {};
+		//! @brief Game map
+		std::vector<Drawables::Sprite> _map = {};
+		//! @brief Pending moves.
+		PendingMoves _moves = {};
+		//! @brief The length of a map tile
+		static constexpr int mapTileLength = 5;
+		//! @brief The color of the walls
+		//! @info This color is used to check if the block is collidable or not
+		static constexpr int mapWallColor = 0x0033FFFF;
+		//! @brief The speed of pacman (the player)
+		static constexpr float pacmanSpeed = .000025;
+		//! @brief Resource location for the large pacgum sprite
+		static constexpr std::string_view largePacgumFilename = "resources/large_pacgum.png";
+		//! @brief Resource location for the small pacgum sprite
+		static constexpr std::string_view smallPacgumFilename = "resources/small_pacgum.png";
 
-		std::vector<Drawables::Rectangle> map;
+		//! @brief Gives the correct Drawables to be able to draw the map on the screen
+		//! @param map The vector of string to represent the actual map (one type of char represent a type/config of drawable)
+		//! @param vOffset The vertical offset in percentage
+		//! @param hOffset The horizontal offset in percentage
+		//! @info Offset can be set to a negative value the function will simply add the offset given to the offset calculated
+		//! @warning Sprites are only used for a "base drawable" some sprites will be purposely ill formed, in order to call the fallback
+		std::vector<Drawables::Sprite> _createMapFromVector(const std::vector<std::string> &map, int hOffset, int vOffset);
+		//! @brief Get the correct Rectangle and correctly filled from a char
+		//! @param c The template type
+		//! @param xIndex The x position of the char in the map
+		//! @param yIndex The y position of the char in the map
+		//! @warning This function uses hard coded templates for each char. This function should only be used with the map context in mind
+		//! @return A instance of a Rectangle
+		//! @throw WrongMapChar when no matching char is found
+		Drawables::Rectangle _getRectangleFromChar(char c, int xIndex, int yIndex);
+		//! @brief Tells if you colliding with one of the rectangle of the _map member
+		//! @param x The x percentage
+		//! @param y The y percentage
+		//! @param w The width in percentage
+		//! @param h The the height in percentage
+		//! @return True if the coords are colliding, otherwise false
+		bool _collideWithWallMap(int x, int y, int w, int h);
+		//! @brief Get the correct Sprite and correctly filled from a char
+		//! @param c The template type
+		//! @param xIndex The x position of the char in the map
+		//! @param yIndex The y position of the char in the map
+		//! @warning This function uses hard coded templates for each char. This function should only be used with the map context in mind
+		//! @return A instance of a Sprite
+		//! @throw WrongMapChar when no matching char is found
+		Drawables::Sprite _getSpriteFromChar(char c, int xIndex, int yIndex);
+		//! @brief Tells if you colliding with one of the pacgums of the _map member
+		//! @param x The x percentage
+		//! @param y The y percentage
+		//! @param w The width in percentage
+		//! @param h The the height in percentage
+		//! @return The pacgum you collided, otherwise
+		std::vector<Drawables::Sprite>::iterator _collideWithPacgumMap(int x, int y, int w, int h);
+		//! @brief Checks collisions and moves the player rotate texture, etc...
+		//! @param[out] moveX The movement in x
+		//! @param[out] moveY The movement in y
+		//! @param ticks Delta time (number of ticks between two functions calls)
+		//! @info The movement will be kept until hitting an obstacle or a new input is detected
+		void _processPlayerMovement(int &moveX, int &moveY, unsigned int ticks);
+		//! @brief Checks the collision with Pacgums and ghosts and update the score
+		void _processScore();
 	public:
 		//! @brief Initialize this library. (Create windows & so on)
 		//! @return True if the initialization was successful. False otherwise.
