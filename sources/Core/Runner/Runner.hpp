@@ -49,11 +49,11 @@ namespace Arcade::Core
 		//! @brief Get the current renderer
 		const Library &getRenderer() const;
 		//! @brief Set this runner's game library using the path.
-		void setGame(const std::string & path);
+		void setGame(std::string path);
 		//! @brief Set this runner's graphical library.
 		void setRenderer(Library &lib);
 		//! @brief Set this runner's graphical library using the path.
-		void setRenderer(const std::string & path);
+		void setRenderer(std::string path);
 		//! @brief List game libraries
 		std::vector<Library> &getGames();
 		//! @brief List renderers libraries

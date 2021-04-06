@@ -92,8 +92,10 @@ namespace Arcade::Core
 		}
 	}
 
-	void Runner::setRenderer(const std::string &path)
+	void Runner::setRenderer(std::string path)
 	{
+		if (path[0] != '.' && path[0] != '/')
+			path = "./" + path;
 		auto lib = std::find_if(this->_renderers.begin(), this->_renderers.end(), [&path](Library &x) {
 			return std::filesystem::path(x.path) == std::filesystem::path(path);
 		});
@@ -112,8 +114,10 @@ namespace Arcade::Core
 		this->_game = lib.start<IGameModule>();
 	}
 
-	void Runner::setGame(const std::string &path)
+	void Runner::setGame(std::string path)
 	{
+		if (path[0] != '.' && path[0] != '/')
+			path = "./" + path;
 		auto lib = std::find_if(this->_games.begin(), this->_games.end(), [&path](Library &x) {
 			return std::filesystem::path(x.path) == std::filesystem::path(path);
 		});
@@ -141,7 +145,6 @@ namespace Arcade::Core
 			return;
 		if (obj->fallback)
 			return this->_drawObject(obj->fallback.get());
-		throw std::runtime_error("Unknown game object time met. Aborting...");
 	}
 
 	bool Runner::_handleEvent(const std::unique_ptr<Event> &event)
@@ -197,6 +200,7 @@ namespace Arcade::Core
 	{
 		if (this->username.empty())
 			this->username = "USERNAME";
+		this->_renderer->unloadAll();
 		for (auto &resource : this->_game->getResources())
 			this->_renderer->load(resource.first, resource.second);
 

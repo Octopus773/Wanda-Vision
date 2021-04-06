@@ -131,10 +131,10 @@ namespace Arcade
 	{
 		this->_setColor(obj);
 		int width = this->_getPosX(obj.endX) - this->_getPosX(obj.x);
-		mvaddstr(this->_getPosY(obj.y), this->_getPosX(obj.x), ('+' + std::string(width - 2, '-') + '+').c_str());
+		mvaddstr(this->_getPosY(obj.y), this->_getPosX(obj.x), ('+' + std::string(std::max(width - 2, 0), '-') + '+').c_str());
 		for (int i = this->_getPosY(obj.y) + 1; i < this->_getPosY(obj.endY) - 1; i++)
 			mvaddstr(i, this->_getPosX(obj.x), ('|' + std::string(width - 2, 'o') + '|').c_str());
-		mvaddstr(this->_getPosY(obj.y), this->_getPosX(obj.x), ('+' + std::string(width - 2, '-') + '+').c_str());
+		mvaddstr(this->_getPosY(obj.y), this->_getPosX(obj.x), ('+' + std::string(std::max(width - 2, 0), '-') + '+').c_str());
 		return true;
 	}
 
@@ -158,7 +158,7 @@ namespace Arcade
 	bool NcursesDisplay::refresh()
 	{
 		::refresh();
-		erase();
+		clear();
 		getmaxyx(stdscr, this->_height, this->_width);
 		return true;
 	}
