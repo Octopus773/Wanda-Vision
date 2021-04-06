@@ -108,6 +108,7 @@ namespace Arcade
 				}
 				this->_windowWidth = e.window.data1;
 				this->_windowHeight = e.window.data2;
+				this->_updateInternalWindow();
 			default:
 				continue;
 			}
@@ -123,10 +124,10 @@ namespace Arcade
 	{
 		this->setRendererColor(obj.color);
 		SDL_RenderDrawLine(this->_windowRenderer,
-		                   preciseCrossProduct(obj.x, this->_windowWidth),
-		                   preciseCrossProduct(obj.y, this->_windowHeight),
-		                   preciseCrossProduct(obj.endX, this->_windowWidth),
-		                   preciseCrossProduct(obj.endY, this->_windowHeight)
+		                   preciseCrossProduct(obj.x, this->_internalWindow.first) + this->_internalWindow.second,
+		                   preciseCrossProduct(obj.y, this->_internalWindow.first) + this->_internalWindow.second,
+		                   preciseCrossProduct(obj.endX, this->_internalWindow.first) + this->_internalWindow.second,
+		                   preciseCrossProduct(obj.endY, this->_internalWindow.first) + this->_internalWindow.second
 		);
 		this->setRendererColor(0);
 		return true;
@@ -134,12 +135,12 @@ namespace Arcade
 
 	bool SDLDisplay::draw(Drawables::Rectangle &obj)
 	{
-		SDL_Rect fillRect = {preciseCrossProduct(obj.x, this->_windowWidth),
-		                     preciseCrossProduct(obj.y, this->_windowHeight),
+		SDL_Rect fillRect = {preciseCrossProduct(obj.x, this->_internalWindow.first) + this->_internalWindow.second,
+		                     preciseCrossProduct(obj.y, this->_internalWindow.first) + this->_internalWindow.second,
 		                     0,
 		                     0};
-		fillRect.w = preciseCrossProduct(obj.endX, this->_windowWidth) - fillRect.x;
-		fillRect.h = preciseCrossProduct(obj.endY, this->_windowHeight) - fillRect.y;
+		fillRect.w = preciseCrossProduct(obj.endX, this->_internalWindow.first) - fillRect.x + this->_internalWindow.second;
+		fillRect.h = preciseCrossProduct(obj.endY, this->_internalWindow.first) - fillRect.y + this->_internalWindow.second;
 		this->setRendererColor(obj.color);
 		SDL_RenderFillRect(this->_windowRenderer, &fillRect);
 		this->setRendererColor(0);
@@ -173,6 +174,9 @@ namespace Arcade
 		if (this->_loadedResources.find(obj.path) == this->_loadedResources.end()
 		    || this->_loadedResources[obj.path].first != resourceFontType) {
 			return false;
+		}
+		if (obj.text == "") {
+			return true;
 		}
 		// TODO might need to cache the texture of the font directly internally if it's too laggy (cache for each color and text)
 		surface = TTF_RenderText_Solid(static_cast<TTF_Font *>(this->_loadedResources[obj.path].second),
@@ -490,6 +494,12 @@ namespace Arcade
 	int SDLDisplay::preciseCrossProduct(int percent, int total)
 	{
 		return static_cast<int>(percent * (total / 100.));
+	}
+
+	void SDLDisplay::_updateInternalWindow()
+	{
+		this->_internalWindow.first = std::min(this->_windowWidth, this->_windowHeight);
+		this->_internalWindow.second = (this->_windowHeight - this->_internalWindow.first) / 2;
 	}
 
 	extern "C" ModInfo getHeader()
