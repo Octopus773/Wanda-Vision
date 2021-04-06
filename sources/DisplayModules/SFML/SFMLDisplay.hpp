@@ -30,18 +30,7 @@ namespace Arcade
 			unsigned offsetY;
 		};
 
-		//! @brief A game resource
-		struct TrashResource {
-			//! @brief The type of this resource used to known witch member is initialised
-			std::string type;
-			//! @brief A Texture
-			sf::Texture t;
-			//! @brief A font
-			sf::Font f;
-			//! @brief A Music
-			sf::Music m;
-		};
-
+		//! @brief The Resource type
 		std::variant<sf::Texture, sf::Font> typedef Resource;
 
 		//! @brief The main window
@@ -108,10 +97,10 @@ namespace Arcade
 		//! @brief Default copy constructor.
 		//! @warning You must call the close member function before the destructor if you called the init member function
 		~SFMLDisplay() override =  default;
-		//! @brief Default copy constructor.
-		SFMLDisplay(const SFMLDisplay &) = default;
-		//! @brief Default  assignment operator
-		SFMLDisplay &operator=(const SFMLDisplay &) = default;
+		//! @brief Delete copy constructor.
+		SFMLDisplay(const SFMLDisplay &) = delete;
+		//! @brief Delete assignment operator
+		SFMLDisplay &operator=(const SFMLDisplay &) = delete;
 
 		//! @brief Initialize this library. (Create windows & so on)
 		//! @return True if the initialization was successful. False otherwise.
