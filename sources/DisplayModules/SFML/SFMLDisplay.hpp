@@ -21,9 +21,9 @@ namespace Arcade
 	class SFMLDisplay : public IDisplayModule
 	{
 	private:
-		struct _InternalWindow {
+		struct InternalWindow {
 			//! @brief The internal window for the bestfit (resize)
-			unsigned int _size;
+			unsigned int size;
 			//! @brief The horizontal offset
 			unsigned offsetX;
 			//! @brief The vertical offset
@@ -32,11 +32,12 @@ namespace Arcade
 
 		//! @brief The Resource type
 		std::variant<sf::Texture, sf::Font> typedef Resource;
-
 		//! @brief The main window
 		sf::RenderWindow _mainWindow;
+		//! @brief The window to do the bestFit
+		InternalWindow _internalWindow;
 		//! @brief The window title
-		std::string _windowTitle;
+		std::string _windowTitle = "SFML Display Module";
 		//! @brief A list of the keys that are currently hold
 		//! @info keys are inserted in the list when an event keyDown as occurred and pop out when a keyUp occurred
 		std::vector<Events::KeyboardEvent::KeyCode> _keysHolded;
@@ -90,6 +91,14 @@ namespace Arcade
 		//! @param resource the pair is holding the type of the resource type and the resource
 		//! @info Only used if additional steps are required to delete correctly a resource
 		void destroyResource(const std::pair<std::string, Resource> &resource);
+		//! @brief Allows to get the result of crossPruduct as precise as the int can be
+		//! @param percent The percentage
+		//! @param total The total to base the percentage on
+		//! @return The result of the cross product
+		static int preciseCrossProduct(int percent, int total);
+		//! @brief Resize correctly the internal window
+		void updateInternalWindow();
+
 	public:
 		//! @brief Default constructor
 		//! @warning In order to properly use this class you must call the init member function

@@ -13,9 +13,10 @@ namespace Arcade
 {
 	bool SFMLDisplay::init()
 	{
-		this->_mainWindow.create(sf::VideoMode(800, 800), this->_windowTitle, sf::Style::Resize);
+		this->_mainWindow.create(sf::VideoMode(800, 800), this->_windowTitle, sf::Style::Default);
 
 		this->_mainWindow.setKeyRepeatEnabled(false);
+		this->updateInternalWindow();
 		return false;
 	}
 
@@ -65,6 +66,8 @@ namespace Arcade
 				                                                                      getStdClickType(event.mouseButton.button),
 				                                                                      Event::KeyUp));
 				break;
+			case sf::Event::Resized:
+				this->updateInternalWindow();
 			default:
 				continue;
 			}
@@ -274,7 +277,7 @@ namespace Arcade
 			resource = this->createResource(type, path);
 		} catch (const ResourceCreationFailure &) { }
 		this->_loadedResources[path] = std::make_pair(type, resource);
-		return false;
+		return true;
 	}
 
 	void SFMLDisplay::destroyResource(const std::pair<std::string, Resource> &)
@@ -297,6 +300,55 @@ namespace Arcade
 			this->unload(iter->first, iter->second.first);
 		}
 		this->_loadedResources.clear();
+	}
+
+	bool SFMLDisplay::draw(Drawables::Rectangle &obj)
+	{
+		sf::RectangleShape rect;
+
+		rect.setSize(sf::Vector2f(preciseCrossProduct(obj.endX - obj.x, this->_internalWindow.size),
+									preciseCrossProduct(obj.endY - obj.y, this->_internalWindow.size)));
+		rect.setPosition(preciseCrossProduct(obj.x, this->_internalWindow.size) + this->_internalWindow.offsetX,
+				            preciseCrossProduct(obj.y, this->_internalWindow.size) + this->_internalWindow.offsetY);
+		this->_mainWindow.draw(rect);
+		return true;
+	}
+
+	bool SFMLDisplay::draw(Drawables::Line &obj)
+	{
+		return true;
+	}
+
+	bool SFMLDisplay::draw(Drawables::Circle &obj)
+	{
+		return false;
+	}
+
+	bool SFMLDisplay::draw(Drawables::Sprite &obj)
+	{
+		return false;
+	}
+
+	bool SFMLDisplay::draw(Drawables::Text &obj)
+	{
+		return false;
+	}
+
+	int SFMLDisplay::preciseCrossProduct(int percent, int total)
+	{
+		return static_cast<int>(percent * (total / 100.));
+	}
+
+	void SFMLDisplay::updateInternalWindow()
+	{
+		this->_internalWindow.size = std::min(this->_mainWindow.getSize().x, this->_mainWindow.getSize().y);
+		this->_internalWindow.offsetX = std::max(0U, (this->_mainWindow.getSize().x - this->_internalWindow.size) / 2);
+		this->_internalWindow.offsetY = std::max(0U, (this->_mainWindow.getSize().y - this->_internalWindow.size) / 2);
+	}
+
+	void SFMLDisplay::playSound(Sound &sound)
+	{
+
 	}
 
 	extern "C" ModInfo getHeader()
