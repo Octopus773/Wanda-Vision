@@ -36,10 +36,10 @@ namespace Arcade::Pacman
 		// create the map
 		Drawables::Rectangle rec1;
 
-		rec1.x = 5;
-		rec1.y = 10;
-		rec1.endX = 95;
-		rec1.endY = rec1.y + 9;
+		rec1.x = 0;
+		rec1.y = 0;
+		rec1.endX = 100;
+		rec1.endY = 100;
 		rec1.color = 0x0000FFFF;
 
 		this->map.emplace_back(rec1);

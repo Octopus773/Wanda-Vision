@@ -44,6 +44,7 @@ namespace Arcade
 			return false;
 		}
 		this->_shouldClose = false;
+		this->_updateInternalWindow();
 		return true;
 	}
 
@@ -124,10 +125,10 @@ namespace Arcade
 	{
 		this->setRendererColor(obj.color);
 		SDL_RenderDrawLine(this->_windowRenderer,
-		                   preciseCrossProduct(obj.x, this->_internalWindow.first) + this->_internalWindow.second,
-		                   preciseCrossProduct(obj.y, this->_internalWindow.first) + this->_internalWindow.second,
-		                   preciseCrossProduct(obj.endX, this->_internalWindow.first) + this->_internalWindow.second,
-		                   preciseCrossProduct(obj.endY, this->_internalWindow.first) + this->_internalWindow.second
+		                   preciseCrossProduct(obj.x, this->_internalWindowSize) + this->_internalWindowOffset.first,
+		                   preciseCrossProduct(obj.y, this->_internalWindowSize) + this->_internalWindowOffset.second,
+		                   preciseCrossProduct(obj.endX, this->_internalWindowSize) + this->_internalWindowOffset.first,
+		                   preciseCrossProduct(obj.endY, this->_internalWindowSize) + this->_internalWindowOffset.second
 		);
 		this->setRendererColor(0);
 		return true;
@@ -135,12 +136,12 @@ namespace Arcade
 
 	bool SDLDisplay::draw(Drawables::Rectangle &obj)
 	{
-		SDL_Rect fillRect = {preciseCrossProduct(obj.x, this->_internalWindow.first) + this->_internalWindow.second,
-		                     preciseCrossProduct(obj.y, this->_internalWindow.first) + this->_internalWindow.second,
+		SDL_Rect fillRect = {preciseCrossProduct(obj.x, this->_internalWindowSize) + static_cast<int>(this->_internalWindowOffset.first),
+		                     preciseCrossProduct(obj.y, this->_internalWindowSize) + static_cast<int>(this->_internalWindowOffset.second),
 		                     0,
 		                     0};
-		fillRect.w = preciseCrossProduct(obj.endX, this->_internalWindow.first) - fillRect.x + this->_internalWindow.second;
-		fillRect.h = preciseCrossProduct(obj.endY, this->_internalWindow.first) - fillRect.y + this->_internalWindow.second;
+		fillRect.w = preciseCrossProduct(obj.endX, this->_internalWindowSize) - fillRect.x + this->_internalWindowOffset.first;
+		fillRect.h = preciseCrossProduct(obj.endY, this->_internalWindowSize) - fillRect.y + this->_internalWindowOffset.second;
 		this->setRendererColor(obj.color);
 		SDL_RenderFillRect(this->_windowRenderer, &fillRect);
 		this->setRendererColor(0);
@@ -150,9 +151,9 @@ namespace Arcade
 	bool SDLDisplay::draw(Drawables::Circle &obj)
 	{
 		if (filledCircleRGBA(this->_windowRenderer,
-		                     preciseCrossProduct(obj.x, this->_windowWidth),
-		                     preciseCrossProduct(obj.y, this->_windowHeight),
-		                     preciseCrossProduct(static_cast<int>(obj.size), this->_windowWidth),
+		                     preciseCrossProduct(obj.x, this->_internalWindowSize) + this->_internalWindowOffset.first,
+		                     preciseCrossProduct(obj.y, this->_internalWindowSize) + this->_internalWindowOffset.second,
+		                     preciseCrossProduct(static_cast<int>(obj.size), this->_internalWindowSize),
 		                        (obj.color & (0xFF << 24)) >> 24,
 		                        (obj.color & (0xFF << 16)) >> 16,
 		                        (obj.color & (0xFF << 8)) >> 8,
@@ -195,8 +196,8 @@ namespace Arcade
 			return false;
 		}
 		SDL_QueryTexture(texture, nullptr, nullptr, &w, &h);
-		rect.x = preciseCrossProduct(obj.x, this->_windowWidth);
-		rect.y = preciseCrossProduct(obj.y, this->_windowHeight);
+		rect.x = preciseCrossProduct(obj.x, this->_internalWindowSize);
+		rect.y = preciseCrossProduct(obj.y, this->_internalWindowSize);
 		rect.h = static_cast<int>(obj.fontSize);
 		rect.w = static_cast<int>((obj.fontSize * w) / h);
 		SDL_RenderCopyEx(this->_windowRenderer, texture, nullptr, &rect, 0, nullptr, SDL_FLIP_NONE);
@@ -219,10 +220,10 @@ namespace Arcade
 		}
 		img = static_cast<SDL_Texture *>(this->_loadedResources[path].second);
 		SDL_QueryTexture(img, nullptr, nullptr, &w, &h);
-		rect.x = preciseCrossProduct(obj.x, this->_windowWidth);
-		rect.y = preciseCrossProduct(obj.y, this->_windowHeight);
-		rect.w = preciseCrossProduct(static_cast<int>(obj.sizeX), this->_windowWidth);
-		rect.h = preciseCrossProduct(static_cast<int>(obj.sizeY), this->_windowHeight);
+		rect.x = preciseCrossProduct(obj.x, this->_internalWindowSize) + this->_internalWindowOffset.first;
+		rect.y = preciseCrossProduct(obj.y, this->_internalWindowSize) + this->_internalWindowOffset.second;
+		rect.w = preciseCrossProduct(static_cast<int>(obj.sizeX), this->_internalWindowSize) + this->_internalWindowOffset.first;
+		rect.h = preciseCrossProduct(static_cast<int>(obj.sizeY), this->_internalWindowSize) + this->_internalWindowOffset.second;
 		rect.x -= rect.w / 2;
 		rect.y -= rect.h / 2;
 		SDL_RenderCopyEx(this->_windowRenderer, img, nullptr, &rect, obj.rotation, nullptr, SDL_FLIP_NONE);
@@ -498,8 +499,9 @@ namespace Arcade
 
 	void SDLDisplay::_updateInternalWindow()
 	{
-		this->_internalWindow.first = std::min(this->_windowWidth, this->_windowHeight);
-		this->_internalWindow.second = (this->_windowHeight - this->_internalWindow.first) / 2;
+		this->_internalWindowSize = std::min(this->_windowWidth, this->_windowHeight);
+		this->_internalWindowOffset.first = std::max(0U, (this->_windowWidth - this->_internalWindowSize) / 2);
+		this->_internalWindowOffset.second = std::max(0U, (this->_windowHeight - this->_internalWindowSize) / 2);
 	}
 
 	extern "C" ModInfo getHeader()

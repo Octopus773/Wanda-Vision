@@ -46,9 +46,9 @@ namespace Arcade
 		//! @brief Sprite type resource
 		static constexpr std::string_view resourceSpriteType = "sprite";
 		//! @brief The internal window for the bestfit (resize)
-		//! @brief The first value is the square length
-		//! @brief The second value is the offset to shift the drawables to the center
-		std::pair<unsigned int, unsigned int> _internalWindow;
+		unsigned int _internalWindowSize;
+		//! @brief The offsets to center the internalWindow
+		std::pair<unsigned int, unsigned int> _internalWindowOffset;
 
 		//! @brief Binding of a constructor for KeyEvent struct
 		//! @param key Value of key attribute of struct Events::KeyEvent
