@@ -9,7 +9,6 @@
 #include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL2_gfxPrimitives.h>
 #include <iostream>
-#include <algorithm>
 #include "Common/Events/MouseClickEvent.hpp"
 #include "Common/Events/KeyBoardEvent.hpp"
 #include "Common/Events/Event.hpp"
@@ -196,8 +195,8 @@ namespace Arcade
 			return false;
 		}
 		SDL_QueryTexture(texture, nullptr, nullptr, &w, &h);
-		rect.x = preciseCrossProduct(obj.x, this->_internalWindowSize);
-		rect.y = preciseCrossProduct(obj.y, this->_internalWindowSize);
+		rect.x = preciseCrossProduct(obj.x, this->_internalWindowSize) + this->_internalWindowOffset.first;
+		rect.y = preciseCrossProduct(obj.y, this->_internalWindowSize) + this->_internalWindowOffset.second;
 		rect.h = static_cast<int>(obj.fontSize);
 		rect.w = static_cast<int>((obj.fontSize * w) / h);
 		SDL_RenderCopyEx(this->_windowRenderer, texture, nullptr, &rect, 0, nullptr, SDL_FLIP_NONE);
@@ -222,8 +221,8 @@ namespace Arcade
 		SDL_QueryTexture(img, nullptr, nullptr, &w, &h);
 		rect.x = preciseCrossProduct(obj.x, this->_internalWindowSize) + this->_internalWindowOffset.first;
 		rect.y = preciseCrossProduct(obj.y, this->_internalWindowSize) + this->_internalWindowOffset.second;
-		rect.w = preciseCrossProduct(static_cast<int>(obj.sizeX), this->_internalWindowSize) + this->_internalWindowOffset.first;
-		rect.h = preciseCrossProduct(static_cast<int>(obj.sizeY), this->_internalWindowSize) + this->_internalWindowOffset.second;
+		rect.w = preciseCrossProduct(static_cast<int>(obj.sizeX), this->_internalWindowSize);
+		rect.h = preciseCrossProduct(static_cast<int>(obj.sizeY), this->_internalWindowSize);
 		rect.x -= rect.w / 2;
 		rect.y -= rect.h / 2;
 		SDL_RenderCopyEx(this->_windowRenderer, img, nullptr, &rect, obj.rotation, nullptr, SDL_FLIP_NONE);
