@@ -21,6 +21,15 @@ namespace Arcade
 		curs_set(FALSE);
 		keypad(stdscr, TRUE);
 		mousemask(ALL_MOUSE_EVENTS, NULL);
+		start_color();
+
+		for (auto &color : colors) {
+			short i = (((color[0] / 255) << 0) |
+	                   ((color[1] / 255) << 1) |
+	                   ((color[2] / 255) << 2));
+			init_pair(color[3] + 1, i, COLOR_BLACK);
+		}
+
 		timeout(500);
 		noecho();
 		this->refresh();
@@ -97,13 +106,16 @@ namespace Arcade
 
 	void NcursesDisplay::_setColor(Drawables::ADrawable &obj) const
 	{
-//		int x, y;
-//		getyx(stdscr, y, x);
-//		printf("\x1B[38;2;%d;%d;%dm\n", (obj.color & (0xFF << 24)) >> 24,
-//		       (obj.color & (0xFF << 16)) >> 16,
-//		       (obj.color & (0xFF << 8)) >> 8);
-//		move(y, x);
-//		::refresh();
+		unsigned char r = (obj.color & (0xFF << 24)) >> 24;
+		unsigned char g = (obj.color & (0xFF << 16)) >> 16;
+		unsigned char b = (obj.color & (0xFF << 8)) >> 8;
+
+		auto bcolor = colors[0];
+		for (const auto &ccolor : colors)
+			if (std::sqrt((r * ccolor[0]) + (g * ccolor[1]) + (b * ccolor[2])) >
+			    std::sqrt((r * bcolor[0]) + (g * bcolor[1]) + (b * bcolor[2])))
+				bcolor = ccolor;
+		attron(COLOR_PAIR(bcolor[3] + 1));
 	}
 
 	bool NcursesDisplay::draw(Drawables::Line &obj)

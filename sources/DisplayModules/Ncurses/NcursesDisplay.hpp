@@ -13,6 +13,7 @@
 #include "Common/Events/Event.hpp"
 #include <map>
 #include <vector>
+#include <ncurses.h>
 
 namespace Arcade
 {
@@ -43,6 +44,18 @@ namespace Arcade
 		//! @brief Set the output to the object's color.
 		void _setColor(Drawables::ADrawable &obj) const;
 	public:
+		//! @brief Colors available.
+		static constexpr std::array<std::array<int, 4>, 8> colors = {{
+           {0, 0, 0, COLOR_BLACK},
+           {255, 0, 0, COLOR_RED},
+           {0, 255, 0, COLOR_GREEN},
+           {0, 0, 255, COLOR_BLUE},
+           {255, 255, 0, COLOR_YELLOW},
+           {255, 0, 255, COLOR_MAGENTA},
+           {0, 255, 255, COLOR_CYAN},
+           {255, 255, 255, COLOR_WHITE}
+       }};
+
 		//! @brief Default constructor
 		//! @warning In order to properly use this class you must call the init member function
 		NcursesDisplay() = default;
