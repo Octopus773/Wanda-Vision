@@ -50,3 +50,10 @@ add_library(arcade_pacman SHARED
         sources/Games/Pacman/Pacman.hpp
         )
 set_target_properties(arcade_pacman PROPERTIES PREFIX "")
+
+add_library(arcade_sfml SHARED
+        sources/DisplayModules/SFMLDisplay.cpp
+        sources/DisplayModules/SFMLDisplay.hpp
+        )
+set_target_properties(arcade_sfml PROPERTIES PREFIX "")
+target_link_libraries(arcade_sfml sfml)
