@@ -434,18 +434,12 @@ namespace Arcade
 	Events::MouseClickEvent::MouseButton SDLDisplay::getStdClickType(uint8_t type)
 	{
 		switch (type) {
-		case SDL_BUTTON_LEFT:
-			return Events::MouseClickEvent::MouseButton::LEFT;
-		case SDL_BUTTON_MIDDLE:
-			return Events::MouseClickEvent::MouseButton::MIDDLE;
-		case SDL_BUTTON_RIGHT:
-			return Events::MouseClickEvent::MouseButton::RIGHT;
-		case SDL_BUTTON_X1:
-			return Events::MouseClickEvent::MouseButton::XBUTTON1;
-		case SDL_BUTTON_X2:
-			return Events::MouseClickEvent::MouseButton::XBUTTON2;
-		default:
-			return Events::MouseClickEvent::MouseButton::UNDEFINED;
+		case SDL_BUTTON_LEFT: return Events::MouseClickEvent::MouseButton::LEFT;
+		case SDL_BUTTON_MIDDLE: return Events::MouseClickEvent::MouseButton::MIDDLE;
+		case SDL_BUTTON_RIGHT: return Events::MouseClickEvent::MouseButton::RIGHT;
+		case SDL_BUTTON_X1: return Events::MouseClickEvent::MouseButton::XBUTTON1;
+		case SDL_BUTTON_X2: return Events::MouseClickEvent::MouseButton::XBUTTON2;
+		default: return Events::MouseClickEvent::MouseButton::UNDEFINED;
 		}
 	}
 
