@@ -20,6 +20,7 @@ namespace Arcade
 		cbreak();
 		curs_set(FALSE);
 		keypad(stdscr, TRUE);
+		mousemask(ALL_MOUSE_EVENTS, NULL);
 		timeout(500);
 		noecho();
 		this->refresh();
@@ -44,6 +45,19 @@ namespace Arcade
 		int key;
 
 		while ((key = getch()) != ERR) {
+			if (key == KEY_MOUSE) {
+				MEVENT mouse;
+				Events::MouseClickEvent event;
+				event.type = Event::KeyDown;
+				if (getmouse(&mouse) != OK)
+					continue;
+				event.x = mouse.x * 100. / this->_width;
+				event.y = mouse.y * 100. / this->_height;
+				event.button = mouse.bstate & BUTTON1_PRESSED ? Events::MouseClickEvent::LEFT : Events::MouseClickEvent::RIGHT;
+				std::cerr << "Clicked" << (event.button == Events::MouseClickEvent::LEFT) << " " << event.x << ", " << event.y << std::endl;
+				events.emplace_back(std::make_unique<Events::MouseClickEvent>(event));
+				continue;
+			}
 			Events::KeyboardEvent::KeyCode code = this->_getStdKey(key);
 			bool contains = std::find(this->_keysHolded.begin(), this->_keysHolded.end(), code) != this->_keysHolded.end();
 
@@ -129,7 +143,7 @@ namespace Arcade
 	bool NcursesDisplay::draw(Drawables::Text &obj)
 	{
 		this->_setColor(obj);
-		mvaddstr(this->_getPosY(obj.y), this->_getPosX(obj.x), obj.text.c_str());
+		mvaddstr(this->_getPosY(obj.y) + 1, this->_getPosX(obj.x), obj.text.c_str());
 		return true;
 	}
 
