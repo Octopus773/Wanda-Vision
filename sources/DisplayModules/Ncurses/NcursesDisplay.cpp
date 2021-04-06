@@ -97,29 +97,31 @@ namespace Arcade
 
 	void NcursesDisplay::_setColor(Drawables::ADrawable &obj) const
 	{
-		int x, y;
-		getyx(stdscr, y, x);
-		printf("\x1B[38;2;%d;%d;%dm\n", (obj.color & (0xFF << 24)) >> 24,
-		       (obj.color & (0xFF << 16)) >> 16,
-		       (obj.color & (0xFF << 8)) >> 8);
-		move(y, x);
-		::refresh();
+//		int x, y;
+//		getyx(stdscr, y, x);
+//		printf("\x1B[38;2;%d;%d;%dm\n", (obj.color & (0xFF << 24)) >> 24,
+//		       (obj.color & (0xFF << 16)) >> 16,
+//		       (obj.color & (0xFF << 8)) >> 8);
+//		move(y, x);
+//		::refresh();
 	}
 
 	bool NcursesDisplay::draw(Drawables::Line &obj)
 	{
 		if (obj.y == obj.endY) {
 			this->_setColor(obj);
-			int length =  this->_getPosX(obj.endX) - this->_getPosX(obj.x);
-			mvaddstr(this->_getPosY(obj.y), this->_getPosX(obj.x), ('+' + std::string(length - 2, '-') + '+').c_str());
+			int x = std::min(this->_getPosX(obj.x), this->_getPosX(obj.endX));
+			int length =  std::abs(this->_getPosX(obj.endX) - this->_getPosX(obj.x)) + 1;
+			mvaddstr(this->_getPosY(obj.y), x, ('+' + std::string(length - 2, '-') + '+').c_str());
 			return true;
 		}
 		if (obj.x == obj.endX) {
 			this->_setColor(obj);
 			int x = this->_getPosX(obj.x);
-			int i = this->_getPosY(obj.y);
+			int i = std::min(this->_getPosY(obj.y),  this->_getPosY(obj.endY));
+			int end = std::max(this->_getPosY(obj.y),  this->_getPosY(obj.endY));
 			mvaddch(i, x, '+');
-			for (i++; i < this->_getPosY(obj.endY) - 1; i++)
+			for (i++; i < end; i++)
 				mvaddch(i, x, '|');
 			mvaddch(i, x, '+');
 			return true;
@@ -130,11 +132,14 @@ namespace Arcade
 	bool NcursesDisplay::draw(Drawables::Rectangle &obj)
 	{
 		this->_setColor(obj);
-		int width = this->_getPosX(obj.endX) - this->_getPosX(obj.x);
-		mvaddstr(this->_getPosY(obj.y), this->_getPosX(obj.x), ('+' + std::string(std::max(width - 2, 0), '-') + '+').c_str());
-		for (int i = this->_getPosY(obj.y) + 1; i < this->_getPosY(obj.endY) - 1; i++)
-			mvaddstr(i, this->_getPosX(obj.x), ('|' + std::string(width - 2, 'o') + '|').c_str());
-		mvaddstr(this->_getPosY(obj.y), this->_getPosX(obj.x), ('+' + std::string(std::max(width - 2, 0), '-') + '+').c_str());
+		int x = std::min(this->_getPosX(obj.x), this->_getPosX(obj.endX));
+		int y = std::min(this->_getPosY(obj.y), this->_getPosY(obj.endY));
+		int width = std::abs(this->_getPosX(obj.endX) - this->_getPosX(obj.x)) + 1;
+		int height = std::abs(this->_getPosY(obj.endY) - this->_getPosY(obj.y));
+		mvaddstr(y, x, ('+' + std::string(std::max(width - 2, 0), '-') + '+').c_str());
+		for (int i = y + 1; i < height - 1; i++)
+			mvaddstr(i, x, ('|' + std::string(width - 2, 'o') + '|').c_str());
+		mvaddstr(y + height, x, ('+' + std::string(std::max(width - 2, 0), '-') + '+').c_str());
 		return true;
 	}
 

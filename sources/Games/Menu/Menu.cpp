@@ -19,7 +19,7 @@ namespace Arcade::Menu
 		Drawables::Text title;
 		title.path = "assets/roboto.ttf";
 		title.x = 10;
-		title.y = 10;
+		title.y = 5;
 		title.color = 0xFFFFFFFF;
 		title.fontSize = 16;
 		title.text = "Games (BestScore)";
