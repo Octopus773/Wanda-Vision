@@ -22,7 +22,7 @@ namespace Arcade::Menu
 		title.y = 10;
 		title.color = 0xFFFFFFFF;
 		title.fontSize = 16;
-		title.text = "Games";
+		title.text = "Games (BestScore)";
 		this->_drawables.emplace_back(std::make_unique<Drawables::Text>(title));
 		title.x = 60;
 		title.text = "Renderers";
@@ -35,7 +35,7 @@ namespace Arcade::Menu
 			text.y = 20 + i * 10;
 			text.color = 0xFFFFFFFF;
 			text.fontSize = 13;
-			text.text = lib.info.name;
+			text.text = lib.info.name + " (" + std::to_string(this->_runner.scores[lib.info.name][this->_runner.username]) + ")";
 			this->_drawables.emplace_back(std::make_unique<Drawables::Text>(text));
 			i++;
 		}

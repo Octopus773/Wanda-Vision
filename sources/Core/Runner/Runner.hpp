@@ -9,6 +9,7 @@
 #include <memory>
 #include <map>
 #include <functional>
+#include <fstream>
 #include "Common/IGameModule.hpp"
 #include "Common/IDisplayModule.hpp"
 #include "Core/Library.hpp"
@@ -39,6 +40,10 @@ namespace Arcade::Core
 		//! @brief The currently loaded renderer index.
 		int _rendererIndex = 0;
 	public:
+		//! @brief Score by game and by player.
+		//! @info format: <game, <username, score>>.
+		std::map<std::string, std::map<std::string, unsigned long>> scores;
+
 		//! @brief Set this runner's game library.
 		void setGame(Library &lib);
 		//! @brief Get the current renderer
@@ -55,7 +60,7 @@ namespace Arcade::Core
 		std::vector<Library> &getRenderers();
 
 		//! @brief The name of the current user.
-		std::string username = "Username";
+		std::string username = "USERNAME";
 
 		//! @brief run the game.
 		//! @return The return status of the game

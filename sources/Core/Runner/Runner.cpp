@@ -5,6 +5,7 @@
 #include <filesystem>
 #include <iostream>
 #include <Games/Menu/Menu.hpp>
+#include <regex>
 #include "Exceptions/InvalidLibraryException.hpp"
 #include "Exceptions/InvalidArgumentException.hpp"
 #include "Common/Events/KeyBoardEvent.hpp"
@@ -15,6 +16,20 @@ namespace Arcade::Core
 	Runner::Runner()
 	{
 		this->loadLibraries("./lib");
+
+		std::ifstream scoresFile("./scores");
+		std::string game;
+		std::string line;
+		std::smatch match;
+		std::regex re(R"((\w+):(\d+))");
+		while (getline(scoresFile, line)) {
+			if (!std::regex_match(line, match, re)) {
+				game = line;
+				continue;
+			}
+			this->scores[game][match[1]] = std::stoi(match[2]);
+		}
+		scoresFile.close();
 	}
 
 	Runner::Runner(const std::string &graphicLib)
@@ -29,6 +44,13 @@ namespace Arcade::Core
 			this->_game->close();
 		if (this->_renderer)
 			this->_renderer->close();
+		std::ofstream scoresFile("./scores", std::ofstream::trunc);
+		for (auto &game : this->scores) {
+			scoresFile << game.first << std::endl;
+			for (auto &user : game.second)
+				scoresFile << user.first << ':' << user.second << std::endl;
+		}
+		scoresFile.close();
 	}
 
 	void Runner::loadLibraries(const std::string &path)
@@ -173,6 +195,8 @@ namespace Arcade::Core
 
 	int Runner::runGame()
 	{
+		if (this->username.empty())
+			this->username = "USERNAME";
 		for (auto &resource : this->_game->getResources())
 			this->_renderer->load(resource.first, resource.second);
 
@@ -189,7 +213,7 @@ namespace Arcade::Core
 			this->_game->addTicks(duration);
 			timer = newTimer;
 		}
-		// TODO handle scores here.
+		this->scores[this->_games[this->_gameIndex].info.name][this->username] = this->_game->getScore();
 		return 0;
 	}
 

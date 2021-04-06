@@ -4,4 +4,4 @@ docs/build/*
 cmake-build-debug
 lib/
 arcade
-resources/*
+scores
