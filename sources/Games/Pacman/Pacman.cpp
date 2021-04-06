@@ -32,11 +32,11 @@ namespace Arcade::Pacman
 
 
 
-		this->_resources.emplace_back(std::make_pair("sprite", "resources/pacman.png"));
-		this->_resources.emplace_back(std::make_pair("sprite", "resources/blinky.png"));
-		this->_resources.emplace_back(std::make_pair("sprite", "resources/inky.png"));
-		this->_resources.emplace_back(std::make_pair("sprite", "resources/clyde.png"));
-		this->_resources.emplace_back(std::make_pair("font", "resources/angelina.ttf"));
+		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/pacman.png"));
+		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/blinky.png"));
+		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/inky.png"));
+		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/clyde.png"));
+		this->_resources.emplace_back(std::make_pair("font", "assets/fonts/angelina.ttf"));
 		this->_playerDrawable = Drawables::Sprite();
 		this->_playerDrawable.sizeY = 5;
 		this->_playerDrawable.sizeX = 5;
@@ -44,7 +44,7 @@ namespace Arcade::Pacman
 		this->_playerDrawable.rotation = 0;
 		this->_playerDrawable.x = this->_playerPosition.first;
 		this->_playerDrawable.y = this->_playerPosition.second;
-		this->_playerDrawable.path = "resources/pacman.png";
+		this->_playerDrawable.path = "assets/pacman/pacman.png";
 		Drawables::Circle fallback;
 		fallback.x = this->_playerPosition.first;
 		fallback.y = this->_playerPosition.second;
@@ -52,7 +52,7 @@ namespace Arcade::Pacman
 		fallback.color = 0xFFFB00FF;
 		this->_playerDrawable.fallback = std::make_shared<Drawables::Circle>(fallback);
 		this->_scoreDrawable = Drawables::Text();
-		this->_scoreDrawable.path = "resources/angelina.ttf";
+		this->_scoreDrawable.path = "assets/fonts/angelina.ttf";
 		this->_scoreDrawable.fontSize = 30;
 		this->_scoreDrawable.color = 0xFFFFFFFF;
 		this->_scoreDrawable.x = 5;
@@ -105,8 +105,6 @@ namespace Arcade::Pacman
 	{
 		static int saveMoveX = 0;
 		static int saveMoveY = 0;
-
-		this->_resources.clear();
 
 		this->_processPlayerMovement(saveMoveX, saveMoveY, tick);
 		this->_processScore();
@@ -278,7 +276,7 @@ namespace Arcade::Pacman
 			ret.sizeX = 5;
 			ret.x = (xIndex * mapTileLength) + (ret.sizeX / 2);
 			ret.y = (yIndex * mapTileLength) + (ret.sizeY / 2);
-			ret.path = "resources/blinky.png";
+			ret.path = "assets/pacman/blinky.png";
 			ret.rotation = 0;
 			ret.fallback = std::make_shared<Drawables::Rectangle>(this->_getRectangleFromChar(c, xIndex, yIndex));
 			ret.color = 0xFF0000FF;
@@ -288,7 +286,7 @@ namespace Arcade::Pacman
 			ret.sizeX = 5;
 			ret.x = (xIndex * mapTileLength) + (ret.sizeX / 2);
 			ret.y = (yIndex * mapTileLength) + (ret.sizeY / 2);
-			ret.path = "resources/inky.png";
+			ret.path = "assets/pacman/inky.png";
 			ret.rotation = 0;
 			ret.fallback = std::make_shared<Drawables::Rectangle>(this->_getRectangleFromChar(c, xIndex, yIndex));
 			ret.color = 0x00FFFFFF;
@@ -298,7 +296,7 @@ namespace Arcade::Pacman
 			ret.sizeX = 5;
 			ret.x = (xIndex * mapTileLength) + (ret.sizeX / 2);
 			ret.y = (yIndex * mapTileLength) + (ret.sizeY / 2);
-			ret.path = "resources/clyde.png";
+			ret.path = "assets/pacman/clyde.png";
 			ret.rotation = 0;
 			ret.fallback = std::make_shared<Drawables::Rectangle>(this->_getRectangleFromChar(c, xIndex, yIndex));
 			ret.color = 0xFFB851FF;
