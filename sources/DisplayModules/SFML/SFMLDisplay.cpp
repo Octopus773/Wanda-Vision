@@ -7,6 +7,7 @@
 #include "Common/Events/MouseClickEvent.hpp"
 #include "Common/Events/KeyBoardEvent.hpp"
 #include "Common/Events/Event.hpp"
+#include "Exceptions/ResourceCreationFailure.hpp"
 
 namespace Arcade
 {
@@ -218,6 +219,97 @@ namespace Arcade
 		case sf::Mouse::Button::XButton1: return Events::MouseClickEvent::MouseButton::XBUTTON1;
 		case sf::Mouse::Button::XButton2: return Events::MouseClickEvent::MouseButton::XBUTTON2;
 		default: return Events::MouseClickEvent::MouseButton::UNDEFINED;
+		}
+	}
+
+	bool SFMLDisplay::shouldClose()
+	{
+		return this->_shouldClose;
+	}
+
+	bool SFMLDisplay::refresh()
+	{
+		this->_mainWindow.display();
+		this->_mainWindow.clear();
+		return true;
+	}
+
+	ModInfo::Modtype SFMLDisplay::getType() const
+	{
+		return ModInfo::GRAPHIC;
+	}
+
+	std::variant<sf::Texture, sf::Font>
+	SFMLDisplay::createResource(const std::string &type, const std::string &path)
+	{
+		sf::Texture t;
+		sf::Font f;
+		sf::Music m;
+
+		if (type == resourceSpriteType) {
+			if (!t.loadFromFile(path)) {
+				throw ResourceCreationFailure("File error");
+			}
+			return t;
+		} else if (type == resourceFontType) {
+			if (!f.loadFromFile(path)) {
+				throw ResourceCreationFailure("File error");
+			}
+			return f;
+		} else if (type == resourceMusicType) {
+			throw ResourceCreationFailure("Unsupported Music");
+		} else {
+			throw ResourceCreationFailure("Unknown type");
+		}
+	}
+
+	bool SFMLDisplay::load(const std::string &type, const std::string &path)
+	{
+		if (this->_loadedResources.find(path) != this->_loadedResources.end()) {
+			return false;
+		}
+		this->_loadedResources[path] = this->createResource(type, path);
+		return false;
+	}
+
+	void SFMLDisplay::destroyResource(const std::pair<std::string, void *> &resource)
+	{
+
+	}
+
+	extern "C" ModInfo getHeader()
+	{
+		ModInfo m;
+
+		m.magicNumber = MagicNumber;
+		m.name = "SFML";
+		m.type = ModInfo::Modtype::GRAPHIC;
+		return m;
+	}
+
+	extern "C" Arcade::IModule *getModule()
+	{
+		return new SFMLDisplay;
+	}
+
+	SFMLDisplay::Resource::Resource(const std::string &type, const std::string &path)
+		: type(type)
+	{
+		if (type == resourceSpriteType) {
+			if (!this->t.loadFromFile(path)) {
+				throw ResourceCreationFailure("File error");
+			}
+		} else if (type == resourceFontType) {
+			if (!this->f.loadFromFile(path)) {
+				throw ResourceCreationFailure("File error");
+			}
+		} else if (type == resourceMusicType) {
+			if (!this->m.openFromFile(path)) {
+				throw ResourceCreationFailure("File error");
+			}
+			throw ResourceCreationFailure("Unsupported Music");
+		} else {
+			throw ResourceCreationFailure("Unknown type");
 		}
 	}
 }

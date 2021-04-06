@@ -9,7 +9,6 @@
 #include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL2_gfxPrimitives.h>
 #include <iostream>
-#include <algorithm>
 #include "Common/Events/MouseClickEvent.hpp"
 #include "Common/Events/KeyBoardEvent.hpp"
 #include "Common/Events/Event.hpp"

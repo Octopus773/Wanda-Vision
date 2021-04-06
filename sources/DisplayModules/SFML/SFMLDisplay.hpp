@@ -5,6 +5,10 @@
 #pragma once
 
 #include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+#include <any>
+#include <variant>
 #include "Common/IDisplayModule.hpp"
 #include "Common/Events/MouseClickEvent.hpp"
 #include "Common/Events/MouseMoveEvent.hpp"
@@ -26,14 +30,43 @@ namespace Arcade
 			unsigned offsetY;
 		};
 
+		//! @brief A game resource
+		struct Resource {
+			//! @brief The type of this resource used to known witch member is initialised
+			std::string type;
+			//! @brief A Texture
+			sf::Texture t;
+			//! @brief A font
+			sf::Font f;
+			//! @brief A Music
+			sf::Music m;
+			Resource(const std::string &type, const std::string &path);
+			~Resource() = default;
+			Resource(const Resource &) = default;
+			Resource &operator=(const Resource &) = default;
+			//! @brief Force the move constructor
+		//	Resource(const Resource&&) = default;
+		};
+
 		//! @brief The main window
-		sf::Window _mainWindow;
+		sf::RenderWindow _mainWindow;
 		//! @brief The window title
 		std::string _windowTitle;
 		//! @brief A list of the keys that are currently hold
 		//! @info keys are inserted in the list when an event keyDown as occurred and pop out when a keyUp occurred
 		std::vector<Events::KeyboardEvent::KeyCode> _keysHolded;
-
+		//! @brief If the Display should close
+		bool _shouldClose = false;
+		//! @brief A list of all the resources that are loaded and cached and then not needed to open again
+		//! @info the pair is holding the type of the resource type and the resource
+		//! @details saving string for the path (used to check if the texture is already loaded) and the Texture ptr
+		std::map<std::string, std::variant<sf::Texture, sf::Font>> _loadedResources;
+		//! @brief Music type resource
+		static constexpr std::string_view resourceMusicType = "music";
+		//! @brief Font type resource
+		static constexpr std::string_view resourceFontType = "font";
+		//! @brief Sprite type resource
+		static constexpr std::string_view resourceSpriteType = "sprite";
 
 		//! @brief Binding of a constructor for KeyEvent struct
 		//! @param key Value of key attribute of struct Events::KeyEvent
@@ -63,6 +96,14 @@ namespace Arcade
 		//! @return A a value for the click type in the standard enum Type of MouseClickEvent
 		//! @info If no equivalence found the value MouseButton::UNDEFINED is returned
 		static Events::MouseClickEvent::MouseButton getStdClickType(int type);
+		//! @brief Allocate the resource given as param
+		//! @param type The type of the resource
+		//! @param path The location of the resource file
+		//! @return A pointer to the resource or nullptr if a problem occurred
+		std::variant<sf::Texture, sf::Font> createResource(const std::string &type, const std::string &path);
+		//! @brief Free the resource given as param
+		//! @param resource the pair is holding the type of the resource type and pointer to the resource
+		void destroyResource(const std::pair<std::string, void *> &resource);
 	public:
 		//! @brief Default constructor
 		//! @warning In order to properly use this class you must call the init member function
