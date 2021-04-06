@@ -56,7 +56,7 @@ namespace Arcade::Menu
 		line.x = 50;
 		line.endX = 50;
 		line.y = 0;
-		line.endY = 100;
+		line.endY = 85;
 		line.color = 0xFFFFFFFF;
 		this->_drawables.emplace_back(std::make_unique<Drawables::Line>(line));
 		line.x = 0;
@@ -64,6 +64,11 @@ namespace Arcade::Menu
 		line.y = 15;
 		line.endY = 15;
 		this->_drawables.emplace_back(std::make_unique<Drawables::Line>(line));
+
+		title.text = "Username";
+		title.x = 48;
+		title.y = 90;
+		this->_drawables.emplace_back(std::make_unique<Drawables::Text>(title));
 		return true;
 	}
 
@@ -76,6 +81,8 @@ namespace Arcade::Menu
 
 	const std::vector<std::unique_ptr<Drawables::ADrawable>> &Menu::getDrawables()
 	{
+		if (auto txt = dynamic_cast<Drawables::Text *>(this->_drawables.back().get()))
+			txt->text= this->_runner.username;
 		return this->_drawables;
 	}
 
@@ -104,6 +111,12 @@ namespace Arcade::Menu
 		if (auto key = dynamic_cast<Events::KeyboardEvent *>(&event)) {
 			if (key->key == Events::KeyboardEvent::ESCAPE)
 				this->_shouldClose = true;
+			if (key->type == Event::KeyUp)
+				return;
+			if (key->key == Events::KeyboardEvent::BACKSPACE)
+				this->_runner.username = this->_runner.username.substr(0, this->_runner.username.size() - 1);
+			if (isalpha(key->key))
+				this->_runner.username += static_cast<char>(key->key);
 		}
 		if (auto key = dynamic_cast<Events::MouseClickEvent *>(&event)) {
 			if (key->button != Events::MouseClickEvent::LEFT)

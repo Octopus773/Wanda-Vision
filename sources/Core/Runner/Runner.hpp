@@ -34,7 +34,9 @@ namespace Arcade::Core
 		//! @brief Handle a single event (short handle it if this is a runner event or sent it to the game)
 		bool _handleEvent(const std::unique_ptr<Event> &event);
 
+		//! @brief The currently loaded game index.
 		int _gameIndex = 0;
+		//! @brief The currently loaded renderer index.
 		int _rendererIndex = 0;
 	public:
 		//! @brief Set this runner's game library.
@@ -51,6 +53,9 @@ namespace Arcade::Core
 		std::vector<Library> &getGames();
 		//! @brief List renderers libraries
 		std::vector<Library> &getRenderers();
+
+		//! @brief The name of the current user.
+		std::string username = "Username";
 
 		//! @brief run the game.
 		//! @return The return status of the game

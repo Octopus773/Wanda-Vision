@@ -18,8 +18,8 @@ namespace Arcade::Core
 	}
 
 	Runner::Runner(const std::string &graphicLib)
+		: Runner::Runner()
 	{
-		this->loadLibraries("./lib");
 		this->setRenderer(graphicLib);
 	}
 

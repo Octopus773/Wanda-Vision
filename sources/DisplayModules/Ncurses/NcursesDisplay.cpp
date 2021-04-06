@@ -54,7 +54,6 @@ namespace Arcade
 				event.x = mouse.x * 100. / this->_width;
 				event.y = mouse.y * 100. / this->_height;
 				event.button = mouse.bstate & BUTTON1_PRESSED ? Events::MouseClickEvent::LEFT : Events::MouseClickEvent::RIGHT;
-				std::cerr << "Clicked" << (event.button == Events::MouseClickEvent::LEFT) << " " << event.x << ", " << event.y << std::endl;
 				events.emplace_back(std::make_unique<Events::MouseClickEvent>(event));
 				continue;
 			}
@@ -213,6 +212,8 @@ namespace Arcade
 		case '7':           return Events::KeyboardEvent::KEY_7;
 		case '8':           return Events::KeyboardEvent::KEY_8;
 		case '9':           return Events::KeyboardEvent::KEY_9;
+		case '\b':
+		case '\x7F':
 		case KEY_BACKSPACE: return Events::KeyboardEvent::BACKSPACE;
 		case KEY_HOME:      return Events::KeyboardEvent::HOME;
 		case KEY_LEFT:      return Events::KeyboardEvent::LEFT_ARROW;
