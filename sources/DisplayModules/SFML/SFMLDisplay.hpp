@@ -28,6 +28,8 @@ namespace Arcade
 			unsigned offsetX;
 			//! @brief The vertical offset
 			unsigned offsetY;
+
+			sf::View view;
 		};
 
 		//! @brief The Resource type

@@ -8,6 +8,7 @@
 #include "Common/Events/KeyBoardEvent.hpp"
 #include "Common/Events/Event.hpp"
 #include "Exceptions/ResourceCreationFailure.hpp"
+#include <iostream>
 
 namespace Arcade
 {
@@ -17,6 +18,8 @@ namespace Arcade
 
 		this->_mainWindow.setKeyRepeatEnabled(false);
 		this->updateInternalWindow();
+
+		//this->_internalWindow.view.reset(sf::FloatRect(100, 100, 100, 100));
 		return false;
 	}
 
@@ -33,6 +36,7 @@ namespace Arcade
 		std::list<std::unique_ptr<Event>> events;
 		std::unique_ptr<Event> eventTmp;
 		Event evt;
+		sf::FloatRect visibleArea;
 
 		while (this->_mainWindow.pollEvent(event))
 		{
@@ -68,6 +72,12 @@ namespace Arcade
 				break;
 			case sf::Event::Resized:
 				this->updateInternalWindow();
+				// update the view to the new size of the window
+				visibleArea.left = 0;
+				visibleArea.top = 0;
+				visibleArea.width = event.size.width;
+				visibleArea.height = event.size.height;
+				this->_mainWindow.setView(sf::View(visibleArea));
 			default:
 				continue;
 			}
@@ -306,10 +316,23 @@ namespace Arcade
 	{
 		sf::RectangleShape rect;
 
+	/*	std::cout << "size " << this->_internalWindow.size << std::endl;
+		std::cout << "x " << this->_internalWindow.offsetX << std::endl;
+		std::cout << "y " << this->_internalWindow.offsetY << std::endl;
+		std::cout << "win y " << this->_mainWindow.getSize().x << std::endl;
+		std::cout << "win y " << this->_mainWindow.getSize().y << std::endl;
+
+		if (this->_mainWindow.getSize().x > 1000)
+			std::cout << "1000" << std::endl;*/
 		rect.setSize(sf::Vector2f(preciseCrossProduct(obj.endX - obj.x, this->_internalWindow.size),
 									preciseCrossProduct(obj.endY - obj.y, this->_internalWindow.size)));
 		rect.setPosition(preciseCrossProduct(obj.x, this->_internalWindow.size) + this->_internalWindow.offsetX,
 				            preciseCrossProduct(obj.y, this->_internalWindow.size) + this->_internalWindow.offsetY);
+	//	sf::Vector2f tmp = rect.getPosition();
+		rect.setFillColor(sf::Color(obj.color));
+	//	rect.setPosition(sf::Vector2f(400,400));
+	//	rect.setSize(sf::Vector2f(100,100));
+	//	rect.rotate(this->_mainWindow.getSize().x - 800);
 		this->_mainWindow.draw(rect);
 		return true;
 	}
