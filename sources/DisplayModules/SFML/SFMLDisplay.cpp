@@ -56,32 +56,32 @@ namespace Arcade
 				                        this->_keysHolded.end());
 				break;
 			case sf::Event::MouseMoved:
-				if ((event.mouseMove.x < this->_internalWindow.offsetX || event.mouseMove.x > this->_internalWindow.offsetX + this->_internalWindow.size)
-					|| (event.mouseMove.y < this->_internalWindow.offsetY || event.mouseMove.y > this->_internalWindow.offsetY + this->_internalWindow.size)) {
+				if ((event.mouseMove.x < this->_internalWindow.offsetX2 || event.mouseMove.x > this->_internalWindow.offsetX2 + this->_internalWindow.size)
+					|| (event.mouseMove.y < this->_internalWindow.offsetY2 || event.mouseMove.y > this->_internalWindow.offsetY2 + this->_internalWindow.size)) {
 					continue;
 				}
 				eventTmp = std::make_unique<Events::MouseMoveEvent>(createMoveEvent(
-					preciseCrossProduct(event.mouseMove.x - this->_internalWindow.offsetX, 100, this->_internalWindow.size),
-					preciseCrossProduct(event.mouseMove.y - this->_internalWindow.offsetY, 100, this->_internalWindow.size)));
+					preciseCrossProduct(event.mouseMove.x - this->_internalWindow.offsetX2, 100, this->_internalWindow.size),
+					preciseCrossProduct(event.mouseMove.y - this->_internalWindow.offsetY2, 100, this->_internalWindow.size)));
 				break;
 			case sf::Event::MouseButtonPressed:
-				if ((event.mouseMove.x < this->_internalWindow.offsetX || event.mouseMove.x > this->_internalWindow.offsetX + this->_internalWindow.size)
-				    || (event.mouseMove.y < this->_internalWindow.offsetY || event.mouseMove.y > this->_internalWindow.offsetY + this->_internalWindow.size)) {
+				if ((event.mouseButton.x < this->_internalWindow.offsetX2 || event.mouseButton.x > this->_internalWindow.offsetX2 + this->_internalWindow.size)
+				    || (event.mouseButton.y < this->_internalWindow.offsetY || event.mouseButton.y > this->_internalWindow.offsetY + this->_internalWindow.size)) {
 					continue;
 				}
 				eventTmp = std::make_unique<Events::MouseClickEvent>(createClickEvent(
-					preciseCrossProduct(event.mouseButton.x - this->_internalWindow.offsetX, 100, this->_internalWindow.size),
+					preciseCrossProduct(event.mouseButton.x - this->_internalWindow.offsetX2, 100, this->_internalWindow.size),
 					preciseCrossProduct(event.mouseButton.y - this->_internalWindow.offsetY, 100, this->_internalWindow.size),
 					getStdClickType(event.mouseButton.button),
 					Event::KeyDown));
 				break;
 			case sf::Event::MouseButtonReleased:
-				if ((event.mouseMove.x < this->_internalWindow.offsetX || event.mouseMove.x > this->_internalWindow.offsetX + this->_internalWindow.size)
-				    || (event.mouseMove.y < this->_internalWindow.offsetY || event.mouseMove.y > this->_internalWindow.offsetY + this->_internalWindow.size)) {
+				if ((event.mouseButton.x < this->_internalWindow.offsetX2 || event.mouseButton.x > this->_internalWindow.offsetX2 + this->_internalWindow.size)
+				    || (event.mouseButton.y < this->_internalWindow.offsetY || event.mouseButton.y > this->_internalWindow.offsetY + this->_internalWindow.size)) {
 					continue;
 				}
 				eventTmp = std::make_unique<Events::MouseClickEvent>(createClickEvent(
-					preciseCrossProduct(event.mouseButton.x - this->_internalWindow.offsetX, 100, this->_internalWindow.size),
+					preciseCrossProduct(event.mouseButton.x - this->_internalWindow.offsetX2, 100, this->_internalWindow.size),
 					preciseCrossProduct(event.mouseButton.y - this->_internalWindow.offsetY, 100, this->_internalWindow.size),
 					getStdClickType(event.mouseButton.button),
 					Event::KeyUp));
@@ -359,8 +359,8 @@ namespace Arcade
 
 		rect.setSize(sf::Vector2f(preciseCrossProduct(obj.endX - obj.x, this->_internalWindow.size),
 									preciseCrossProduct(obj.endY - obj.y, this->_internalWindow.size)));
-		rect.setPosition(preciseCrossProduct(obj.x, this->_internalWindow.size) + this->_internalWindow.offsetX,
-				            preciseCrossProduct(obj.y, this->_internalWindow.size) + this->_internalWindow.offsetY);
+		rect.setPosition(preciseCrossProduct(obj.x, this->_internalWindow.size),
+				            preciseCrossProduct(obj.y, this->_internalWindow.size));
 		rect.setFillColor(sf::Color(obj.color));
 		this->_internalWindow.texture.draw(rect);
 		return true;
@@ -370,10 +370,10 @@ namespace Arcade
 	{
 		sf::Vertex line[] =
 		{
-			sf::Vertex(sf::Vector2f(preciseCrossProduct(obj.x, this->_internalWindow.size) + this->_internalWindow.offsetX,
-						                        preciseCrossProduct(obj.y, this->_internalWindow.size) + this->_internalWindow.offsetY)),
-			sf::Vertex(sf::Vector2f(preciseCrossProduct(obj.endX, this->_internalWindow.size) + this->_internalWindow.offsetX,
-			                         preciseCrossProduct(obj.endY, this->_internalWindow.size) + this->_internalWindow.offsetY))
+			sf::Vertex(sf::Vector2f(preciseCrossProduct(obj.x, this->_internalWindow.size),
+						                        preciseCrossProduct(obj.y, this->_internalWindow.size))),
+			sf::Vertex(sf::Vector2f(preciseCrossProduct(obj.endX, this->_internalWindow.size),
+			                         preciseCrossProduct(obj.endY, this->_internalWindow.size)))
 		};
 		line[0].color = sf::Color(obj.color);
 		line[1].color = sf::Color(obj.color);
@@ -383,9 +383,9 @@ namespace Arcade
 
 	bool SFMLDisplay::draw(Drawables::Circle &obj)
 	{
-		sf::CircleShape circle(obj.size);
-		circle.setPosition(sf::Vector2f(preciseCrossProduct(obj.x, this->_internalWindow.size) + this->_internalWindow.offsetX,
-		                                preciseCrossProduct(obj.y, this->_internalWindow.size) + this->_internalWindow.offsetY));
+		sf::CircleShape circle(preciseCrossProduct(obj.size, this->_internalWindow.size));
+		circle.setPosition(sf::Vector2f(preciseCrossProduct(obj.x, this->_internalWindow.size),
+		                                preciseCrossProduct(obj.y, this->_internalWindow.size)));
 		circle.setFillColor(sf::Color(obj.color));
 		this->_internalWindow.texture.draw(circle);
 		return true;
@@ -403,8 +403,8 @@ namespace Arcade
 		textureSize = std::get<sf::Texture>(this->_loadedResources[obj.path].second).getSize();
 		sprite.setOrigin(sf::Vector2f((textureSize.x / 2), (textureSize.y / 2)));
 		sprite.setTexture(std::get<sf::Texture>(this->_loadedResources[obj.path].second));
-		sprite.setPosition(sf::Vector2f(preciseCrossProduct(obj.x, this->_internalWindow.size) + this->_internalWindow.offsetX,
-								  preciseCrossProduct(obj.y, this->_internalWindow.size) + this->_internalWindow.offsetY));
+		sprite.setPosition(sf::Vector2f(preciseCrossProduct(obj.x, this->_internalWindow.size),
+								  preciseCrossProduct(obj.y, this->_internalWindow.size)));
 		sprite.setRotation(obj.rotation);
 		sprite.setTextureRect(sf::IntRect(0, 0, textureSize.x, textureSize.y));
 		sprite.scale((obj.sizeX / 100.) * this->_internalWindow.size / textureSize.x,
@@ -429,8 +429,8 @@ namespace Arcade
 		text.setFillColor(sf::Color(obj.color));
 		text.setCharacterSize(obj.fontSize);
 		text.setString(obj.text);
-		text.setPosition(sf::Vector2f(preciseCrossProduct(obj.x, this->_internalWindow.size) + this->_internalWindow.offsetX,
-		                             preciseCrossProduct(obj.y, this->_internalWindow.size) + this->_internalWindow.offsetY));
+		text.setPosition(sf::Vector2f(preciseCrossProduct(obj.x, this->_internalWindow.size),
+		                             preciseCrossProduct(obj.y, this->_internalWindow.size)));
 		this->_internalWindow.texture.draw(text);
 		return true;
 	}
