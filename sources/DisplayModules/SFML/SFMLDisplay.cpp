@@ -55,20 +55,35 @@ namespace Arcade
 				                        this->_keysHolded.end());
 				break;
 			case sf::Event::MouseMoved:
-				// TODO percentage clicks and handle only in internal window
-				eventTmp = std::make_unique<Events::MouseMoveEvent>(createMoveEvent(event.mouseMove.x, event.mouseMove.y));
+				if ((event.mouseMove.x < this->_internalWindow.offsetX || event.mouseMove.x > this->_internalWindow.offsetX + this->_internalWindow.size)
+					|| (event.mouseMove.y < this->_internalWindow.offsetY || event.mouseMove.y > this->_internalWindow.offsetY + this->_internalWindow.size)) {
+					continue;
+				}
+				eventTmp = std::make_unique<Events::MouseMoveEvent>(createMoveEvent(
+					preciseCrossProduct(event.mouseMove.x - this->_internalWindow.offsetX, 100, this->_internalWindow.size),
+					preciseCrossProduct(event.mouseMove.y - this->_internalWindow.offsetY, 100, this->_internalWindow.size)));
 				break;
 			case sf::Event::MouseButtonPressed:
-				eventTmp = std::make_unique<Events::MouseClickEvent>(createClickEvent(event.mouseButton.x,
-																		  event.mouseButton.y,
-																		  getStdClickType(event.mouseButton.button),
-																		  Event::KeyDown));
+				if ((event.mouseMove.x < this->_internalWindow.offsetX || event.mouseMove.x > this->_internalWindow.offsetX + this->_internalWindow.size)
+				    || (event.mouseMove.y < this->_internalWindow.offsetY || event.mouseMove.y > this->_internalWindow.offsetY + this->_internalWindow.size)) {
+					continue;
+				}
+				eventTmp = std::make_unique<Events::MouseClickEvent>(createClickEvent(
+					preciseCrossProduct(event.mouseButton.x - this->_internalWindow.offsetX, 100, this->_internalWindow.size),
+					preciseCrossProduct(event.mouseButton.y - this->_internalWindow.offsetY, 100, this->_internalWindow.size),
+					getStdClickType(event.mouseButton.button),
+					Event::KeyDown));
 				break;
 			case sf::Event::MouseButtonReleased:
-				eventTmp = std::make_unique<Events::MouseClickEvent>(createClickEvent(event.mouseButton.x,
-				                                                                      event.mouseButton.y,
-				                                                                      getStdClickType(event.mouseButton.button),
-				                                                                      Event::KeyUp));
+				if ((event.mouseMove.x < this->_internalWindow.offsetX || event.mouseMove.x > this->_internalWindow.offsetX + this->_internalWindow.size)
+				    || (event.mouseMove.y < this->_internalWindow.offsetY || event.mouseMove.y > this->_internalWindow.offsetY + this->_internalWindow.size)) {
+					continue;
+				}
+				eventTmp = std::make_unique<Events::MouseClickEvent>(createClickEvent(
+					preciseCrossProduct(event.mouseButton.x - this->_internalWindow.offsetX, 100, this->_internalWindow.size),
+					preciseCrossProduct(event.mouseButton.y - this->_internalWindow.offsetY, 100, this->_internalWindow.size),
+					getStdClickType(event.mouseButton.button),
+					Event::KeyUp));
 				break;
 			case sf::Event::Resized:
 				this->updateInternalWindow();
@@ -394,9 +409,9 @@ namespace Arcade
 		return true;
 	}
 
-	int SFMLDisplay::preciseCrossProduct(int percent, int total)
+	int SFMLDisplay::preciseCrossProduct(float percent, float total, float base)
 	{
-		return static_cast<int>(percent * (total / 100.));
+		return static_cast<int>(percent * (total / base));
 	}
 
 	void SFMLDisplay::updateInternalWindow()
