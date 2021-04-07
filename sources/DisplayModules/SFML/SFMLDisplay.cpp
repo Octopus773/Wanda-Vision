@@ -347,7 +347,7 @@ namespace Arcade
 		                                preciseCrossProduct(obj.y, this->_internalWindow.size) + this->_internalWindow.offsetY));
 		circle.setFillColor(sf::Color(obj.color));
 		this->_mainWindow.draw(circle);
-		return false;
+		return true;
 	}
 
 	bool SFMLDisplay::draw(Drawables::Sprite &obj)
@@ -374,7 +374,24 @@ namespace Arcade
 
 	bool SFMLDisplay::draw(Drawables::Text &obj)
 	{
-		return false;
+		sf::Text text;
+
+		if (this->_loadedResources.find(obj.path) == this->_loadedResources.end()
+		    || this->_loadedResources[obj.path].first != resourceFontType) {
+			return false;
+		}
+		if (obj.text.empty()) {
+			return true;
+		}
+
+		text.setFont(std::get<sf::Font>(this->_loadedResources[obj.path].second));
+		text.setFillColor(sf::Color(obj.color));
+		text.setCharacterSize(obj.fontSize);
+		text.setString(obj.text);
+		text.setPosition(sf::Vector2f(preciseCrossProduct(obj.x, this->_internalWindow.size) + this->_internalWindow.offsetX,
+		                             preciseCrossProduct(obj.y, this->_internalWindow.size) + this->_internalWindow.offsetY));
+		this->_mainWindow.draw(text);
+		return true;
 	}
 
 	int SFMLDisplay::preciseCrossProduct(int percent, int total)

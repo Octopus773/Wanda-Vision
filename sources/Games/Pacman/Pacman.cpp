@@ -23,17 +23,18 @@ namespace Arcade::Pacman
 		this->_playerDrawable.x = 0;
 		this->_playerDrawable.y = 0;
 		this->_playerDrawable.rotation = 180;
-		this->_playerDrawable.path = "resources/pacman.png";
-		Drawables::Line fallback;
+		this->_playerDrawable.path = "resources/pacdman.png";
+		Drawables::Text fallback;
 		fallback.x = 90;
 		fallback.y = 10;
-		fallback.endX = 10;
-		fallback.endY = 90;
+		fallback.fontSize = 20;
+		fallback.text = "miam";
 		fallback.color = 0xFF00FFFF;
+		fallback.path = "resources/angelina.ttf";
 		/*Drawables::Circle fallback;
 		fallback.color = 0xFFFF00FF;
 		fallback.size = 5;*/
-		this->_playerDrawable.fallback = std::make_unique<Drawables::Line>(fallback);
+		this->_playerDrawable.fallback = std::make_unique<Drawables::Text>(fallback);
 
 		// create the map
 		Drawables::Rectangle rec1;
