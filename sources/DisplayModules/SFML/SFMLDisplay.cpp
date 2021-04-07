@@ -18,14 +18,14 @@ namespace Arcade
 
 		this->_mainWindow.setKeyRepeatEnabled(false);
 		this->updateInternalWindow();
-
-		//this->_internalWindow.view.reset(sf::FloatRect(100, 100, 100, 100));
-		return false;
+		this->_shouldClose = false;
+		return true;
 	}
 
 	bool SFMLDisplay::close()
 	{
 		this->unloadAll();
+		this->_shouldClose = true;
 		this->_mainWindow.close();
 		return false;
 	}
@@ -423,7 +423,6 @@ namespace Arcade
 
 	void SFMLDisplay::playSound(Sound &sound)
 	{
-
 	}
 
 	extern "C" ModInfo getHeader()
