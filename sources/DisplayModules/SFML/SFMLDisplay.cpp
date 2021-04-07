@@ -316,29 +316,27 @@ namespace Arcade
 	{
 		sf::RectangleShape rect;
 
-	/*	std::cout << "size " << this->_internalWindow.size << std::endl;
-		std::cout << "x " << this->_internalWindow.offsetX << std::endl;
-		std::cout << "y " << this->_internalWindow.offsetY << std::endl;
-		std::cout << "win y " << this->_mainWindow.getSize().x << std::endl;
-		std::cout << "win y " << this->_mainWindow.getSize().y << std::endl;
-
-		if (this->_mainWindow.getSize().x > 1000)
-			std::cout << "1000" << std::endl;*/
 		rect.setSize(sf::Vector2f(preciseCrossProduct(obj.endX - obj.x, this->_internalWindow.size),
 									preciseCrossProduct(obj.endY - obj.y, this->_internalWindow.size)));
 		rect.setPosition(preciseCrossProduct(obj.x, this->_internalWindow.size) + this->_internalWindow.offsetX,
 				            preciseCrossProduct(obj.y, this->_internalWindow.size) + this->_internalWindow.offsetY);
-	//	sf::Vector2f tmp = rect.getPosition();
 		rect.setFillColor(sf::Color(obj.color));
-	//	rect.setPosition(sf::Vector2f(400,400));
-	//	rect.setSize(sf::Vector2f(100,100));
-	//	rect.rotate(this->_mainWindow.getSize().x - 800);
 		this->_mainWindow.draw(rect);
 		return true;
 	}
 
 	bool SFMLDisplay::draw(Drawables::Line &obj)
 	{
+		sf::Vertex line[] =
+		{
+			sf::Vertex(sf::Vector2f(preciseCrossProduct(obj.x, this->_internalWindow.size) + this->_internalWindow.offsetX,
+						                        preciseCrossProduct(obj.y, this->_internalWindow.size) + this->_internalWindow.offsetY)),
+			sf::Vertex(sf::Vector2f(preciseCrossProduct(obj.endX, this->_internalWindow.size) + this->_internalWindow.offsetX,
+			                         preciseCrossProduct(obj.endY, this->_internalWindow.size) + this->_internalWindow.offsetY))
+		};
+		line[0].color = sf::Color(obj.color);
+		line[1].color = sf::Color(obj.color);
+		this->_mainWindow.draw(line, 2, sf::Lines);
 		return true;
 	}
 
