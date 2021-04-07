@@ -48,7 +48,7 @@ set_target_properties(arcade_qix PROPERTIES PREFIX "")
 add_library(arcade_pacman SHARED
         sources/Games/Pacman/Pacman.cpp
         sources/Games/Pacman/Pacman.hpp
-        )
+        sources/Games/Pacman/Exceptions/WrongMapChar.hpp)
 set_target_properties(arcade_pacman PROPERTIES PREFIX "")
 
 add_library(arcade_sfml SHARED

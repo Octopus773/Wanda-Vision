@@ -31,7 +31,7 @@ namespace Arcade::Qix
 		};
 
 		//! @brief The position of the player.
-		std::pair<double, double> _playerPosition = {50, 10};
+		std::pair<double, double> _playerPosition = {50, 95};
 		//! @brief Current draw type of the player.
 		DrawType _drawType = None;
 
@@ -39,18 +39,22 @@ namespace Arcade::Qix
 		PendingMoves _moves = {};
 		//! @brief Move speed of the player
 		std::map<DrawType, double> _moveSpeeds = {
-			{None, 1000},
-			{Fast, 1000},
-			{Slow, 500}
+			{None, .00005},
+			{Fast, .00005},
+			{Slow, .000025}
 		};
 
 		//! @brief Start a new line at the current player's position.
 		void _startLine();
+		//! @brief Finish a draw by closing the zone (removing lines from the _lines and adding a finished zone to _zones).
+		void _closeZone();
 
 		//! @brief The player's drawable
 		Drawables::Circle _playerDrawable;
 		//! @brief The list of lines of the current shape
 		std::vector<Drawables::Line> _lines = {};
+		//! @brief Closed shapes lines & map borders
+		std::vector<Drawables::Line> _zones = {};
 
 		//! @brief Resources needed by this game.
 		std::vector<std::pair<std::string, std::string>> _resources = {};

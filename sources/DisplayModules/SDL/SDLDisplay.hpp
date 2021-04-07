@@ -45,6 +45,10 @@ namespace Arcade
 		static constexpr std::string_view resourceFontType = "font";
 		//! @brief Sprite type resource
 		static constexpr std::string_view resourceSpriteType = "sprite";
+		//! @brief The internal window for the bestfit (resize)
+		unsigned int _internalWindowSize;
+		//! @brief The offsets to center the internalWindow
+		std::pair<unsigned int, unsigned int> _internalWindowOffset;
 
 		//! @brief Binding of a constructor for KeyEvent struct
 		//! @param key Value of key attribute of struct Events::KeyEvent
@@ -90,6 +94,8 @@ namespace Arcade
 		//! @param total The total to base the percentage on
 		//! @return The result of the cross product
 		static int preciseCrossProduct(int percent, int total);
+		//! @brief Resize correctly the internal window
+		void _updateInternalWindow();
 
 	public:
 		//! @brief Default constructor
