@@ -258,6 +258,26 @@ namespace Arcade
 
 	bool SFMLDisplay::refresh()
 	{
+		sf::Vector2u screenSize = this->_mainWindow.getSize();
+		sf::RectangleShape rect;
+
+		rect.setFillColor(sf::Color(0xFF0000FF));
+		rect.setPosition(0, 0);
+		rect.setSize(sf::Vector2f(this->_internalWindow.offsetX, screenSize.y));
+		this->_mainWindow.draw(rect);
+
+		rect.setPosition(this->_internalWindow.offsetX + this->_internalWindow.size, 0);
+		rect.setSize(sf::Vector2f(this->_internalWindow.offsetX, screenSize.y));
+		this->_mainWindow.draw(rect);
+
+		rect.setPosition(0, 0);
+		rect.setSize(sf::Vector2f(screenSize.x, this->_internalWindow.offsetY));
+		this->_mainWindow.draw(rect);
+
+		rect.setPosition(0, this->_internalWindow.offsetY + this->_internalWindow.size);
+		rect.setSize(sf::Vector2f(screenSize.x, this->_internalWindow.offsetY));
+		this->_mainWindow.draw(rect);
+
 		this->_mainWindow.display();
 		this->_mainWindow.clear();
 		return true;
