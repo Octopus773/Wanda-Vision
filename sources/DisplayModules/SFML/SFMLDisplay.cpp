@@ -266,20 +266,26 @@ namespace Arcade
 
 		this->_internalWindow.texture.display();
 
+		// Background sprite
 		sprite.setTexture(this->_internalWindow.texture.getTexture(), true);
 		sprite.setPosition(std::min(static_cast<double>(0), (static_cast<int>(this->_internalWindow.size) - static_cast<int>(screenSize.y)) / 2.),
                             std::min(static_cast<double>(0), (static_cast<int>(this->_internalWindow.size) - static_cast<int>(screenSize.x)) / 2.));
 		sprite.scale(widerLength / static_cast<float>(this->_internalWindow.size),
 		             widerLength / static_cast<float>(this->_internalWindow.size));
+		sprite.setColor(sf::Color(100, 100, 100));
 		this->_mainWindow.draw(sprite);
 
+		// internal Window (the centered window)
+		sprite.setColor(sf::Color(255, 255, 255));
 		sprite.setScale(1, 1);
 		sprite.setPosition(this->_internalWindow.offsetX, this->_internalWindow.offsetY);
 
+		// green separator
 		rect.setPosition(this->_internalWindow.offsetX - 5, this->_internalWindow.offsetY - 5);
 		rect.setSize(sf::Vector2f(this->_internalWindow.size + 10, this->_internalWindow.size + 10));
-		rect.setFillColor(sf::Color(0x00FF00FF));
+		rect.setFillColor(sf::Color(0xFFFF00FF));
 		this->_mainWindow.draw(rect);
+
 		this->_mainWindow.draw(sprite);
 
 		this->_mainWindow.display();
