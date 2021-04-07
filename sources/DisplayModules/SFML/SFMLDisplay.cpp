@@ -56,32 +56,32 @@ namespace Arcade
 				                        this->_keysHolded.end());
 				break;
 			case sf::Event::MouseMoved:
-				if ((event.mouseMove.x < this->_internalWindow.offsetX2 || event.mouseMove.x > this->_internalWindow.offsetX2 + this->_internalWindow.size)
-					|| (event.mouseMove.y < this->_internalWindow.offsetY2 || event.mouseMove.y > this->_internalWindow.offsetY2 + this->_internalWindow.size)) {
+				if ((event.mouseMove.x < this->_internalWindow.offsetX || event.mouseMove.x > this->_internalWindow.offsetX + this->_internalWindow.size)
+					|| (event.mouseMove.y < this->_internalWindow.offsetY || event.mouseMove.y > this->_internalWindow.offsetY + this->_internalWindow.size)) {
 					continue;
 				}
 				eventTmp = std::make_unique<Events::MouseMoveEvent>(createMoveEvent(
-					preciseCrossProduct(event.mouseMove.x - this->_internalWindow.offsetX2, 100, this->_internalWindow.size),
-					preciseCrossProduct(event.mouseMove.y - this->_internalWindow.offsetY2, 100, this->_internalWindow.size)));
+					preciseCrossProduct(event.mouseMove.x - this->_internalWindow.offsetX, 100, this->_internalWindow.size),
+					preciseCrossProduct(event.mouseMove.y - this->_internalWindow.offsetY, 100, this->_internalWindow.size)));
 				break;
 			case sf::Event::MouseButtonPressed:
-				if ((event.mouseButton.x < this->_internalWindow.offsetX2 || event.mouseButton.x > this->_internalWindow.offsetX2 + this->_internalWindow.size)
+				if ((event.mouseButton.x < this->_internalWindow.offsetX || event.mouseButton.x > this->_internalWindow.offsetX + this->_internalWindow.size)
 				    || (event.mouseButton.y < this->_internalWindow.offsetY || event.mouseButton.y > this->_internalWindow.offsetY + this->_internalWindow.size)) {
 					continue;
 				}
 				eventTmp = std::make_unique<Events::MouseClickEvent>(createClickEvent(
-					preciseCrossProduct(event.mouseButton.x - this->_internalWindow.offsetX2, 100, this->_internalWindow.size),
+					preciseCrossProduct(event.mouseButton.x - this->_internalWindow.offsetX, 100, this->_internalWindow.size),
 					preciseCrossProduct(event.mouseButton.y - this->_internalWindow.offsetY, 100, this->_internalWindow.size),
 					getStdClickType(event.mouseButton.button),
 					Event::KeyDown));
 				break;
 			case sf::Event::MouseButtonReleased:
-				if ((event.mouseButton.x < this->_internalWindow.offsetX2 || event.mouseButton.x > this->_internalWindow.offsetX2 + this->_internalWindow.size)
+				if ((event.mouseButton.x < this->_internalWindow.offsetX || event.mouseButton.x > this->_internalWindow.offsetX + this->_internalWindow.size)
 				    || (event.mouseButton.y < this->_internalWindow.offsetY || event.mouseButton.y > this->_internalWindow.offsetY + this->_internalWindow.size)) {
 					continue;
 				}
 				eventTmp = std::make_unique<Events::MouseClickEvent>(createClickEvent(
-					preciseCrossProduct(event.mouseButton.x - this->_internalWindow.offsetX2, 100, this->_internalWindow.size),
+					preciseCrossProduct(event.mouseButton.x - this->_internalWindow.offsetX, 100, this->_internalWindow.size),
 					preciseCrossProduct(event.mouseButton.y - this->_internalWindow.offsetY, 100, this->_internalWindow.size),
 					getStdClickType(event.mouseButton.button),
 					Event::KeyUp));
@@ -274,9 +274,9 @@ namespace Arcade
 		this->_mainWindow.draw(sprite);
 
 		sprite.setScale(1, 1);
-		sprite.setPosition(this->_internalWindow.offsetX2, this->_internalWindow.offsetY2);
+		sprite.setPosition(this->_internalWindow.offsetX, this->_internalWindow.offsetY);
 
-		rect.setPosition(this->_internalWindow.offsetX2 - 5, this->_internalWindow.offsetY2 - 5);
+		rect.setPosition(this->_internalWindow.offsetX - 5, this->_internalWindow.offsetY - 5);
 		rect.setSize(sf::Vector2f(this->_internalWindow.size + 10, this->_internalWindow.size + 10));
 		rect.setFillColor(sf::Color(0x00FF00FF));
 		this->_mainWindow.draw(rect);
@@ -443,10 +443,8 @@ namespace Arcade
 	void SFMLDisplay::updateInternalWindow()
 	{
 		this->_internalWindow.size = std::min(this->_mainWindow.getSize().x - 50, this->_mainWindow.getSize().y - 50);
-		this->_internalWindow.offsetX2 = std::max(0U, (this->_mainWindow.getSize().x - this->_internalWindow.size) / 2);
-		this->_internalWindow.offsetY2 = std::max(0U, (this->_mainWindow.getSize().y - this->_internalWindow.size) / 2);
-		this->_internalWindow.offsetX = 0;
-		this->_internalWindow.offsetY = 0;
+		this->_internalWindow.offsetX = std::max(0U, (this->_mainWindow.getSize().x - this->_internalWindow.size) / 2);
+		this->_internalWindow.offsetY = std::max(0U, (this->_mainWindow.getSize().y - this->_internalWindow.size) / 2);
 		this->_internalWindow.texture.create(this->_internalWindow.size, this->_internalWindow.size);
 	}
 
