@@ -16,7 +16,7 @@ namespace Arcade::Pacman
 	private:
 
 		//! @brief The position of the player.
-		std::pair<double, double> _playerPosition = {50, 50};
+		std::pair<double, double> _playerPosition = {0, 0};
 
 		//! @brief The player's drawable
 		Drawables::Sprite _playerDrawable;

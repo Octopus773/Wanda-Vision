@@ -17,9 +17,11 @@ namespace Arcade::Pacman
 		this->_resources.emplace_back(std::make_pair("font", "resources/angelina.ttf"));
 		this->_resources.emplace_back(std::make_pair("sprite", "resources/pacman.png"));
 		this->_playerDrawable = Drawables::Sprite();
-		this->_playerDrawable.sizeY = 20;
-		this->_playerDrawable.sizeX = 20;
+		this->_playerDrawable.sizeY = 50;
+		this->_playerDrawable.sizeX = 50;
 		this->_playerDrawable.color = 0;
+		this->_playerDrawable.x = 0;
+		this->_playerDrawable.y = 0;
 		this->_playerDrawable.rotation = 0;
 		this->_playerDrawable.path = "resources/pacman.png";
 		Drawables::Line fallback;
@@ -36,10 +38,10 @@ namespace Arcade::Pacman
 		// create the map
 		Drawables::Rectangle rec1;
 
-		rec1.x = 10;
-		rec1.y = 10;
-		rec1.endX = 90;
-		rec1.endY = 20;
+		rec1.x = 0;
+		rec1.y = 0;
+		rec1.endX = 10;
+		rec1.endY = 10;
 		rec1.color = 0x0000FFFF;
 
 		this->map.emplace_back(rec1);
