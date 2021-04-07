@@ -14,11 +14,12 @@ namespace Arcade
 {
 	bool SFMLDisplay::init()
 	{
-		this->_mainWindow.create(sf::VideoMode(800, 800), this->_windowTitle, sf::Style::Default);
+		this->_mainWindow.create(sf::VideoMode(1000, 800), this->_windowTitle, sf::Style::Default);
 
 		this->_mainWindow.setKeyRepeatEnabled(false);
 		this->updateInternalWindow();
 		this->_shouldClose = false;
+		this->_internalWindow.texture.create(this->_internalWindow.size, this->_internalWindow.size);
 		return true;
 	}
 
@@ -260,26 +261,31 @@ namespace Arcade
 	{
 		sf::Vector2u screenSize = this->_mainWindow.getSize();
 		sf::RectangleShape rect;
+		sf::Sprite sprite;
+		unsigned int widerLength = std::max(screenSize.x, screenSize.y);
 
-		rect.setFillColor(sf::Color(0xFF0000FF));
-		rect.setPosition(0, 0);
-		rect.setSize(sf::Vector2f(this->_internalWindow.offsetX, screenSize.y));
-		this->_mainWindow.draw(rect);
+		this->_internalWindow.texture.display();
 
-		rect.setPosition(this->_internalWindow.offsetX + this->_internalWindow.size, 0);
-		rect.setSize(sf::Vector2f(this->_internalWindow.offsetX, screenSize.y));
-		this->_mainWindow.draw(rect);
+		sprite.setTexture(this->_internalWindow.texture.getTexture(), true);
+		sprite.setPosition(std::min(static_cast<double>(0), (static_cast<int>(this->_internalWindow.size) - static_cast<int>(screenSize.y)) / 2.),
+                            std::min(static_cast<double>(0), (static_cast<int>(this->_internalWindow.size) - static_cast<int>(screenSize.x)) / 2.));
+		sprite.scale(widerLength / static_cast<float>(this->_internalWindow.size),
+		             widerLength / static_cast<float>(this->_internalWindow.size));
+		this->_mainWindow.draw(sprite);
 
-		rect.setPosition(0, 0);
-		rect.setSize(sf::Vector2f(screenSize.x, this->_internalWindow.offsetY));
-		this->_mainWindow.draw(rect);
+		sprite.setScale(1, 1);
+		sprite.setPosition(this->_internalWindow.offsetX2, this->_internalWindow.offsetY2);
 
-		rect.setPosition(0, this->_internalWindow.offsetY + this->_internalWindow.size);
-		rect.setSize(sf::Vector2f(screenSize.x, this->_internalWindow.offsetY));
+		rect.setPosition(this->_internalWindow.offsetX2 - 5, this->_internalWindow.offsetY2 - 5);
+		rect.setSize(sf::Vector2f(this->_internalWindow.size + 10, this->_internalWindow.size + 10));
+		rect.setFillColor(sf::Color(0x00FF00FF));
 		this->_mainWindow.draw(rect);
+		this->_mainWindow.draw(sprite);
 
 		this->_mainWindow.display();
+
 		this->_mainWindow.clear();
+		this->_internalWindow.texture.clear();
 		return true;
 	}
 
@@ -356,7 +362,7 @@ namespace Arcade
 		rect.setPosition(preciseCrossProduct(obj.x, this->_internalWindow.size) + this->_internalWindow.offsetX,
 				            preciseCrossProduct(obj.y, this->_internalWindow.size) + this->_internalWindow.offsetY);
 		rect.setFillColor(sf::Color(obj.color));
-		this->_mainWindow.draw(rect);
+		this->_internalWindow.texture.draw(rect);
 		return true;
 	}
 
@@ -371,7 +377,7 @@ namespace Arcade
 		};
 		line[0].color = sf::Color(obj.color);
 		line[1].color = sf::Color(obj.color);
-		this->_mainWindow.draw(line, 2, sf::Lines);
+		this->_internalWindow.texture.draw(line, 2, sf::Lines);
 		return true;
 	}
 
@@ -381,7 +387,7 @@ namespace Arcade
 		circle.setPosition(sf::Vector2f(preciseCrossProduct(obj.x, this->_internalWindow.size) + this->_internalWindow.offsetX,
 		                                preciseCrossProduct(obj.y, this->_internalWindow.size) + this->_internalWindow.offsetY));
 		circle.setFillColor(sf::Color(obj.color));
-		this->_mainWindow.draw(circle);
+		this->_internalWindow.texture.draw(circle);
 		return true;
 	}
 
@@ -403,7 +409,7 @@ namespace Arcade
 		sprite.setTextureRect(sf::IntRect(0, 0, textureSize.x, textureSize.y));
 		sprite.scale((obj.sizeX / 100.) * this->_internalWindow.size / textureSize.x,
 		             (obj.sizeY / 100.) * this->_internalWindow.size / textureSize.y);
-		this->_mainWindow.draw(sprite);
+		this->_internalWindow.texture.draw(sprite);
 		return true;
 	}
 
@@ -425,7 +431,7 @@ namespace Arcade
 		text.setString(obj.text);
 		text.setPosition(sf::Vector2f(preciseCrossProduct(obj.x, this->_internalWindow.size) + this->_internalWindow.offsetX,
 		                             preciseCrossProduct(obj.y, this->_internalWindow.size) + this->_internalWindow.offsetY));
-		this->_mainWindow.draw(text);
+		this->_internalWindow.texture.draw(text);
 		return true;
 	}
 
@@ -436,9 +442,12 @@ namespace Arcade
 
 	void SFMLDisplay::updateInternalWindow()
 	{
-		this->_internalWindow.size = std::min(this->_mainWindow.getSize().x, this->_mainWindow.getSize().y);
-		this->_internalWindow.offsetX = std::max(0U, (this->_mainWindow.getSize().x - this->_internalWindow.size) / 2);
-		this->_internalWindow.offsetY = std::max(0U, (this->_mainWindow.getSize().y - this->_internalWindow.size) / 2);
+		this->_internalWindow.size = std::min(this->_mainWindow.getSize().x - 50, this->_mainWindow.getSize().y - 50);
+		this->_internalWindow.offsetX2 = std::max(0U, (this->_mainWindow.getSize().x - this->_internalWindow.size) / 2);
+		this->_internalWindow.offsetY2 = std::max(0U, (this->_mainWindow.getSize().y - this->_internalWindow.size) / 2);
+		this->_internalWindow.offsetX = 0;
+		this->_internalWindow.offsetY = 0;
+		this->_internalWindow.texture.create(this->_internalWindow.size, this->_internalWindow.size);
 	}
 
 	void SFMLDisplay::playSound(Sound &sound)

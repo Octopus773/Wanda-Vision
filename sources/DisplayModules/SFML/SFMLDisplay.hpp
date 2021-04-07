@@ -28,6 +28,12 @@ namespace Arcade
 			unsigned offsetX;
 			//! @brief The vertical offset
 			unsigned offsetY;
+			//! @brief The texture to draw on
+			sf::RenderTexture texture;
+			//! @brief The horizontal offset
+			unsigned offsetX2;
+			//! @brief The vertical offset
+			unsigned offsetY2;
 		};
 
 		//! @brief The Resource type
