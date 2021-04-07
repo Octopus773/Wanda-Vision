@@ -33,8 +33,8 @@ add_executable(arcade
 target_link_libraries(arcade dl)
 
 add_library(arcade_sdl2 SHARED
-        sources/DisplayModules/SDLDisplay.cpp
-        sources/DisplayModules/SDLDisplay.hpp
+        sources/DisplayModules/SDL/SDLDisplay.cpp
+        sources/DisplayModules/SDL/SDLDisplay.hpp
 )
 set_target_properties(arcade_sdl2 PROPERTIES PREFIX "")
 target_link_libraries(arcade_sdl2 SDL2 SDL2_image SDL2_ttf SDL2_mixer SDL2_gfx)
@@ -50,3 +50,10 @@ add_library(arcade_pacman SHARED
         sources/Games/Pacman/Pacman.hpp
         sources/Games/Pacman/Exceptions/WrongMapChar.hpp)
 set_target_properties(arcade_pacman PROPERTIES PREFIX "")
+
+add_library(arcade_sfml SHARED
+        sources/DisplayModules/SFML/SFMLDisplay.cpp
+        sources/DisplayModules/SFML/SFMLDisplay.hpp
+        sources/DisplayModules/SFML/Exceptions/ResourceCreationFailure.hpp)
+set_target_properties(arcade_sfml PROPERTIES PREFIX "")
+target_link_libraries(arcade_sfml sfml-graphics sfml-window sfml-system sfml-audio)
