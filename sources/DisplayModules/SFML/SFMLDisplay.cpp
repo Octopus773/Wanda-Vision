@@ -360,15 +360,14 @@ namespace Arcade
 			return false;
 		}
 		textureSize = std::get<sf::Texture>(this->_loadedResources[obj.path].second).getSize();
-		//sprite.setOrigin(sf::Vector2f(textureSize.x, textureSize.y));
+		sprite.setOrigin(sf::Vector2f((textureSize.x / 2), (textureSize.y / 2)));
 		sprite.setTexture(std::get<sf::Texture>(this->_loadedResources[obj.path].second));
 		sprite.setPosition(sf::Vector2f(preciseCrossProduct(obj.x, this->_internalWindow.size) + this->_internalWindow.offsetX,
-		                                preciseCrossProduct(obj.y, this->_internalWindow.size) + this->_internalWindow.offsetY));
+								  preciseCrossProduct(obj.y, this->_internalWindow.size) + this->_internalWindow.offsetY));
 		sprite.setRotation(obj.rotation);
 		sprite.setTextureRect(sf::IntRect(0, 0, textureSize.x, textureSize.y));
 		sprite.scale((obj.sizeX / 100.) * this->_internalWindow.size / textureSize.x,
 		             (obj.sizeY / 100.) * this->_internalWindow.size / textureSize.y);
-		sf::Vector2 r = sprite.getScale();
 		this->_mainWindow.draw(sprite);
 		return true;
 	}

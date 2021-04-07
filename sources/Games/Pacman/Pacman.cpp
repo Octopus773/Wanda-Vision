@@ -17,12 +17,12 @@ namespace Arcade::Pacman
 		this->_resources.emplace_back(std::make_pair("font", "resources/angelina.ttf"));
 		this->_resources.emplace_back(std::make_pair("sprite", "resources/pacman.png"));
 		this->_playerDrawable = Drawables::Sprite();
-		this->_playerDrawable.sizeY = 50;
-		this->_playerDrawable.sizeX = 50;
+		this->_playerDrawable.sizeY = 100;
+		this->_playerDrawable.sizeX = 100;
 		this->_playerDrawable.color = 0;
 		this->_playerDrawable.x = 0;
 		this->_playerDrawable.y = 0;
-		this->_playerDrawable.rotation = 0;
+		this->_playerDrawable.rotation = 180;
 		this->_playerDrawable.path = "resources/pacman.png";
 		Drawables::Line fallback;
 		fallback.x = 90;
