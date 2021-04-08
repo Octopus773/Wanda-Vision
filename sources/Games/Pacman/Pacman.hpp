@@ -7,6 +7,7 @@
 #include <map>
 #include "Common/IGameModule.hpp"
 #include "Common/Drawables/Line.hpp"
+#include "Common/Drawables/Circle.hpp"
 #include <array>
 
 namespace Arcade::Pacman
@@ -109,6 +110,14 @@ namespace Arcade::Pacman
 		//! @return A instance of a Sprite
 		//! @throw WrongMapChar when no matching char is found
 		Drawables::Sprite _getSpriteFromChar(char c, int xIndex, int yIndex);
+		//! @brief Get the correct Circle and correctly filled from a char
+		//! @param c The template type
+		//! @param xIndex The x position of the char in the map
+		//! @param yIndex The y position of the char in the map
+		//! @warning This function uses hard coded templates for each char. This function should only be used with the map context in mind
+		//! @return A instance of a Circle
+		//! @throw WrongMapChar when no matching char is found
+		Drawables::Circle _getCircleFromChar(char c, int xIndex, int yIndex);
 		//! @brief Tells if you colliding with one of the pacgums of the _map member
 		//! @param x The x percentage
 		//! @param y The y percentage

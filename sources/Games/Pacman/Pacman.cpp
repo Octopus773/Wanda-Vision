@@ -258,7 +258,7 @@ namespace Arcade::Pacman
 			ret.y = (yIndex * mapTileLength) + (ret.sizeY / 2);
 			ret.path = largePacgumFilename;
 			ret.rotation = 0;
-			ret.fallback = std::make_shared<Drawables::Rectangle>(this->_getRectangleFromChar(c, xIndex, yIndex));
+			ret.fallback = std::make_shared<Drawables::Circle>(this->_getCircleFromChar(c, xIndex, yIndex));
 			ret.color = 0;
 			return ret;
 		case MapChar::SMALL_PACGUM:
@@ -268,7 +268,7 @@ namespace Arcade::Pacman
 			ret.y = (yIndex * mapTileLength) + (ret.sizeY / 2);
 			ret.path = smallPacgumFilename;
 			ret.rotation = 0;
-			ret.fallback = std::make_shared<Drawables::Rectangle>(this->_getRectangleFromChar(c, xIndex, yIndex));
+			ret.fallback = std::make_shared<Drawables::Circle>(this->_getCircleFromChar(c, xIndex, yIndex));
 			ret.color = 0;
 			return ret;
 		case MapChar::BLINKY:
@@ -381,6 +381,29 @@ namespace Arcade::Pacman
 		}
 
 		this->_scoreDrawable.text = "Score: " + std::to_string(this->_gameScore);
+	}
+
+	Drawables::Circle Pacman::_getCircleFromChar(char c, int xIndex, int yIndex)
+	{
+		Drawables::Circle ret;
+
+		switch (c) {
+		case MapChar::BIG_PACGUM:
+			ret.size = 2;
+			ret.x = (xIndex * mapTileLength) + mapTileLength / 2;
+			ret.y = (yIndex * mapTileLength) + mapTileLength / 2;
+			ret.fallback = std::make_shared<Drawables::Rectangle>(this->_getRectangleFromChar(c, xIndex, yIndex));
+			ret.color = 0xFFFFFFFF;
+			return ret;
+		case MapChar::SMALL_PACGUM:
+			ret.size = 1;
+			ret.x = (xIndex * mapTileLength) + mapTileLength / 2;
+			ret.y = (yIndex * mapTileLength) + mapTileLength / 2;
+			ret.fallback = std::make_shared<Drawables::Rectangle>(this->_getRectangleFromChar(c, xIndex, yIndex));
+			ret.color = 0xAAAAAAFF;
+			return ret;
+		default: throw WrongMapChar(c);
+		}
 	}
 }
 
