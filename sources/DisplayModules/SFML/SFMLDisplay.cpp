@@ -304,7 +304,6 @@ namespace Arcade
 	{
 		sf::Texture t;
 		sf::Font f;
-		sf::Music m;
 
 		if (type == resourceSpriteType) {
 			if (!t.loadFromFile(path)) {

@@ -112,6 +112,9 @@ namespace Arcade::Core
 		if (this->_game)
 			this->_game->close();
 		this->_game = lib.start<IGameModule>();
+		this->_renderer->unloadAll();
+		for (auto &resource : this->_game->getResources())
+			this->_renderer->load(resource.first, resource.second);
 	}
 
 	void Runner::setGame(std::string path)
@@ -158,19 +161,27 @@ namespace Arcade::Core
 					this->setShell();
 					break;
 				case Events::KeyboardEvent::KEY_1:
-					this->_gameIndex = (this->_gameIndex - 1) % this->_games.size();
+					this->_gameIndex = this->_gameIndex - 1;
+					if (this->_gameIndex < 0)
+						this->_gameIndex = this->_games.size() - 1;
 					this->setGame(this->_games[this->_gameIndex]);
 					break;
 				case Events::KeyboardEvent::KEY_2:
-					this->_gameIndex = (this->_gameIndex + 1) % this->_games.size();
+					this->_gameIndex = this->_gameIndex + 1;
+					if (this->_gameIndex >= this->_games.size())
+						this->_gameIndex = 0;
 					this->setGame(this->_games[this->_gameIndex]);
 					break;
 				case Events::KeyboardEvent::KEY_3:
-					this->_rendererIndex = (this->_rendererIndex - 1) % this->_renderers.size();
+					this->_rendererIndex = this->_rendererIndex - 1;
+					if (this->_rendererIndex < 0)
+						this->_rendererIndex = this->_renderers.size() - 1;
 					this->setRenderer(this->_renderers[this->_rendererIndex]);
 					break;
-				case Events::KeyboardEvent::KEY_5:
-					this->_rendererIndex = (this->_rendererIndex + 1) % this->_renderers.size();
+				case Events::KeyboardEvent::KEY_4:
+					this->_rendererIndex = this->_rendererIndex + 1;
+					if (this->_rendererIndex >= this->_renderers.size())
+						this->_rendererIndex = 0;
 					this->setRenderer(this->_renderers[this->_rendererIndex]);
 					break;
 				default:
