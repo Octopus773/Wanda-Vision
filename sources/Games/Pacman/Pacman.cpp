@@ -16,6 +16,12 @@ namespace Arcade::Pacman
 {
 	bool Pacman::init()
 	{
+		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/pacman.png"));
+		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/blinky.png"));
+		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/inky.png"));
+		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/clyde.png"));
+		this->_resources.emplace_back(std::make_pair("font", "assets/fonts/angelina.ttf"));
+
 		this->_playerDrawable = Drawables::Sprite();
 		this->_playerDrawable.sizeY = mapTileLength;
 		this->_playerDrawable.sizeX = mapTileLength;
@@ -57,7 +63,6 @@ namespace Arcade::Pacman
 
 	void Pacman::_startGame()
 	{
-		this->_resources.clear();
 		this->_drawables.clear();
 		this->_map.clear();
 		this->_map = this->_createMapFromVector({
@@ -76,22 +81,17 @@ namespace Arcade::Pacman
 			                                        "  wwww.www.w.www.wwww  ",
 			                                        "  w....w...w...w....w  ",
 			                                        "  w.ww.w.wwwww.w.ww.w  ",
-			                                        "  w.................w  ",
+			                                        "  w........ ........w  ",
 			                                        "  w.ww.www.w.www.ww.w  ",
 			                                        "  wP.......w.......Pw  ",
 			                                        "  wwwwwwwwwwwwwwwwwww  "
 		                                        }, mapOffsetTileY, mapOffsetTileX);
 
-		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/pacman.png"));
-		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/blinky.png"));
-		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/inky.png"));
-		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/clyde.png"));
-		this->_resources.emplace_back(std::make_pair("font", "assets/fonts/angelina.ttf"));
-
 		this->_gameScore = 0;
 		this->_playerPosition = {50, 20 * mapTileLength + (mapTileLength / 2)};
 		this->_moves = {0};
-
+		this->_playerMovement = {0, 0};
+		this->_playerDrawable.rotation = 0;
 	}
 
 	bool Pacman::shouldClose()
@@ -138,12 +138,8 @@ namespace Arcade::Pacman
 
 	void Pacman::addTicks(unsigned int tick)
 	{
-		static int saveMoveX = 0;
-		static int saveMoveY = 0;
-
-		this->_processPlayerMovement(saveMoveX, saveMoveY, tick);
+		this->_processPlayerMovement(tick);
 		this->_processScore();
-
 		this->_moves.moveX = 0;
 		this->_moves.moveY = 0;
 	}
@@ -371,10 +367,12 @@ namespace Arcade::Pacman
 		return this->_map.end();
 	}
 
-	void Pacman::_processPlayerMovement(int &moveX, int &moveY, unsigned int ticks)
+	void Pacman::_processPlayerMovement(unsigned int ticks)
 	{
 		double newX;
 		double newY;
+		int &moveX = this->_playerMovement.first;
+		int &moveY = this->_playerMovement.second;
 
 		if (this->_moves.moveX) {
 			moveX = this->_moves.moveX;

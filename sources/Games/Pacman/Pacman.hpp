@@ -53,7 +53,8 @@ namespace Arcade::Pacman
 
 		//! @brief The position of the player.
 		std::pair<double, double> _playerPosition;
-
+		//! @brief The movement of the player.
+		std::pair<int, int> _playerMovement;
 		//! @brief The player's drawable
 		Drawables::Sprite _playerDrawable;
 		//! @brief Information of all the ghosts
@@ -132,12 +133,10 @@ namespace Arcade::Pacman
 		//! @param h The the height in percentage
 		//! @return The pacgum you collided, otherwise
 		std::vector<Drawables::Sprite>::iterator _collideWithPacgumMap(int x, int y, int w, int h);
-		//! @brief Checks collisions and moves the player rotate texture, etc...
-		//! @param[out] moveX The movement in x
-		//! @param[out] moveY The movement in y
+		//! @brief Checks collisions and moves the player, rotate texture, etc...
 		//! @param ticks Delta time (number of ticks between two functions calls)
 		//! @info The movement will be kept until hitting an obstacle or a new input is detected
-		void _processPlayerMovement(int &moveX, int &moveY, unsigned int ticks);
+		void _processPlayerMovement(unsigned int ticks);
 		//! @brief Checks the collision with Pacgums and ghosts and update the score
 		void _processScore();
 		//! @brief Start the game and initialise variables to their start values
