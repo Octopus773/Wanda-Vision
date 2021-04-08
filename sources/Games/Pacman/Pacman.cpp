@@ -65,6 +65,7 @@ namespace Arcade::Pacman
 	{
 		this->_drawables.clear();
 		this->_map.clear();
+		this->_shouldClose = false;
 		this->_map = this->_createMapFromVector({
 			                                        "  wwwwwwwwwwwwwwwwwww  ",
 			                                        "  wP.......w.......Pw  ",
@@ -96,7 +97,7 @@ namespace Arcade::Pacman
 
 	bool Pacman::shouldClose()
 	{
-		return false;
+		return this->_shouldClose;
 	}
 
 	ModInfo::Modtype Pacman::getType() const
@@ -140,6 +141,7 @@ namespace Arcade::Pacman
 	{
 		this->_processPlayerMovement(tick);
 		this->_processScore();
+		this->_shouldClose = this->_isGameEnded();
 		this->_moves.moveX = 0;
 		this->_moves.moveY = 0;
 	}
@@ -454,6 +456,21 @@ namespace Arcade::Pacman
 			return ret;
 		default: throw WrongMapChar(c);
 		}
+	}
+
+	bool Pacman::_isGameEnded()
+	{
+		bool pacgumPresence = false;
+
+		for (const auto &sprite : this->_map) {
+			try {
+				if (sprite.path != largePacgumFilename && sprite.path != smallPacgumFilename) {
+					continue;
+				}
+				pacgumPresence = true;
+			} catch (const std::bad_cast &) { }
+		}
+		return !pacgumPresence;
 	}
 }
 

@@ -46,8 +46,7 @@ namespace Arcade::Pacman
 			INKY = 'I',
 			//! @brief Ghost Clyde
 			CLYDE = 'C',
-			//! @brief A black rectangle 1x4
-			//! @info Used to hide some parts of the map
+			//! @brief A black rectangle 1x4 (Used to hide some parts of the map)
 			HIDE_RECTANGLE = '_'
 		};
 
@@ -59,8 +58,11 @@ namespace Arcade::Pacman
 		Drawables::Sprite _playerDrawable;
 		//! @brief Information of all the ghosts
 		Ghost _ghosts;
+		//! @brief If the game has ended
+		bool _shouldClose;
 		//! @brief Game Score
 		long _gameScore = 0;
+		//! @brief Text element to draw the score to the screen
 		Drawables::Text _scoreDrawable;
 		//! @brief Resources needed by this game.
 		std::vector<std::pair<std::string, std::string>> _resources = {};
@@ -141,6 +143,8 @@ namespace Arcade::Pacman
 		void _processScore();
 		//! @brief Start the game and initialise variables to their start values
 		void  _startGame();
+		//! @brief Tells if the game has ended
+		bool _isGameEnded();
 	public:
 		//! @brief Initialize this library. (Create windows & so on)
 		//! @return True if the initialization was successful. False otherwise.
