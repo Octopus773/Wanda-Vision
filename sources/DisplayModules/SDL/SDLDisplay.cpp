@@ -247,7 +247,7 @@ namespace Arcade
 	{
 		SDL_Rect fillRect = {0,0,0,0};
 
-		this->setRendererColor(0xFF0000FF);
+		this->setRendererColor(0);
 		fillRect.w = this->_internalWindowOffset.first;
 		fillRect.h = this->_windowHeight;
 		SDL_RenderFillRect(this->_windowRenderer, &fillRect);

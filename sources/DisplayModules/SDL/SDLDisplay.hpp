@@ -25,9 +25,9 @@ namespace Arcade
 		//! @brief The surface of the window (renderer)
 		SDL_Renderer *_windowRenderer = nullptr;
 		//! @brief window height when init
-		int _windowHeight = 480;
+		int _windowHeight = 700;
 		//! @brief window width when init
-		int _windowWidth = 640;
+		int _windowWidth = 700;
 		//! @brief window title when init
 		std::string _windowTitle = "SDL2 Display Module";
 		//! @brief When true the caller should close this instance
