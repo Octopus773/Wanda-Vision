@@ -14,7 +14,7 @@ namespace Arcade
 {
 	bool SFMLDisplay::init()
 	{
-		this->_mainWindow.create(sf::VideoMode(1000, 800), this->_windowTitle, sf::Style::Default);
+		this->_mainWindow.create(sf::VideoMode(1300, 700), this->_windowTitle, sf::Style::Default);
 
 		this->_mainWindow.setKeyRepeatEnabled(false);
 		this->updateInternalWindow();
@@ -443,7 +443,7 @@ namespace Arcade
 
 	int SFMLDisplay::preciseCrossProduct(float percent, float total, float base)
 	{
-		return static_cast<int>(percent * (total / base));
+		return static_cast<int>(percent * (total / base) + 1);
 	}
 
 	void SFMLDisplay::updateInternalWindow()
