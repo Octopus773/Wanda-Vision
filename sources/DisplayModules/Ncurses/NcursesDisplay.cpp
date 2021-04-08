@@ -5,6 +5,7 @@
 #include "NcursesDisplay.hpp"
 #include <ncurses.h>
 #include <iostream>
+#include <cmath>
 #include "Common/Events/MouseClickEvent.hpp"
 #include "Common/Events/KeyBoardEvent.hpp"
 #include "Common/Events/Event.hpp"

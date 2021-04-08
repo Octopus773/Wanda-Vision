@@ -4,7 +4,6 @@
 
 #pragma once
 
-#include <SDL2/SDL.h>
 #include <string>
 #include "Common/IDisplayModule.hpp"
 #include "Common/Events/MouseClickEvent.hpp"
