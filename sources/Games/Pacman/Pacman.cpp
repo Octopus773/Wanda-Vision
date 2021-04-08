@@ -51,6 +51,13 @@ namespace Arcade::Pacman
 		fallback.size = 2;
 		fallback.color = 0xFFFB00FF;
 		this->_playerDrawable.fallback = std::make_shared<Drawables::Circle>(fallback);
+		Drawables::Rectangle fallback2;
+		fallback2.x = this->_playerPosition.first - 5;
+		fallback2.y = this->_playerPosition.second - 5;
+		fallback2.endY = mapTileLength;
+		fallback2.endX = mapTileLength;
+		fallback.color = 0xFFFB00FF;
+		this->_playerDrawable.fallback = std::make_shared<Drawables::Rectangle>(fallback2);
 		this->_scoreDrawable = Drawables::Text();
 		this->_scoreDrawable.path = "assets/fonts/angelina.ttf";
 		this->_scoreDrawable.fontSize = 30;
