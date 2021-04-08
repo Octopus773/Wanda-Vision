@@ -56,5 +56,13 @@ add_library(arcade_pacman SHARED
         sources/Games/Pacman/Pacman.cpp
         sources/Games/Pacman/Pacman.hpp
         sources/Games/Pacman/Exceptions/WrongMapChar.hpp
+        sources/Games/Pacman/Exceptions/WrongMapChar.hpp
 )
 set_target_properties(arcade_pacman PROPERTIES PREFIX "")
+
+add_library(arcade_sfml SHARED
+        sources/DisplayModules/SFML/SFMLDisplay.cpp
+        sources/DisplayModules/SFML/SFMLDisplay.hpp
+        sources/DisplayModules/SFML/Exceptions/ResourceCreationFailure.hpp)
+set_target_properties(arcade_sfml PROPERTIES PREFIX "")
+target_link_libraries(arcade_sfml sfml-graphics sfml-window sfml-system sfml-audio)
