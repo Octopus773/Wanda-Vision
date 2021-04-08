@@ -175,7 +175,7 @@ namespace Arcade
 		    || this->_loadedResources[obj.path].first != resourceFontType) {
 			return false;
 		}
-		if (obj.text == "") {
+		if (obj.text.empty()) {
 			return true;
 		}
 		// TODO might need to cache the texture of the font directly internally if it's too laggy (cache for each color and text)
@@ -231,6 +231,27 @@ namespace Arcade
 
 	bool SDLDisplay::refresh()
 	{
+		SDL_Rect fillRect = {0,0,0,0};
+
+		this->setRendererColor(0xFF0000FF);
+		fillRect.w = this->_internalWindowOffset.first;
+		fillRect.h = this->_windowHeight;
+		SDL_RenderFillRect(this->_windowRenderer, &fillRect);
+
+		fillRect.x = this->_internalWindowOffset.first + this->_internalWindowSize;
+		SDL_RenderFillRect(this->_windowRenderer, &fillRect);
+
+		fillRect.x = 0;
+		fillRect.y = 0;
+		fillRect.w = this->_windowWidth;
+		fillRect.h = this->_internalWindowOffset.second;
+		SDL_RenderFillRect(this->_windowRenderer, &fillRect);
+
+		fillRect.x = 0;
+		fillRect.y = this->_internalWindowOffset.second + this->_internalWindowSize;
+		SDL_RenderFillRect(this->_windowRenderer, &fillRect);
+
+		this->setRendererColor(0);
 		SDL_RenderPresent(this->_windowRenderer);
 		SDL_RenderClear(this->_windowRenderer);
 		return true;
