@@ -16,6 +16,55 @@ namespace Arcade::Pacman
 {
 	bool Pacman::init()
 	{
+		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/pacman.png"));
+		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/blinky.png"));
+		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/inky.png"));
+		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/clyde.png"));
+		this->_resources.emplace_back(std::make_pair("font", "assets/fonts/angelina.ttf"));
+
+		this->_playerDrawable = Drawables::Sprite();
+		this->_playerDrawable.sizeY = mapTileLength;
+		this->_playerDrawable.sizeX = mapTileLength;
+		this->_playerDrawable.color = 0;
+		this->_playerDrawable.rotation = 0;
+		this->_playerDrawable.x = this->_playerPosition.first;
+		this->_playerDrawable.y = this->_playerPosition.second;
+		this->_playerDrawable.path = "assets/pacman/pacman.png";
+		Drawables::Circle fallbackCircle;
+		fallbackCircle.x = this->_playerPosition.first;
+		fallbackCircle.y = this->_playerPosition.second;
+		fallbackCircle.size = 2;
+		fallbackCircle.color = 0xFFFB00FF;
+
+		Drawables::Rectangle fallbackRectangle;
+		fallbackRectangle.x = this->_playerPosition.first - (mapTileLength / 2);
+		fallbackRectangle.y = this->_playerPosition.second - (mapTileLength / 2);
+		fallbackRectangle.endX = fallbackRectangle.x + mapTileLength;
+		fallbackRectangle.endY = fallbackRectangle.y + mapTileLength;
+		fallbackRectangle.color = 0xFFFB00FF;
+		fallbackCircle.fallback = std::make_shared<Drawables::Rectangle>(fallbackRectangle);
+		this->_playerDrawable.fallback = std::make_shared<Drawables::Circle>(fallbackCircle);
+
+		this->_scoreDrawable = Drawables::Text();
+		this->_scoreDrawable.path = "assets/fonts/angelina.ttf";
+		this->_scoreDrawable.fontSize = 30;
+		this->_scoreDrawable.color = 0xFFFFFFFF;
+		this->_scoreDrawable.x = 5;
+		this->_scoreDrawable.y = 5;
+		this->_scoreDrawable.text = "Score: ";
+		this->_startGame();
+		return true;
+	}
+
+	bool Pacman::close()
+	{
+		return true;
+	}
+
+	void Pacman::_startGame()
+	{
+		this->_drawables.clear();
+		this->_map.clear();
 		this->_map = this->_createMapFromVector({
 			                                        "  wwwwwwwwwwwwwwwwwww  ",
 			                                        "  wP.......w.......Pw  ",
@@ -32,53 +81,17 @@ namespace Arcade::Pacman
 			                                        "  wwww.www.w.www.wwww  ",
 			                                        "  w....w...w...w....w  ",
 			                                        "  w.ww.w.wwwww.w.ww.w  ",
-			                                        "  w.................w  ",
+			                                        "  w........ ........w  ",
 			                                        "  w.ww.www.w.www.ww.w  ",
 			                                        "  wP.......w.......Pw  ",
-			                                        "  wwwwwwwwwwwwwwwwwww"
+			                                        "  wwwwwwwwwwwwwwwwwww  "
 		                                        }, mapOffsetTileY, mapOffsetTileX);
 
-		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/pacman.png"));
-		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/blinky.png"));
-		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/inky.png"));
-		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/clyde.png"));
-		this->_resources.emplace_back(std::make_pair("font", "assets/fonts/angelina.ttf"));
-		this->_playerDrawable = Drawables::Sprite();
-		this->_playerDrawable.sizeY = mapTileLength;
-		this->_playerDrawable.sizeX = mapTileLength;
-		this->_playerDrawable.color = 0;
+		this->_gameScore = 0;
+		this->_playerPosition = {50, 20 * mapTileLength + (mapTileLength / 2)};
+		this->_moves = {0};
+		this->_playerMovement = {0, 0};
 		this->_playerDrawable.rotation = 0;
-		this->_playerDrawable.x = this->_playerPosition.first;
-		this->_playerDrawable.y = this->_playerPosition.second;
-		this->_playerDrawable.path = "assets/pacman/pacman.png";
-		Drawables::Circle fallback;
-		fallback.x = this->_playerPosition.first;
-		fallback.y = this->_playerPosition.second;
-		fallback.size = 2;
-		fallback.color = 0xFFFB00FF;
-
-		Drawables::Rectangle fallback2;
-		fallback2.x = this->_playerPosition.first;
-		fallback2.y = this->_playerPosition.second;
-		fallback2.endX = fallback2.x + mapTileLength;
-		fallback2.endY = fallback2.y + mapTileLength;
-		fallback2.color = 0xFFFB00FF;
-		fallback.fallback = std::make_shared<Drawables::Rectangle>(fallback2);
-		this->_playerDrawable.fallback = std::make_shared<Drawables::Circle>(fallback);
-
-		this->_scoreDrawable = Drawables::Text();
-		this->_scoreDrawable.path = "assets/fonts/angelina.ttf";
-		this->_scoreDrawable.fontSize = 30;
-		this->_scoreDrawable.color = 0xFFFFFFFF;
-		this->_scoreDrawable.x = 5;
-		this->_scoreDrawable.y = 5;
-		this->_scoreDrawable.text = "Score: ";
-		return true;
-	}
-
-	bool Pacman::close()
-	{
-		return true;
 	}
 
 	bool Pacman::shouldClose()
@@ -104,14 +117,12 @@ namespace Arcade::Pacman
 		this->_playerDrawable.fallback->x = this->_playerPosition.first;
 		this->_playerDrawable.fallback->y = this->_playerPosition.second;
 		if (auto fallback = dynamic_cast<Drawables::Rectangle *>(this->_playerDrawable.fallback->fallback.get())) {
-			fallback->x = this->_playerPosition.first;
-			fallback->y = this->_playerPosition.second;
-			fallback->endX = fallback->x + 2;
-			fallback->endY = fallback->y + 2;
+			fallback->x = this->_playerPosition.first - (mapTileLength / 2);
+			fallback->y = this->_playerPosition.second - (mapTileLength / 2);
+			fallback->endX = fallback->x + mapTileLength;
+			fallback->endY = fallback->y + mapTileLength;
 		}
 
-		this->_playerDrawable.fallback->fallback->x = this->_playerPosition.first;
-		this->_playerDrawable.fallback->fallback->y = this->_playerPosition.second;
 		this->_drawables.push_back(std::make_unique<Drawables::Sprite>(this->_playerDrawable));
 		for (const auto &i : this->_map) {
 			this->_drawables.emplace_back(std::make_unique<Drawables::Sprite>(i));
@@ -127,19 +138,15 @@ namespace Arcade::Pacman
 
 	void Pacman::addTicks(unsigned int tick)
 	{
-		static int saveMoveX = 0;
-		static int saveMoveY = 0;
-
-		this->_processPlayerMovement(saveMoveX, saveMoveY, tick);
+		this->_processPlayerMovement(tick);
 		this->_processScore();
-
 		this->_moves.moveX = 0;
 		this->_moves.moveY = 0;
 	}
 
 	void Pacman::restart()
 	{
-
+		this->_startGame();
 	}
 
 	void Pacman::handleEvent(Event &event)
@@ -360,10 +367,12 @@ namespace Arcade::Pacman
 		return this->_map.end();
 	}
 
-	void Pacman::_processPlayerMovement(int &moveX, int &moveY, unsigned int ticks)
+	void Pacman::_processPlayerMovement(unsigned int ticks)
 	{
 		double newX;
 		double newY;
+		int &moveX = this->_playerMovement.first;
+		int &moveY = this->_playerMovement.second;
 
 		if (this->_moves.moveX) {
 			moveX = this->_moves.moveX;
