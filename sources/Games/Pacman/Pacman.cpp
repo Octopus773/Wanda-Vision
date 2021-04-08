@@ -28,7 +28,7 @@ namespace Arcade::Pacman
 			                                        "wwwwww.w.wwwww.w.wwwwww",
 			                                        "w .......wIBCw....... w",
 			                                        "wwwwww.w.wwwww.w.wwwwww",
-			                                        "     w.w.......w.w     ",
+			                                        "__   w.w.......w.w   __",
 			                                        "  wwww.www.w.www.wwww  ",
 			                                        "  w....w...w...w....w  ",
 			                                        "  w.ww.w.wwwww.w.ww.w  ",
@@ -112,10 +112,10 @@ namespace Arcade::Pacman
 
 		this->_playerDrawable.fallback->fallback->x = this->_playerPosition.first;
 		this->_playerDrawable.fallback->fallback->y = this->_playerPosition.second;
+		this->_drawables.push_back(std::make_unique<Drawables::Sprite>(this->_playerDrawable));
 		for (const auto &i : this->_map) {
 			this->_drawables.emplace_back(std::make_unique<Drawables::Sprite>(i));
 		}
-		this->_drawables.push_back(std::make_unique<Drawables::Sprite>(this->_playerDrawable));
 		this->_drawables.push_back(std::make_unique<Drawables::Text>(this->_scoreDrawable));
 		return this->_drawables;
 	}
@@ -209,6 +209,13 @@ namespace Arcade::Pacman
 			rect.endY = rect.y + mapTileLength;
 			rect.color = mapWallColor;
 			return rect;
+		case MapChar::HIDE_RECTANGLE:
+			rect.x = xIndex * mapTileLength;
+			rect.y = (yIndex - 3) * mapTileLength;
+			rect.endX = rect.x + mapTileLength;
+			rect.endY = rect.y + (4 * mapTileLength);
+			rect.color = 0x000000FF;
+			return rect;
 		case MapChar::BIG_PACGUM:
 			rect.x = (xIndex * mapTileLength) + 1;
 			rect.y = (yIndex * mapTileLength) + 1;
@@ -273,6 +280,9 @@ namespace Arcade::Pacman
 
 		switch (c) {
 		case MapChar::WALL:
+			ret.fallback = std::make_shared<Drawables::Rectangle>(this->_getRectangleFromChar(c, xIndex, yIndex));
+			return ret;
+		case MapChar::HIDE_RECTANGLE:
 			ret.fallback = std::make_shared<Drawables::Rectangle>(this->_getRectangleFromChar(c, xIndex, yIndex));
 			return ret;
 		case MapChar::BIG_PACGUM:

@@ -45,7 +45,10 @@ namespace Arcade::Pacman
 			//! @brief Ghost Inky
 			INKY = 'I',
 			//! @brief Ghost Clyde
-			CLYDE = 'C'
+			CLYDE = 'C',
+			//! @brief A black rectangle 1x4
+			//! @info Used to hide some parts of the map
+			HIDE_RECTANGLE = '_'
 		};
 
 		//! @brief The position of the player.
