@@ -20,16 +20,15 @@ namespace Arcade::Pacman
 			                                        "wwwwwwwwwwwwwwwwwww",
 			                                        "wP...w.......w...Pw",
 			                                        "w.ww.w.wwwww.w.ww.w",
-			                                        "..w.............w.w",
+			                                        "..w.............w..",
 			                                        "w.w.ww.ww.ww.ww.w.w",
 			                                        "w......wIBCw......w",
 			                                        "w.w.ww.wwwww.ww.w.w",
-			                                        "..w.............w.w",
+			                                        "..w.............w..",
 			                                        "w.ww.w.wwwww.w.ww.w",
 			                                        "wP...w.......w...Pw",
 			                                        "wwwwwwwwwwwwwwwwwww",
-		                                        }, 3, 0);
-
+		                                        }, 5, 0);
 
 
 		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/pacman.png"));
@@ -38,8 +37,8 @@ namespace Arcade::Pacman
 		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/clyde.png"));
 		this->_resources.emplace_back(std::make_pair("font", "assets/fonts/angelina.ttf"));
 		this->_playerDrawable = Drawables::Sprite();
-		this->_playerDrawable.sizeY = 5;
-		this->_playerDrawable.sizeX = 5;
+		this->_playerDrawable.sizeY = mapTileLength;
+		this->_playerDrawable.sizeX = mapTileLength;
 		this->_playerDrawable.color = 0;
 		this->_playerDrawable.rotation = 0;
 		this->_playerDrawable.x = this->_playerPosition.first;
@@ -215,7 +214,7 @@ namespace Arcade::Pacman
 			rect.y = (yIndex * mapTileLength) + 2;
 			rect.endX = rect.x + mapTileLength - 4;
 			rect.endY = rect.y + mapTileLength - 4;
-			rect.color = 0xAAAAAAFF;
+			rect.color = 0x777777FF;
 			return rect;
 		case MapChar::BLINKY:
 			rect.x = xIndex * mapTileLength + 1;
@@ -270,8 +269,8 @@ namespace Arcade::Pacman
 			ret.fallback = std::make_shared<Drawables::Rectangle>(this->_getRectangleFromChar(c, xIndex, yIndex));
 			return ret;
 		case MapChar::BIG_PACGUM:
-			ret.sizeY = 5;
-			ret.sizeX = 5;
+			ret.sizeY = mapTileLength;
+			ret.sizeX = mapTileLength;
 			ret.x = (xIndex * mapTileLength) + (ret.sizeX / 2);
 			ret.y = (yIndex * mapTileLength) + (ret.sizeY / 2);
 			ret.path = largePacgumFilename;
@@ -280,8 +279,8 @@ namespace Arcade::Pacman
 			ret.color = 0;
 			return ret;
 		case MapChar::SMALL_PACGUM:
-			ret.sizeY = 5;
-			ret.sizeX = 5;
+			ret.sizeY = mapTileLength;
+			ret.sizeX = mapTileLength;
 			ret.x = (xIndex * mapTileLength) + (ret.sizeX / 2);
 			ret.y = (yIndex * mapTileLength) + (ret.sizeY / 2);
 			ret.path = smallPacgumFilename;
@@ -290,8 +289,8 @@ namespace Arcade::Pacman
 			ret.color = 0;
 			return ret;
 		case MapChar::BLINKY:
-			ret.sizeY = 5;
-			ret.sizeX = 5;
+			ret.sizeY = mapTileLength;
+			ret.sizeX = mapTileLength;
 			ret.x = (xIndex * mapTileLength) + (ret.sizeX / 2);
 			ret.y = (yIndex * mapTileLength) + (ret.sizeY / 2);
 			ret.path = "assets/pacman/blinky.png";
@@ -300,8 +299,8 @@ namespace Arcade::Pacman
 			ret.color = 0xFF0000FF;
 			return ret;
 		case MapChar::INKY:
-			ret.sizeY = 5;
-			ret.sizeX = 5;
+			ret.sizeY = mapTileLength;
+			ret.sizeX = mapTileLength;
 			ret.x = (xIndex * mapTileLength) + (ret.sizeX / 2);
 			ret.y = (yIndex * mapTileLength) + (ret.sizeY / 2);
 			ret.path = "assets/pacman/inky.png";
@@ -310,8 +309,8 @@ namespace Arcade::Pacman
 			ret.color = 0x00FFFFFF;
 			return ret;
 		case MapChar::CLYDE:
-			ret.sizeY = 5;
-			ret.sizeX = 5;
+			ret.sizeY = mapTileLength;
+			ret.sizeX = mapTileLength;
 			ret.x = (xIndex * mapTileLength) + (ret.sizeX / 2);
 			ret.y = (yIndex * mapTileLength) + (ret.sizeY / 2);
 			ret.path = "assets/pacman/clyde.png";
@@ -407,18 +406,18 @@ namespace Arcade::Pacman
 
 		switch (c) {
 		case MapChar::BIG_PACGUM:
-			ret.size = 2;
-			ret.x = (xIndex * mapTileLength) + mapTileLength / 2;
-			ret.y = (yIndex * mapTileLength) + mapTileLength / 2;
+			ret.size = 1;
+			ret.x = (xIndex * mapTileLength) + (mapTileLength / 2.);
+			ret.y = (yIndex * mapTileLength) + (mapTileLength / 2.);
 			ret.fallback = std::make_shared<Drawables::Rectangle>(this->_getRectangleFromChar(c, xIndex, yIndex));
 			ret.color = 0xFFFFFFFF;
 			return ret;
 		case MapChar::SMALL_PACGUM:
 			ret.size = 1;
-			ret.x = (xIndex * mapTileLength) + mapTileLength / 2;
-			ret.y = (yIndex * mapTileLength) + mapTileLength / 2;
+			ret.x = (xIndex * mapTileLength) + (mapTileLength / 2.);
+			ret.y = (yIndex * mapTileLength) + (mapTileLength / 2.);
 			ret.fallback = std::make_shared<Drawables::Rectangle>(this->_getRectangleFromChar(c, xIndex, yIndex));
-			ret.color = 0xAAAAAAFF;
+			ret.color = 0x777777FF;
 			return ret;
 		default: throw WrongMapChar(c);
 		}

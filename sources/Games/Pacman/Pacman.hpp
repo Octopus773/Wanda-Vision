@@ -49,7 +49,7 @@ namespace Arcade::Pacman
 		};
 
 		//! @brief The position of the player.
-		std::pair<double, double> _playerPosition = {50, 53};
+		std::pair<double, double> _playerPosition = {50, 12 * mapTileLength + (mapTileLength / 2)};
 
 		//! @brief The player's drawable
 		Drawables::Sprite _playerDrawable;
@@ -69,7 +69,7 @@ namespace Arcade::Pacman
 		//! @brief Pending moves.
 		PendingMoves _moves = {};
 		//! @brief The length of a map tile
-		static constexpr int mapTileLength = 5;
+		static constexpr int mapTileLength = 4;
 		//! @brief The color of the walls
 		//! @info This color is used to check if the block is collidable or not
 		static constexpr int mapWallColor = 0x0033FFFF;
