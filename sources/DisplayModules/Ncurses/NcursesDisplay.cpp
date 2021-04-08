@@ -243,6 +243,7 @@ namespace Arcade
 		case KEY_DOWN:      return Events::KeyboardEvent::DOWN_ARROW;
 		case KEY_DC:        return Events::KeyboardEvent::DELETE;
 		case KEY_SELECT:    return Events::KeyboardEvent::SELECT;
+		case '\x1B':        return Events::KeyboardEvent::ESCAPE;
 		case '*':           return Events::KeyboardEvent::MULTIPLY;
 		case '+':           return Events::KeyboardEvent::ADD;
 		case '-':           return Events::KeyboardEvent::SUBTRACT;

@@ -83,6 +83,16 @@ namespace Arcade::Menu
 	{
 		if (auto txt = dynamic_cast<Drawables::Text *>(this->_drawables.back().get()))
 			txt->text= this->_runner.username;
+		for (auto &drawable : this->_drawables) {
+			if (drawable->x != 60)
+				continue;
+			if (auto lib = dynamic_cast<Drawables::Text *>(drawable.get())) {
+				lib->color =  lib->text == this->_runner.getRenderer().info.name
+					? 0xff6e00FF
+					: 0xFFFFFFFF;
+			}
+
+		}
 		return this->_drawables;
 	}
 
