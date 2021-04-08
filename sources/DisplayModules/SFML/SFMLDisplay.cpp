@@ -390,7 +390,6 @@ namespace Arcade
 
 	bool SFMLDisplay::draw(Drawables::Circle &obj)
 	{
-		return false;
 		int radius = preciseCrossProduct(obj.size, this->_internalWindow.size);
 		sf::CircleShape circle(radius);
 		circle.setPosition(sf::Vector2f(preciseCrossProduct(obj.x, this->_internalWindow.size) - radius,
