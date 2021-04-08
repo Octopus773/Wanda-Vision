@@ -7,6 +7,7 @@
 #include <map>
 #include "Common/IGameModule.hpp"
 #include "Common/Drawables/Line.hpp"
+#include "Common/Drawables/Circle.hpp"
 #include <array>
 
 namespace Arcade::Pacman
@@ -75,9 +76,9 @@ namespace Arcade::Pacman
 		//! @brief The speed of pacman (the player)
 		static constexpr float pacmanSpeed = .000025;
 		//! @brief Resource location for the large pacgum sprite
-		static constexpr std::string_view largePacgumFilename = "resources/large_pacgum.png";
+		static constexpr std::string_view largePacgumFilename = "assets/pacman/large_pacgum.png";
 		//! @brief Resource location for the small pacgum sprite
-		static constexpr std::string_view smallPacgumFilename = "resources/small_pacgum.png";
+		static constexpr std::string_view smallPacgumFilename = "assets/pacman/small_pacgum.png";
 
 		//! @brief Gives the correct Drawables to be able to draw the map on the screen
 		//! @param map The vector of string to represent the actual map (one type of char represent a type/config of drawable)
@@ -109,6 +110,14 @@ namespace Arcade::Pacman
 		//! @return A instance of a Sprite
 		//! @throw WrongMapChar when no matching char is found
 		Drawables::Sprite _getSpriteFromChar(char c, int xIndex, int yIndex);
+		//! @brief Get the correct Circle and correctly filled from a char
+		//! @param c The template type
+		//! @param xIndex The x position of the char in the map
+		//! @param yIndex The y position of the char in the map
+		//! @warning This function uses hard coded templates for each char. This function should only be used with the map context in mind
+		//! @return A instance of a Circle
+		//! @throw WrongMapChar when no matching char is found
+		Drawables::Circle _getCircleFromChar(char c, int xIndex, int yIndex);
 		//! @brief Tells if you colliding with one of the pacgums of the _map member
 		//! @param x The x percentage
 		//! @param y The y percentage

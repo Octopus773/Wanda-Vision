@@ -1,54 +1,60 @@
 //
-// Created by cbihan on 3/22/21.
+// Created by cbihan on 4/6/21.
 //
 
 #pragma once
 
-#include <SDL2/SDL.h>
-#include <string>
+#include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+#include <any>
+#include <variant>
 #include "Common/IDisplayModule.hpp"
 #include "Common/Events/MouseClickEvent.hpp"
-#include "Common/Events/KeyBoardEvent.hpp"
 #include "Common/Events/MouseMoveEvent.hpp"
+#include "Common/Events/KeyBoardEvent.hpp"
 #include "Common/Events/Event.hpp"
-#include <map>
-#include <vector>
 
 namespace Arcade
 {
 	//! @brief Implementation of the SDL Graphic Library
-	class SDLDisplay : public IDisplayModule
+	class SFMLDisplay : public IDisplayModule
 	{
 	private:
-		//! @brief The window we're rendering on
-		SDL_Window* _window = nullptr;
-		//! @brief The surface of the window (renderer)
-		SDL_Renderer *_windowRenderer = nullptr;
-		//! @brief window height when init
-		int _windowHeight = 700;
-		//! @brief window width when init
-		int _windowWidth = 700;
-		//! @brief window title when init
-		std::string _windowTitle = "SDL2 Display Module";
-		//! @brief When true the caller should close this instance
-		bool _shouldClose = true;
-		//! @brief A list of all the resources that are loaded and cached and then not needed to open again
-		//! @info the pair is holding the type of the resource type and pointer to the resource
-		//! @details saving string for the path (used to check if the texture is already loaded) and the Texture ptr
-		std::map<std::string, std::pair<std::string, void *>> _loadedResources;
+		struct InternalWindow {
+			//! @brief The internal window for the bestfit (resize)
+			unsigned int size;
+			//! @brief The texture to draw on
+			sf::RenderTexture texture;
+			//! @brief The horizontal offset
+			unsigned offsetX;
+			//! @brief The vertical offset
+			unsigned offsetY;
+		};
+
+		//! @brief The Resource type
+		std::variant<sf::Texture, sf::Font> typedef Resource;
+		//! @brief The main window
+		sf::RenderWindow _mainWindow;
+		//! @brief The window to do the bestFit
+		InternalWindow _internalWindow;
+		//! @brief The window title
+		std::string _windowTitle = "SFML Display Module";
 		//! @brief A list of the keys that are currently hold
 		//! @info keys are inserted in the list when an event keyDown as occurred and pop out when a keyUp occurred
 		std::vector<Events::KeyboardEvent::KeyCode> _keysHolded;
+		//! @brief If the Display should close
+		bool _shouldClose = false;
+		//! @brief A list of all the resources that are loaded and cached and then not needed to open again
+		//! @info the pair is holding the type of the resource type and the resource
+		//! @details saving string for the path (used to check if the texture is already loaded) and the Texture ptr
+		std::map<std::string, std::pair<std::string, Resource>> _loadedResources;
 		//! @brief Music type resource
 		static constexpr std::string_view resourceMusicType = "music";
 		//! @brief Font type resource
 		static constexpr std::string_view resourceFontType = "font";
 		//! @brief Sprite type resource
 		static constexpr std::string_view resourceSpriteType = "sprite";
-		//! @brief The internal window for the bestfit (resize)
-		unsigned int _internalWindowSize;
-		//! @brief The offsets to center the internalWindow
-		std::pair<unsigned int, unsigned int> _internalWindowOffset;
 
 		//! @brief Binding of a constructor for KeyEvent struct
 		//! @param key Value of key attribute of struct Events::KeyEvent
@@ -68,9 +74,6 @@ namespace Arcade
 		//! @param y The y position (in percentage)
 		//! @return A MoveEvent struct with it's values correctly filled
 		static Events::MouseMoveEvent createMoveEvent(unsigned int x, unsigned int y);
-		//! @brief Used to set the color of the SDL2 renderer
-		//! @param color The color format: RRGGBBAA (1 byte each)
-		void setRendererColor(unsigned color);
 		//! @brief Allows to get the standard KeyCode for a key
 		//! @param key The key given by the SDL2 library
 		//! @return A a value for the key in the standard enum KeyCode
@@ -80,15 +83,16 @@ namespace Arcade
 		//! @param type The type of click given by the SDL2 library
 		//! @return A a value for the click type in the standard enum Type of MouseClickEvent
 		//! @info If no equivalence found the value MouseButton::UNDEFINED is returned
-		static Events::MouseClickEvent::MouseButton getStdClickType(uint8_t type);
+		static Events::MouseClickEvent::MouseButton getStdClickType(int type);
 		//! @brief Allocate the resource given as param
 		//! @param type The type of the resource
 		//! @param path The location of the resource file
 		//! @return A pointer to the resource or nullptr if a problem occurred
-		void *createResource(const std::string &type, const std::string &path);
+		Resource createResource(const std::string &type, const std::string &path);
 		//! @brief Free the resource given as param
-		//! @param resource the pair is holding the type of the resource type and pointer to the resource
-		void destroyResource(const std::pair<std::string, void *> &resource);
+		//! @param resource the pair is holding the type of the resource type and the resource
+		//! @info Only used if additional steps are required to delete correctly a resource
+		void destroyResource(const std::pair<std::string, Resource> &resource);
 		//! @brief Allows to get the result of crossPruduct as precise as the int can be
 		//! @param percent The percentage
 		//! @param total The total to base the percentage on
@@ -96,19 +100,19 @@ namespace Arcade
 		//! @return The result of the cross product
 		static int preciseCrossProduct(float percent, float total, float base = 100.);
 		//! @brief Resize correctly the internal window
-		void _updateInternalWindow();
+		void updateInternalWindow();
 
 	public:
 		//! @brief Default constructor
 		//! @warning In order to properly use this class you must call the init member function
-		SDLDisplay() = default;
+		SFMLDisplay() = default;
 		//! @brief Default copy constructor.
 		//! @warning You must call the close member function before the destructor if you called the init member function
-		~SDLDisplay() override =  default;
-		//! @brief Default copy constructor.
-		SDLDisplay(const SDLDisplay &) = default;
-		//! @brief Default  assignment operator
-		SDLDisplay &operator=(const SDLDisplay &) = default;
+		~SFMLDisplay() override =  default;
+		//! @brief Delete copy constructor.
+		SFMLDisplay(const SFMLDisplay &) = delete;
+		//! @brief Delete assignment operator
+		SFMLDisplay &operator=(const SFMLDisplay &) = delete;
 
 		//! @brief Initialize this library. (Create windows & so on)
 		//! @return True if the initialization was successful. False otherwise.
@@ -174,3 +178,5 @@ namespace Arcade
 		void playSound(Sound &sound) override;
 	};
 }
+
+

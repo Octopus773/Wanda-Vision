@@ -87,20 +87,34 @@ namespace Arcade
 				                        this->_keysHolded.end());
 				break;
 			case SDL_MOUSEBUTTONDOWN:
-				eventList = std::make_unique<Events::MouseClickEvent>(createClickEvent((e.button.x * 100) / this->_windowWidth,
-				                                                     (e.button.y * 100) / this->_windowHeight,
-				                                                     getStdClickType(e.button.button),
-				                                                     Event::KeyDown));
+				if ((e.button.x < this->_internalWindowOffset.first || e.button.x > this->_internalWindowOffset.first + this->_internalWindowSize)
+				    || (e.button.y < this->_internalWindowOffset.second || e.button.y > this->_internalWindowOffset.second + this->_internalWindowSize)) {
+					continue;
+				}
+				eventList = std::make_unique<Events::MouseClickEvent>(createClickEvent(
+					preciseCrossProduct(e.button.x - this->_internalWindowOffset.first, 100, this->_internalWindowSize),
+					preciseCrossProduct(e.button.y - this->_internalWindowOffset.second, 100, this->_internalWindowSize),
+					getStdClickType(e.button.button),
+					Event::KeyDown));
 				break;
 			case SDL_MOUSEBUTTONUP:
-				eventList = std::make_unique<Events::MouseClickEvent>(createClickEvent((e.button.x * 100) / this->_windowWidth,
-				                                                     (e.button.y * 100) / this->_windowHeight,
-				                                                     getStdClickType(e.button.button),
-				                                                     Event::KeyUp));
+				if ((e.button.x < this->_internalWindowOffset.first || e.button.x > this->_internalWindowOffset.first + this->_internalWindowSize)
+				    || (e.button.y < this->_internalWindowOffset.second || e.button.y > this->_internalWindowOffset.second + this->_internalWindowSize)) {
+					continue;
+				}
+				eventList = std::make_unique<Events::MouseClickEvent>(createClickEvent(
+					preciseCrossProduct(e.button.x - this->_internalWindowOffset.first, 100, this->_internalWindowSize),
+					preciseCrossProduct(e.button.y - this->_internalWindowOffset.second, 100, this->_internalWindowSize),
+					getStdClickType(e.button.button),
+					Event::KeyUp));
 				break;
 			case SDL_MOUSEMOTION:
-				eventList = std::make_unique<Events::MouseMoveEvent>(createMoveEvent((e.button.x * 100) / this->_windowWidth,
-				                                                    (e.button.y * 100) / this->_windowHeight));
+				if ((e.button.x < this->_internalWindowOffset.first || e.button.x > this->_internalWindowOffset.first + this->_internalWindowSize)
+				    || (e.button.y < this->_internalWindowOffset.second || e.button.y > this->_internalWindowOffset.second + this->_internalWindowSize)) {
+					continue;
+				}
+				eventList = std::make_unique<Events::MouseMoveEvent>(createMoveEvent(preciseCrossProduct(e.button.x - this->_internalWindowOffset.first, 100, this->_internalWindowSize),
+				                                                                     preciseCrossProduct(e.button.y - this->_internalWindowOffset.second, 100, this->_internalWindowSize)));
 				break;
 			case SDL_WINDOWEVENT:
 				if (e.window.event != SDL_WINDOWEVENT_RESIZED) {
@@ -175,7 +189,7 @@ namespace Arcade
 		    || this->_loadedResources[obj.path].first != resourceFontType) {
 			return false;
 		}
-		if (obj.text == "") {
+		if (obj.text.empty()) {
 			return true;
 		}
 		// TODO might need to cache the texture of the font directly internally if it's too laggy (cache for each color and text)
@@ -231,6 +245,27 @@ namespace Arcade
 
 	bool SDLDisplay::refresh()
 	{
+		SDL_Rect fillRect = {0,0,0,0};
+
+		this->setRendererColor(0);
+		fillRect.w = this->_internalWindowOffset.first;
+		fillRect.h = this->_windowHeight;
+		SDL_RenderFillRect(this->_windowRenderer, &fillRect);
+
+		fillRect.x = this->_internalWindowOffset.first + this->_internalWindowSize;
+		SDL_RenderFillRect(this->_windowRenderer, &fillRect);
+
+		fillRect.x = 0;
+		fillRect.y = 0;
+		fillRect.w = this->_windowWidth;
+		fillRect.h = this->_internalWindowOffset.second;
+		SDL_RenderFillRect(this->_windowRenderer, &fillRect);
+
+		fillRect.x = 0;
+		fillRect.y = this->_internalWindowOffset.second + this->_internalWindowSize;
+		SDL_RenderFillRect(this->_windowRenderer, &fillRect);
+
+		this->setRendererColor(0);
 		SDL_RenderPresent(this->_windowRenderer);
 		SDL_RenderClear(this->_windowRenderer);
 		return true;
@@ -301,8 +336,10 @@ namespace Arcade
 
 	void SDLDisplay::unloadAll()
 	{
-		for (const auto &pair : this->_loadedResources)
-			this->destroyResource(pair.second);
+		for(auto iter = this->_loadedResources.begin(); iter != this->_loadedResources.end(); ++iter)
+		{
+			this->unload(iter->first, iter->second.first);
+		}
 		this->_loadedResources.clear();
 	}
 
@@ -438,18 +475,12 @@ namespace Arcade
 	Events::MouseClickEvent::MouseButton SDLDisplay::getStdClickType(uint8_t type)
 	{
 		switch (type) {
-		case SDL_BUTTON_LEFT:
-			return Events::MouseClickEvent::MouseButton::LEFT;
-		case SDL_BUTTON_MIDDLE:
-			return Events::MouseClickEvent::MouseButton::MIDDLE;
-		case SDL_BUTTON_RIGHT:
-			return Events::MouseClickEvent::MouseButton::RIGHT;
-		case SDL_BUTTON_X1:
-			return Events::MouseClickEvent::MouseButton::XBUTTON1;
-		case SDL_BUTTON_X2:
-			return Events::MouseClickEvent::MouseButton::XBUTTON2;
-		default:
-			return Events::MouseClickEvent::MouseButton::UNDEFINED;
+		case SDL_BUTTON_LEFT: return Events::MouseClickEvent::MouseButton::LEFT;
+		case SDL_BUTTON_MIDDLE: return Events::MouseClickEvent::MouseButton::MIDDLE;
+		case SDL_BUTTON_RIGHT: return Events::MouseClickEvent::MouseButton::RIGHT;
+		case SDL_BUTTON_X1: return Events::MouseClickEvent::MouseButton::XBUTTON1;
+		case SDL_BUTTON_X2: return Events::MouseClickEvent::MouseButton::XBUTTON2;
+		default: return Events::MouseClickEvent::MouseButton::UNDEFINED;
 		}
 	}
 
@@ -491,9 +522,9 @@ namespace Arcade
 		Mix_PlayMusic(static_cast<Mix_Music *>(this->_loadedResources[sound.path].second), loops);
 	}
 
-	int SDLDisplay::preciseCrossProduct(int percent, int total)
+	int SDLDisplay::preciseCrossProduct(float percent, float total, float base)
 	{
-		return static_cast<int>(percent * (total / 100.));
+		return static_cast<int>(percent * (total / base));
 	}
 
 	void SDLDisplay::_updateInternalWindow()
