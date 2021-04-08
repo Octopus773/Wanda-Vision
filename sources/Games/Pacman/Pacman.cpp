@@ -17,19 +17,26 @@ namespace Arcade::Pacman
 	bool Pacman::init()
 	{
 		this->_map = this->_createMapFromVector({
-			                                        "wwwwwwwwwwwwwwwwwww",
-			                                        "wP...w.......w...Pw",
-			                                        "w.ww.w.wwwww.w.ww.w",
-			                                        "..w.............w..",
-			                                        "w.w.ww.ww.ww.ww.w.w",
-			                                        "w......wIBCw......w",
-			                                        "w.w.ww.wwwww.ww.w.w",
-			                                        "..w.............w..",
-			                                        "w.ww.w.wwwww.w.ww.w",
-			                                        "wP...w.......w...Pw",
-			                                        "wwwwwwwwwwwwwwwwwww",
-		                                        }, 5, 0);
-
+			                                        "  wwwwwwwwwwwwwwwwwww  ",
+			                                        "  wP.......w.......Pw  ",
+			                                        "  w.ww.www.w.www.ww.w  ",
+			                                        "  w.................w  ",
+			                                        "  w.ww.w.wwwww.w.ww.w  ",
+			                                        "  w....w...w...w....w  ",
+			                                        "  wwww.www.w.www.wwww  ",
+			                                        "     w.w.......w.w     ",
+			                                        "wwwwww.w.wwwww.w.wwwwww",
+			                                        "w .......wIBCw....... w",
+			                                        "wwwwww.w.wwwww.w.wwwwww",
+			                                        "     w.w.......w.w     ",
+			                                        "  wwww.www.w.www.wwww  ",
+			                                        "  w....w...w...w....w  ",
+			                                        "  w.ww.w.wwwww.w.ww.w  ",
+			                                        "  w.................w  ",
+			                                        "  w.ww.www.w.www.ww.w  ",
+			                                        "  wP.......w.......Pw  ",
+			                                        "  wwwwwwwwwwwwwwwwwww"
+		                                        }, mapOffsetTileY, mapOffsetTileX);
 
 		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/pacman.png"));
 		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/blinky.png"));
@@ -383,6 +390,14 @@ namespace Arcade::Pacman
 		}
 		if (moveX) {
 			this->_playerDrawable.rotation = (moveX > 0) ? 0 : 180;
+		}
+
+		// Teleportation
+		if (moveX < 0 && this->_playerPosition.first < (mapOffsetTileX + 2) * mapTileLength) {
+			this->_playerPosition.first = 23 * mapTileLength - (mapTileLength / 2);
+		}
+		if (moveX > 0 && this->_playerPosition.first > (23 + mapOffsetTileX - 2) * mapTileLength) {
+			this->_playerPosition.first = (mapOffsetTileX + 1) * mapTileLength + (mapTileLength / 2);
 		}
 	}
 
