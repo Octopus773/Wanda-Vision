@@ -52,7 +52,7 @@ namespace Arcade::Pacman
 		};
 
 		//! @brief The position of the player.
-		std::pair<double, double> _playerPosition = {50, 20 * mapTileLength + (mapTileLength / 2)};
+		std::pair<double, double> _playerPosition;
 
 		//! @brief The player's drawable
 		Drawables::Sprite _playerDrawable;
@@ -140,6 +140,8 @@ namespace Arcade::Pacman
 		void _processPlayerMovement(int &moveX, int &moveY, unsigned int ticks);
 		//! @brief Checks the collision with Pacgums and ghosts and update the score
 		void _processScore();
+		//! @brief Start the game and initialise variables to their start values
+		void  _startGame();
 	public:
 		//! @brief Initialize this library. (Create windows & so on)
 		//! @return True if the initialization was successful. False otherwise.

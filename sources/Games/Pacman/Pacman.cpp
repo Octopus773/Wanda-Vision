@@ -16,33 +16,6 @@ namespace Arcade::Pacman
 {
 	bool Pacman::init()
 	{
-		this->_map = this->_createMapFromVector({
-			                                        "  wwwwwwwwwwwwwwwwwww  ",
-			                                        "  wP.......w.......Pw  ",
-			                                        "  w.ww.www.w.www.ww.w  ",
-			                                        "  w.................w  ",
-			                                        "  w.ww.w.wwwww.w.ww.w  ",
-			                                        "  w....w...w...w....w  ",
-			                                        "  wwww.www.w.www.wwww  ",
-			                                        "     w.w.......w.w     ",
-			                                        "wwwwww.w.wwwww.w.wwwwww",
-			                                        "w .......wIBCw....... w",
-			                                        "wwwwww.w.wwwww.w.wwwwww",
-			                                        "__   w.w.......w.w   __",
-			                                        "  wwww.www.w.www.wwww  ",
-			                                        "  w....w...w...w....w  ",
-			                                        "  w.ww.w.wwwww.w.ww.w  ",
-			                                        "  w.................w  ",
-			                                        "  w.ww.www.w.www.ww.w  ",
-			                                        "  wP.......w.......Pw  ",
-			                                        "  wwwwwwwwwwwwwwwwwww"
-		                                        }, mapOffsetTileY, mapOffsetTileX);
-
-		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/pacman.png"));
-		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/blinky.png"));
-		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/inky.png"));
-		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/clyde.png"));
-		this->_resources.emplace_back(std::make_pair("font", "assets/fonts/angelina.ttf"));
 		this->_playerDrawable = Drawables::Sprite();
 		this->_playerDrawable.sizeY = mapTileLength;
 		this->_playerDrawable.sizeX = mapTileLength;
@@ -73,12 +46,52 @@ namespace Arcade::Pacman
 		this->_scoreDrawable.x = 5;
 		this->_scoreDrawable.y = 5;
 		this->_scoreDrawable.text = "Score: ";
+		this->_startGame();
 		return true;
 	}
 
 	bool Pacman::close()
 	{
 		return true;
+	}
+
+	void Pacman::_startGame()
+	{
+		this->_resources.clear();
+		this->_drawables.clear();
+		this->_map.clear();
+		this->_map = this->_createMapFromVector({
+			                                        "  wwwwwwwwwwwwwwwwwww  ",
+			                                        "  wP.......w.......Pw  ",
+			                                        "  w.ww.www.w.www.ww.w  ",
+			                                        "  w.................w  ",
+			                                        "  w.ww.w.wwwww.w.ww.w  ",
+			                                        "  w....w...w...w....w  ",
+			                                        "  wwww.www.w.www.wwww  ",
+			                                        "     w.w.......w.w     ",
+			                                        "wwwwww.w.wwwww.w.wwwwww",
+			                                        "w .......wIBCw....... w",
+			                                        "wwwwww.w.wwwww.w.wwwwww",
+			                                        "__   w.w.......w.w   __",
+			                                        "  wwww.www.w.www.wwww  ",
+			                                        "  w....w...w...w....w  ",
+			                                        "  w.ww.w.wwwww.w.ww.w  ",
+			                                        "  w.................w  ",
+			                                        "  w.ww.www.w.www.ww.w  ",
+			                                        "  wP.......w.......Pw  ",
+			                                        "  wwwwwwwwwwwwwwwwwww  "
+		                                        }, mapOffsetTileY, mapOffsetTileX);
+
+		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/pacman.png"));
+		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/blinky.png"));
+		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/inky.png"));
+		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/clyde.png"));
+		this->_resources.emplace_back(std::make_pair("font", "assets/fonts/angelina.ttf"));
+
+		this->_gameScore = 0;
+		this->_playerPosition = {50, 20 * mapTileLength + (mapTileLength / 2)};
+		this->_moves = {0};
+
 	}
 
 	bool Pacman::shouldClose()
@@ -137,7 +150,7 @@ namespace Arcade::Pacman
 
 	void Pacman::restart()
 	{
-
+		this->_startGame();
 	}
 
 	void Pacman::handleEvent(Event &event)
