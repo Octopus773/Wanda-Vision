@@ -25,9 +25,9 @@ namespace Arcade
 		//! @brief The surface of the window (renderer)
 		SDL_Renderer *_windowRenderer = nullptr;
 		//! @brief window height when init
-		int _windowHeight = 480;
+		int _windowHeight = 700;
 		//! @brief window width when init
-		int _windowWidth = 640;
+		int _windowWidth = 700;
 		//! @brief window title when init
 		std::string _windowTitle = "SDL2 Display Module";
 		//! @brief When true the caller should close this instance
@@ -92,8 +92,9 @@ namespace Arcade
 		//! @brief Allows to get the result of crossPruduct as precise as the int can be
 		//! @param percent The percentage
 		//! @param total The total to base the percentage on
+		//! @param base The number to be divided with (default 100)
 		//! @return The result of the cross product
-		static int preciseCrossProduct(int percent, int total);
+		static int preciseCrossProduct(float percent, float total, float base = 100.);
 		//! @brief Resize correctly the internal window
 		void _updateInternalWindow();
 
