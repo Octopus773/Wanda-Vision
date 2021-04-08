@@ -92,8 +92,9 @@ namespace Arcade
 		//! @brief Allows to get the result of crossPruduct as precise as the int can be
 		//! @param percent The percentage
 		//! @param total The total to base the percentage on
+		//! @param base The number to be divided with (default 100)
 		//! @return The result of the cross product
-		static int preciseCrossProduct(int percent, int total);
+		static int preciseCrossProduct(float percent, float total, float base = 100.);
 		//! @brief Resize correctly the internal window
 		void _updateInternalWindow();
 
