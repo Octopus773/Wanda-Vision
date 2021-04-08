@@ -389,9 +389,10 @@ namespace Arcade
 
 	bool SFMLDisplay::draw(Drawables::Circle &obj)
 	{
-		sf::CircleShape circle(preciseCrossProduct(obj.size, this->_internalWindow.size));
-		circle.setPosition(sf::Vector2f(preciseCrossProduct(obj.x, this->_internalWindow.size),
-		                                preciseCrossProduct(obj.y, this->_internalWindow.size)));
+		int radius = preciseCrossProduct(obj.size, this->_internalWindow.size);
+		sf::CircleShape circle(radius);
+		circle.setPosition(sf::Vector2f(preciseCrossProduct(obj.x, this->_internalWindow.size) - radius,
+		                                preciseCrossProduct(obj.y, this->_internalWindow.size) - radius));
 		circle.setFillColor(sf::Color(obj.color));
 		this->_internalWindow.texture.draw(circle);
 		return true;
