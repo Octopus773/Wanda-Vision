@@ -51,20 +51,20 @@ namespace Arcade::Pacman
 		this->_playerDrawable.x = this->_playerPosition.first;
 		this->_playerDrawable.y = this->_playerPosition.second;
 		this->_playerDrawable.path = "assets/pacman/pacman.png";
-		Drawables::Circle fallback;
-		fallback.x = this->_playerPosition.first;
-		fallback.y = this->_playerPosition.second;
-		fallback.size = 2;
-		fallback.color = 0xFFFB00FF;
+		Drawables::Circle fallbackCircle;
+		fallbackCircle.x = this->_playerPosition.first;
+		fallbackCircle.y = this->_playerPosition.second;
+		fallbackCircle.size = 2;
+		fallbackCircle.color = 0xFFFB00FF;
 
-		Drawables::Rectangle fallback2;
-		fallback2.x = this->_playerPosition.first;
-		fallback2.y = this->_playerPosition.second;
-		fallback2.endX = fallback2.x + mapTileLength;
-		fallback2.endY = fallback2.y + mapTileLength;
-		fallback2.color = 0xFFFB00FF;
-		fallback.fallback = std::make_shared<Drawables::Rectangle>(fallback2);
-		this->_playerDrawable.fallback = std::make_shared<Drawables::Circle>(fallback);
+		Drawables::Rectangle fallbackRectangle;
+		fallbackRectangle.x = this->_playerPosition.first - (mapTileLength / 2);
+		fallbackRectangle.y = this->_playerPosition.second - (mapTileLength / 2);
+		fallbackRectangle.endX = fallbackRectangle.x + mapTileLength;
+		fallbackRectangle.endY = fallbackRectangle.y + mapTileLength;
+		fallbackRectangle.color = 0xFFFB00FF;
+		fallbackCircle.fallback = std::make_shared<Drawables::Rectangle>(fallbackRectangle);
+		this->_playerDrawable.fallback = std::make_shared<Drawables::Circle>(fallbackCircle);
 
 		this->_scoreDrawable = Drawables::Text();
 		this->_scoreDrawable.path = "assets/fonts/angelina.ttf";
@@ -104,14 +104,12 @@ namespace Arcade::Pacman
 		this->_playerDrawable.fallback->x = this->_playerPosition.first;
 		this->_playerDrawable.fallback->y = this->_playerPosition.second;
 		if (auto fallback = dynamic_cast<Drawables::Rectangle *>(this->_playerDrawable.fallback->fallback.get())) {
-			fallback->x = this->_playerPosition.first;
-			fallback->y = this->_playerPosition.second;
-			fallback->endX = fallback->x + 2;
-			fallback->endY = fallback->y + 2;
+			fallback->x = this->_playerPosition.first - (mapTileLength / 2);
+			fallback->y = this->_playerPosition.second - (mapTileLength / 2);
+			fallback->endX = fallback->x + mapTileLength;
+			fallback->endY = fallback->y + mapTileLength;
 		}
 
-		this->_playerDrawable.fallback->fallback->x = this->_playerPosition.first;
-		this->_playerDrawable.fallback->fallback->y = this->_playerPosition.second;
 		this->_drawables.push_back(std::make_unique<Drawables::Sprite>(this->_playerDrawable));
 		for (const auto &i : this->_map) {
 			this->_drawables.emplace_back(std::make_unique<Drawables::Sprite>(i));
