@@ -316,7 +316,7 @@ namespace Arcade
 			}
 			return f;
 		} else if (type == resourceMusicType) {
-			std::cerr << "Music is unsupported" << std::endl;
+			throw ResourceCreationFailure("Music not supported");
 		} else {
 			throw ResourceCreationFailure("Unknown type");
 		}
