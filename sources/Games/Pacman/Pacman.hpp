@@ -76,9 +76,9 @@ namespace Arcade::Pacman
 		static constexpr int mapOffsetTileY = 5;
 		//! @brief The color of the walls
 		//! @info This color is used to check if the block is collidable or not
-		static constexpr int mapWallColor = 0x0033FFFF;
+		static constexpr int mapWallColor = 0x0000FFFF;
 		//! @brief The speed of pacman (the player)
-		static constexpr float pacmanSpeed = .000025;
+		static constexpr float pacmanSpeed = .000020;
 		//! @brief Resource location for the large pacgum sprite
 		static constexpr std::string_view largePacgumFilename = "assets/pacman/large_pacgum.png";
 		//! @brief Resource location for the small pacgum sprite

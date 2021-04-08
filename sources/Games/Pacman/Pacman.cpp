@@ -333,16 +333,15 @@ namespace Arcade::Pacman
 	{
 		int index = -1;
 
-		for (const auto &i : this->_map) {
+		for (const auto &sprite : this->_map) {
 			index++;
 			try {
-				auto sprite = dynamic_cast<const Drawables::Sprite &>(i);
 				if (sprite.path != largePacgumFilename && sprite.path != smallPacgumFilename)
 					continue;
-				if (x + w <= sprite.x
-				    || y + h <= sprite.y
-				    || sprite.x + sprite.sizeX <= x
-				    || sprite.y + sprite.sizeY <= y) {
+				if (x + w <= sprite.x - sprite.sizeX / 2
+				    || y + h <= sprite.y - sprite.sizeY / 2
+				    || sprite.x + sprite.sizeX / 2  <= x
+				    || sprite.y + sprite.sizeY / 2 <= y) {
 					continue;
 				}
 				return this->_map.begin() + index;
