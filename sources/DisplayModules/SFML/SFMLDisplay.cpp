@@ -304,7 +304,6 @@ namespace Arcade
 	{
 		sf::Texture t;
 		sf::Font f;
-		sf::Music m;
 
 		if (type == resourceSpriteType) {
 			if (!t.loadFromFile(path)) {
@@ -317,7 +316,7 @@ namespace Arcade
 			}
 			return f;
 		} else if (type == resourceMusicType) {
-			throw ResourceCreationFailure("Unsupported Music");
+			throw ResourceCreationFailure("Music not supported");
 		} else {
 			throw ResourceCreationFailure("Unknown type");
 		}
@@ -332,7 +331,9 @@ namespace Arcade
 		}
 		try {
 			resource = this->createResource(type, path);
-		} catch (const ResourceCreationFailure &) { }
+		} catch (const ResourceCreationFailure &) {
+			return false;
+		}
 		this->_loadedResources[path] = std::make_pair(type, resource);
 		return true;
 	}
