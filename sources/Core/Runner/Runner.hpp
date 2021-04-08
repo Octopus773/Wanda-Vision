@@ -39,6 +39,9 @@ namespace Arcade::Core
 		int _gameIndex = 0;
 		//! @brief The currently loaded renderer index.
 		int _rendererIndex = 0;
+
+		//! @brief Save scores of the current game.
+		void _saveScore();
 	public:
 		//! @brief Score by game and by player.
 		//! @info format: <game, <username, score>>.

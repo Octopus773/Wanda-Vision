@@ -84,12 +84,16 @@ namespace Arcade::Menu
 		if (auto txt = dynamic_cast<Drawables::Text *>(this->_drawables.back().get()))
 			txt->text= this->_runner.username;
 		for (auto &drawable : this->_drawables) {
-			if (drawable->x != 60)
-				continue;
 			if (auto lib = dynamic_cast<Drawables::Text *>(drawable.get())) {
-				lib->color =  lib->text == this->_runner.getRenderer().info.name
-					? 0xff6e00FF
-					: 0xFFFFFFFF;
+				if (drawable->x == 60) {
+					lib->color = lib->text == this->_runner.getRenderer().info.name
+					             ? 0xff6e00FF
+					             : 0xFFFFFFFF;
+				}
+				if (drawable->x == 10 && drawable->y >= 20) {
+					std::string name = lib->text.substr(0, lib->text.find('(') - 1);
+					lib->text = name + " (" + std::to_string(this->_runner.scores[name][this->_runner.username]) + ")";
+				}
 			}
 
 		}
@@ -119,10 +123,10 @@ namespace Arcade::Menu
 	void Menu::handleEvent(Event &event)
 	{
 		if (auto key = dynamic_cast<Events::KeyboardEvent *>(&event)) {
+			if (key->type != Event::KeyDown)
+				return;
 			if (key->key == Events::KeyboardEvent::ESCAPE)
 				this->_shouldClose = true;
-			if (key->type == Event::KeyUp)
-				return;
 			if (key->key == Events::KeyboardEvent::BACKSPACE)
 				this->_runner.username = this->_runner.username.substr(0, this->_runner.username.size() - 1);
 			if (isalpha(key->key))

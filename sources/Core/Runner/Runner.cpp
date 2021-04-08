@@ -48,7 +48,8 @@ namespace Arcade::Core
 		for (auto &game : this->scores) {
 			scoresFile << game.first << std::endl;
 			for (auto &user : game.second)
-				scoresFile << user.first << ':' << user.second << std::endl;
+				if (user.second != 0)
+					scoresFile << user.first << ':' << user.second << std::endl;
 		}
 		scoresFile.close();
 	}
@@ -85,6 +86,7 @@ namespace Arcade::Core
 			throw std::invalid_argument("Can't use a non renderer as a renderer.");
 		if (this->_renderer)
 			this->_renderer->close();
+		this->_rendererIndex = std::distance(this->_renderers.begin(), std::find(this->_renderers.begin(), this->_renderers.end(), lib));
 		this->_renderer = lib.start<IDisplayModule>();
 		if (this->_game) {
 			for (auto &resource : this->_game->getResources())
@@ -111,6 +113,9 @@ namespace Arcade::Core
 			throw std::invalid_argument("Can't use a non game as a game.");
 		if (this->_game)
 			this->_game->close();
+		if (this->username.empty())
+			this->username = "USERNAME";
+		this->_gameIndex = std::distance(this->_games.begin(), std::find(this->_games.begin(), this->_games.end(), lib));
 		this->_game = lib.start<IGameModule>();
 		this->_renderer->unloadAll();
 		for (auto &resource : this->_game->getResources())
@@ -158,15 +163,20 @@ namespace Arcade::Core
 			if (key->type == Event::KeyDown) {
 				switch (key->key) {
 				case Events::KeyboardEvent::ESCAPE:
+					if (dynamic_cast<Menu::Menu *>(this->_game.get()))
+						break;
+					this->_saveScore();
 					this->setShell();
-					break;
+					return false;
 				case Events::KeyboardEvent::KEY_1:
+					this->_saveScore();
 					this->_gameIndex = this->_gameIndex - 1;
 					if (this->_gameIndex < 0)
 						this->_gameIndex = this->_games.size() - 1;
 					this->setGame(this->_games[this->_gameIndex]);
 					break;
 				case Events::KeyboardEvent::KEY_2:
+					this->_saveScore();
 					this->_gameIndex = this->_gameIndex + 1;
 					if (this->_gameIndex >= this->_games.size())
 						this->_gameIndex = 0;
@@ -199,6 +209,8 @@ namespace Arcade::Core
 			this->_game->close();
 		this->_game = std::make_unique<Menu::Menu>(*this);
 		this->_game->init();
+		for (auto &resource : this->_game->getResources())
+			this->_renderer->load(resource.first, resource.second);
 	}
 
 	int Runner::runShell()
@@ -209,8 +221,6 @@ namespace Arcade::Core
 
 	int Runner::runGame()
 	{
-		if (this->username.empty())
-			this->username = "USERNAME";
 		this->_renderer->unloadAll();
 		for (auto &resource : this->_game->getResources())
 			this->_renderer->load(resource.first, resource.second);
@@ -228,8 +238,16 @@ namespace Arcade::Core
 			this->_game->addTicks(duration);
 			timer = newTimer;
 		}
-		this->scores[this->_games[this->_gameIndex].info.name][this->username] = this->_game->getScore();
+		this->_saveScore();
 		return 0;
+	}
+
+	void Runner::_saveScore()
+	{
+		std::string name = this->_games[this->_gameIndex].info.name;
+		unsigned long score = this->_game->getScore();
+		if (score > this->scores[name][this->username])
+			this->scores[name][this->username] = score;
 	}
 
 	const Library &Runner::getRenderer() const

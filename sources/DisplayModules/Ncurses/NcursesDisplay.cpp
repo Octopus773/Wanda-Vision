@@ -33,7 +33,6 @@ namespace Arcade
 		}
 
 		timeout(500);
-//		nodelay(stdscr, TRUE);
 		noecho();
 		this->refresh();
 		return true;
