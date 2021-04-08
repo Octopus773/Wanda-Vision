@@ -42,7 +42,7 @@ namespace Arcade
 		//! @brief Get a keycode from a getch response
 		Events::KeyboardEvent::KeyCode _getStdKey(unsigned int key) const;
 		//! @brief Set the output to the object's color.
-		void _setColor(Drawables::ADrawable &obj) const;
+		void _setColor(Drawables::ADrawable &obj, bool fullblock = false) const;
 	public:
 		//! @brief Colors available.
 		static constexpr std::array<std::array<int, 4>, 8> colors = {{

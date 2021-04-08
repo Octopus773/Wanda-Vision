@@ -22,15 +22,18 @@ namespace Arcade
 		keypad(stdscr, TRUE);
 		mousemask(ALL_MOUSE_EVENTS, NULL);
 		start_color();
+		use_default_colors();
 
 		for (auto &color : colors) {
 			short i = (((color[0] / 255) << 0) |
 	                   ((color[1] / 255) << 1) |
 	                   ((color[2] / 255) << 2));
 			init_pair(color[3] + 1, i, COLOR_BLACK);
+			init_pair(color[3] + 11, i, i);
 		}
 
 		timeout(500);
+//		nodelay(stdscr, TRUE);
 		noecho();
 		this->refresh();
 		return true;
@@ -74,7 +77,10 @@ namespace Arcade
 			event.key = code;
 
 			events.emplace_back(std::make_unique<Events::KeyboardEvent>(event));
-			holded.push_back(code);
+			if (contains)
+				return events;
+			else
+				holded.push_back(code);
 		}
 		auto filter = std::views::filter([&holded](auto x)
 		{
@@ -104,7 +110,7 @@ namespace Arcade
 		return off + int(max / 100. * y);
 	}
 
-	void NcursesDisplay::_setColor(Drawables::ADrawable &obj) const
+	void NcursesDisplay::_setColor(Drawables::ADrawable &obj, bool fullblock) const
 	{
 		unsigned char r = (obj.color & (0xFF << 24)) >> 24;
 		unsigned char g = (obj.color & (0xFF << 16)) >> 16;
@@ -115,7 +121,7 @@ namespace Arcade
 			if (std::sqrt((r * ccolor[0]) + (g * ccolor[1]) + (b * ccolor[2])) >
 			    std::sqrt((r * bcolor[0]) + (g * bcolor[1]) + (b * bcolor[2])))
 				bcolor = ccolor;
-		attron(COLOR_PAIR(bcolor[3] + 1));
+		attron(COLOR_PAIR(bcolor[3] + (fullblock ? 11 : 1)));
 	}
 
 	bool NcursesDisplay::draw(Drawables::Line &obj)
@@ -143,15 +149,13 @@ namespace Arcade
 
 	bool NcursesDisplay::draw(Drawables::Rectangle &obj)
 	{
-		this->_setColor(obj);
+		this->_setColor(obj, true);
 		int x = std::min(this->_getPosX(obj.x), this->_getPosX(obj.endX));
 		int y = std::min(this->_getPosY(obj.y), this->_getPosY(obj.endY));
 		int width = std::abs(this->_getPosX(obj.endX) - this->_getPosX(obj.x)) + 1;
-		int height = std::abs(this->_getPosY(obj.endY) - this->_getPosY(obj.y));
-		mvaddstr(y, x, ('+' + std::string(std::max(width - 2, 0), '-') + '+').c_str());
-		for (int i = y + 1; i < height - 1; i++)
-			mvaddstr(i, x, ('|' + std::string(width - 2, 'o') + '|').c_str());
-		mvaddstr(y + height, x, ('+' + std::string(std::max(width - 2, 0), '-') + '+').c_str());
+		int height = std::max(std::abs(this->_getPosY(obj.endY) - this->_getPosY(obj.y)), 1);
+		for (int i = y; i < y + height; i++)
+			mvaddstr(i, x, std::string(width, 'o').c_str());
 		return true;
 	}
 
