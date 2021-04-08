@@ -210,17 +210,17 @@ namespace Arcade::Pacman
 			rect.color = mapWallColor;
 			return rect;
 		case MapChar::BIG_PACGUM:
-			rect.x = (xIndex * mapTileLength) + 2;
-			rect.y = (yIndex * mapTileLength) + 2;
-			rect.endX = rect.x + mapTileLength - 3;
-			rect.endY = rect.y + mapTileLength - 3;
+			rect.x = (xIndex * mapTileLength) + 1;
+			rect.y = (yIndex * mapTileLength) + 1;
+			rect.endX = rect.x + mapTileLength - 2;
+			rect.endY = rect.y + mapTileLength - 2;
 			rect.color = 0xFFFFFFFF;
 			return rect;
 		case MapChar::SMALL_PACGUM:
-			rect.x = (xIndex * mapTileLength) + 2;
-			rect.y = (yIndex * mapTileLength) + 2;
-			rect.endX = rect.x + mapTileLength - 4;
-			rect.endY = rect.y + mapTileLength - 4;
+			rect.x = (xIndex * mapTileLength) + 1;
+			rect.y = (yIndex * mapTileLength) + 1;
+			rect.endX = rect.x + mapTileLength - 2;
+			rect.endY = rect.y + mapTileLength - 2;
 			rect.color = 0x777777FF;
 			return rect;
 		case MapChar::BLINKY:
