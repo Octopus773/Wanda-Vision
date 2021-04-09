@@ -200,11 +200,11 @@ namespace Arcade::Qix
 			switch (key.key) {
 			case Events::KeyboardEvent::UP_ARROW:
 			case Events::KeyboardEvent::KEY_Z:
-				this->_moves.moveY = std::min(-1, this->_moves.moveY + 1);
+				this->_moves.moveY = std::max(-1, this->_moves.moveY - 1);
 				break;
 			case Events::KeyboardEvent::DOWN_ARROW:
 			case Events::KeyboardEvent::KEY_S:
-				this->_moves.moveY = std::max(1, this->_moves.moveY - 1);
+				this->_moves.moveY = std::min(1, this->_moves.moveY + 1);
 				break;
 			case Events::KeyboardEvent::RIGHT_ARROW:
 			case Events::KeyboardEvent::KEY_D:
