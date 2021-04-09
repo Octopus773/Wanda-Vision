@@ -31,18 +31,10 @@ namespace Arcade::Nibbler
 			NOTHING = ' ',
 			//! @brief Representing a wall in the map
 			WALL = 'w',
-			//! @brief Representing a small pacgum in the map
-			SMALL_PACGUM = '.',
-			//! @brief Representing a big pacgum in the map
-			BIG_PACGUM = 'P',
-			//! @brief Ghost Blinky
-			BLINKY = 'B',
-			//! @brief Ghost Inky
-			INKY = 'I',
-			//! @brief Ghost Clyde
-			CLYDE = 'C',
-			//! @brief A black rectangle 1x4 (Used to hide some parts of the map)
-			HIDE_RECTANGLE = '_'
+			//! @brief Representing a small food in the map
+			SMALL_FOOD = '.',
+			//! @brief Representing a big food in the map
+			BIG_FOOD = 'P'
 		};
 
 		//! @brief The position of the player.

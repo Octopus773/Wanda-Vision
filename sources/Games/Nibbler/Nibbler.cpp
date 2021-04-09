@@ -225,47 +225,19 @@ namespace Arcade::Nibbler
 			rect.endY = rect.y + mapTileLength;
 			rect.color = mapWallColor;
 			return rect;
-		case MapChar::HIDE_RECTANGLE:
-			rect.x = xIndex * mapTileLength;
-			rect.y = (yIndex - 3) * mapTileLength;
-			rect.endX = rect.x + mapTileLength;
-			rect.endY = rect.y + (4 * mapTileLength);
-			rect.color = 0x000000FF;
+		case MapChar::BIG_FOOD:
+			rect.x = (xIndex * mapTileLength) + 1;
+			rect.y = (yIndex * mapTileLength) + 1;
+			rect.endX = rect.x + mapTileLength - 2;
+			rect.endY = rect.y + mapTileLength - 2;
+			rect.color = 0xFF0000FF;
 			return rect;
-		case MapChar::BIG_PACGUM:
+		case MapChar::SMALL_FOOD:
 			rect.x = (xIndex * mapTileLength) + 1;
 			rect.y = (yIndex * mapTileLength) + 1;
 			rect.endX = rect.x + mapTileLength - 2;
 			rect.endY = rect.y + mapTileLength - 2;
 			rect.color = 0xFFFFFFFF;
-			return rect;
-		case MapChar::SMALL_PACGUM:
-			rect.x = (xIndex * mapTileLength) + 1;
-			rect.y = (yIndex * mapTileLength) + 1;
-			rect.endX = rect.x + mapTileLength - 2;
-			rect.endY = rect.y + mapTileLength - 2;
-			rect.color = 0x777777FF;
-			return rect;
-		case MapChar::BLINKY:
-			rect.x = xIndex * mapTileLength + 1;
-			rect.y = yIndex * mapTileLength + 1;
-			rect.endX = rect.x + mapTileLength - 2;
-			rect.endY = rect.y + mapTileLength - 2;
-			rect.color = 0xFF0000FF;
-			return rect;
-		case MapChar::INKY:
-			rect.x = xIndex * mapTileLength + 1;
-			rect.y = yIndex * mapTileLength + 1;
-			rect.endX = rect.x + mapTileLength - 2;
-			rect.endY = rect.y + mapTileLength - 2;
-			rect.color = 0x00FFFFFF;
-			return rect;
-		case MapChar::CLYDE:
-			rect.x = xIndex * mapTileLength + 1;
-			rect.y = yIndex * mapTileLength + 1;
-			rect.endX = rect.x + mapTileLength - 2;
-			rect.endY = rect.y + mapTileLength - 2;
-			rect.color = 0xFFB851FF;
 			return rect;
 		default: throw WrongMapChar(c);
 		}
@@ -298,10 +270,7 @@ namespace Arcade::Nibbler
 		case MapChar::WALL:
 			ret.fallback = std::make_shared<Drawables::Rectangle>(this->_getRectangleFromChar(c, xIndex, yIndex));
 			return ret;
-		case MapChar::HIDE_RECTANGLE:
-			ret.fallback = std::make_shared<Drawables::Rectangle>(this->_getRectangleFromChar(c, xIndex, yIndex));
-			return ret;
-		case MapChar::BIG_PACGUM:
+		case MapChar::BIG_FOOD:
 			ret.sizeY = mapTileLength;
 			ret.sizeX = mapTileLength;
 			ret.x = (xIndex * mapTileLength) + (ret.sizeX / 2);
@@ -311,7 +280,7 @@ namespace Arcade::Nibbler
 			ret.fallback = std::make_shared<Drawables::Circle>(this->_getCircleFromChar(c, xIndex, yIndex));
 			ret.color = 0;
 			return ret;
-		case MapChar::SMALL_PACGUM:
+		case MapChar::SMALL_FOOD:
 			ret.sizeY = mapTileLength;
 			ret.sizeX = mapTileLength;
 			ret.x = (xIndex * mapTileLength) + (ret.sizeX / 2);
@@ -320,36 +289,6 @@ namespace Arcade::Nibbler
 			ret.rotation = 0;
 			ret.fallback = std::make_shared<Drawables::Circle>(this->_getCircleFromChar(c, xIndex, yIndex));
 			ret.color = 0;
-			return ret;
-		case MapChar::BLINKY:
-			ret.sizeY = mapTileLength;
-			ret.sizeX = mapTileLength;
-			ret.x = (xIndex * mapTileLength) + (ret.sizeX / 2);
-			ret.y = (yIndex * mapTileLength) + (ret.sizeY / 2);
-			ret.path = "assets/pacman/blinky.png";
-			ret.rotation = 0;
-			ret.fallback = std::make_shared<Drawables::Rectangle>(this->_getRectangleFromChar(c, xIndex, yIndex));
-			ret.color = 0xFF0000FF;
-			return ret;
-		case MapChar::INKY:
-			ret.sizeY = mapTileLength;
-			ret.sizeX = mapTileLength;
-			ret.x = (xIndex * mapTileLength) + (ret.sizeX / 2);
-			ret.y = (yIndex * mapTileLength) + (ret.sizeY / 2);
-			ret.path = "assets/pacman/inky.png";
-			ret.rotation = 0;
-			ret.fallback = std::make_shared<Drawables::Rectangle>(this->_getRectangleFromChar(c, xIndex, yIndex));
-			ret.color = 0x00FFFFFF;
-			return ret;
-		case MapChar::CLYDE:
-			ret.sizeY = mapTileLength;
-			ret.sizeX = mapTileLength;
-			ret.x = (xIndex * mapTileLength) + (ret.sizeX / 2);
-			ret.y = (yIndex * mapTileLength) + (ret.sizeY / 2);
-			ret.path = "assets/pacman/clyde.png";
-			ret.rotation = 0;
-			ret.fallback = std::make_shared<Drawables::Rectangle>(this->_getRectangleFromChar(c, xIndex, yIndex));
-			ret.color = 0xFFB851FF;
 			return ret;
 		default: throw WrongMapChar(c);
 		}
@@ -434,9 +373,9 @@ namespace Arcade::Nibbler
 			this->_food.erase(it);
 		}
 		if (this->_food.empty()) {
-			this->addFood(1);
+			this->_ticksPerFrame -= 1000;
+			this->addFood((rand() % 3) + 1);
 		}
-
 		this->_scoreDrawable.text = "Score: " + std::to_string(this->_gameScore);
 	}
 
@@ -445,19 +384,19 @@ namespace Arcade::Nibbler
 		Drawables::Circle ret;
 
 		switch (c) {
-		case MapChar::BIG_PACGUM:
+		case MapChar::BIG_FOOD:
+			ret.size = 1;
+			ret.x = (xIndex * mapTileLength) + (mapTileLength / 2.);
+			ret.y = (yIndex * mapTileLength) + (mapTileLength / 2.);
+			ret.fallback = std::make_shared<Drawables::Rectangle>(this->_getRectangleFromChar(c, xIndex, yIndex));
+			ret.color = 0xFF0000FF;
+			return ret;
+		case MapChar::SMALL_FOOD:
 			ret.size = 1;
 			ret.x = (xIndex * mapTileLength) + (mapTileLength / 2.);
 			ret.y = (yIndex * mapTileLength) + (mapTileLength / 2.);
 			ret.fallback = std::make_shared<Drawables::Rectangle>(this->_getRectangleFromChar(c, xIndex, yIndex));
 			ret.color = 0xFFFFFFFF;
-			return ret;
-		case MapChar::SMALL_PACGUM:
-			ret.size = 1;
-			ret.x = (xIndex * mapTileLength) + (mapTileLength / 2.);
-			ret.y = (yIndex * mapTileLength) + (mapTileLength / 2.);
-			ret.fallback = std::make_shared<Drawables::Rectangle>(this->_getRectangleFromChar(c, xIndex, yIndex));
-			ret.color = 0x777777FF;
 			return ret;
 		default: throw WrongMapChar(c);
 		}
@@ -540,7 +479,7 @@ namespace Arcade::Nibbler
 				x = rand() % 25;
 				y = rand() % 25;
 			}
-			this->_food.emplace_back(this->_getSpriteFromChar((rand() % 10 < 7) ? MapChar::SMALL_PACGUM : MapChar::BIG_PACGUM, x, y));
+			this->_food.emplace_back(this->_getSpriteFromChar((rand() % 10 < 7) ? MapChar::SMALL_FOOD : MapChar::BIG_FOOD, x, y));
 		}
 	}
 
