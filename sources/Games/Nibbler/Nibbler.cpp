@@ -95,8 +95,8 @@ namespace Arcade::Nibbler
 	const std::vector<std::unique_ptr<Drawables::ADrawable>> &Nibbler::getDrawables()
 	{
 		this->_drawables.clear();
-		this->_playerDrawable.x = this->_playerPosition.first;
-		this->_playerDrawable.y = this->_playerPosition.second;
+		this->_playerDrawable.x = this->_getDisplayCoord(this->_playerPosition.first);
+		this->_playerDrawable.y = this->_getDisplayCoord(this->_playerPosition.second);
 		this->_playerDrawable.fallback->x = this->_playerPosition.first;
 		this->_playerDrawable.fallback->y = this->_playerPosition.second;
 		if (auto fallback = dynamic_cast<Drawables::Rectangle *>(this->_playerDrawable.fallback->fallback.get())) {
@@ -365,8 +365,8 @@ namespace Arcade::Nibbler
 			moveY = this->_moves.moveY;
 			moveX = 0;
 		}
-		newX = this->pacmanSpeed * moveX * ticks;
-		newY = this->pacmanSpeed * moveY * ticks;
+		newX = this->snakeSpeed * moveX * ticks;
+		newY = this->snakeSpeed * moveY * ticks;
 
 		if (newX) {
 			if (this->_collideWithWallMap(newX + this->_playerPosition.first - (this->_playerDrawable.sizeX / 2),
@@ -447,6 +447,11 @@ namespace Arcade::Nibbler
 			} catch (const std::bad_cast &) { }
 		}
 		return !pacgumPresence;
+	}
+
+	int Nibbler::_getDisplayCoord(int coord)
+	{
+		return (coord / mapTileLength) * mapTileLength;
 	}
 }
 

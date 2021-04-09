@@ -84,7 +84,7 @@ namespace Arcade::Nibbler
 		//! @info This color is used to check if the block is collidable or not
 		static constexpr int mapWallColor = 0x0000FFFF;
 		//! @brief The speed of pacman (the player)
-		static constexpr float pacmanSpeed = .000020;
+		static constexpr float snakeSpeed = .000010;
 		//! @brief Resource location for the large pacgum sprite
 		static constexpr std::string_view largePacgumFilename = "assets/pacman/large_pacgum.png";
 		//! @brief Resource location for the small pacgum sprite
@@ -145,6 +145,10 @@ namespace Arcade::Nibbler
 		void  _startGame();
 		//! @brief Tells if the game has ended
 		bool _isGameEnded();
+		//! @brief Gte the display coords (to create a case effect movement)
+		//! @param coord The real coordinates
+		//! @return the coordinate to render on screen
+		int _getDisplayCoord(int coord);
 	public:
 		//! @brief Initialize this library. (Create windows & so on)
 		//! @return True if the initialization was successful. False otherwise.
