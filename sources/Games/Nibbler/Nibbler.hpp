@@ -80,7 +80,7 @@ namespace Arcade::Nibbler
 		static constexpr int mapOffsetTileY = 0;
 		//! @brief The color of the walls
 		//! @info This color is used to check if the block is collidable or not
-		static constexpr int mapWallColor = 0x0000FFFF;
+		static constexpr int mapBushColor = 0x0A8C06FF;
 		//! @brief The speed the snake (the player) in cases per frame
 		static constexpr float snakeSpeed = 1;
 		//! @brief Resource location for the large pacgum sprite

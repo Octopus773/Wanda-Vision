@@ -268,7 +268,7 @@ namespace Arcade::Nibbler
 			rect.y = yIndex * mapTileLength;
 			rect.endX = rect.x + mapTileLength;
 			rect.endY = rect.y + mapTileLength;
-			rect.color = mapWallColor;
+			rect.color = mapBushColor;
 			return rect;
 		case MapChar::BIG_FOOD:
 			rect.x = (xIndex * mapTileLength) + 1;
@@ -293,7 +293,7 @@ namespace Arcade::Nibbler
 		for (const auto &i : this->_map) {
 			try {
 				auto rect = dynamic_cast<Drawables::Rectangle &>(*i.fallback);
-				if (rect.color != mapWallColor)
+				if (rect.color != mapBushColor)
 					continue;
 				if (x + w <= rect.x
 					|| y + h <= rect.y
