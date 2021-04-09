@@ -16,11 +16,6 @@ namespace Arcade::Nibbler
 	class Nibbler : public IGameModule
 	{
 	private:
-		//! @brief The ghost struct
-		struct Ghost {
-			int speed;
-			Drawables::Sprite drawable;
-		};
 
 		//! @brief Struct used to keep pending moves.
 		struct PendingMoves {
@@ -56,14 +51,14 @@ namespace Arcade::Nibbler
 		std::pair<int, int> _playerMovement;
 		//! @brief The player's drawable
 		Drawables::Sprite _playerDrawable;
-		//! @brief Information of all the ghosts
-		Ghost _ghosts;
 		//! THE snake
 		std::vector<Drawables::Sprite> _snake;
+		//! Food of the snake
+		std::vector<Drawables::Sprite> _food;
 		//! @brief Internal clock
 		unsigned long _internalClock = 0;
 		//! @brief The number of ticks required per frame (ticks are in microseconds)
-		unsigned long _ticksPerFrame = 150000;
+		unsigned long _ticksPerFrame = 180000;
 		//! @brief A differential clock
 		//! @info Used to update every
 		long _diffClock = 0;
@@ -86,9 +81,9 @@ namespace Arcade::Nibbler
 		//! @brief The length of a map tile
 		static constexpr int mapTileLength = 4;
 		//! @brief The offset of the map in number of mapTileLength for the X axis
-		static constexpr int mapOffsetTileX = 1;
+		static constexpr int mapOffsetTileX = 0;
 		//! @brief The offset of the map in number of mapTileLength for the Y axis
-		static constexpr int mapOffsetTileY = 5;
+		static constexpr int mapOffsetTileY = 1;
 		//! @brief The color of the walls
 		//! @info This color is used to check if the block is collidable or not
 		static constexpr int mapWallColor = 0x0000FFFF;
@@ -145,11 +140,11 @@ namespace Arcade::Nibbler
 		//! @param w The width in percentage
 		//! @param h The the height in percentage
 		//! @return The pacgum you collided, otherwise
-		std::vector<Drawables::Sprite>::iterator _collideWithPacgumMap(int x, int y, int w, int h);
+		std::vector<Drawables::Sprite>::iterator _collideWithPacgumFood(int x, int y, int w, int h);
 		//! @brief Checks collisions and moves the player, rotate texture, etc...
 		//! @param ticks Delta time (number of ticks between two functions calls)
 		//! @info The movement will be kept until hitting an obstacle or a new input is detected
-		void _processPlayerMovement(unsigned int ticks);
+		void _processMovement(unsigned int ticks);
 		//! @brief Checks the collision with Pacgums and ghosts and update the score
 		void _processScore();
 		//! @brief Start the game and initialise variables to their start values
@@ -167,6 +162,28 @@ namespace Arcade::Nibbler
 		//! @param reference The element to create a deep copy on
 		//! @return The drawable
 		Drawables::Sprite createSnakeCorpPart(const Drawables::Sprite &reference);
+		//! @brief Update snake to the position of the next frame
+		void updateSnakePositions();
+		//! @brief Add at random positions a piece of food
+		//! @param number The number of food to add
+		void addFood(int number);
+		//! @brief Tells if an obstacle is at these coords
+		//! @param x The x coord
+		//! @param y The y coord
+		//! @return A bool if an obstacle is at those coords
+		bool isObstacleAtCoords(int x, int y);
+		//! @brief Tells if the snake is at these coords
+		//! @param x The x coord
+		//! @param y The y coord
+		//! @return A bool if the snake is at those coords
+		bool isSnakeAtCoords(int x, int y);
+		//! @brief Tells if a food is at these coords
+		//! @param x The x coord
+		//! @param y The y coord
+		//! @return A bool if a food is at those coords
+		bool isFoodAtCoords(int x, int y);
+		//! @brief To check if two values have the same sign
+		bool _sameSign(int x, int y);
 	public:
 		//! @brief Initialize this library. (Create windows & so on)
 		//! @return True if the initialization was successful. False otherwise.
