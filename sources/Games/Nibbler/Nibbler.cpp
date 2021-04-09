@@ -36,8 +36,8 @@ namespace Arcade::Nibbler
 		fallbackCircle.color = 0xFFFB00FF;
 
 		Drawables::Rectangle fallbackRectangle;
-		fallbackRectangle.x = this->_playerPosition.first - (mapTileLength / 2);
-		fallbackRectangle.y = this->_playerPosition.second - (mapTileLength / 2);
+		fallbackRectangle.x = this->_playerPosition.first;
+		fallbackRectangle.y = this->_playerPosition.second;
 		fallbackRectangle.endX = fallbackRectangle.x + mapTileLength;
 		fallbackRectangle.endY = fallbackRectangle.y + mapTileLength;
 		fallbackRectangle.color = 0xFFFB00FF;
@@ -64,23 +64,6 @@ namespace Arcade::Nibbler
 		fallbackRectangle.endY = 100;
 		fallbackRectangle.color = 0xA2D049FF;
 		this->_background.fallback = std::make_shared<Drawables::Rectangle>(fallbackRectangle);
-
-		this->_startGame();
-		return true;
-	}
-
-	bool Nibbler::close()
-	{
-		return true;
-	}
-
-	void Nibbler::_startGame()
-	{
-		this->_internalClock = 0;
-		this->_diffClock = 0;
-		this->_drawables.clear();
-		this->_map.clear();
-		this->_shouldClose = false;
 
 		this->_map = this->_createMapFromVector({
 			                                        "                         ",
@@ -109,8 +92,25 @@ namespace Arcade::Nibbler
 			                                        "                         ",},
 		                                        mapOffsetTileY, mapOffsetTileX);
 
+		this->_startGame();
+		return true;
+	}
+
+	bool Nibbler::close()
+	{
+		return true;
+	}
+
+	void Nibbler::_startGame()
+	{
+		this->_internalClock = 0;
+		this->_diffClock = 0;
+		this->_drawables.clear();
+		this->_food.clear();
+		this->_shouldClose = false;
+
 		this->_gameScore = 0;
-		this->_playerPosition = {50, 15 * mapTileLength + (mapTileLength / 2)};
+		this->_playerPosition = {16 * mapTileLength, 15 * mapTileLength};
 		this->_moves = {0};
 		this->_playerMovement = {0, 0};
 		this->_playerDrawable.rotation = 0;
@@ -157,10 +157,14 @@ namespace Arcade::Nibbler
 
 		this->_drawables.push_back(std::make_unique<Drawables::Sprite>(this->_playerDrawable)); */
 		this->_drawables.push_back(std::make_unique<Drawables::Sprite>(this->_background));
-		for (const auto &i : this->_snake) {
+		for (auto i : this->_snake) {
+			i.x += mapTileLength / 2;
+			i.y += mapTileLength / 2;
 			this->_drawables.emplace_back(std::make_unique<Drawables::Sprite>(i));
 		}
-		for (const auto &i : this->_food) {
+		for (auto i : this->_food) {
+			i.x += mapTileLength / 2;
+			i.y += mapTileLength / 2;
 			this->_drawables.emplace_back(std::make_unique<Drawables::Sprite>(i));
 		}
 		for (const auto &i : this->_map) {
@@ -184,7 +188,7 @@ namespace Arcade::Nibbler
 		}
 		this->_diffClock = this->_internalClock;
 		for (int i = (tick > this->_ticksPerFrame) ? tick / this->_ticksPerFrame : 1; i; i--) {
-			this->_processMovement(tick);
+			this->_processMovement();
 			this->_processScore();
 			this->updateSnakePositions();
 			this->_shouldClose = this->_isGameEnded();
@@ -306,6 +310,8 @@ namespace Arcade::Nibbler
 	{
 		Drawables::Sprite ret;
 
+		ret.x = xIndex * mapTileLength;
+		ret.y = yIndex * mapTileLength;
 		switch (c) {
 		case MapChar::BUSH:
 			ret.fallback = std::make_shared<Drawables::Rectangle>(this->_getRectangleFromChar(c, xIndex, yIndex));
@@ -313,8 +319,8 @@ namespace Arcade::Nibbler
 		case MapChar::BIG_FOOD:
 			ret.sizeY = mapTileLength;
 			ret.sizeX = mapTileLength;
-			ret.x = (xIndex * mapTileLength) + (ret.sizeX / 2);
-			ret.y = (yIndex * mapTileLength) + (ret.sizeY / 2);
+			ret.x = xIndex * mapTileLength;
+			ret.y = yIndex * mapTileLength;
 			ret.path = largePacgumFilename;
 			ret.rotation = 0;
 			ret.fallback = std::make_shared<Drawables::Circle>(this->_getCircleFromChar(c, xIndex, yIndex));
@@ -323,8 +329,8 @@ namespace Arcade::Nibbler
 		case MapChar::SMALL_FOOD:
 			ret.sizeY = mapTileLength;
 			ret.sizeX = mapTileLength;
-			ret.x = (xIndex * mapTileLength) + (ret.sizeX / 2);
-			ret.y = (yIndex * mapTileLength) + (ret.sizeY / 2);
+			ret.x = xIndex * mapTileLength;
+			ret.y = yIndex * mapTileLength;
 			ret.path = smallPacgumFilename;
 			ret.rotation = 0;
 			ret.fallback = std::make_shared<Drawables::Circle>(this->_getCircleFromChar(c, xIndex, yIndex));
@@ -343,10 +349,10 @@ namespace Arcade::Nibbler
 			try {
 				if (sprite.path != largePacgumFilename && sprite.path != smallPacgumFilename)
 					continue;
-				if (x + w <= sprite.x - sprite.sizeX / 2
-				    || y + h <= sprite.y - sprite.sizeY / 2
-				    || sprite.x + sprite.sizeX / 2  <= x
-				    || sprite.y + sprite.sizeY / 2 <= y) {
+				if (x + w <= sprite.x
+				    || y + h <= sprite.y
+				    || sprite.x + sprite.sizeX <= x
+				    || sprite.y + sprite.sizeY <= y) {
 					continue;
 				}
 				return this->_food.begin() + index;
@@ -355,7 +361,7 @@ namespace Arcade::Nibbler
 		return this->_food.end();
 	}
 
-	void Nibbler::_processMovement(unsigned int ticks)
+	void Nibbler::_processMovement()
 	{
 		double newX;
 		double newY;
@@ -373,8 +379,8 @@ namespace Arcade::Nibbler
 		newY = this->snakeSpeed * moveY * mapTileLength;
 
 		if (newX) {
-			if (this->_collideWithWallMap(newX + this->_playerPosition.first - (this->_playerDrawable.sizeX / 2),
-			                              this->_playerPosition.second - (this->_playerDrawable.sizeY / 2),
+			if (this->_collideWithWallMap(newX + this->_playerPosition.first,
+			                              this->_playerPosition.second,
 			                              this->_playerDrawable.sizeX,
 			                              this->_playerDrawable.sizeY)) {
 				moveX = 0;
@@ -383,8 +389,8 @@ namespace Arcade::Nibbler
 			this->_playerPosition.first += newX;
 		}
 		if (newY) {
-			if (this->_collideWithWallMap(this->_playerPosition.first - (this->_playerDrawable.sizeX / 2),
-			                              newY + this->_playerPosition.second - (this->_playerDrawable.sizeY / 2),
+			if (this->_collideWithWallMap(this->_playerPosition.first,
+			                              newY + this->_playerPosition.second,
 			                              this->_playerDrawable.sizeX,
 			                              this->_playerDrawable.sizeY)) {
 				moveY = 0;
@@ -403,8 +409,8 @@ namespace Arcade::Nibbler
 
 	void Nibbler::_processScore()
 	{
-		auto it = this->_collideWithPacgumFood(this->_playerPosition.first - (this->_playerDrawable.sizeX / 2),
-		                                       this->_playerPosition.second - (this->_playerDrawable.sizeY / 2),
+		auto it = this->_collideWithPacgumFood(this->_playerPosition.first,
+		                                       this->_playerPosition.second,
 		                                       this->_playerDrawable.sizeX,
 		                                       this->_playerDrawable.sizeY);
 		if (it != this->_food.end()) {
@@ -447,9 +453,9 @@ namespace Arcade::Nibbler
 		auto snakeHead = this->_snake.begin();
 
 		if (snakeHead->x < 0
-		    || snakeHead->x > 100
+		    || snakeHead->x >= 100
 		    || snakeHead->y < 0
-		    || snakeHead->y > 100) {
+		    || snakeHead->y >= 100) {
 			return true;
 		}
 		return std::ranges::any_of(this->_snake.begin() + 1, this->_snake.end(), [snakeHead](auto i) {
@@ -515,7 +521,7 @@ namespace Arcade::Nibbler
 		for (int i = 0; i < number; i++) {
 			x = rand() % 25;
 			y = rand() % 25;
-			for (int j = 0; this->isObstacleAtCoords(x, y) && j < maxIterations; j++) {
+			for (int j = 0; this->isObstacleAtCoords(x * mapTileLength, y * mapTileLength) && j < maxIterations; j++) {
 				x = rand() % 25;
 				y = rand() % 25;
 			}
@@ -525,7 +531,7 @@ namespace Arcade::Nibbler
 
 	bool Nibbler::isObstacleAtCoords(int x, int y)
 	{
-		return this->isSnakeAtCoords(x, y) || this->isFoodAtCoords(x, y);
+		return this->isSnakeAtCoords(x, y) || this->isFoodAtCoords(x, y) || this->isMapAtCoords(x, y);
 	}
 
 	bool Nibbler::isSnakeAtCoords(int x, int y)
@@ -542,10 +548,13 @@ namespace Arcade::Nibbler
 		});
 	}
 
-	bool Nibbler::_sameSign(int x, int y)
+	bool Nibbler::isMapAtCoords(int x, int y)
 	{
-		return ((x<0) == (y<0));
+		return std::ranges::any_of(this->_map.begin(), this->_map.end(), [x, y](auto i) {
+			return i.x == x && i.y == y;
+		});
 	}
+
 }
 
 extern "C" Arcade::ModInfo getHeader()

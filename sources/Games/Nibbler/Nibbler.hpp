@@ -136,10 +136,9 @@ namespace Arcade::Nibbler
 		//! @return The pacgum you collided, otherwise
 		std::vector<Drawables::Sprite>::iterator _collideWithPacgumFood(int x, int y, int w, int h);
 		//! @brief Checks collisions and moves the player, rotate texture, etc...
-		//! @param ticks Delta time (number of ticks between two functions calls)
 		//! @info The movement will be kept until hitting an obstacle or a new input is detected
-		void _processMovement(unsigned int ticks);
-		//! @brief Checks the collision with Pacgums and ghosts and update the score
+		void _processMovement();
+		//! @brief Checks the collision with Food and update the score
 		void _processScore();
 		//! @brief Start the game and initialise variables to their start values
 		void  _startGame();
@@ -176,8 +175,12 @@ namespace Arcade::Nibbler
 		//! @param y The y coord
 		//! @return A bool if a food is at those coords
 		bool isFoodAtCoords(int x, int y);
-		//! @brief To check if two values have the same sign
-		bool _sameSign(int x, int y);
+		//! @brief Tells if a map element is at these coords
+		//! @param x The x coord
+		//! @param y The y coord
+		//! @return A bool if a map element is at those coords
+		bool isMapAtCoords(int x, int y);
+
 	public:
 		//! @brief Initialize this library. (Create windows & so on)
 		//! @return True if the initialization was successful. False otherwise.
