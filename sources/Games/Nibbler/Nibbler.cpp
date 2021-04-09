@@ -67,24 +67,6 @@ namespace Arcade::Nibbler
 		this->_map.clear();
 		this->_shouldClose = false;
 		this->_map = this->_createMapFromVector({
-			                                        "  wwwwwwwwwwwwwwwwwww  ",
-			                                        "  wP.......w.......Pw  ",
-			                                        "  w.ww.www.w.www.ww.w  ",
-			                                        "  w.................w  ",
-			                                        "  w.ww.w.wwwww.w.ww.w  ",
-			                                        "  w....w...w...w....w  ",
-			                                        "  wwww.www.w.www.wwww  ",
-			                                        "     w.w.......w.w     ",
-			                                        "wwwwww.w.wwwww.w.wwwwww",
-			                                        "w .......wIBCw....... w",
-			                                        "wwwwww.w.wwwww.w.wwwwww",
-			                                        "__   w.w.......w.w   __",
-			                                        "  wwww.www.w.www.wwww  ",
-			                                        "  w....w...w...w....w  ",
-			                                        "  w.ww.w.wwwww.w.ww.w  ",
-			                                        "  w........ ........w  ",
-			                                        "  w.ww.www.w.www.ww.w  ",
-			                                        "  wP.......w.......Pw  ",
 			                                        "  wwwwwwwwwwwwwwwwwww  "
 		                                        }, mapOffsetTileY, mapOffsetTileX);
 
@@ -141,7 +123,7 @@ namespace Arcade::Nibbler
 	{
 		this->_processPlayerMovement(tick);
 		this->_processScore();
-		this->_shouldClose = this->_isGameEnded();
+		//this->_shouldClose = this->_isGameEnded();
 		this->_moves.moveX = 0;
 		this->_moves.moveY = 0;
 	}
@@ -378,8 +360,10 @@ namespace Arcade::Nibbler
 
 		if (this->_moves.moveX) {
 			moveX = this->_moves.moveX;
+			moveY = 0;
 		} else if (!this->_moves.moveX && this->_moves.moveY) {
 			moveY = this->_moves.moveY;
+			moveX = 0;
 		}
 		newX = this->pacmanSpeed * moveX * ticks;
 		newY = this->pacmanSpeed * moveY * ticks;
@@ -410,14 +394,6 @@ namespace Arcade::Nibbler
 		}
 		if (moveX) {
 			this->_playerDrawable.rotation = (moveX > 0) ? 0 : 180;
-		}
-
-		// Teleportation
-		if (moveX < 0 && this->_playerPosition.first < (mapOffsetTileX + 2) * mapTileLength) {
-			this->_playerPosition.first = 23 * mapTileLength - (mapTileLength / 2);
-		}
-		if (moveX > 0 && this->_playerPosition.first > (23 + mapOffsetTileX - 2) * mapTileLength) {
-			this->_playerPosition.first = (mapOffsetTileX + 1) * mapTileLength + (mapTileLength / 2);
 		}
 	}
 
