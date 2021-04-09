@@ -27,14 +27,10 @@ namespace Arcade::Nibbler
 		this->_playerDrawable.sizeX = mapTileLength;
 		this->_playerDrawable.color = 0;
 		this->_playerDrawable.rotation = 0;
+		this->_playerPosition = {16 * mapTileLength, 15 * mapTileLength};
 		this->_playerDrawable.x = this->_playerPosition.first;
 		this->_playerDrawable.y = this->_playerPosition.second;
 		this->_playerDrawable.path = "assets/pacman/pacman.png";
-		Drawables::Circle fallbackCircle;
-		fallbackCircle.x = this->_playerPosition.first;
-		fallbackCircle.y = this->_playerPosition.second;
-		fallbackCircle.size = 2;
-		fallbackCircle.color = 0xFFFB00FF;
 
 		Drawables::Rectangle fallbackRectangle;
 		fallbackRectangle.x = this->_playerPosition.first;
@@ -42,8 +38,7 @@ namespace Arcade::Nibbler
 		fallbackRectangle.endX = fallbackRectangle.x + mapTileLength;
 		fallbackRectangle.endY = fallbackRectangle.y + mapTileLength;
 		fallbackRectangle.color = 0xFFFB00FF;
-		fallbackCircle.fallback = std::make_shared<Drawables::Rectangle>(fallbackRectangle);
-		this->_playerDrawable.fallback = std::make_shared<Drawables::Circle>(fallbackCircle);
+		this->_playerDrawable.fallback = std::make_shared<Drawables::Rectangle>(fallbackRectangle);
 
 		this->_scoreDrawable = Drawables::Text();
 		this->_scoreDrawable.path = "assets/fonts/PressStart2P.ttf";
@@ -479,11 +474,9 @@ namespace Arcade::Nibbler
 	Drawables::Sprite Nibbler::createSnakeCorpPart(const Drawables::Sprite &reference)
 	{
 		Drawables::Sprite sprite = reference;
-		Drawables::Circle circle = *dynamic_cast<Drawables::Circle *>(reference.fallback.get());
-		Drawables::Rectangle rect = *dynamic_cast<Drawables::Rectangle *>(circle.fallback.get());
+		Drawables::Rectangle rect = *dynamic_cast<Drawables::Rectangle *>(sprite.fallback.get());
 
-		circle.fallback = std::make_shared<Drawables::Rectangle>(rect);
-		sprite.fallback = std::make_shared<Drawables::Circle>(circle);
+		sprite.fallback = std::make_shared<Drawables::Rectangle>(rect);
 		return sprite;
 	}
 
@@ -506,6 +499,11 @@ namespace Arcade::Nibbler
 			i.x = newX;
 			i.y = newY;
 			i.rotation = newR;
+			auto rect = dynamic_cast<Drawables::Rectangle *>(i.fallback.get());
+			rect->x = newX;
+			rect->y = newY;
+			rect->endX = rect->x + mapTileLength;
+			rect->endY = rect->y + mapTileLength;
 			newX = prevX;
 			newY = prevY;
 			newR = prevR;

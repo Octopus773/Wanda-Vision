@@ -268,8 +268,8 @@ namespace Arcade
 
 		// Background sprite
 		sprite.setTexture(this->_internalWindow.texture.getTexture(), true);
-		sprite.setPosition(std::min(static_cast<double>(0), (static_cast<int>(this->_internalWindow.size) - static_cast<int>(screenSize.y)) / 2.),
-                            std::min(static_cast<double>(0), (static_cast<int>(screenSize.x) - static_cast<int>(this->_internalWindow.size)) / 2.));
+		sprite.setPosition(std::min(static_cast<double>(0), (static_cast<int>(this->_internalWindow.size + 50) - static_cast<int>(screenSize.y)) / 2.),
+                            std::min(static_cast<double>(0), (static_cast<int>(this->_internalWindow.size + 50) - static_cast<int>(screenSize.x)) / 2.));
 		sprite.scale(widerLength / static_cast<float>(this->_internalWindow.size),
 		             widerLength / static_cast<float>(this->_internalWindow.size));
 		sprite.setColor(sf::Color(100, 100, 100));
