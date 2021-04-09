@@ -52,7 +52,7 @@ namespace Arcade::Nibbler
 		//! @brief Internal clock
 		unsigned long _internalClock = 0;
 		//! @brief The number of ticks required per frame (ticks are in microseconds)
-		unsigned long _ticksPerFrame = 180000;
+		unsigned long _ticksPerFrame = 190000;
 		//! @brief A differential clock
 		//! @info Used to update every
 		long _diffClock = 0;

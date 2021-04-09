@@ -17,6 +17,7 @@ namespace Arcade::Nibbler
 {
 	bool Nibbler::init()
 	{
+		srand(time(nullptr));
 		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/pacman.png"));
 		this->_resources.emplace_back(std::make_pair("sprite", "assets/nibbler/nibbler_background.png"));
 		this->_resources.emplace_back(std::make_pair("font", "assets/fonts/PressStart2P.ttf"));
