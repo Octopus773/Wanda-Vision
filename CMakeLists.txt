@@ -29,8 +29,38 @@ add_executable(arcade
         sources/Core/Library.cpp
         sources/Exceptions/InvalidLibraryException.hpp
         sources/Exceptions/InvalidArgumentException.hpp
-        sources/Games/Menu/Menu.cpp sources/Games/Menu/Menu.hpp)
+        sources/Games/Menu/Menu.cpp
+        sources/Games/Menu/Menu.hpp
+)
 target_link_libraries(arcade dl)
+
+add_executable(unit_tests
+        sources/Common/Drawables/Circle.hpp
+        sources/Common/Drawables/Line.hpp
+        sources/Common/Drawables/Rectangle.hpp
+        sources/Common/Drawables/Sprite.hpp
+        sources/Common/Events/MouseClickEvent.hpp
+        sources/Common/Events/MouseMoveEvent.hpp
+        sources/Common/Events/KeyBoardEvent.hpp
+        sources/Common/Events/Event.hpp
+        sources/Common/Drawables/ADrawable.hpp
+        sources/Common/IDisplayModule.hpp
+        sources/Common/IGameModule.hpp
+        sources/Common/ModInfo.hpp
+        sources/Common/Module.hpp
+        sources/Core/Runner/Runner.cpp
+        sources/Core/Runner/Runner.hpp
+        sources/Core/Library.hpp
+        sources/Core/Library.cpp
+        sources/Exceptions/InvalidLibraryException.hpp
+        sources/Exceptions/InvalidArgumentException.hpp
+        sources/Games/Menu/Menu.cpp
+        sources/Games/Menu/Menu.hpp
+        tests/Library.cpp
+)
+target_link_libraries(unit_tests dl)
+target_link_libraries(unit_tests criterion -lgcov)
+target_compile_options(unit_tests PUBLIC -fprofile-arcs -ftest-coverage)
 
 add_library(arcade_sdl2 SHARED
         sources/DisplayModules/SDL/SDLDisplay.cpp
@@ -63,6 +93,7 @@ set_target_properties(arcade_pacman PROPERTIES PREFIX "")
 add_library(arcade_sfml SHARED
         sources/DisplayModules/SFML/SFMLDisplay.cpp
         sources/DisplayModules/SFML/SFMLDisplay.hpp
-        sources/DisplayModules/SFML/Exceptions/ResourceCreationFailure.hpp)
+        sources/DisplayModules/SFML/Exceptions/ResourceCreationFailure.hpp
+)
 set_target_properties(arcade_sfml PROPERTIES PREFIX "")
 target_link_libraries(arcade_sfml sfml-graphics sfml-window sfml-system sfml-audio)

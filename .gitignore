@@ -5,3 +5,4 @@ cmake-build-debug
 lib/
 arcade
 scores
+unit_tests
