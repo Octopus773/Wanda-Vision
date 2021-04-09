@@ -2,6 +2,7 @@
 // Created by Zoe Roux on 3/22/21.
 //
 
+#include <filesystem>
 #include "Library.hpp"
 
 namespace Arcade::Core
@@ -31,5 +32,15 @@ namespace Arcade::Core
 		: _handle(other._handle), path(other.path), info(other.info)
 	{
 		other._handle = nullptr;
+	}
+
+	bool Library::operator==(const Library &x) const
+	{
+		return std::filesystem::path(x.path) == std::filesystem::path(this->path);
+	}
+
+	bool Library::operator!=(const Library &x) const
+	{
+		return !this->operator==(x);
 	}
 }

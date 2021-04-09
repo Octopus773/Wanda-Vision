@@ -1,0 +1,29 @@
+name: NCurses build for linux
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  Building:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Update G++
+        run: sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 100
+      - name: Install the NCurses
+        run: sudo apt-get install libncurses5-dev libncursesw5-dev
+      - name: Build Makefile with CMake
+        run: mkdir -p build && cd build && cmake ..
+      - name: Build with Makefile
+        run: make -C build arcade_ncurses
+      - name: Archive production artifact for SFML graphic lib
+        uses: actions/upload-artifact@v1
+        with:
+          name: arcade_ncurses.so
+          path: lib/arcade_ncurses.so

@@ -74,11 +74,11 @@ namespace Arcade::Qix
 		this->_drawables.clear();
 		this->_playerDrawable.x = this->_playerPosition.first;
 		this->_playerDrawable.y = this->_playerPosition.second;
-		this->_playerDrawable.fallback->x = this->_playerPosition.first - 2;
-		this->_playerDrawable.fallback->y = this->_playerPosition.second - 2;
+		this->_playerDrawable.fallback->x = this->_playerPosition.first - 1;
+		this->_playerDrawable.fallback->y = this->_playerPosition.second - 1;
 		if (auto fallback = dynamic_cast<Drawables::Rectangle *>(this->_playerDrawable.fallback.get())) {
-			fallback->endX = fallback->x + 2;
-			fallback->endY = fallback->y + 2;
+			fallback->endX = fallback->x + 1;
+			fallback->endY = fallback->y + 1;
 		}
 		for (auto &shape : this->_zones)
 			this->_drawables.push_back(std::make_unique<Drawables::Line>(shape));
@@ -200,11 +200,11 @@ namespace Arcade::Qix
 			switch (key.key) {
 			case Events::KeyboardEvent::UP_ARROW:
 			case Events::KeyboardEvent::KEY_Z:
-				this->_moves.moveY = std::min(-1, this->_moves.moveY + 1);
+				this->_moves.moveY = std::max(-1, this->_moves.moveY - 1);
 				break;
 			case Events::KeyboardEvent::DOWN_ARROW:
 			case Events::KeyboardEvent::KEY_S:
-				this->_moves.moveY = std::max(1, this->_moves.moveY - 1);
+				this->_moves.moveY = std::min(1, this->_moves.moveY + 1);
 				break;
 			case Events::KeyboardEvent::RIGHT_ARROW:
 			case Events::KeyboardEvent::KEY_D:
