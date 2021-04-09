@@ -18,9 +18,7 @@ namespace Arcade::Nibbler
 	bool Nibbler::init()
 	{
 		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/pacman.png"));
-		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/blinky.png"));
-		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/inky.png"));
-		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/clyde.png"));
+		this->_resources.emplace_back(std::make_pair("sprite", "assets/nibbler/nibbler_background.png"));
 		this->_resources.emplace_back(std::make_pair("font", "assets/fonts/angelina.ttf"));
 
 		this->_playerDrawable = Drawables::Sprite();
@@ -53,6 +51,20 @@ namespace Arcade::Nibbler
 		this->_scoreDrawable.x = 5;
 		this->_scoreDrawable.y = 5;
 		this->_scoreDrawable.text = "Score: ";
+
+		this->_background = Drawables::Sprite();
+		this->_background.x = 50;
+		this->_background.y = 50;
+		this->_background.sizeX = 100;
+		this->_background.sizeY = 100;
+		this->_background.path = "assets/nibbler/nibbler_background.png";
+		fallbackRectangle.x = 0;
+		fallbackRectangle.y = 0;
+		fallbackRectangle.endX = 100;
+		fallbackRectangle.endY = 100;
+		fallbackRectangle.color = 0xA2D049FF;
+		this->_background.fallback = std::make_shared<Drawables::Rectangle>(fallbackRectangle);
+
 		this->_startGame();
 		return true;
 	}
@@ -117,6 +129,7 @@ namespace Arcade::Nibbler
 		}
 
 		this->_drawables.push_back(std::make_unique<Drawables::Sprite>(this->_playerDrawable)); */
+		this->_drawables.push_back(std::make_unique<Drawables::Sprite>(this->_background));
 		for (const auto &i : this->_snake) {
 			this->_drawables.emplace_back(std::make_unique<Drawables::Sprite>(i));
 		}

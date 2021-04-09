@@ -47,6 +47,8 @@ namespace Arcade::Nibbler
 		std::vector<Drawables::Sprite> _snake;
 		//! Food of the snake
 		std::vector<Drawables::Sprite> _food;
+		//! @brief background (or big green rectangle)
+		Drawables::Sprite _background;
 		//! @brief Internal clock
 		unsigned long _internalClock = 0;
 		//! @brief The number of ticks required per frame (ticks are in microseconds)
