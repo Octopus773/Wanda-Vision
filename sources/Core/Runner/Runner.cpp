@@ -86,6 +86,7 @@ namespace Arcade::Core
 			throw std::invalid_argument("Can't use a non renderer as a renderer.");
 		if (this->_renderer)
 			this->_renderer->close();
+		this->_renderer = nullptr;
 		this->_rendererIndex = std::distance(this->_renderers.begin(), std::find(this->_renderers.begin(), this->_renderers.end(), lib));
 		this->_renderer = lib.start<IDisplayModule>();
 		if (this->_game) {
