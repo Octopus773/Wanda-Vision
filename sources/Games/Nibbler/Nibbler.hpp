@@ -30,7 +30,7 @@ namespace Arcade::Nibbler
 			//! @info It's used for padding
 			NOTHING = ' ',
 			//! @brief Representing a wall in the map
-			WALL = 'w',
+			BUSH = 'b',
 			//! @brief Representing a small food in the map
 			SMALL_FOOD = '.',
 			//! @brief Representing a big food in the map
@@ -77,7 +77,7 @@ namespace Arcade::Nibbler
 		//! @brief The offset of the map in number of mapTileLength for the X axis
 		static constexpr int mapOffsetTileX = 0;
 		//! @brief The offset of the map in number of mapTileLength for the Y axis
-		static constexpr int mapOffsetTileY = 1;
+		static constexpr int mapOffsetTileY = 0;
 		//! @brief The color of the walls
 		//! @info This color is used to check if the block is collidable or not
 		static constexpr int mapWallColor = 0x0000FFFF;

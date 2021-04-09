@@ -19,7 +19,7 @@ namespace Arcade::Nibbler
 	{
 		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/pacman.png"));
 		this->_resources.emplace_back(std::make_pair("sprite", "assets/nibbler/nibbler_background.png"));
-		this->_resources.emplace_back(std::make_pair("font", "assets/fonts/angelina.ttf"));
+		this->_resources.emplace_back(std::make_pair("font", "assets/fonts/PressStart2P.ttf"));
 
 		this->_playerDrawable = Drawables::Sprite();
 		this->_playerDrawable.sizeY = mapTileLength;
@@ -45,7 +45,7 @@ namespace Arcade::Nibbler
 		this->_playerDrawable.fallback = std::make_shared<Drawables::Circle>(fallbackCircle);
 
 		this->_scoreDrawable = Drawables::Text();
-		this->_scoreDrawable.path = "assets/fonts/angelina.ttf";
+		this->_scoreDrawable.path = "assets/fonts/PressStart2P.ttf";
 		this->_scoreDrawable.fontSize = 30;
 		this->_scoreDrawable.color = 0xFFFFFFFF;
 		this->_scoreDrawable.x = 5;
@@ -81,6 +81,33 @@ namespace Arcade::Nibbler
 		this->_drawables.clear();
 		this->_map.clear();
 		this->_shouldClose = false;
+
+		this->_map = this->_createMapFromVector({
+			                                        "                         ",
+			                                        "       b         b       ",
+			                                        "       b         b       ",
+			                                        "       b         b       ",
+			                                        "                         ",
+			                                        "                         ",
+			                                        "  b                   b  ",
+			                                        "   b                 b   ",
+			                                        "   b       bbb       b   ",
+			                                        "   b      bbbbb      b   ",
+			                                        "  b       bbbbb       b  ",
+			                                        "          bbbbb          ",
+			                                        "           bbb           ",
+			                                        "       b         b       ",
+			                                        "      b           b      ",
+			                                        "      b           b      ",
+			                                        "       b         b       ",
+			                                        "                         ",
+			                                        "     b             b     ",
+			                                        "     b             b     ",
+			                                        "     b             b     ",
+			                                        "           bbb           ",
+			                                        "           bbb           ",
+			                                        "                         ",},
+		                                        mapOffsetTileY, mapOffsetTileX);
 
 		this->_gameScore = 0;
 		this->_playerPosition = {50, 15 * mapTileLength + (mapTileLength / 2)};
@@ -231,7 +258,7 @@ namespace Arcade::Nibbler
 		Drawables::Rectangle rect;
 
 		switch (c) {
-		case MapChar::WALL:
+		case MapChar::BUSH:
 			rect.x = xIndex * mapTileLength;
 			rect.y = yIndex * mapTileLength;
 			rect.endX = rect.x + mapTileLength;
@@ -280,7 +307,7 @@ namespace Arcade::Nibbler
 		Drawables::Sprite ret;
 
 		switch (c) {
-		case MapChar::WALL:
+		case MapChar::BUSH:
 			ret.fallback = std::make_shared<Drawables::Rectangle>(this->_getRectangleFromChar(c, xIndex, yIndex));
 			return ret;
 		case MapChar::BIG_FOOD:
