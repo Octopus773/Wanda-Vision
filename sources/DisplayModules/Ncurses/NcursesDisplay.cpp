@@ -55,6 +55,7 @@ namespace Arcade
 		std::list<std::unique_ptr<Event>> events;
 		std::vector<Events::KeyboardEvent::KeyCode> holded;
 		int key;
+		int count = 0;
 
 		while ((key = getch()) != ERR) {
 			if (key == KEY_MOUSE) {
@@ -79,8 +80,10 @@ namespace Arcade
 			events.emplace_back(std::make_unique<Events::KeyboardEvent>(event));
 			if (contains)
 				return events;
-			else
-				holded.push_back(code);
+			holded.push_back(code);
+			count++;
+			if (count > 10)
+				return events;
 		}
 		auto filter = std::views::filter([&holded](auto x)
 		{
