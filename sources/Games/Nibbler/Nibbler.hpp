@@ -58,8 +58,17 @@ namespace Arcade::Nibbler
 		Drawables::Sprite _playerDrawable;
 		//! @brief Information of all the ghosts
 		Ghost _ghosts;
+		//! THE snake
+		std::vector<Drawables::Sprite> _snake;
+		//! @brief Internal clock
+		unsigned long _internalClock = 0;
+		//! @brief The number of ticks required per frame (ticks are in microseconds)
+		unsigned long _ticksPerFrame = 150000;
+		//! @brief A differential clock
+		//! @info Used to update every
+		long _diffClock = 0;
 		//! @brief If the game has ended
-		bool _shouldClose;
+		bool _shouldClose = false;
 		//! @brief Game Score
 		long _gameScore = 0;
 		//! @brief Text element to draw the score to the screen
@@ -83,12 +92,14 @@ namespace Arcade::Nibbler
 		//! @brief The color of the walls
 		//! @info This color is used to check if the block is collidable or not
 		static constexpr int mapWallColor = 0x0000FFFF;
-		//! @brief The speed of pacman (the player)
-		static constexpr float snakeSpeed = .000010;
+		//! @brief The speed the snake (the player) in cases per frame
+		static constexpr float snakeSpeed = 1;
 		//! @brief Resource location for the large pacgum sprite
 		static constexpr std::string_view largePacgumFilename = "assets/pacman/large_pacgum.png";
 		//! @brief Resource location for the small pacgum sprite
 		static constexpr std::string_view smallPacgumFilename = "assets/pacman/small_pacgum.png";
+		//! @brief Resource location for the snake corp sprite
+		static constexpr std::string_view snakeCorpFilename = "assets/nibbler/corp.png";
 
 		//! @brief Gives the correct Drawables to be able to draw the map on the screen
 		//! @param map The vector of string to represent the actual map (one type of char represent a type/config of drawable)
@@ -149,6 +160,13 @@ namespace Arcade::Nibbler
 		//! @param coord The real coordinates
 		//! @return the coordinate to render on screen
 		int _getDisplayCoord(int coord);
+		//! @brief Add elements to the end of snake corp
+		//! @param length The number of elements to add
+		void _increaseSnakeLength(unsigned int length);
+		//! @brief Create a corp part of the snake
+		//! @param reference The element to create a deep copy on
+		//! @return The drawable
+		Drawables::Sprite createSnakeCorpPart(const Drawables::Sprite &reference);
 	public:
 		//! @brief Initialize this library. (Create windows & so on)
 		//! @return True if the initialization was successful. False otherwise.

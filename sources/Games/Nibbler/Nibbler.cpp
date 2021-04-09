@@ -63,6 +63,8 @@ namespace Arcade::Nibbler
 
 	void Nibbler::_startGame()
 	{
+		this->_internalClock = 0;
+		this->_diffClock = 0;
 		this->_drawables.clear();
 		this->_map.clear();
 		this->_shouldClose = false;
@@ -75,6 +77,11 @@ namespace Arcade::Nibbler
 		this->_moves = {0};
 		this->_playerMovement = {0, 0};
 		this->_playerDrawable.rotation = 0;
+
+		this->_snake.clear();
+		this->_snake.emplace_back(this->createSnakeCorpPart(this->_playerDrawable));
+		this->_snake.emplace_back(this->createSnakeCorpPart(this->_playerDrawable));
+		this->_snake.emplace_back(this->createSnakeCorpPart(this->_playerDrawable));
 	}
 
 	bool Nibbler::shouldClose()
@@ -95,7 +102,7 @@ namespace Arcade::Nibbler
 	const std::vector<std::unique_ptr<Drawables::ADrawable>> &Nibbler::getDrawables()
 	{
 		this->_drawables.clear();
-		this->_playerDrawable.x = this->_getDisplayCoord(this->_playerPosition.first);
+	/*	this->_playerDrawable.x = this->_getDisplayCoord(this->_playerPosition.first);
 		this->_playerDrawable.y = this->_getDisplayCoord(this->_playerPosition.second);
 		this->_playerDrawable.fallback->x = this->_playerPosition.first;
 		this->_playerDrawable.fallback->y = this->_playerPosition.second;
@@ -106,7 +113,10 @@ namespace Arcade::Nibbler
 			fallback->endY = fallback->y + mapTileLength;
 		}
 
-		this->_drawables.push_back(std::make_unique<Drawables::Sprite>(this->_playerDrawable));
+		this->_drawables.push_back(std::make_unique<Drawables::Sprite>(this->_playerDrawable)); */
+		for (const auto &i : this->_snake) {
+			this->_drawables.emplace_back(std::make_unique<Drawables::Sprite>(i));
+		}
 		for (const auto &i : this->_map) {
 			this->_drawables.emplace_back(std::make_unique<Drawables::Sprite>(i));
 		}
@@ -121,9 +131,17 @@ namespace Arcade::Nibbler
 
 	void Nibbler::addTicks(unsigned int tick)
 	{
-		this->_processPlayerMovement(tick);
-		this->_processScore();
-		//this->_shouldClose = this->_isGameEnded();
+		this->_internalClock += tick;
+
+		if (this->_internalClock < this->_diffClock + this->_ticksPerFrame) {
+			return;
+		}
+		this->_diffClock = this->_internalClock;
+		for (int i = (tick > this->_ticksPerFrame) ? tick / this->_ticksPerFrame : 1; i; i--) {
+			this->_processPlayerMovement(tick);
+			this->_processScore();
+			//this->_shouldClose = this->_isGameEnded();
+		}
 		this->_moves.moveX = 0;
 		this->_moves.moveY = 0;
 	}
@@ -359,14 +377,14 @@ namespace Arcade::Nibbler
 		int &moveY = this->_playerMovement.second;
 
 		if (this->_moves.moveX) {
-			moveX = this->_moves.moveX;
+			moveX = this->_moves.moveX > 0 ? 1 : -1;
 			moveY = 0;
 		} else if (!this->_moves.moveX && this->_moves.moveY) {
-			moveY = this->_moves.moveY;
+			moveY = this->_moves.moveY > 0 ? 1 : -1;
 			moveX = 0;
 		}
-		newX = this->snakeSpeed * moveX * ticks;
-		newY = this->snakeSpeed * moveY * ticks;
+		newX = this->snakeSpeed * moveX * mapTileLength;
+		newY = this->snakeSpeed * moveY * mapTileLength;
 
 		if (newX) {
 			if (this->_collideWithWallMap(newX + this->_playerPosition.first - (this->_playerDrawable.sizeX / 2),
@@ -394,6 +412,21 @@ namespace Arcade::Nibbler
 		}
 		if (moveX) {
 			this->_playerDrawable.rotation = (moveX > 0) ? 0 : 180;
+		}
+
+		int prevX = this->_playerPosition.first;
+		int prevY = this->_playerPosition.second;
+		int prevvX = this->_playerPosition.first;
+		int prevvY = this->_playerPosition.second;
+
+
+		for (auto &i : this->_snake) {
+			prevX = i.x;
+			prevY = i.y;
+			i.x = prevvX;
+			i.y = prevvY;
+			prevvX = prevX;
+			prevvY = prevY;
 		}
 	}
 
@@ -452,6 +485,24 @@ namespace Arcade::Nibbler
 	int Nibbler::_getDisplayCoord(int coord)
 	{
 		return (coord / mapTileLength) * mapTileLength;
+	}
+
+	void Nibbler::_increaseSnakeLength(unsigned int length)
+	{
+		for (unsigned int i = 0; i < length; i++) {
+			this->_snake.push_back(this->createSnakeCorpPart(this->_snake.back()));
+		}
+	}
+
+	Drawables::Sprite Nibbler::createSnakeCorpPart(const Drawables::Sprite &reference)
+	{
+		Drawables::Sprite sprite = reference;
+		Drawables::Circle circle = *dynamic_cast<Drawables::Circle *>(reference.fallback.get());
+		Drawables::Rectangle rect = *dynamic_cast<Drawables::Rectangle *>(circle.fallback.get());
+
+		circle.fallback = std::make_shared<Drawables::Rectangle>(rect);
+		sprite.fallback = std::make_shared<Drawables::Circle>(circle);
+		return sprite;
 	}
 }
 
