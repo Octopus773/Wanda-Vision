@@ -18,7 +18,14 @@ namespace Arcade::Nibbler
 	bool Nibbler::init()
 	{
 		srand(time(nullptr));
-		this->_resources.emplace_back(std::make_pair("sprite", "assets/pacman/pacman.png"));
+		this->_resources.emplace_back(std::make_pair("sprite", snakeCorpFilename));
+		this->_resources.emplace_back(std::make_pair("sprite", snakeHeadFilename));
+		this->_resources.emplace_back(std::make_pair("sprite", snakeTailFilename));
+		this->_resources.emplace_back(std::make_pair("sprite", smallFoodFilename));
+		this->_resources.emplace_back(std::make_pair("sprite", "assets/nibbler/snake_turn_0_90.png"));
+		this->_resources.emplace_back(std::make_pair("sprite", "assets/nibbler/snake_turn_0_270.png"));
+		this->_resources.emplace_back(std::make_pair("sprite", "assets/nibbler/snake_turn_270_0.png"));
+		this->_resources.emplace_back(std::make_pair("sprite", "assets/nibbler/snake_turn_270_90.png"));
 		this->_resources.emplace_back(std::make_pair("sprite", "assets/nibbler/nibbler_background.png"));
 		this->_resources.emplace_back(std::make_pair("font", "assets/fonts/PressStart2P.ttf"));
 
@@ -26,11 +33,11 @@ namespace Arcade::Nibbler
 		this->_playerDrawable.sizeY = mapTileLength;
 		this->_playerDrawable.sizeX = mapTileLength;
 		this->_playerDrawable.color = 0;
-		this->_playerDrawable.rotation = 0;
+		this->_playerDrawable.rotation = 270;
 		this->_playerPosition = {16 * mapTileLength, 15 * mapTileLength};
 		this->_playerDrawable.x = this->_playerPosition.first;
 		this->_playerDrawable.y = this->_playerPosition.second;
-		this->_playerDrawable.path = "assets/pacman/pacman.png";
+		this->_playerDrawable.path = snakeCorpFilename;
 
 		Drawables::Rectangle fallbackRectangle;
 		fallbackRectangle.x = this->_playerPosition.first;
@@ -113,13 +120,15 @@ namespace Arcade::Nibbler
 
 		this->_moves.moveY = -1;
 		this->_snake.clear();
-		this->_snake.emplace_back(this->createSnakeCorpPart(this->_playerDrawable));
+		this->_snake.emplace_back(this->_createSnakeCorpPart(this->_playerDrawable));
+		this->_snake[0].path = snakeHeadFilename;
 		this->_playerDrawable.y += 1;
-		this->_snake.emplace_back(this->createSnakeCorpPart(this->_playerDrawable));
+		this->_snake.emplace_back(this->_createSnakeCorpPart(this->_playerDrawable));
 		this->_playerDrawable.y += 1;
-		this->_snake.emplace_back(this->createSnakeCorpPart(this->_playerDrawable));
+		this->_snake.emplace_back(this->_createSnakeCorpPart(this->_playerDrawable));
 		this->_playerDrawable.y += 1;
-		this->_snake.emplace_back(this->createSnakeCorpPart(this->_playerDrawable));
+		this->_snake.emplace_back(this->_createSnakeCorpPart(this->_playerDrawable));
+		this->_snake.back().path = snakeTailFilename;
 	}
 
 	bool Nibbler::shouldClose()
@@ -186,7 +195,7 @@ namespace Arcade::Nibbler
 		for (int i = (tick > this->_ticksPerFrame) ? tick / this->_ticksPerFrame : 1; i; i--) {
 			this->_processMovement();
 			this->_processScore();
-			this->updateSnakePositions();
+			this->_updateSnakePositions();
 			this->_shouldClose = this->_isGameEnded();
 		}
 		this->_moves.moveX = 0;
@@ -317,7 +326,7 @@ namespace Arcade::Nibbler
 			ret.sizeX = mapTileLength;
 			ret.x = xIndex * mapTileLength;
 			ret.y = yIndex * mapTileLength;
-			ret.path = largePacgumFilename;
+			ret.path = largeFoodFilename;
 			ret.rotation = 0;
 			ret.fallback = std::make_shared<Drawables::Circle>(this->_getCircleFromChar(c, xIndex, yIndex));
 			ret.color = 0;
@@ -327,7 +336,7 @@ namespace Arcade::Nibbler
 			ret.sizeX = mapTileLength;
 			ret.x = xIndex * mapTileLength;
 			ret.y = yIndex * mapTileLength;
-			ret.path = smallPacgumFilename;
+			ret.path = smallFoodFilename;
 			ret.rotation = 0;
 			ret.fallback = std::make_shared<Drawables::Circle>(this->_getCircleFromChar(c, xIndex, yIndex));
 			ret.color = 0;
@@ -343,7 +352,7 @@ namespace Arcade::Nibbler
 		for (const auto &sprite : this->_food) {
 			index++;
 			try {
-				if (sprite.path != largePacgumFilename && sprite.path != smallPacgumFilename)
+				if (sprite.path != largeFoodFilename && sprite.path != smallFoodFilename)
 					continue;
 				if (x + w <= sprite.x
 				    || y + h <= sprite.y
@@ -410,13 +419,13 @@ namespace Arcade::Nibbler
 		                                       this->_playerDrawable.sizeX,
 		                                       this->_playerDrawable.sizeY);
 		if (it != this->_food.end()) {
-			this->_gameScore += (*it).path == this->largePacgumFilename ? 50 : 10;
-			this->_increaseSnakeLength((*it).path == this->largePacgumFilename ? 3 : 1);
+			this->_gameScore += (*it).path == this->largeFoodFilename ? 50 : 10;
+			this->_increaseSnakeLength((*it).path == this->largeFoodFilename ? 3 : 1);
 			this->_food.erase(it);
 		}
 		if (this->_food.empty()) {
 			this->_ticksPerFrame -= 1000;
-			this->addFood((rand() % 3) + 1);
+			this->_addFood((rand() % 3) + 1);
 		}
 		this->_scoreDrawable.text = "Score: " + std::to_string(this->_gameScore);
 	}
@@ -467,11 +476,13 @@ namespace Arcade::Nibbler
 	void Nibbler::_increaseSnakeLength(unsigned int length)
 	{
 		for (unsigned int i = 0; i < length; i++) {
-			this->_snake.push_back(this->createSnakeCorpPart(this->_snake.back()));
+			this->_snake.back().path = snakeCorpFilename;
+			this->_snake.push_back(this->_createSnakeCorpPart(this->_snake.back()));
+			this->_snake.back().path = snakeTailFilename;
 		}
 	}
 
-	Drawables::Sprite Nibbler::createSnakeCorpPart(const Drawables::Sprite &reference)
+	Drawables::Sprite Nibbler::_createSnakeCorpPart(const Drawables::Sprite &reference)
 	{
 		Drawables::Sprite sprite = reference;
 		Drawables::Rectangle rect = *dynamic_cast<Drawables::Rectangle *>(sprite.fallback.get());
@@ -480,25 +491,31 @@ namespace Arcade::Nibbler
 		return sprite;
 	}
 
-	void Nibbler::updateSnakePositions()
+	void Nibbler::_updateSnakePositions()
 	{
 		int prevX;
 		int prevY;
 		int prevR;
+		std::string prevP;
 		int newX = this->_playerPosition.first;
 		int newY = this->_playerPosition.second;
 		int newR = this->_playerDrawable.rotation;
-		bool first = true;
-
+		std::string newP = this->_getCorrectTurnFilename(newR);
+		int index = 0;
 
 		for (auto &i : this->_snake) {
 			prevX = i.x;
 			prevY = i.y;
-			prevR = first ? newR : i.rotation;
-			first = false;
+			prevR = i.rotation;
+			if (index > 0) {
+				prevP = i.path;
+			}
 			i.x = newX;
 			i.y = newY;
 			i.rotation = newR;
+			if (index > 0) {
+				i.path = newP;
+			}
 			auto rect = dynamic_cast<Drawables::Rectangle *>(i.fallback.get());
 			rect->x = newX;
 			rect->y = newY;
@@ -507,11 +524,16 @@ namespace Arcade::Nibbler
 			newX = prevX;
 			newY = prevY;
 			newR = prevR;
-			// TODO update fallback positions
+			if (index > 0) {
+				newP = prevP;
+			}
+			index++;
 		}
+		this->_snake.back().rotation = this->_snake[index - 2].rotation;
+		this->_snake.back().path = snakeTailFilename;
 	}
 
-	void Nibbler::addFood(int number)
+	void Nibbler::_addFood(int number)
 	{
 		int maxIterations = 100;
 		int x;
@@ -520,7 +542,7 @@ namespace Arcade::Nibbler
 		for (int i = 0; i < number; i++) {
 			x = rand() % 25;
 			y = rand() % 25;
-			for (int j = 0; this->isObstacleAtCoords(x * mapTileLength, y * mapTileLength) && j < maxIterations; j++) {
+			for (int j = 0; this->_isObstacleAtCoords(x * mapTileLength, y * mapTileLength) && j < maxIterations; j++) {
 				x = rand() % 25;
 				y = rand() % 25;
 			}
@@ -528,30 +550,47 @@ namespace Arcade::Nibbler
 		}
 	}
 
-	bool Nibbler::isObstacleAtCoords(int x, int y)
+	bool Nibbler::_isObstacleAtCoords(int x, int y)
 	{
-		return this->isSnakeAtCoords(x, y) || this->isFoodAtCoords(x, y) || this->isMapAtCoords(x, y);
+		return this->_isSnakeAtCoords(x, y) || this->_isFoodAtCoords(x, y) || this->_isMapAtCoords(x, y);
 	}
 
-	bool Nibbler::isSnakeAtCoords(int x, int y)
+	bool Nibbler::_isSnakeAtCoords(int x, int y)
 	{
 		return std::ranges::any_of(this->_snake.begin(), this->_snake.end(), [x, y](auto i) {
 			return i.x == x && i.y == y;
 		});
 	}
 
-	bool Nibbler::isFoodAtCoords(int x, int y)
+	bool Nibbler::_isFoodAtCoords(int x, int y)
 	{
 		return std::ranges::any_of(this->_food.begin(), this->_food.end(), [x, y](auto i) {
 			return i.x == x && i.y == y;
 		});
 	}
 
-	bool Nibbler::isMapAtCoords(int x, int y)
+	bool Nibbler::_isMapAtCoords(int x, int y)
 	{
 		return std::ranges::any_of(this->_map.begin(), this->_map.end(), [x, y](auto i) {
 			return i.x == x && i.y == y;
 		});
+	}
+
+	std::string Nibbler::_getCorrectTurnFilename(int index)
+	{
+		auto &snakeHead = this->_snake.front();
+		auto &firstPart = this->_snake.front();
+
+		if (index == firstPart.rotation) {
+			return std::string(snakeCorpFilename);
+		}
+		switch (firstPart.rotation) {
+		case 0: return std::string(index == 270 ? "assets/nibbler/snake_turn_0_270.png" : "assets/nibbler/snake_turn_270_90.png");
+		case 90: return std::string(index == 0 ? "assets/nibbler/snake_turn_0_270.png" : "assets/nibbler/snake_turn_270_90.png");
+		case 180: return std::string(index == 270 ? "assets/nibbler/snake_turn_270_90.png" : "assets/nibbler/snake_turn_0_270.png");
+		case 270:
+		default: return std::string(index == 0 ? "assets/nibbler/snake_turn_270_90.png" : "assets/nibbler/snake_turn_0_270.png");
+		}
 	}
 
 }

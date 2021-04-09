@@ -83,12 +83,16 @@ namespace Arcade::Nibbler
 		static constexpr int mapBushColor = 0x0A8C06FF;
 		//! @brief The speed the snake (the player) in cases per frame
 		static constexpr float snakeSpeed = 1;
-		//! @brief Resource location for the large pacgum sprite
-		static constexpr std::string_view largePacgumFilename = "assets/pacman/large_pacgum.png";
-		//! @brief Resource location for the small pacgum sprite
-		static constexpr std::string_view smallPacgumFilename = "assets/pacman/small_pacgum.png";
+		//! @brief Resource location for the large food sprite
+		static constexpr std::string_view largeFoodFilename = "assets/nibbler/large_pacgum.png";
+		//! @brief Resource location for the small food sprite
+		static constexpr std::string_view smallFoodFilename = "assets/nibbler/small_food.png";
 		//! @brief Resource location for the snake corp sprite
-		static constexpr std::string_view snakeCorpFilename = "assets/nibbler/corp.png";
+		static constexpr std::string_view snakeCorpFilename = "assets/nibbler/snake_corp.png";
+		//! @brief Resource location for the snake head sprite
+		static constexpr std::string_view snakeHeadFilename = "assets/nibbler/snake_head.png";
+		//! @brief Resource location for the snake tail sprite
+		static constexpr std::string_view snakeTailFilename = "assets/nibbler/snake_tail.png";
 
 		//! @brief Gives the correct Drawables to be able to draw the map on the screen
 		//! @param map The vector of string to represent the actual map (one type of char represent a type/config of drawable)
@@ -154,32 +158,35 @@ namespace Arcade::Nibbler
 		//! @brief Create a corp part of the snake
 		//! @param reference The element to create a deep copy on
 		//! @return The drawable
-		Drawables::Sprite createSnakeCorpPart(const Drawables::Sprite &reference);
+		Drawables::Sprite _createSnakeCorpPart(const Drawables::Sprite &reference);
 		//! @brief Update snake to the position of the next frame
-		void updateSnakePositions();
+		void _updateSnakePositions();
 		//! @brief Add at random positions a piece of food
 		//! @param number The number of food to add
-		void addFood(int number);
+		void _addFood(int number);
 		//! @brief Tells if an obstacle is at these coords
 		//! @param x The x coord
 		//! @param y The y coord
 		//! @return A bool if an obstacle is at those coords
-		bool isObstacleAtCoords(int x, int y);
+		bool _isObstacleAtCoords(int x, int y);
 		//! @brief Tells if the snake is at these coords
 		//! @param x The x coord
 		//! @param y The y coord
 		//! @return A bool if the snake is at those coords
-		bool isSnakeAtCoords(int x, int y);
+		bool _isSnakeAtCoords(int x, int y);
 		//! @brief Tells if a food is at these coords
 		//! @param x The x coord
 		//! @param y The y coord
 		//! @return A bool if a food is at those coords
-		bool isFoodAtCoords(int x, int y);
+		bool _isFoodAtCoords(int x, int y);
 		//! @brief Tells if a map element is at these coords
 		//! @param x The x coord
 		//! @param y The y coord
 		//! @return A bool if a map element is at those coords
-		bool isMapAtCoords(int x, int y);
+		bool _isMapAtCoords(int x, int y);
+		//! @brief Gives the correct turn filename for snake sprites
+		//! @return The correct turn filename for sprite path
+		std::string _getCorrectTurnFilename(int index);
 
 	public:
 		//! @brief Initialize this library. (Create windows & so on)
