@@ -12,7 +12,9 @@
 #include "Common/Events/Event.hpp"
 #include <map>
 #include <vector>
+#include <set>
 #include <ncurses.h>
+#include <chrono>
 
 namespace Arcade
 {
@@ -24,7 +26,7 @@ namespace Arcade
 		bool _shouldClose = true;
 		//! @brief A list of the keys that are currently hold
 		//! @info keys are inserted in the list when an event keyDown as occurred and pop out when a keyUp occurred
-		std::vector<Events::KeyboardEvent::KeyCode> _keysHolded;
+		std::set<Events::KeyboardEvent::KeyCode> _keysHolded;
 
 		//! @brief The width of the window
 		int _width;
@@ -42,6 +44,9 @@ namespace Arcade
 		Events::KeyboardEvent::KeyCode _getStdKey(unsigned int key) const;
 		//! @brief Set the output to the object's color.
 		void _setColor(Drawables::ADrawable &obj, bool fullblock = false) const;
+
+		//! @brief Timer of the last getch.
+		std::chrono::steady_clock::time_point _timer = std::chrono::steady_clock::now();
 	public:
 		//! @brief Colors available.
 		static constexpr std::array<std::array<int, 4>, 8> colors = {{

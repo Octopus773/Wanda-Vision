@@ -6,6 +6,8 @@
 #include <ncurses.h>
 #include <iostream>
 #include <cmath>
+#include <chrono>
+#include <set>
 #include "Common/Events/MouseClickEvent.hpp"
 #include "Common/Events/KeyBoardEvent.hpp"
 #include "Common/Events/Event.hpp"
@@ -33,7 +35,8 @@ namespace Arcade
 			init_pair(color[3] + 11, i, i);
 		}
 
-		timeout(500);
+		nodelay(stdscr, TRUE);
+		//timeout(500);
 		noecho();
 		this->refresh();
 		return true;
@@ -53,9 +56,20 @@ namespace Arcade
 	std::list<std::unique_ptr<Event>> NcursesDisplay::pullEvents()
 	{
 		std::list<std::unique_ptr<Event>> events;
-		std::vector<Events::KeyboardEvent::KeyCode> holded;
+
+		auto newTimer = std::chrono::steady_clock::now();
+		if (std::chrono::duration_cast<std::chrono::milliseconds>(newTimer - this->_timer).count() < 100) {
+			for (auto key : this->_keysHolded) {
+				Events::KeyboardEvent event;
+				event.type = Event::KeyHold;
+				event.key = key;
+				events.emplace_back(std::make_unique<Events::KeyboardEvent>(event));
+			}
+			return events;
+		}
+
+		std::set<Events::KeyboardEvent::KeyCode> holded;
 		int key;
-		int count = 0;
 
 		while ((key = getch()) != ERR) {
 			if (key == KEY_MOUSE) {
@@ -76,14 +90,9 @@ namespace Arcade
 			Events::KeyboardEvent event;
 			event.type = contains ? Event::KeyHold : Event::KeyDown;
 			event.key = code;
-
 			events.emplace_back(std::make_unique<Events::KeyboardEvent>(event));
-			if (contains)
-				return events;
-			holded.push_back(code);
-			count++;
-			if (count > 10)
-				return events;
+
+			holded.insert(code);
 		}
 		auto filter = std::views::filter([&holded](auto x)
 		{
@@ -96,6 +105,7 @@ namespace Arcade
 			events.emplace_back(std::make_unique<Events::KeyboardEvent>(event));
 		}
 		this->_keysHolded = holded;
+		this->_timer = std::chrono::steady_clock::now();
 		return events;
 	}
 
@@ -182,7 +192,7 @@ namespace Arcade
 	bool NcursesDisplay::refresh()
 	{
 		::refresh();
-		clear();
+		erase();
 		getmaxyx(stdscr, this->_height, this->_width);
 		return true;
 	}
