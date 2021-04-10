@@ -135,7 +135,7 @@ Additional information
 The getResource function is called at the start of the game and when a new display module is loaded. It should return the complete list of resources that displays might need (sprites, 3D objects, musics files, fonts...).
 
 .. warning::
-     Since the getResource function is only called at the start of the game and at the moment of switching :term:`Display Module`
+     Since the getResource function is only called at the start of the game and at the moment of switching the :term:`Display Module`
      If you specify a resource later on without returning it first, it might not be displayed.
 
 The getDrawables and getSounds are called every frame. The getDrawable should return every Drawables objects that need to be displayed. While the getSounds function should return new sounds to play (you can loop sounds or stop every other sounds if you want).
