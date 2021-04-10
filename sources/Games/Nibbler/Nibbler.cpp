@@ -22,6 +22,7 @@ namespace Arcade::Nibbler
 		this->_resources.emplace_back(std::make_pair("sprite", snakeHeadFilename));
 		this->_resources.emplace_back(std::make_pair("sprite", snakeTailFilename));
 		this->_resources.emplace_back(std::make_pair("sprite", smallFoodFilename));
+		this->_resources.emplace_back(std::make_pair("sprite", largeFoodFilename));
 		this->_resources.emplace_back(std::make_pair("sprite", "assets/nibbler/snake_turn_0_90.png"));
 		this->_resources.emplace_back(std::make_pair("sprite", "assets/nibbler/snake_turn_0_270.png"));
 		this->_resources.emplace_back(std::make_pair("sprite", "assets/nibbler/snake_turn_270_0.png"));
@@ -120,13 +121,14 @@ namespace Arcade::Nibbler
 
 		this->_moves.moveY = -1;
 		this->_snake.clear();
+		this->_playerDrawable.rotation = 270;
 		this->_snake.emplace_back(this->_createSnakeCorpPart(this->_playerDrawable));
 		this->_snake[0].path = snakeHeadFilename;
-		this->_playerDrawable.y += 1;
+		this->_playerDrawable.y += mapTileLength;
 		this->_snake.emplace_back(this->_createSnakeCorpPart(this->_playerDrawable));
-		this->_playerDrawable.y += 1;
+		this->_playerDrawable.y += mapTileLength;
 		this->_snake.emplace_back(this->_createSnakeCorpPart(this->_playerDrawable));
-		this->_playerDrawable.y += 1;
+		this->_playerDrawable.y += mapTileLength;
 		this->_snake.emplace_back(this->_createSnakeCorpPart(this->_playerDrawable));
 		this->_snake.back().path = snakeTailFilename;
 	}
@@ -476,9 +478,7 @@ namespace Arcade::Nibbler
 	void Nibbler::_increaseSnakeLength(unsigned int length)
 	{
 		for (unsigned int i = 0; i < length; i++) {
-			this->_snake.back().path = snakeCorpFilename;
 			this->_snake.push_back(this->_createSnakeCorpPart(this->_snake.back()));
-			this->_snake.back().path = snakeTailFilename;
 		}
 	}
 

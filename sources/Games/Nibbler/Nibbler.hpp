@@ -84,7 +84,7 @@ namespace Arcade::Nibbler
 		//! @brief The speed the snake (the player) in cases per frame
 		static constexpr float snakeSpeed = 1;
 		//! @brief Resource location for the large food sprite
-		static constexpr std::string_view largeFoodFilename = "assets/nibbler/large_pacgum.png";
+		static constexpr std::string_view largeFoodFilename = "assets/nibbler/big_food.png";
 		//! @brief Resource location for the small food sprite
 		static constexpr std::string_view smallFoodFilename = "assets/nibbler/small_food.png";
 		//! @brief Resource location for the snake corp sprite
