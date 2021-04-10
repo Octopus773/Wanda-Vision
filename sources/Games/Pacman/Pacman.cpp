@@ -155,16 +155,16 @@ namespace Arcade::Pacman
 	{
 		try {
 			auto key = dynamic_cast<Events::KeyboardEvent &>(event);
-			if (key.type == Event::KeyUp || key.type == Event::KeyDown)
+			if (key.type != Event::KeyHold)
 				return;
 			switch (key.key) {
 			case Events::KeyboardEvent::UP_ARROW:
 			case Events::KeyboardEvent::KEY_Z:
-				this->_moves.moveY = std::min(-1, this->_moves.moveY + 1);
+				this->_moves.moveY = std::max(-1, this->_moves.moveY - 1);
 				break;
 			case Events::KeyboardEvent::DOWN_ARROW:
 			case Events::KeyboardEvent::KEY_S:
-				this->_moves.moveY = std::max(1, this->_moves.moveY - 1);
+				this->_moves.moveY = std::min(1, this->_moves.moveY + 1);
 				break;
 			case Events::KeyboardEvent::RIGHT_ARROW:
 			case Events::KeyboardEvent::KEY_D:

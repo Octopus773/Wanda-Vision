@@ -4,6 +4,8 @@
 
 #include <filesystem>
 #include <iostream>
+#include <Games/Menu/Menu.hpp>
+#include <regex>
 #include "Exceptions/InvalidLibraryException.hpp"
 #include "Exceptions/InvalidArgumentException.hpp"
 #include "Common/Events/KeyBoardEvent.hpp"
@@ -14,12 +16,42 @@ namespace Arcade::Core
 	Runner::Runner()
 	{
 		this->loadLibraries("./lib");
+
+		std::ifstream scoresFile("./scores");
+		std::string game;
+		std::string line;
+		std::smatch match;
+		std::regex re(R"((\w+):(\d+))");
+		while (getline(scoresFile, line)) {
+			if (!std::regex_match(line, match, re)) {
+				game = line;
+				continue;
+			}
+			this->scores[game][match[1]] = std::stoi(match[2]);
+		}
+		scoresFile.close();
 	}
 
 	Runner::Runner(const std::string &graphicLib)
+		: Runner::Runner()
 	{
-		this->loadLibraries("./lib");
 		this->setRenderer(graphicLib);
+	}
+
+	Runner::~Runner()
+	{
+		if (this->_game)
+			this->_game->close();
+		if (this->_renderer)
+			this->_renderer->close();
+		std::ofstream scoresFile("./scores", std::ofstream::trunc);
+		for (auto &game : this->scores) {
+			scoresFile << game.first << std::endl;
+			for (auto &user : game.second)
+				if (user.second != 0)
+					scoresFile << user.first << ':' << user.second << std::endl;
+		}
+		scoresFile.close();
 	}
 
 	void Runner::loadLibraries(const std::string &path)
@@ -38,12 +70,12 @@ namespace Arcade::Core
 		}
 	}
 
-	const std::vector<Library> &Runner::getGames() const
+	std::vector<Library> &Runner::getGames()
 	{
 		return this->_games;
 	}
 
-	const std::vector<Library> &Runner::getRenderers() const
+	std::vector<Library> &Runner::getRenderers()
 	{
 		return this->_renderers;
 	}
@@ -52,16 +84,27 @@ namespace Arcade::Core
 	{
 		if (lib.info.type != ModInfo::GRAPHIC)
 			throw std::invalid_argument("Can't use a non renderer as a renderer.");
+		if (this->_renderer)
+			this->_renderer->close();
+		this->_renderer = nullptr;
+		this->_rendererIndex = std::distance(this->_renderers.begin(), std::find(this->_renderers.begin(), this->_renderers.end(), lib));
 		this->_renderer = lib.start<IDisplayModule>();
+		if (this->_game) {
+			for (auto &resource : this->_game->getResources())
+				this->_renderer->load(resource.first, resource.second);
+		}
 	}
 
-	void Runner::setRenderer(const std::string &path)
+	void Runner::setRenderer(std::string path)
 	{
+		if (path[0] != '.' && path[0] != '/')
+			path = "./" + path;
 		auto lib = std::find_if(this->_renderers.begin(), this->_renderers.end(), [&path](Library &x) {
 			return std::filesystem::path(x.path) == std::filesystem::path(path);
 		});
 		if (lib == this->_renderers.end())
 			throw InvalidArgumentException("Renderer library not found.");
+		this->_rendererIndex = std::distance(this->_renderers.begin(), lib);
 		this->setRenderer(*lib);
 	}
 
@@ -69,16 +112,27 @@ namespace Arcade::Core
 	{
 		if (lib.info.type != ModInfo::GAME)
 			throw std::invalid_argument("Can't use a non game as a game.");
+		if (this->_game)
+			this->_game->close();
+		if (this->username.empty())
+			this->username = "USERNAME";
+		this->_gameIndex = std::distance(this->_games.begin(), std::find(this->_games.begin(), this->_games.end(), lib));
 		this->_game = lib.start<IGameModule>();
+		this->_renderer->unloadAll();
+		for (auto &resource : this->_game->getResources())
+			this->_renderer->load(resource.first, resource.second);
 	}
 
-	void Runner::setGame(const std::string &path)
+	void Runner::setGame(std::string path)
 	{
+		if (path[0] != '.' && path[0] != '/')
+			path = "./" + path;
 		auto lib = std::find_if(this->_games.begin(), this->_games.end(), [&path](Library &x) {
 			return std::filesystem::path(x.path) == std::filesystem::path(path);
 		});
 		if (lib == this->_games.end())
 			throw InvalidArgumentException("Game library not found.");
+		this->_gameIndex = std::distance(this->_games.begin(), lib);
 		this->setGame(*lib);
 	}
 
@@ -100,7 +154,6 @@ namespace Arcade::Core
 			return;
 		if (obj->fallback)
 			return this->_drawObject(obj->fallback.get());
-		throw std::runtime_error("Unknown game object time met. Aborting...");
 	}
 
 	bool Runner::_handleEvent(const std::unique_ptr<Event> &event)
@@ -108,35 +161,98 @@ namespace Arcade::Core
 		if (event->type == Event::Close)
 			return true;
 		if (auto key = dynamic_cast<Events::KeyboardEvent *>(event.get())) {
-			// TODO handle local keys here
+			if (key->type == Event::KeyDown) {
+				switch (key->key) {
+				case Events::KeyboardEvent::ESCAPE:
+					if (dynamic_cast<Menu::Menu *>(this->_game.get()))
+						break;
+					this->_saveScore();
+					this->setShell();
+					return false;
+				case Events::KeyboardEvent::KEY_1:
+					this->_saveScore();
+					this->_gameIndex = this->_gameIndex - 1;
+					if (this->_gameIndex < 0)
+						this->_gameIndex = this->_games.size() - 1;
+					this->setGame(this->_games[this->_gameIndex]);
+					break;
+				case Events::KeyboardEvent::KEY_2:
+					this->_saveScore();
+					this->_gameIndex = this->_gameIndex + 1;
+					if (this->_gameIndex >= this->_games.size())
+						this->_gameIndex = 0;
+					this->setGame(this->_games[this->_gameIndex]);
+					break;
+				case Events::KeyboardEvent::KEY_3:
+					this->_rendererIndex = this->_rendererIndex - 1;
+					if (this->_rendererIndex < 0)
+						this->_rendererIndex = this->_renderers.size() - 1;
+					this->setRenderer(this->_renderers[this->_rendererIndex]);
+					break;
+				case Events::KeyboardEvent::KEY_4:
+					this->_rendererIndex = this->_rendererIndex + 1;
+					if (this->_rendererIndex >= this->_renderers.size())
+						this->_rendererIndex = 0;
+					this->setRenderer(this->_renderers[this->_rendererIndex]);
+					break;
+				default:
+					break;
+				}
+			}
 		}
 		this->_game->handleEvent(*event);
 		return false;
 	}
 
+	void Runner::setShell()
+	{
+		if (this->_game)
+			this->_game->close();
+		this->_game = std::make_unique<Menu::Menu>(*this);
+		this->_game->init();
+		for (auto &resource : this->_game->getResources())
+			this->_renderer->load(resource.first, resource.second);
+	}
+
 	int Runner::runShell()
 	{
-		return 0;
+		this->setShell();
+		return this->runGame();
 	}
 
 	int Runner::runGame()
 	{
+		this->_renderer->unloadAll();
+		for (auto &resource : this->_game->getResources())
+			this->_renderer->load(resource.first, resource.second);
+
 		auto timer = std::chrono::steady_clock::now();
 		while (!this->_game->shouldClose()) {
+			for (auto &obj : this->_game->getDrawables())
+				this->_drawObject(obj.get());
 			for (auto &event : this->_renderer->pullEvents())
 				if (this->_handleEvent(event))
 					return 0;
-			for (auto &resource : this->_game->getResources())
-				this->_renderer->load(resource.first, resource.second);
-			for (auto &obj : this->_game->getDrawables())
-				this->_drawObject(obj.get());
 			this->_renderer->refresh();
 			auto newTimer = std::chrono::steady_clock::now();
 			auto duration = std::chrono::duration_cast<std::chrono::microseconds>(newTimer - timer).count();
 			this->_game->addTicks(duration);
 			timer = newTimer;
 		}
-		// TODO handle scores here.
+		this->_saveScore();
 		return 0;
+	}
+
+	void Runner::_saveScore()
+	{
+		std::string name = this->_games[this->_gameIndex].info.name;
+		unsigned long score = this->_game->getScore();
+		if (score > this->scores[name][this->username])
+			this->scores[name][this->username] = score;
+	}
+
+	const Library &Runner::getRenderer() const
+	{
+		return this->_renderers[this->_rendererIndex];
 	}
 }
