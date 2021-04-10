@@ -1,6 +1,11 @@
 # Wanda Vision
 #### Epitech's Arcade project
 
+## Exemples
+
+![Nibbler with sfml display](assets/readme/nibbler_sfml.gif)
+Here the nibbler game with our sfml display
+
 ---
 [![Build for linux](https://github.com/Octopus773/Wanda-Vision/actions/workflows/build_arcade.yml/badge.svg)](https://github.com/Octopus773/Wanda-Vision/actions/workflows/build_arcade.yml)
 [![Update the documentation](https://github.com/Octopus773/Wanda-Vision/actions/workflows/doc.yml/badge.svg?branch=master)](https://octopus773.github.io/Wanda-Vision/)
