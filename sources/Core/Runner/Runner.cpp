@@ -240,6 +240,7 @@ namespace Arcade::Core
 			timer = newTimer;
 		}
 		this->_saveScore();
+		this->runShell();
 		return 0;
 	}
 
