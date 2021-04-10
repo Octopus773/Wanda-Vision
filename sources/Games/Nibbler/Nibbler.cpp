@@ -267,7 +267,7 @@ namespace Arcade::Nibbler
 			rect.y = (yIndex * mapTileLength) + 1;
 			rect.endX = rect.x + mapTileLength - 2;
 			rect.endY = rect.y + mapTileLength - 2;
-			rect.color = 0xFCBA03FF;
+			rect.color = 0x0000FFFF;
 			return rect;
 		case MapChar::SMALL_FOOD:
 			rect.x = (xIndex * mapTileLength) + 1;
@@ -428,7 +428,7 @@ namespace Arcade::Nibbler
 			ret.x = (xIndex * mapTileLength) + (mapTileLength / 2.);
 			ret.y = (yIndex * mapTileLength) + (mapTileLength / 2.);
 			ret.fallback = std::make_shared<Drawables::Rectangle>(this->_getRectangleFromChar(c, xIndex, yIndex));
-			ret.color = 0xFCBA03FF;
+			ret.color = 0x0000FFFF;
 			return ret;
 		case MapChar::SMALL_FOOD:
 			ret.size = 1;

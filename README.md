@@ -1,17 +1,17 @@
 # Wanda Vision
 #### Epitech's Arcade project
 
-## Exemples
-
-![Nibbler with sfml display](assets/readme/nibbler_sfml.gif)
-Here the nibbler game with our sfml display
-
 ---
 [![Build for linux](https://github.com/Octopus773/Wanda-Vision/actions/workflows/build_arcade.yml/badge.svg)](https://github.com/Octopus773/Wanda-Vision/actions/workflows/build_arcade.yml)
 [![Update the documentation](https://github.com/Octopus773/Wanda-Vision/actions/workflows/doc.yml/badge.svg?branch=master)](https://octopus773.github.io/Wanda-Vision/)
 [![Documentation Status](https://readthedocs.org/projects/wanda-vision/badge/?version=latest)](https://wanda-vision.readthedocs.io/en/latest/?badge=latest)
 
 ---
+
+## Exemples
+
+![Nibbler with sfml display](assets/readme/nibbler_sfml.gif)
+Here the nibbler game with our sfml display
 
 ## Documentation wiki like for users Is in great progress
 
@@ -27,9 +27,9 @@ Here the nibbler game with our sfml display
 Group: Bad Nintendo
 - [Arthur Jamet](https://github.com/Arthi-chaud "Arthi-Chaud")
 - [Louis Auzuret](https://github.com/GitBluub "Bluub")
-- Ugo Généreau
+- [Ugo Généreau](https://github.com/ugenereau/)
 
 Group: Capcom will learn from us (losers of the dice)
-- Baptiste Moulard
+- [Baptiste Moulard](https://github.com/Arbarne "Arbane")
 - [Romain Lucas](https://github.com/roromainlcs "roromainlcs")
-- Simon Thibaut
+- [Simon Thibaud](https://github.com/SimonTHD "SimonTHD")
