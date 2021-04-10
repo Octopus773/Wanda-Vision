@@ -23,10 +23,8 @@ namespace Arcade::Nibbler
 		this->_resources.emplace_back(std::make_pair("sprite", snakeTailFilename));
 		this->_resources.emplace_back(std::make_pair("sprite", smallFoodFilename));
 		this->_resources.emplace_back(std::make_pair("sprite", largeFoodFilename));
-		this->_resources.emplace_back(std::make_pair("sprite", "assets/nibbler/snake_turn_0_90.png"));
-		this->_resources.emplace_back(std::make_pair("sprite", "assets/nibbler/snake_turn_0_270.png"));
-		this->_resources.emplace_back(std::make_pair("sprite", "assets/nibbler/snake_turn_270_0.png"));
-		this->_resources.emplace_back(std::make_pair("sprite", "assets/nibbler/snake_turn_270_90.png"));
+		this->_resources.emplace_back(std::make_pair("sprite", snakeTurn1Filename));
+		this->_resources.emplace_back(std::make_pair("sprite", snakeTurn2Filename));
 		this->_resources.emplace_back(std::make_pair("sprite", "assets/nibbler/nibbler_background.png"));
 		this->_resources.emplace_back(std::make_pair("font", "assets/fonts/PressStart2P.ttf"));
 
@@ -585,11 +583,11 @@ namespace Arcade::Nibbler
 			return std::string(snakeCorpFilename);
 		}
 		switch (firstPart.rotation) {
-		case 0: return std::string(index == 270 ? "assets/nibbler/snake_turn_0_270.png" : "assets/nibbler/snake_turn_270_90.png");
-		case 90: return std::string(index == 0 ? "assets/nibbler/snake_turn_0_270.png" : "assets/nibbler/snake_turn_270_90.png");
-		case 180: return std::string(index == 270 ? "assets/nibbler/snake_turn_270_90.png" : "assets/nibbler/snake_turn_0_270.png");
+		case 0: return std::string(index == 270 ? snakeTurn1Filename : snakeTurn2Filename);
+		case 90: return std::string(index == 0 ? snakeTurn1Filename : snakeTurn2Filename);
+		case 180: return std::string(index == 270 ? snakeTurn2Filename : snakeTurn1Filename);
 		case 270:
-		default: return std::string(index == 0 ? "assets/nibbler/snake_turn_270_90.png" : "assets/nibbler/snake_turn_0_270.png");
+		default: return std::string(index == 0 ? snakeTurn2Filename : snakeTurn1Filename);
 		}
 	}
 

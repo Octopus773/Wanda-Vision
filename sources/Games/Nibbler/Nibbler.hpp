@@ -93,6 +93,10 @@ namespace Arcade::Nibbler
 		static constexpr std::string_view snakeHeadFilename = "assets/nibbler/snake_head.png";
 		//! @brief Resource location for the snake tail sprite
 		static constexpr std::string_view snakeTailFilename = "assets/nibbler/snake_tail.png";
+		//! @brief Resource location for the snake turn sprite
+		static constexpr std::string_view snakeTurn1Filename = "assets/nibbler/snake_turn_0_270.png";
+		//! @brief Resource location for the snake turn sprite
+		static constexpr std::string_view snakeTurn2Filename = "assets/nibbler/snake_turn_270_90.png";
 
 		//! @brief Gives the correct Drawables to be able to draw the map on the screen
 		//! @param map The vector of string to represent the actual map (one type of char represent a type/config of drawable)
