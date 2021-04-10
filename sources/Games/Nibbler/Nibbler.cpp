@@ -149,18 +149,6 @@ namespace Arcade::Nibbler
 	const std::vector<std::unique_ptr<Drawables::ADrawable>> &Nibbler::getDrawables()
 	{
 		this->_drawables.clear();
-	/*	this->_playerDrawable.x = this->_getDisplayCoord(this->_playerPosition.first);
-		this->_playerDrawable.y = this->_getDisplayCoord(this->_playerPosition.second);
-		this->_playerDrawable.fallback->x = this->_playerPosition.first;
-		this->_playerDrawable.fallback->y = this->_playerPosition.second;
-		if (auto fallback = dynamic_cast<Drawables::Rectangle *>(this->_playerDrawable.fallback->fallback.get())) {
-			fallback->x = this->_playerPosition.first - (mapTileLength / 2);
-			fallback->y = this->_playerPosition.second - (mapTileLength / 2);
-			fallback->endX = fallback->x + mapTileLength;
-			fallback->endY = fallback->y + mapTileLength;
-		}
-
-		this->_drawables.push_back(std::make_unique<Drawables::Sprite>(this->_playerDrawable)); */
 		this->_drawables.push_back(std::make_unique<Drawables::Sprite>(this->_background));
 		for (auto i : this->_snake) {
 			i.x += mapTileLength / 2;
