@@ -17,21 +17,23 @@ It must return theses informations about your module:
 
 Here is the getHeader of the Pacman's game for an exemple:
 
- .. code-block:: c++
+ .. code-block:: cpp
    :linenos:
-    extern "C" Arcade::ModInfo getHeader()
-    {
-      Arcade::ModInfo info;
-      info.name = "Pacman";
-      info.type = Arcade::ModInfo::GAME;
-      info.magicNumber = Arcade::MagicNumber;
-      return info;
-    }
+
+   extern "C" Arcade::ModInfo getHeader()
+   {
+     Arcade::ModInfo info;
+     info.name = "Pacman";
+     info.type = Arcade::ModInfo::GAME;
+     info.magicNumber = Arcade::MagicNumber;
+     return info;
+   }
 
 You must also implement the getModule function that should return the third's needed thing: a IDisplayModule implementation. Here is the sfml implementation:
 
  .. code-block:: c++
    :linenos:
+
    extern "C" Arcade::IModule *getModule()
    {
       return new SFMLDisplay;
@@ -40,7 +42,8 @@ You must also implement the getModule function that should return the third's ne
 And the last thing you need is a IDisplayModule implementation. Here is the IDIsplayModule's header:
 
   .. code-block:: c++
-    :lineos:
+    :linenos:
+
     /*
     ** EPITECH PROJECT, 2021
     ** Arcade

@@ -3,7 +3,7 @@ How to create a game Library step by step
 
 To create a game module, you will need to create a shared library with 3 differents things.
 
-The two first things are C style functions that will be used to determine the type of module you create and to start your module.
+The two first things are C style functions that will be used by the arcade core to determine the type of your module.
 
 The first one is the get header. It should have this signature:
 ```extern "C" Arcade::ModInfo getHeader()```
@@ -18,7 +18,7 @@ It must return theses informations about your module:
 Here is the getHeader of the Pacman's game for an exemple:
 
  .. code-block:: c++
-   :linenos:
+
     extern "C" Arcade::ModInfo getHeader()
     {
       Arcade::ModInfo info;
@@ -31,7 +31,7 @@ Here is the getHeader of the Pacman's game for an exemple:
 You must also implement the getModule function that should return the third's needed thing: a IGameModule implementation. Here is the pacman implementation:
 
  .. code-block:: c++
-   :linenos:
+
    extern "C" Arcade::IModule *getModule()
    {
       return new Pacman;
@@ -40,7 +40,8 @@ You must also implement the getModule function that should return the third's ne
 And the last thing you need is a IGameModule implementation. Here is the IGameModule's header:
 
   .. code-block:: c++
-    :lineos:
+    :linenos:
+
     /*
     ** EPITECH PROJECT, 2021
     ** Arcade
