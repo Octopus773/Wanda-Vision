@@ -90,6 +90,12 @@ add_library(arcade_pacman SHARED
 )
 set_target_properties(arcade_pacman PROPERTIES PREFIX "")
 
+add_library(arcade_nibbler SHARED
+        sources/Games/Nibbler/Nibbler.cpp
+        sources/Games/Nibbler/Nibbler.hpp
+        sources/Games/Nibbler/Exceptions/WrongMapChar.hpp)
+set_target_properties(arcade_nibbler PROPERTIES PREFIX "")
+
 add_library(arcade_sfml SHARED
         sources/DisplayModules/SFML/SFMLDisplay.cpp
         sources/DisplayModules/SFML/SFMLDisplay.hpp

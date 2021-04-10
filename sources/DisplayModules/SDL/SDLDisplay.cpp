@@ -524,7 +524,7 @@ namespace Arcade
 
 	int SDLDisplay::preciseCrossProduct(float percent, float total, float base)
 	{
-		return static_cast<int>(percent * (total / base));
+		return static_cast<int>(percent * (total / base)) + 1;
 	}
 
 	void SDLDisplay::_updateInternalWindow()
