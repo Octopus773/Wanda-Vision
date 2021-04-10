@@ -1,4 +1,4 @@
-How to create a display Library step by step
+How to create a display Library
 ###############################################
 
 To create a display module, you will need to create a shared library with 3 differents things.
@@ -17,7 +17,7 @@ It must return theses informations about your module:
 
 Here is the getHeader of the Pacman's game for an exemple:
 
- .. code-block:: cpp
+.. code-block:: cpp
    :linenos:
 
    extern "C" Arcade::ModInfo getHeader()
@@ -31,7 +31,7 @@ Here is the getHeader of the Pacman's game for an exemple:
 
 You must also implement the getModule function that should return the third's needed thing: a IDisplayModule implementation. Here is the sfml implementation:
 
- .. code-block:: c++
+.. code-block:: c++
    :linenos:
 
    extern "C" Arcade::IModule *getModule()
@@ -41,7 +41,7 @@ You must also implement the getModule function that should return the third's ne
 
 And the last thing you need is a IDisplayModule implementation. Here is the IDIsplayModule's header:
 
-  .. code-block:: c++
+.. code-block:: c++
     :linenos:
 
     /*

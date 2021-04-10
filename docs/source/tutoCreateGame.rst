@@ -1,9 +1,15 @@
-How to create a game Library step by step
+How to create a game Library
 ##########################################
 
 To create a game module, you will need to create a shared library with 3 differents things.
+    - An header
+    - A getter of your Module
+    - The implementation of your :term:`Game Module`
 
-The two first things are C style functions that will be used by the arcade core to determine the type of your module.
+The getHeader function
+------------------------
+
+The two first things are C style functions that will be used by the arcade :term:`Core` to determine the type of your module.
 
 The first one is the get header. It should have this signature:
 ```extern "C" Arcade::ModInfo getHeader()```
@@ -13,11 +19,19 @@ It must return theses informations about your module:
 
  - it's name
  - it's type (a game or a display)
- - and a magic number (used to check if this module is for an arcade or not)
+ - and a magic number (used to check if this module is compatible with our arcade)
 
-Here is the getHeader of the Pacman's game for an exemple:
+Definition in Module.hpp
 
- .. code-block:: c++
+.. code-block:: c++
+
+    //! @brief Get the library's header.
+    //! @info Used to verify the integrity of the lib.
+    extern "C" Arcade::ModInfo getHeader();
+
+Here is the getHeader of the Pacman's game for an example:
+
+.. code-block:: c++
 
     extern "C" Arcade::ModInfo getHeader()
     {
@@ -28,18 +42,34 @@ Here is the getHeader of the Pacman's game for an exemple:
       return info;
     }
 
-You must also implement the getModule function that should return the third's needed thing: a IGameModule implementation. Here is the pacman implementation:
+The getModule function
+-----------------------
 
- .. code-block:: c++
+You have to implement the getModule function that should return the third's needed thing: a IGameModule implementation.
+
+Definition in Module.hpp
+
+.. code-block:: c++
+
+    //! @brief Get the module class.
+    //! @return A new instance of a IDisplayModule or IGameModule.
+    extern "C" Arcade::IModule *getModule();
+
+Here is the pacman implementation:
+
+.. code-block:: c++
 
    extern "C" Arcade::IModule *getModule()
    {
       return new Pacman;
    }
 
-And the last thing you need is a IGameModule implementation. Here is the IGameModule's header:
+IGameModule implementation
+-------------------------------
 
-  .. code-block:: c++
+And the last thing you need is a IGameModule implementation. Here is the IGameModule :term:`Interface`
+
+.. code-block:: c++
     :linenos:
 
     /*
@@ -98,13 +128,27 @@ And the last thing you need is a IGameModule implementation. Here is the IGameMo
       };
     }
 
-The getResource function is called at the start of the game and when a new display module is loaded. It should return the complete list of resources that displays might need (sprites, 3D objects, musics files, fonts...). If you specify a resource later on without returning it first, it might not be displayed.
+
+Additional information
+------------------------
+
+The getResource function is called at the start of the game and when a new display module is loaded. It should return the complete list of resources that displays might need (sprites, 3D objects, musics files, fonts...).
+
+.. warning::
+     Since the getResource function is only called at the start of the game and at the moment of switching :term:`Display Module`
+     If you specify a resource later on without returning it first, it might not be displayed.
 
 The getDrawables and getSounds are called every frame. The getDrawable should return every Drawables objects that need to be displayed. While the getSounds function should return new sounds to play (you can loop sounds or stop every other sounds if you want).
+
+.. warning::
+    The tick parameter is in **microseconds** not in milliseconds which is a common mistake
 
 The addTicks should be used to update your game. The tick parameter is the number of microseconds since the last call and is used to prevents differences between differents display refresh rate (the SDL is faster than the ncurses for example).
 
 The handleEvent allow you to do things on mouse clicks or key events.
+
+.. note::
+    Refer to the Event page to see more
 
 The getScore is used to save the user's best score and display it on the menu.
 
