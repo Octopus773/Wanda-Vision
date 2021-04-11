@@ -13,8 +13,22 @@
 ![Nibbler with sfml display](assets/readme/nibbler_sfml.gif)
 Here the nibbler game with our sfml display
 
-## Documentation wiki like for users Is in great progress
+![Pacman with sdl2 display](docs/source/assets/pacman_sdl2.png)
+Pacman game with our sdl2 display
 
+## Display differences
+
+The difference in game display between SFML, SDL2, and Ncurses
+
+- SFML
+  ![Nibbler with sfml display](docs/source/assets/nibbler_sfml.png)
+
+- SDL2
+  ![Nibbler with sfml display](docs/source/assets/nibbler_sdl2.png)
+
+- NCURSES
+  ![Nibbler with sfml display](docs/source/assets/nibbler_ncurses.png)
+  
 ## Documentation
 - [Doxygen Documentation](https://octopus773.github.io/Wanda-Vision/)
 - [ReadTheDoc documentation](https://wanda-vision.readthedocs.io/)
