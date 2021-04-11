@@ -233,7 +233,7 @@ namespace Arcade
 		case sf::Keyboard::BackSlash: return Events::KeyboardEvent::BACK_SLASH;
 		case sf::Keyboard::LBracket: return Events::KeyboardEvent::OPEN_BRACKET;
 		case sf::Keyboard::RBracket: return Events::KeyboardEvent::CLOSE_BRACKET;
-		case sf::Keyboard::Quote: return Events::KeyboardEvent::SINGLE_QUOTE;
+		case sf::Keyboard::Quote: return Events::KeyboardEvent::KEY_4;
 		case sf::Keyboard::LSystem: return Events::KeyboardEvent::RIGHT_META;
 		case sf::Keyboard::RSystem: return Events::KeyboardEvent::LEFT_META;
 		default: return Events::KeyboardEvent::UNDEFINED;
