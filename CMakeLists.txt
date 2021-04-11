@@ -34,7 +34,7 @@ add_executable(arcade
 )
 target_link_libraries(arcade dl)
 
-add_executable(unit_tests
+add_executable(unit_tests EXCLUDE_FROM_ALL
         sources/Common/Drawables/Circle.hpp
         sources/Common/Drawables/Line.hpp
         sources/Common/Drawables/Rectangle.hpp
