@@ -1,0 +1,133 @@
+\hypertarget{classArcade_1_1IModule}{}\doxysection{Arcade\+::I\+Module Class Reference}
+\label{classArcade_1_1IModule}\index{Arcade::IModule@{Arcade::IModule}}
+
+
+A base module interface.  
+
+
+
+
+{\ttfamily \#include $<$Module.\+hpp$>$}
+
+
+
+Inheritance diagram for Arcade\+::I\+Module\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classArcade_1_1IModule__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arcade\+::I\+Module\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{classArcade_1_1IModule__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classArcade_1_1IModule_aa4798e9664460be1dec590591849d479}{$\sim$\+I\+Module}} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classArcade_1_1IModule_a183763cc9e8fab4462004ed3e50ae93e}{init}} ()=0
+\begin{DoxyCompactList}\small\item\em Initialize this library. (Create windows \& so on) \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classArcade_1_1IModule_a82aa04f751b491246adf65f40fecef04}{close}} ()=0
+\begin{DoxyCompactList}\small\item\em Allow to say to the library to shutdown and free it\textquotesingle{}s content. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classArcade_1_1IModule_a7cefb3047a6c4b99ae5288138ea80ccc}{should\+Close}} ()=0
+\begin{DoxyCompactList}\small\item\em Should this module be closed? \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{structArcade_1_1ModInfo_a4d7a18796fb91858a198412f8a4d4144}{Mod\+Info\+::\+Modtype}} \mbox{\hyperlink{classArcade_1_1IModule_a534f4e6b76c611fdf62ec3e7beb7870d}{get\+Type}} () const =0
+\begin{DoxyCompactList}\small\item\em Get the type of this module. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A base module interface. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classArcade_1_1IModule_aa4798e9664460be1dec590591849d479}\label{classArcade_1_1IModule_aa4798e9664460be1dec590591849d479}} 
+\index{Arcade::IModule@{Arcade::IModule}!````~IModule@{$\sim$IModule}}
+\index{````~IModule@{$\sim$IModule}!Arcade::IModule@{Arcade::IModule}}
+\doxysubsubsection{\texorpdfstring{$\sim$IModule()}{~IModule()}}
+{\footnotesize\ttfamily virtual Arcade\+::\+I\+Module\+::$\sim$\+I\+Module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Virtual destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArcade_1_1IModule_a82aa04f751b491246adf65f40fecef04}\label{classArcade_1_1IModule_a82aa04f751b491246adf65f40fecef04}} 
+\index{Arcade::IModule@{Arcade::IModule}!close@{close}}
+\index{close@{close}!Arcade::IModule@{Arcade::IModule}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily virtual bool Arcade\+::\+I\+Module\+::close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Allow to say to the library to shutdown and free it\textquotesingle{}s content. 
+
+\begin{DoxyReturn}{Returns}
+True if the shutdown was successful. False otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_aeb9afe1caf1f1efa0df09a2a3c2ba812}{Arcade\+::\+Nibbler\+::\+Nibbler}}, \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a86303dc244702a8b167e414c1de6dea0}{Arcade\+::\+Pacman\+::\+Pacman}}, \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a0fccd57d316fc7768eb85930d21f62a3}{Arcade\+::\+S\+F\+M\+L\+Display}}, \mbox{\hyperlink{classArcade_1_1SDLDisplay_af8704b540dcb2ef63e8f0249967565ae}{Arcade\+::\+S\+D\+L\+Display}}, \mbox{\hyperlink{classArcade_1_1NcursesDisplay_afa183fb1a75b60d174969498b582d080}{Arcade\+::\+Ncurses\+Display}}, \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_aec57aeaab01c7b1ea0904065ce27970f}{Arcade\+::\+Qix\+::\+Qix}}, and \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_a1cc112611ddad9f44c81709bc9c605f3}{Arcade\+::\+Menu\+::\+Menu}}.
+
+\mbox{\Hypertarget{classArcade_1_1IModule_a534f4e6b76c611fdf62ec3e7beb7870d}\label{classArcade_1_1IModule_a534f4e6b76c611fdf62ec3e7beb7870d}} 
+\index{Arcade::IModule@{Arcade::IModule}!getType@{getType}}
+\index{getType@{getType}!Arcade::IModule@{Arcade::IModule}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{structArcade_1_1ModInfo_a4d7a18796fb91858a198412f8a4d4144}{Mod\+Info\+::\+Modtype}} Arcade\+::\+I\+Module\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get the type of this module. 
+
+
+
+Implemented in \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a76d6efa6ecfc1ad04c720359c3a098d8}{Arcade\+::\+Nibbler\+::\+Nibbler}}, \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a011604a0ad7e2919ceddee8021962c1a}{Arcade\+::\+S\+F\+M\+L\+Display}}, \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a0f1e05c264bef0c4ad1d9e7aa5a40fc2}{Arcade\+::\+Pacman\+::\+Pacman}}, \mbox{\hyperlink{classArcade_1_1SDLDisplay_a88c557f4dec0c15a1e81800388ede86b}{Arcade\+::\+S\+D\+L\+Display}}, \mbox{\hyperlink{classArcade_1_1NcursesDisplay_aa3eee381aed6df45c0be0ec1af6a2235}{Arcade\+::\+Ncurses\+Display}}, \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_ac2efa344c2a3e81d5cfbdf7a5d7620bb}{Arcade\+::\+Qix\+::\+Qix}}, and \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_ab96b34207ec84094a9b2b452a9d05e35}{Arcade\+::\+Menu\+::\+Menu}}.
+
+\mbox{\Hypertarget{classArcade_1_1IModule_a183763cc9e8fab4462004ed3e50ae93e}\label{classArcade_1_1IModule_a183763cc9e8fab4462004ed3e50ae93e}} 
+\index{Arcade::IModule@{Arcade::IModule}!init@{init}}
+\index{init@{init}!Arcade::IModule@{Arcade::IModule}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily virtual bool Arcade\+::\+I\+Module\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Initialize this library. (Create windows \& so on) 
+
+\begin{DoxyReturn}{Returns}
+True if the initialization was successful. False otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a2529eb558e1a8ccfa77e84d4819a1653}{Arcade\+::\+Nibbler\+::\+Nibbler}}, \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a3af8f09d9f75370bffcd2fbe17b94cea}{Arcade\+::\+Pacman\+::\+Pacman}}, \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a02b43c11c931eea7c7ab3b360467b644}{Arcade\+::\+S\+F\+M\+L\+Display}}, \mbox{\hyperlink{classArcade_1_1SDLDisplay_aa0452e356005a2e5396d882ee69a2884}{Arcade\+::\+S\+D\+L\+Display}}, \mbox{\hyperlink{classArcade_1_1NcursesDisplay_a4679f1466e6802b56bef8ebbbfd9db08}{Arcade\+::\+Ncurses\+Display}}, \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a8ffa459da28ec9102417274c840e9176}{Arcade\+::\+Qix\+::\+Qix}}, and \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_a1161a85895c3d880567c63d400aa597b}{Arcade\+::\+Menu\+::\+Menu}}.
+
+\mbox{\Hypertarget{classArcade_1_1IModule_a7cefb3047a6c4b99ae5288138ea80ccc}\label{classArcade_1_1IModule_a7cefb3047a6c4b99ae5288138ea80ccc}} 
+\index{Arcade::IModule@{Arcade::IModule}!shouldClose@{shouldClose}}
+\index{shouldClose@{shouldClose}!Arcade::IModule@{Arcade::IModule}}
+\doxysubsubsection{\texorpdfstring{shouldClose()}{shouldClose()}}
+{\footnotesize\ttfamily virtual bool Arcade\+::\+I\+Module\+::should\+Close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Should this module be closed? 
+
+\begin{DoxyReturn}{Returns}
+True if this module should be closed. False otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a4e7a26fedc8e3e95c54b72a7d4a34cd6}{Arcade\+::\+Nibbler\+::\+Nibbler}}, \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_acd0d2b7389b0b5424a844793200f6756}{Arcade\+::\+Pacman\+::\+Pacman}}, \mbox{\hyperlink{classArcade_1_1SFMLDisplay_ae15689acdc33cffc541ce32a40c229b3}{Arcade\+::\+S\+F\+M\+L\+Display}}, \mbox{\hyperlink{classArcade_1_1SDLDisplay_aebe5e5f669486522532c3d4eb51760ca}{Arcade\+::\+S\+D\+L\+Display}}, \mbox{\hyperlink{classArcade_1_1NcursesDisplay_a80abb731e73e8d6e3d07a2ca33317bbf}{Arcade\+::\+Ncurses\+Display}}, \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_af70bbba05d6316982147fed81f8d92c3}{Arcade\+::\+Qix\+::\+Qix}}, and \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_a51d5efab2335d2383813be422e147544}{Arcade\+::\+Menu\+::\+Menu}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+sources/\+Common/\mbox{\hyperlink{Module_8hpp}{Module.\+hpp}}\end{DoxyCompactItemize}

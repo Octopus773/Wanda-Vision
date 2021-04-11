@@ -1,0 +1,12 @@
+<map id="Arcade::IModule" name="Arcade::IModule">
+<area shape="rect" id="node1" title="A base module interface." alt="" coords="546,5,673,141"/>
+<area shape="rect" id="node2" href="$classArcade_1_1IDisplayModule.html" title="The interface of every display modules." alt="" coords="323,189,499,428"/>
+<area shape="rect" id="node6" href="$classArcade_1_1IGameModule.html" title="The interface of all games." alt="" coords="834,219,1001,399"/>
+<area shape="rect" id="node3" href="$classArcade_1_1NcursesDisplay.html" title="Implementation of the ncurses Graphic Library." alt="" coords="5,681,181,1037"/>
+<area shape="rect" id="node4" href="$classArcade_1_1SDLDisplay.html" title="Implementation of the SDL Graphic Library." alt="" coords="205,586,400,1133"/>
+<area shape="rect" id="node5" href="$classArcade_1_1SFMLDisplay.html" title="Implementation of the SDL Graphic Library." alt="" coords="425,615,613,1103"/>
+<area shape="rect" id="node7" href="$classArcade_1_1Menu_1_1Menu.html" title="A menu that allow the user to select a game and a display module." alt="" coords="637,689,792,1030"/>
+<area shape="rect" id="node8" href="$classArcade_1_1Nibbler_1_1Nibbler.html" title="!" alt="" coords="816,476,1019,1243"/>
+<area shape="rect" id="node9" href="$classArcade_1_1Pacman_1_1Pacman.html" title="!" alt="" coords="1043,513,1253,1206"/>
+<area shape="rect" id="node10" href="$classArcade_1_1Qix_1_1Qix.html" title="!" alt="" coords="1277,637,1419,1081"/>
+</map>

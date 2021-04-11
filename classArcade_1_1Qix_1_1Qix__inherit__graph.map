@@ -1,0 +1,5 @@
+<map id="Arcade::Qix::Qix" name="Arcade::Qix::Qix">
+<area shape="rect" id="node1" title="!" alt="" coords="18,417,159,861"/>
+<area shape="rect" id="node2" href="$classArcade_1_1IGameModule.html" title="The interface of all games." alt="" coords="5,189,172,369"/>
+<area shape="rect" id="node3" href="$classArcade_1_1IModule.html" title="A base module interface." alt="" coords="25,5,152,141"/>
+</map>

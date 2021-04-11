@@ -1,0 +1,8 @@
+<map id="Arcade::Drawables::ADrawable" name="Arcade::Drawables::ADrawable">
+<area shape="rect" id="node1" title="A base struct for every objects in the game." alt="" coords="384,5,536,141"/>
+<area shape="rect" id="node2" href="$structArcade_1_1Drawables_1_1Circle.html" title="A circle game objecct." alt="" coords="5,211,157,303"/>
+<area shape="rect" id="node3" href="$structArcade_1_1Drawables_1_1Line.html" title="A line." alt="" coords="181,211,360,303"/>
+<area shape="rect" id="node4" href="$structArcade_1_1Drawables_1_1Rectangle.html" title="A rectangle object." alt="" coords="384,204,536,311"/>
+<area shape="rect" id="node5" href="$structArcade_1_1Drawables_1_1Sprite.html" title="A Sprite game object." alt="" coords="560,189,712,325"/>
+<area shape="rect" id="node6" href="$structArcade_1_1Drawables_1_1Text.html" title="A text object." alt="" coords="736,204,915,311"/>
+</map>

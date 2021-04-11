@@ -1,0 +1,5 @@
+<map id="Arcade::Pacman::Pacman::Ghost" name="Arcade::Pacman::Pacman::Ghost">
+<area shape="rect" id="node1" title="The ghost struct." alt="" coords="5,389,191,481"/>
+<area shape="rect" id="node2" href="$structArcade_1_1Drawables_1_1Sprite.html" title="A Sprite game object." alt="" coords="22,191,174,327"/>
+<area shape="rect" id="node3" href="$structArcade_1_1Drawables_1_1ADrawable.html" title="A base struct for every objects in the game." alt="" coords="22,5,174,141"/>
+</map>

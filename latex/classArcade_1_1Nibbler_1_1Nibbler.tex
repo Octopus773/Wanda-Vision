@@ -1,0 +1,1113 @@
+\hypertarget{classArcade_1_1Nibbler_1_1Nibbler}{}\doxysection{Arcade\+::Nibbler\+::Nibbler Class Reference}
+\label{classArcade_1_1Nibbler_1_1Nibbler}\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+
+
+!  
+
+
+
+
+{\ttfamily \#include $<$Nibbler.\+hpp$>$}
+
+
+
+Inheritance diagram for Arcade\+::Nibbler\+::Nibbler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classArcade_1_1Nibbler_1_1Nibbler__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arcade\+::Nibbler\+::Nibbler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classArcade_1_1Nibbler_1_1Nibbler__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structArcade_1_1Nibbler_1_1Nibbler_1_1PendingMoves}{Pending\+Moves}}
+\begin{DoxyCompactList}\small\item\em Struct used to keep pending moves. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a2529eb558e1a8ccfa77e84d4819a1653}{init}} () override
+\begin{DoxyCompactList}\small\item\em Initialize this library. (Create windows \& so on) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_aeb9afe1caf1f1efa0df09a2a3c2ba812}{close}} () override
+\begin{DoxyCompactList}\small\item\em Allow to say to the library to shutdown and free it\textquotesingle{}s content. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a4e7a26fedc8e3e95c54b72a7d4a34cd6}{should\+Close}} () override
+\begin{DoxyCompactList}\small\item\em Should this module be closed? \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1ModInfo_a4d7a18796fb91858a198412f8a4d4144}{Mod\+Info\+::\+Modtype}} \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a76d6efa6ecfc1ad04c720359c3a098d8}{get\+Type}} () const override
+\begin{DoxyCompactList}\small\item\em Get the type of this module. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$ \& \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_adc4424e248f8b62db5e8b2b5a149a937}{get\+Resources}} () const override
+\begin{DoxyCompactList}\small\item\em Get resources to preload. @info Only called once. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable}{Drawables\+::\+A\+Drawable}} $>$ $>$ \& \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_ac5879a6661864cd65ab0f415f9c9a45c}{get\+Drawables}} () override
+\begin{DoxyCompactList}\small\item\em Return a list of drawables to display. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Sound}{Sound}} $>$ \& \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a25e7dfabb4f43452b1cf93e901f3abdc}{get\+Sounds}} () override
+\begin{DoxyCompactList}\small\item\em Return a list of sounds to make. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a36ea0344d128b016a72ad930e43e1902}{add\+Ticks}} (unsigned tick) override
+\begin{DoxyCompactList}\small\item\em Advance the game of x seconds. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a1d2579f09c8b1b57aa858e38893a2b48}{restart}} () override
+\begin{DoxyCompactList}\small\item\em Restart the game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a75d75afa68578986570ce23b924e0a79}{handle\+Event}} (\mbox{\hyperlink{structArcade_1_1Event}{Event}} \&event) override
+\begin{DoxyCompactList}\small\item\em Handle one event (A key press, a click, a close event...) \end{DoxyCompactList}\item 
+unsigned long \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a38520be59ef00b270ce2f258f68594b3}{get\+Score}} () override
+\begin{DoxyCompactList}\small\item\em Get the score (used for saving/displaying) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a6815b76a2445e25c8309731ef10d66de}{Nibbler}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a425f47529d0fa6cadd0c2d3ade0e53c1}{Nibbler}} (const \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler}{Nibbler}} \&)=default
+\begin{DoxyCompactList}\small\item\em Default copy constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a257cfa001051687d4dfbd70233eb3654}{$\sim$\+Nibbler}} () override=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler}{Nibbler}} \& \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_ace158e3c1d60316ca0c8ad68476c9705}{operator=}} (const \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler}{Nibbler}} \&)=default
+\begin{DoxyCompactList}\small\item\em Default assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a1dcc904c66049c2fff2fa2103283499f}{Map\+Char}} \{ \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a1dcc904c66049c2fff2fa2103283499fa21ad4ec2f3e9767d4033ec7ac4c12d3a}{N\+O\+T\+H\+I\+NG}} = \textquotesingle{} \textquotesingle{}, 
+\mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a1dcc904c66049c2fff2fa2103283499fa1fef362be01214fe19a25b4a3197d22d}{B\+U\+SH}} = \textquotesingle{}b\textquotesingle{}, 
+\mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a1dcc904c66049c2fff2fa2103283499facd46dc6f86566eed8d63995221c56b03}{S\+M\+A\+L\+L\+\_\+\+F\+O\+OD}} = \textquotesingle{}.\textquotesingle{}, 
+\mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a1dcc904c66049c2fff2fa2103283499fa212b225a370c8b4cc73e8410e6d2db8b}{B\+I\+G\+\_\+\+F\+O\+OD}} = \textquotesingle{}P\textquotesingle{}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} $>$ \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a5f761e87ca1bfab4ed01f426fa17b9dc}{\+\_\+create\+Map\+From\+Vector}} (const std\+::vector$<$ std\+::string $>$ \&map, int h\+Offset, int v\+Offset)
+\begin{DoxyCompactList}\small\item\em Gives the correct \mbox{\hyperlink{namespaceArcade_1_1Drawables}{Drawables}} to be able to draw the map on the screen. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1Drawables_1_1Rectangle}{Drawables\+::\+Rectangle}} \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_ab3b08353a0016f1d9b5d5eb4dce4e05f}{\+\_\+get\+Rectangle\+From\+Char}} (char c, int x\+Index, int y\+Index)
+\begin{DoxyCompactList}\small\item\em Get the correct Rectangle and correctly filled from a char. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a6a2e2e6464336345ac500b094c179465}{\+\_\+collide\+With\+Wall\+Map}} (int x, int y, int w, int h)
+\begin{DoxyCompactList}\small\item\em Tells if you colliding with one of the rectangle of the \+\_\+map member. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_afeea7dd30ba3eb2a5d7ddae61386d1a4}{\+\_\+get\+Sprite\+From\+Char}} (char c, int x\+Index, int y\+Index)
+\begin{DoxyCompactList}\small\item\em Get the correct Sprite and correctly filled from a char. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1Drawables_1_1Circle}{Drawables\+::\+Circle}} \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a17610d6e3479eeb7e930d80776267e29}{\+\_\+get\+Circle\+From\+Char}} (char c, int x\+Index, int y\+Index)
+\begin{DoxyCompactList}\small\item\em Get the correct Circle and correctly filled from a char. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} $>$\+::iterator \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a3db68501e35fc1625469b7b6f5a33562}{\+\_\+collide\+With\+Pacgum\+Food}} (int x, int y, int w, int h)
+\begin{DoxyCompactList}\small\item\em Tells if you colliding with one of the pacgums of the \+\_\+map member. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a81080f814b6ab6ccaf5ade3be38df7ba}{\+\_\+process\+Movement}} ()
+\begin{DoxyCompactList}\small\item\em Checks collisions and moves the player, rotate texture, etc... @info The movement will be kept until hitting an obstacle or a new input is detected. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a2c7d94ad9b435000a148777942fa2d7b}{\+\_\+process\+Score}} ()
+\begin{DoxyCompactList}\small\item\em Checks the collision with Food and update the score. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_ae8187b4681aa41b68d4c4566f57fa3b8}{\+\_\+start\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Start the game and initialise variables to their start values. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a25bf01211b81563c01e702662c135fa7}{\+\_\+is\+Game\+Ended}} ()
+\begin{DoxyCompactList}\small\item\em Tells if the game has ended. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a5332bdfe25b891734db74ad7d3e24ef3}{\+\_\+get\+Display\+Coord}} (int coord)
+\begin{DoxyCompactList}\small\item\em Gte the display coords (to create a case effect movement) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a8c785fa1b3ef0d489ab2753ca7acbcfc}{\+\_\+increase\+Snake\+Length}} (unsigned int length)
+\begin{DoxyCompactList}\small\item\em Add elements to the end of snake corp. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_ab06bd4fecaeb2d572b6f4cfb827fa259}{\+\_\+create\+Snake\+Corp\+Part}} (const \mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} \&reference)
+\begin{DoxyCompactList}\small\item\em Create a corp part of the snake. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a36a7bccd0e852cf0e69b336b19a6793a}{\+\_\+update\+Snake\+Positions}} ()
+\begin{DoxyCompactList}\small\item\em Update snake to the position of the next frame. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a6b9781fd6bf7ec6fb6ca3933f9968052}{\+\_\+add\+Food}} (int number)
+\begin{DoxyCompactList}\small\item\em Add at random positions a piece of food. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a85f7583967691798672747385f856bfb}{\+\_\+is\+Obstacle\+At\+Coords}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Tells if an obstacle is at these coords. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_ab7b55f931a8656bf0ef574199cdc2362}{\+\_\+is\+Snake\+At\+Coords}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Tells if the snake is at these coords. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a24ec6f7ae42e7e9567357f36b7d3bd3d}{\+\_\+is\+Food\+At\+Coords}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Tells if a food is at these coords. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a188b5c78c338bd05c11070a30128a434}{\+\_\+is\+Map\+At\+Coords}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Tells if a map element is at these coords. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a59f88387285e167cc7d75ddf5f335226}{\+\_\+get\+Correct\+Turn\+Filename}} (int index)
+\begin{DoxyCompactList}\small\item\em Gives the correct turn filename for snake sprites. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::pair$<$ double, double $>$ \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_ada503aac7528545e69685ad87be63918}{\+\_\+player\+Position}}
+\begin{DoxyCompactList}\small\item\em The position of the player. \end{DoxyCompactList}\item 
+std\+::pair$<$ int, int $>$ \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a76745b4e1da168ca485314b797994522}{\+\_\+player\+Movement}}
+\begin{DoxyCompactList}\small\item\em The movement of the player. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a3682c51da3d7267d43febdca1dfa5b89}{\+\_\+player\+Drawable}}
+\begin{DoxyCompactList}\small\item\em The player\textquotesingle{}s drawable. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} $>$ \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_ad0d5aa77e370fc9996dcb7691c4ca91f}{\+\_\+snake}}
+\begin{DoxyCompactList}\small\item\em T\+HE snake. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} $>$ \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_ad8c45fbde10abdf68774ca8d5f19c16a}{\+\_\+food}}
+\begin{DoxyCompactList}\small\item\em Food of the snake. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a533f1d9a54f3ef4d29d96ecd5584fc4e}{\+\_\+background}}
+\begin{DoxyCompactList}\small\item\em background (or big green rectangle) \end{DoxyCompactList}\item 
+unsigned long \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a9fb46ca31475863a27fa926a27835acf}{\+\_\+internal\+Clock}} = 0
+\begin{DoxyCompactList}\small\item\em Internal clock. \end{DoxyCompactList}\item 
+unsigned long \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_af3e3bfbea8635173d4a8978297fc79fe}{\+\_\+ticks\+Per\+Frame}} = 190000
+\begin{DoxyCompactList}\small\item\em The number of ticks required per frame (ticks are in microseconds) \end{DoxyCompactList}\item 
+long \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_af8610d662f009584b662d2ce4d07f134}{\+\_\+diff\+Clock}} = 0
+\begin{DoxyCompactList}\small\item\em A differential clock @info Used to update every. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_abf49dd8d7deb3f7973fcc0ebcc4e48ab}{\+\_\+should\+Close}} = false
+\begin{DoxyCompactList}\small\item\em If the game has ended. \end{DoxyCompactList}\item 
+long \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a4cab02ef7ab34342dff005216b23e400}{\+\_\+game\+Score}} = 0
+\begin{DoxyCompactList}\small\item\em Game Score. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1Drawables_1_1Text}{Drawables\+::\+Text}} \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_ac3d1af760b0ebda49208640115ede2b0}{\+\_\+score\+Drawable}}
+\begin{DoxyCompactList}\small\item\em Text element to draw the score to the screen. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$ \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a662b448ef9ee42f395dfbcbafa418b1a}{\+\_\+resources}} = \{\}
+\begin{DoxyCompactList}\small\item\em Resources needed by this game. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable}{Drawables\+::\+A\+Drawable}} $>$ $>$ \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a95da372880ac1a75f6c931b01c0a8ea6}{\+\_\+drawables}} = \{\}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{namespaceArcade_1_1Drawables}{Drawables}} that will be displayed. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Sound}{Sound}} $>$ \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_ae37a976148f0b1b4d30e26559a724100}{\+\_\+sounds}} = \{\}
+\begin{DoxyCompactList}\small\item\em Sounds that will be started in the next frame. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} $>$ \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_ab57bab0e2e729813f981617549dbb3e3}{\+\_\+map}} = \{\}
+\begin{DoxyCompactList}\small\item\em Game map. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1Nibbler_1_1Nibbler_1_1PendingMoves}{Pending\+Moves}} \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_acc08b2c317a8c41e4254201840f0ed4c}{\+\_\+moves}} = \{\}
+\begin{DoxyCompactList}\small\item\em Pending moves. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr int \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_add59b291832ce2b9e739197b19f3c9bf}{map\+Tile\+Length}} = 4
+\begin{DoxyCompactList}\small\item\em The length of a map tile. \end{DoxyCompactList}\item 
+static constexpr int \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_af0b4f1a7afd9bd1463d9523fe332ee93}{map\+Offset\+TileX}} = 0
+\begin{DoxyCompactList}\small\item\em The offset of the map in number of map\+Tile\+Length for the X axis. \end{DoxyCompactList}\item 
+static constexpr int \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a17a94c7f137df9d44c47253c3ee93f46}{map\+Offset\+TileY}} = 0
+\begin{DoxyCompactList}\small\item\em The offset of the map in number of map\+Tile\+Length for the Y axis. \end{DoxyCompactList}\item 
+static constexpr int \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_ac3690296602a66c03d2b7f425c0ad6e7}{map\+Bush\+Color}} = 0x000000\+FF
+\begin{DoxyCompactList}\small\item\em The color of the walls @info This color is used to check if the block is collidable or not. \end{DoxyCompactList}\item 
+static constexpr float \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a3a56b836af73e144d9a76fc2ae125fdb}{snake\+Speed}} = 1
+\begin{DoxyCompactList}\small\item\em The speed the snake (the player) in cases per frame. \end{DoxyCompactList}\item 
+static constexpr std\+::string\+\_\+view \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_ae96c84746879ca10f0375a8dac5cbaf2}{large\+Food\+Filename}} = \char`\"{}assets/nibbler/big\+\_\+food.\+png\char`\"{}
+\begin{DoxyCompactList}\small\item\em Resource location for the large food sprite. \end{DoxyCompactList}\item 
+static constexpr std\+::string\+\_\+view \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a6725d24b18c63117b907a53214d4cbb9}{small\+Food\+Filename}} = \char`\"{}assets/nibbler/small\+\_\+food.\+png\char`\"{}
+\begin{DoxyCompactList}\small\item\em Resource location for the small food sprite. \end{DoxyCompactList}\item 
+static constexpr std\+::string\+\_\+view \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_abd19f8c64512be92b24707820c6e9c44}{snake\+Corp\+Filename}} = \char`\"{}assets/nibbler/snake\+\_\+corp.\+png\char`\"{}
+\begin{DoxyCompactList}\small\item\em Resource location for the snake corp sprite. \end{DoxyCompactList}\item 
+static constexpr std\+::string\+\_\+view \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_ada403497b613f276b4bad20e4e284756}{snake\+Head\+Filename}} = \char`\"{}assets/nibbler/snake\+\_\+head.\+png\char`\"{}
+\begin{DoxyCompactList}\small\item\em Resource location for the snake head sprite. \end{DoxyCompactList}\item 
+static constexpr std\+::string\+\_\+view \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a1efbbdd3896450ed71415261572e7702}{snake\+Tail\+Filename}} = \char`\"{}assets/nibbler/snake\+\_\+tail.\+png\char`\"{}
+\begin{DoxyCompactList}\small\item\em Resource location for the snake tail sprite. \end{DoxyCompactList}\item 
+static constexpr std\+::string\+\_\+view \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a79e1a8fecf674a28f5c9dda8ea68aad6}{snake\+Turn1\+Filename}} = \char`\"{}assets/nibbler/snake\+\_\+turn\+\_\+0\+\_\+270.\+png\char`\"{}
+\begin{DoxyCompactList}\small\item\em Resource location for the snake turn sprite. \end{DoxyCompactList}\item 
+static constexpr std\+::string\+\_\+view \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_ad8d2e39c4ae9121b30b3a90304288761}{snake\+Turn2\+Filename}} = \char`\"{}assets/nibbler/snake\+\_\+turn\+\_\+270\+\_\+90.\+png\char`\"{}
+\begin{DoxyCompactList}\small\item\em Resource location for the snake turn sprite. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+! 
+
+The \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler}{Nibbler}} game\textquotesingle{}s module. 
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a1dcc904c66049c2fff2fa2103283499f}\label{classArcade_1_1Nibbler_1_1Nibbler_a1dcc904c66049c2fff2fa2103283499f}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!MapChar@{MapChar}}
+\index{MapChar@{MapChar}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{MapChar}{MapChar}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a1dcc904c66049c2fff2fa2103283499f}{Arcade\+::\+Nibbler\+::\+Nibbler\+::\+Map\+Char}}\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NOTHING@{NOTHING}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!NOTHING@{NOTHING}}}\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a1dcc904c66049c2fff2fa2103283499fa21ad4ec2f3e9767d4033ec7ac4c12d3a}\label{classArcade_1_1Nibbler_1_1Nibbler_a1dcc904c66049c2fff2fa2103283499fa21ad4ec2f3e9767d4033ec7ac4c12d3a}} 
+N\+O\+T\+H\+I\+NG&Represents a space, nothing should be drawned with it @info It\textquotesingle{}s used for padding. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BUSH@{BUSH}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!BUSH@{BUSH}}}\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a1dcc904c66049c2fff2fa2103283499fa1fef362be01214fe19a25b4a3197d22d}\label{classArcade_1_1Nibbler_1_1Nibbler_a1dcc904c66049c2fff2fa2103283499fa1fef362be01214fe19a25b4a3197d22d}} 
+B\+U\+SH&Representing a wall in the map. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SMALL\_FOOD@{SMALL\_FOOD}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!SMALL\_FOOD@{SMALL\_FOOD}}}\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a1dcc904c66049c2fff2fa2103283499facd46dc6f86566eed8d63995221c56b03}\label{classArcade_1_1Nibbler_1_1Nibbler_a1dcc904c66049c2fff2fa2103283499facd46dc6f86566eed8d63995221c56b03}} 
+S\+M\+A\+L\+L\+\_\+\+F\+O\+OD&Representing a small food in the map. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BIG\_FOOD@{BIG\_FOOD}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!BIG\_FOOD@{BIG\_FOOD}}}\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a1dcc904c66049c2fff2fa2103283499fa212b225a370c8b4cc73e8410e6d2db8b}\label{classArcade_1_1Nibbler_1_1Nibbler_a1dcc904c66049c2fff2fa2103283499fa212b225a370c8b4cc73e8410e6d2db8b}} 
+B\+I\+G\+\_\+\+F\+O\+OD&Representing a big food in the map. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a6815b76a2445e25c8309731ef10d66de}\label{classArcade_1_1Nibbler_1_1Nibbler_a6815b76a2445e25c8309731ef10d66de}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!Nibbler@{Nibbler}}
+\index{Nibbler@{Nibbler}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{Nibbler()}{Nibbler()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Arcade\+::\+Nibbler\+::\+Nibbler\+::\+Nibbler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a425f47529d0fa6cadd0c2d3ade0e53c1}\label{classArcade_1_1Nibbler_1_1Nibbler_a425f47529d0fa6cadd0c2d3ade0e53c1}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!Nibbler@{Nibbler}}
+\index{Nibbler@{Nibbler}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{Nibbler()}{Nibbler()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Arcade\+::\+Nibbler\+::\+Nibbler\+::\+Nibbler (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler}{Nibbler}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default copy constructor. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a257cfa001051687d4dfbd70233eb3654}\label{classArcade_1_1Nibbler_1_1Nibbler_a257cfa001051687d4dfbd70233eb3654}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!````~Nibbler@{$\sim$Nibbler}}
+\index{````~Nibbler@{$\sim$Nibbler}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{$\sim$Nibbler()}{~Nibbler()}}
+{\footnotesize\ttfamily Arcade\+::\+Nibbler\+::\+Nibbler\+::$\sim$\+Nibbler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a6b9781fd6bf7ec6fb6ca3933f9968052}\label{classArcade_1_1Nibbler_1_1Nibbler_a6b9781fd6bf7ec6fb6ca3933f9968052}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_addFood@{\_addFood}}
+\index{\_addFood@{\_addFood}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_addFood()}{\_addFood()}}
+{\footnotesize\ttfamily void Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+add\+Food (\begin{DoxyParamCaption}\item[{int}]{number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Add at random positions a piece of food. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number} & The number of food to add \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a3db68501e35fc1625469b7b6f5a33562}\label{classArcade_1_1Nibbler_1_1Nibbler_a3db68501e35fc1625469b7b6f5a33562}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_collideWithPacgumFood@{\_collideWithPacgumFood}}
+\index{\_collideWithPacgumFood@{\_collideWithPacgumFood}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_collideWithPacgumFood()}{\_collideWithPacgumFood()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} $>$\+::iterator Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+collide\+With\+Pacgum\+Food (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{w,  }\item[{int}]{h }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tells if you colliding with one of the pacgums of the \+\_\+map member. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x percentage \\
+\hline
+{\em y} & The y percentage \\
+\hline
+{\em w} & The width in percentage \\
+\hline
+{\em h} & The the height in percentage \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pacgum you collided, otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a6a2e2e6464336345ac500b094c179465}\label{classArcade_1_1Nibbler_1_1Nibbler_a6a2e2e6464336345ac500b094c179465}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_collideWithWallMap@{\_collideWithWallMap}}
+\index{\_collideWithWallMap@{\_collideWithWallMap}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_collideWithWallMap()}{\_collideWithWallMap()}}
+{\footnotesize\ttfamily bool Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+collide\+With\+Wall\+Map (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{w,  }\item[{int}]{h }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tells if you colliding with one of the rectangle of the \+\_\+map member. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x percentage \\
+\hline
+{\em y} & The y percentage \\
+\hline
+{\em w} & The width in percentage \\
+\hline
+{\em h} & The the height in percentage \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the coords are colliding, otherwise false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a5f761e87ca1bfab4ed01f426fa17b9dc}\label{classArcade_1_1Nibbler_1_1Nibbler_a5f761e87ca1bfab4ed01f426fa17b9dc}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_createMapFromVector@{\_createMapFromVector}}
+\index{\_createMapFromVector@{\_createMapFromVector}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_createMapFromVector()}{\_createMapFromVector()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} $>$ Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+create\+Map\+From\+Vector (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{map,  }\item[{int}]{h\+Offset,  }\item[{int}]{v\+Offset }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Gives the correct \mbox{\hyperlink{namespaceArcade_1_1Drawables}{Drawables}} to be able to draw the map on the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & The vector of string to represent the actual map (one type of char represent a type/config of drawable) \\
+\hline
+{\em v\+Offset} & The vertical offset in percentage \\
+\hline
+{\em h\+Offset} & The horizontal offset in percentage @info Offset can be set to a negative value the function will simply add the offset given to the offset calculated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+Sprites are only used for a \char`\"{}base drawable\char`\"{} some sprites will be purposely ill formed, in order to call the fallback 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_ab06bd4fecaeb2d572b6f4cfb827fa259}\label{classArcade_1_1Nibbler_1_1Nibbler_ab06bd4fecaeb2d572b6f4cfb827fa259}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_createSnakeCorpPart@{\_createSnakeCorpPart}}
+\index{\_createSnakeCorpPart@{\_createSnakeCorpPart}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_createSnakeCorpPart()}{\_createSnakeCorpPart()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+create\+Snake\+Corp\+Part (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} \&}]{reference }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Create a corp part of the snake. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reference} & The element to create a deep copy on \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The drawable 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a17610d6e3479eeb7e930d80776267e29}\label{classArcade_1_1Nibbler_1_1Nibbler_a17610d6e3479eeb7e930d80776267e29}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_getCircleFromChar@{\_getCircleFromChar}}
+\index{\_getCircleFromChar@{\_getCircleFromChar}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_getCircleFromChar()}{\_getCircleFromChar()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1Drawables_1_1Circle}{Drawables\+::\+Circle}} Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+get\+Circle\+From\+Char (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{int}]{x\+Index,  }\item[{int}]{y\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get the correct Circle and correctly filled from a char. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The template type \\
+\hline
+{\em x\+Index} & The x position of the char in the map \\
+\hline
+{\em y\+Index} & The y position of the char in the map \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+This function uses hard coded templates for each char. This function should only be used with the map context in mind 
+\end{DoxyWarning}
+\begin{DoxyReturn}{Returns}
+A instance of a Circle 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classArcade_1_1Nibbler_1_1WrongMapChar}{Wrong\+Map\+Char}}} & when no matching char is found \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a59f88387285e167cc7d75ddf5f335226}\label{classArcade_1_1Nibbler_1_1Nibbler_a59f88387285e167cc7d75ddf5f335226}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_getCorrectTurnFilename@{\_getCorrectTurnFilename}}
+\index{\_getCorrectTurnFilename@{\_getCorrectTurnFilename}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_getCorrectTurnFilename()}{\_getCorrectTurnFilename()}}
+{\footnotesize\ttfamily std\+::string Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+get\+Correct\+Turn\+Filename (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Gives the correct turn filename for snake sprites. 
+
+\begin{DoxyReturn}{Returns}
+The correct turn filename for sprite path 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a5332bdfe25b891734db74ad7d3e24ef3}\label{classArcade_1_1Nibbler_1_1Nibbler_a5332bdfe25b891734db74ad7d3e24ef3}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_getDisplayCoord@{\_getDisplayCoord}}
+\index{\_getDisplayCoord@{\_getDisplayCoord}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_getDisplayCoord()}{\_getDisplayCoord()}}
+{\footnotesize\ttfamily int Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+get\+Display\+Coord (\begin{DoxyParamCaption}\item[{int}]{coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Gte the display coords (to create a case effect movement) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coord} & The real coordinates \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the coordinate to render on screen 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_ab3b08353a0016f1d9b5d5eb4dce4e05f}\label{classArcade_1_1Nibbler_1_1Nibbler_ab3b08353a0016f1d9b5d5eb4dce4e05f}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_getRectangleFromChar@{\_getRectangleFromChar}}
+\index{\_getRectangleFromChar@{\_getRectangleFromChar}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_getRectangleFromChar()}{\_getRectangleFromChar()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1Drawables_1_1Rectangle}{Drawables\+::\+Rectangle}} Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+get\+Rectangle\+From\+Char (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{int}]{x\+Index,  }\item[{int}]{y\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get the correct Rectangle and correctly filled from a char. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The template type \\
+\hline
+{\em x\+Index} & The x position of the char in the map \\
+\hline
+{\em y\+Index} & The y position of the char in the map \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+This function uses hard coded templates for each char. This function should only be used with the map context in mind 
+\end{DoxyWarning}
+\begin{DoxyReturn}{Returns}
+A instance of a Rectangle 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classArcade_1_1Nibbler_1_1WrongMapChar}{Wrong\+Map\+Char}}} & when no matching char is found \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_afeea7dd30ba3eb2a5d7ddae61386d1a4}\label{classArcade_1_1Nibbler_1_1Nibbler_afeea7dd30ba3eb2a5d7ddae61386d1a4}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_getSpriteFromChar@{\_getSpriteFromChar}}
+\index{\_getSpriteFromChar@{\_getSpriteFromChar}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_getSpriteFromChar()}{\_getSpriteFromChar()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+get\+Sprite\+From\+Char (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{int}]{x\+Index,  }\item[{int}]{y\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get the correct Sprite and correctly filled from a char. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The template type \\
+\hline
+{\em x\+Index} & The x position of the char in the map \\
+\hline
+{\em y\+Index} & The y position of the char in the map \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+This function uses hard coded templates for each char. This function should only be used with the map context in mind 
+\end{DoxyWarning}
+\begin{DoxyReturn}{Returns}
+A instance of a Sprite 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classArcade_1_1Nibbler_1_1WrongMapChar}{Wrong\+Map\+Char}}} & when no matching char is found \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a8c785fa1b3ef0d489ab2753ca7acbcfc}\label{classArcade_1_1Nibbler_1_1Nibbler_a8c785fa1b3ef0d489ab2753ca7acbcfc}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_increaseSnakeLength@{\_increaseSnakeLength}}
+\index{\_increaseSnakeLength@{\_increaseSnakeLength}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_increaseSnakeLength()}{\_increaseSnakeLength()}}
+{\footnotesize\ttfamily void Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+increase\+Snake\+Length (\begin{DoxyParamCaption}\item[{unsigned int}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Add elements to the end of snake corp. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em length} & The number of elements to add \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a24ec6f7ae42e7e9567357f36b7d3bd3d}\label{classArcade_1_1Nibbler_1_1Nibbler_a24ec6f7ae42e7e9567357f36b7d3bd3d}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_isFoodAtCoords@{\_isFoodAtCoords}}
+\index{\_isFoodAtCoords@{\_isFoodAtCoords}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_isFoodAtCoords()}{\_isFoodAtCoords()}}
+{\footnotesize\ttfamily bool Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+is\+Food\+At\+Coords (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tells if a food is at these coords. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x coord \\
+\hline
+{\em y} & The y coord \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A bool if a food is at those coords 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a25bf01211b81563c01e702662c135fa7}\label{classArcade_1_1Nibbler_1_1Nibbler_a25bf01211b81563c01e702662c135fa7}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_isGameEnded@{\_isGameEnded}}
+\index{\_isGameEnded@{\_isGameEnded}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_isGameEnded()}{\_isGameEnded()}}
+{\footnotesize\ttfamily bool Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+is\+Game\+Ended (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tells if the game has ended. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a188b5c78c338bd05c11070a30128a434}\label{classArcade_1_1Nibbler_1_1Nibbler_a188b5c78c338bd05c11070a30128a434}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_isMapAtCoords@{\_isMapAtCoords}}
+\index{\_isMapAtCoords@{\_isMapAtCoords}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_isMapAtCoords()}{\_isMapAtCoords()}}
+{\footnotesize\ttfamily bool Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+is\+Map\+At\+Coords (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tells if a map element is at these coords. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x coord \\
+\hline
+{\em y} & The y coord \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A bool if a map element is at those coords 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a85f7583967691798672747385f856bfb}\label{classArcade_1_1Nibbler_1_1Nibbler_a85f7583967691798672747385f856bfb}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_isObstacleAtCoords@{\_isObstacleAtCoords}}
+\index{\_isObstacleAtCoords@{\_isObstacleAtCoords}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_isObstacleAtCoords()}{\_isObstacleAtCoords()}}
+{\footnotesize\ttfamily bool Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+is\+Obstacle\+At\+Coords (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tells if an obstacle is at these coords. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x coord \\
+\hline
+{\em y} & The y coord \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A bool if an obstacle is at those coords 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_ab7b55f931a8656bf0ef574199cdc2362}\label{classArcade_1_1Nibbler_1_1Nibbler_ab7b55f931a8656bf0ef574199cdc2362}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_isSnakeAtCoords@{\_isSnakeAtCoords}}
+\index{\_isSnakeAtCoords@{\_isSnakeAtCoords}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_isSnakeAtCoords()}{\_isSnakeAtCoords()}}
+{\footnotesize\ttfamily bool Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+is\+Snake\+At\+Coords (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tells if the snake is at these coords. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x coord \\
+\hline
+{\em y} & The y coord \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A bool if the snake is at those coords 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a81080f814b6ab6ccaf5ade3be38df7ba}\label{classArcade_1_1Nibbler_1_1Nibbler_a81080f814b6ab6ccaf5ade3be38df7ba}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_processMovement@{\_processMovement}}
+\index{\_processMovement@{\_processMovement}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_processMovement()}{\_processMovement()}}
+{\footnotesize\ttfamily void Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+process\+Movement (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Checks collisions and moves the player, rotate texture, etc... @info The movement will be kept until hitting an obstacle or a new input is detected. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a2c7d94ad9b435000a148777942fa2d7b}\label{classArcade_1_1Nibbler_1_1Nibbler_a2c7d94ad9b435000a148777942fa2d7b}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_processScore@{\_processScore}}
+\index{\_processScore@{\_processScore}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_processScore()}{\_processScore()}}
+{\footnotesize\ttfamily void Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+process\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Checks the collision with Food and update the score. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_ae8187b4681aa41b68d4c4566f57fa3b8}\label{classArcade_1_1Nibbler_1_1Nibbler_ae8187b4681aa41b68d4c4566f57fa3b8}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_startGame@{\_startGame}}
+\index{\_startGame@{\_startGame}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_startGame()}{\_startGame()}}
+{\footnotesize\ttfamily void Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+start\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Start the game and initialise variables to their start values. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a36a7bccd0e852cf0e69b336b19a6793a}\label{classArcade_1_1Nibbler_1_1Nibbler_a36a7bccd0e852cf0e69b336b19a6793a}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_updateSnakePositions@{\_updateSnakePositions}}
+\index{\_updateSnakePositions@{\_updateSnakePositions}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_updateSnakePositions()}{\_updateSnakePositions()}}
+{\footnotesize\ttfamily void Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+update\+Snake\+Positions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Update snake to the position of the next frame. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a36ea0344d128b016a72ad930e43e1902}\label{classArcade_1_1Nibbler_1_1Nibbler_a36ea0344d128b016a72ad930e43e1902}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!addTicks@{addTicks}}
+\index{addTicks@{addTicks}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{addTicks()}{addTicks()}}
+{\footnotesize\ttfamily void Arcade\+::\+Nibbler\+::\+Nibbler\+::add\+Ticks (\begin{DoxyParamCaption}\item[{unsigned}]{tick }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Advance the game of x seconds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tick} & The number of ticks that occurred since the last call. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_adec58643e22471155f5be4676c448494}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_aeb9afe1caf1f1efa0df09a2a3c2ba812}\label{classArcade_1_1Nibbler_1_1Nibbler_aeb9afe1caf1f1efa0df09a2a3c2ba812}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!close@{close}}
+\index{close@{close}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily bool Arcade\+::\+Nibbler\+::\+Nibbler\+::close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Allow to say to the library to shutdown and free it\textquotesingle{}s content. 
+
+\begin{DoxyReturn}{Returns}
+True if the shutdown was successful. False otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IModule_a82aa04f751b491246adf65f40fecef04}{Arcade\+::\+I\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_ac5879a6661864cd65ab0f415f9c9a45c}\label{classArcade_1_1Nibbler_1_1Nibbler_ac5879a6661864cd65ab0f415f9c9a45c}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!getDrawables@{getDrawables}}
+\index{getDrawables@{getDrawables}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{getDrawables()}{getDrawables()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable}{Drawables\+::\+A\+Drawable}} $>$ $>$ \& Arcade\+::\+Nibbler\+::\+Nibbler\+::get\+Drawables (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Return a list of drawables to display. 
+
+\begin{DoxyReturn}{Returns}
+The list of objects 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_a2f5b001141785fcd80197637221ca229}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_adc4424e248f8b62db5e8b2b5a149a937}\label{classArcade_1_1Nibbler_1_1Nibbler_adc4424e248f8b62db5e8b2b5a149a937}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!getResources@{getResources}}
+\index{getResources@{getResources}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{getResources()}{getResources()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$ \& Arcade\+::\+Nibbler\+::\+Nibbler\+::get\+Resources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get resources to preload. @info Only called once. 
+
+\begin{DoxyReturn}{Returns}
+A vector of tuple of (type of resource, path of the resource). 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_a8dc5ea0cec5cebe5704f293051c75f74}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a38520be59ef00b270ce2f258f68594b3}\label{classArcade_1_1Nibbler_1_1Nibbler_a38520be59ef00b270ce2f258f68594b3}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!getScore@{getScore}}
+\index{getScore@{getScore}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{getScore()}{getScore()}}
+{\footnotesize\ttfamily unsigned long Arcade\+::\+Nibbler\+::\+Nibbler\+::get\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the score (used for saving/displaying) 
+
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_a0c82c58e99bdb889d3d85c588ed8f297}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a25e7dfabb4f43452b1cf93e901f3abdc}\label{classArcade_1_1Nibbler_1_1Nibbler_a25e7dfabb4f43452b1cf93e901f3abdc}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!getSounds@{getSounds}}
+\index{getSounds@{getSounds}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{getSounds()}{getSounds()}}
+{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Sound}{Sound}} $>$ \& Arcade\+::\+Nibbler\+::\+Nibbler\+::get\+Sounds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Return a list of sounds to make. 
+
+\begin{DoxyReturn}{Returns}
+The list of sounds 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_afd5b835dfe34c61b0e45997d37e2c90b}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a76d6efa6ecfc1ad04c720359c3a098d8}\label{classArcade_1_1Nibbler_1_1Nibbler_a76d6efa6ecfc1ad04c720359c3a098d8}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!getType@{getType}}
+\index{getType@{getType}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1ModInfo_a4d7a18796fb91858a198412f8a4d4144}{Mod\+Info\+::\+Modtype}} Arcade\+::\+Nibbler\+::\+Nibbler\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the type of this module. 
+
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IModule_a534f4e6b76c611fdf62ec3e7beb7870d}{Arcade\+::\+I\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a75d75afa68578986570ce23b924e0a79}\label{classArcade_1_1Nibbler_1_1Nibbler_a75d75afa68578986570ce23b924e0a79}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!handleEvent@{handleEvent}}
+\index{handleEvent@{handleEvent}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{handleEvent()}{handleEvent()}}
+{\footnotesize\ttfamily void Arcade\+::\+Nibbler\+::\+Nibbler\+::handle\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArcade_1_1Event}{Event}} \&}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handle one event (A key press, a click, a close event...) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & The event to handle. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_a0198c5400c7981528cbdf2db92eb903d}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a2529eb558e1a8ccfa77e84d4819a1653}\label{classArcade_1_1Nibbler_1_1Nibbler_a2529eb558e1a8ccfa77e84d4819a1653}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!init@{init}}
+\index{init@{init}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool Arcade\+::\+Nibbler\+::\+Nibbler\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Initialize this library. (Create windows \& so on) 
+
+\begin{DoxyReturn}{Returns}
+True if the initialization was successful. False otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IModule_a183763cc9e8fab4462004ed3e50ae93e}{Arcade\+::\+I\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_ace158e3c1d60316ca0c8ad68476c9705}\label{classArcade_1_1Nibbler_1_1Nibbler_ace158e3c1d60316ca0c8ad68476c9705}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!operator=@{operator=}}
+\index{operator=@{operator=}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler}{Nibbler}}\& Arcade\+::\+Nibbler\+::\+Nibbler\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler}{Nibbler}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default assignment operator. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a1d2579f09c8b1b57aa858e38893a2b48}\label{classArcade_1_1Nibbler_1_1Nibbler_a1d2579f09c8b1b57aa858e38893a2b48}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!restart@{restart}}
+\index{restart@{restart}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{restart()}{restart()}}
+{\footnotesize\ttfamily void Arcade\+::\+Nibbler\+::\+Nibbler\+::restart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Restart the game. 
+
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_ae36f03337f8532a267319ef75057e741}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a4e7a26fedc8e3e95c54b72a7d4a34cd6}\label{classArcade_1_1Nibbler_1_1Nibbler_a4e7a26fedc8e3e95c54b72a7d4a34cd6}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!shouldClose@{shouldClose}}
+\index{shouldClose@{shouldClose}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{shouldClose()}{shouldClose()}}
+{\footnotesize\ttfamily bool Arcade\+::\+Nibbler\+::\+Nibbler\+::should\+Close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should this module be closed? 
+
+\begin{DoxyReturn}{Returns}
+True if this module should be closed. False otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IModule_a7cefb3047a6c4b99ae5288138ea80ccc}{Arcade\+::\+I\+Module}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a533f1d9a54f3ef4d29d96ecd5584fc4e}\label{classArcade_1_1Nibbler_1_1Nibbler_a533f1d9a54f3ef4d29d96ecd5584fc4e}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_background@{\_background}}
+\index{\_background@{\_background}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_background}{\_background}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+background\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+background (or big green rectangle) 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_af8610d662f009584b662d2ce4d07f134}\label{classArcade_1_1Nibbler_1_1Nibbler_af8610d662f009584b662d2ce4d07f134}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_diffClock@{\_diffClock}}
+\index{\_diffClock@{\_diffClock}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_diffClock}{\_diffClock}}
+{\footnotesize\ttfamily long Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+diff\+Clock = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A differential clock @info Used to update every. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a95da372880ac1a75f6c931b01c0a8ea6}\label{classArcade_1_1Nibbler_1_1Nibbler_a95da372880ac1a75f6c931b01c0a8ea6}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_drawables@{\_drawables}}
+\index{\_drawables@{\_drawables}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_drawables}{\_drawables}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable}{Drawables\+::\+A\+Drawable}}$>$ $>$ Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+drawables = \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{namespaceArcade_1_1Drawables}{Drawables}} that will be displayed. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_ad8c45fbde10abdf68774ca8d5f19c16a}\label{classArcade_1_1Nibbler_1_1Nibbler_ad8c45fbde10abdf68774ca8d5f19c16a}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_food@{\_food}}
+\index{\_food@{\_food}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_food}{\_food}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}}$>$ Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+food\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Food of the snake. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a4cab02ef7ab34342dff005216b23e400}\label{classArcade_1_1Nibbler_1_1Nibbler_a4cab02ef7ab34342dff005216b23e400}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_gameScore@{\_gameScore}}
+\index{\_gameScore@{\_gameScore}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_gameScore}{\_gameScore}}
+{\footnotesize\ttfamily long Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+game\+Score = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game Score. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a9fb46ca31475863a27fa926a27835acf}\label{classArcade_1_1Nibbler_1_1Nibbler_a9fb46ca31475863a27fa926a27835acf}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_internalClock@{\_internalClock}}
+\index{\_internalClock@{\_internalClock}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_internalClock}{\_internalClock}}
+{\footnotesize\ttfamily unsigned long Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+internal\+Clock = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Internal clock. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_ab57bab0e2e729813f981617549dbb3e3}\label{classArcade_1_1Nibbler_1_1Nibbler_ab57bab0e2e729813f981617549dbb3e3}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_map@{\_map}}
+\index{\_map@{\_map}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_map}{\_map}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}}$>$ Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+map = \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game map. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_acc08b2c317a8c41e4254201840f0ed4c}\label{classArcade_1_1Nibbler_1_1Nibbler_acc08b2c317a8c41e4254201840f0ed4c}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_moves@{\_moves}}
+\index{\_moves@{\_moves}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_moves}{\_moves}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1Nibbler_1_1Nibbler_1_1PendingMoves}{Pending\+Moves}} Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+moves = \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Pending moves. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a3682c51da3d7267d43febdca1dfa5b89}\label{classArcade_1_1Nibbler_1_1Nibbler_a3682c51da3d7267d43febdca1dfa5b89}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_playerDrawable@{\_playerDrawable}}
+\index{\_playerDrawable@{\_playerDrawable}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_playerDrawable}{\_playerDrawable}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+player\+Drawable\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The player\textquotesingle{}s drawable. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a76745b4e1da168ca485314b797994522}\label{classArcade_1_1Nibbler_1_1Nibbler_a76745b4e1da168ca485314b797994522}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_playerMovement@{\_playerMovement}}
+\index{\_playerMovement@{\_playerMovement}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_playerMovement}{\_playerMovement}}
+{\footnotesize\ttfamily std\+::pair$<$int, int$>$ Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+player\+Movement\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The movement of the player. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_ada503aac7528545e69685ad87be63918}\label{classArcade_1_1Nibbler_1_1Nibbler_ada503aac7528545e69685ad87be63918}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_playerPosition@{\_playerPosition}}
+\index{\_playerPosition@{\_playerPosition}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_playerPosition}{\_playerPosition}}
+{\footnotesize\ttfamily std\+::pair$<$double, double$>$ Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+player\+Position\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The position of the player. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a662b448ef9ee42f395dfbcbafa418b1a}\label{classArcade_1_1Nibbler_1_1Nibbler_a662b448ef9ee42f395dfbcbafa418b1a}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_resources@{\_resources}}
+\index{\_resources@{\_resources}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_resources}{\_resources}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::pair$<$std\+::string, std\+::string$>$ $>$ Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+resources = \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Resources needed by this game. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_ac3d1af760b0ebda49208640115ede2b0}\label{classArcade_1_1Nibbler_1_1Nibbler_ac3d1af760b0ebda49208640115ede2b0}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_scoreDrawable@{\_scoreDrawable}}
+\index{\_scoreDrawable@{\_scoreDrawable}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_scoreDrawable}{\_scoreDrawable}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1Drawables_1_1Text}{Drawables\+::\+Text}} Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+score\+Drawable\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Text element to draw the score to the screen. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_abf49dd8d7deb3f7973fcc0ebcc4e48ab}\label{classArcade_1_1Nibbler_1_1Nibbler_abf49dd8d7deb3f7973fcc0ebcc4e48ab}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_shouldClose@{\_shouldClose}}
+\index{\_shouldClose@{\_shouldClose}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_shouldClose}{\_shouldClose}}
+{\footnotesize\ttfamily bool Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+should\+Close = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+If the game has ended. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_ad0d5aa77e370fc9996dcb7691c4ca91f}\label{classArcade_1_1Nibbler_1_1Nibbler_ad0d5aa77e370fc9996dcb7691c4ca91f}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_snake@{\_snake}}
+\index{\_snake@{\_snake}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_snake}{\_snake}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}}$>$ Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+snake\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+T\+HE snake. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_ae37a976148f0b1b4d30e26559a724100}\label{classArcade_1_1Nibbler_1_1Nibbler_ae37a976148f0b1b4d30e26559a724100}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_sounds@{\_sounds}}
+\index{\_sounds@{\_sounds}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_sounds}{\_sounds}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structArcade_1_1Sound}{Sound}}$>$ Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+sounds = \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sounds that will be started in the next frame. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_af3e3bfbea8635173d4a8978297fc79fe}\label{classArcade_1_1Nibbler_1_1Nibbler_af3e3bfbea8635173d4a8978297fc79fe}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!\_ticksPerFrame@{\_ticksPerFrame}}
+\index{\_ticksPerFrame@{\_ticksPerFrame}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{\_ticksPerFrame}{\_ticksPerFrame}}
+{\footnotesize\ttfamily unsigned long Arcade\+::\+Nibbler\+::\+Nibbler\+::\+\_\+ticks\+Per\+Frame = 190000\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The number of ticks required per frame (ticks are in microseconds) 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_ae96c84746879ca10f0375a8dac5cbaf2}\label{classArcade_1_1Nibbler_1_1Nibbler_ae96c84746879ca10f0375a8dac5cbaf2}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!largeFoodFilename@{largeFoodFilename}}
+\index{largeFoodFilename@{largeFoodFilename}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{largeFoodFilename}{largeFoodFilename}}
+{\footnotesize\ttfamily constexpr std\+::string\+\_\+view Arcade\+::\+Nibbler\+::\+Nibbler\+::large\+Food\+Filename = \char`\"{}assets/nibbler/big\+\_\+food.\+png\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Resource location for the large food sprite. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_ac3690296602a66c03d2b7f425c0ad6e7}\label{classArcade_1_1Nibbler_1_1Nibbler_ac3690296602a66c03d2b7f425c0ad6e7}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!mapBushColor@{mapBushColor}}
+\index{mapBushColor@{mapBushColor}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{mapBushColor}{mapBushColor}}
+{\footnotesize\ttfamily constexpr int Arcade\+::\+Nibbler\+::\+Nibbler\+::map\+Bush\+Color = 0x000000\+FF\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+The color of the walls @info This color is used to check if the block is collidable or not. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_af0b4f1a7afd9bd1463d9523fe332ee93}\label{classArcade_1_1Nibbler_1_1Nibbler_af0b4f1a7afd9bd1463d9523fe332ee93}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!mapOffsetTileX@{mapOffsetTileX}}
+\index{mapOffsetTileX@{mapOffsetTileX}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{mapOffsetTileX}{mapOffsetTileX}}
+{\footnotesize\ttfamily constexpr int Arcade\+::\+Nibbler\+::\+Nibbler\+::map\+Offset\+TileX = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+The offset of the map in number of map\+Tile\+Length for the X axis. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a17a94c7f137df9d44c47253c3ee93f46}\label{classArcade_1_1Nibbler_1_1Nibbler_a17a94c7f137df9d44c47253c3ee93f46}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!mapOffsetTileY@{mapOffsetTileY}}
+\index{mapOffsetTileY@{mapOffsetTileY}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{mapOffsetTileY}{mapOffsetTileY}}
+{\footnotesize\ttfamily constexpr int Arcade\+::\+Nibbler\+::\+Nibbler\+::map\+Offset\+TileY = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+The offset of the map in number of map\+Tile\+Length for the Y axis. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_add59b291832ce2b9e739197b19f3c9bf}\label{classArcade_1_1Nibbler_1_1Nibbler_add59b291832ce2b9e739197b19f3c9bf}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!mapTileLength@{mapTileLength}}
+\index{mapTileLength@{mapTileLength}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{mapTileLength}{mapTileLength}}
+{\footnotesize\ttfamily constexpr int Arcade\+::\+Nibbler\+::\+Nibbler\+::map\+Tile\+Length = 4\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+The length of a map tile. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a6725d24b18c63117b907a53214d4cbb9}\label{classArcade_1_1Nibbler_1_1Nibbler_a6725d24b18c63117b907a53214d4cbb9}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!smallFoodFilename@{smallFoodFilename}}
+\index{smallFoodFilename@{smallFoodFilename}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{smallFoodFilename}{smallFoodFilename}}
+{\footnotesize\ttfamily constexpr std\+::string\+\_\+view Arcade\+::\+Nibbler\+::\+Nibbler\+::small\+Food\+Filename = \char`\"{}assets/nibbler/small\+\_\+food.\+png\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Resource location for the small food sprite. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_abd19f8c64512be92b24707820c6e9c44}\label{classArcade_1_1Nibbler_1_1Nibbler_abd19f8c64512be92b24707820c6e9c44}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!snakeCorpFilename@{snakeCorpFilename}}
+\index{snakeCorpFilename@{snakeCorpFilename}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{snakeCorpFilename}{snakeCorpFilename}}
+{\footnotesize\ttfamily constexpr std\+::string\+\_\+view Arcade\+::\+Nibbler\+::\+Nibbler\+::snake\+Corp\+Filename = \char`\"{}assets/nibbler/snake\+\_\+corp.\+png\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Resource location for the snake corp sprite. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_ada403497b613f276b4bad20e4e284756}\label{classArcade_1_1Nibbler_1_1Nibbler_ada403497b613f276b4bad20e4e284756}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!snakeHeadFilename@{snakeHeadFilename}}
+\index{snakeHeadFilename@{snakeHeadFilename}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{snakeHeadFilename}{snakeHeadFilename}}
+{\footnotesize\ttfamily constexpr std\+::string\+\_\+view Arcade\+::\+Nibbler\+::\+Nibbler\+::snake\+Head\+Filename = \char`\"{}assets/nibbler/snake\+\_\+head.\+png\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Resource location for the snake head sprite. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a3a56b836af73e144d9a76fc2ae125fdb}\label{classArcade_1_1Nibbler_1_1Nibbler_a3a56b836af73e144d9a76fc2ae125fdb}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!snakeSpeed@{snakeSpeed}}
+\index{snakeSpeed@{snakeSpeed}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{snakeSpeed}{snakeSpeed}}
+{\footnotesize\ttfamily constexpr float Arcade\+::\+Nibbler\+::\+Nibbler\+::snake\+Speed = 1\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+The speed the snake (the player) in cases per frame. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a1efbbdd3896450ed71415261572e7702}\label{classArcade_1_1Nibbler_1_1Nibbler_a1efbbdd3896450ed71415261572e7702}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!snakeTailFilename@{snakeTailFilename}}
+\index{snakeTailFilename@{snakeTailFilename}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{snakeTailFilename}{snakeTailFilename}}
+{\footnotesize\ttfamily constexpr std\+::string\+\_\+view Arcade\+::\+Nibbler\+::\+Nibbler\+::snake\+Tail\+Filename = \char`\"{}assets/nibbler/snake\+\_\+tail.\+png\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Resource location for the snake tail sprite. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_a79e1a8fecf674a28f5c9dda8ea68aad6}\label{classArcade_1_1Nibbler_1_1Nibbler_a79e1a8fecf674a28f5c9dda8ea68aad6}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!snakeTurn1Filename@{snakeTurn1Filename}}
+\index{snakeTurn1Filename@{snakeTurn1Filename}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{snakeTurn1Filename}{snakeTurn1Filename}}
+{\footnotesize\ttfamily constexpr std\+::string\+\_\+view Arcade\+::\+Nibbler\+::\+Nibbler\+::snake\+Turn1\+Filename = \char`\"{}assets/nibbler/snake\+\_\+turn\+\_\+0\+\_\+270.\+png\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Resource location for the snake turn sprite. 
+
+\mbox{\Hypertarget{classArcade_1_1Nibbler_1_1Nibbler_ad8d2e39c4ae9121b30b3a90304288761}\label{classArcade_1_1Nibbler_1_1Nibbler_ad8d2e39c4ae9121b30b3a90304288761}} 
+\index{Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}!snakeTurn2Filename@{snakeTurn2Filename}}
+\index{snakeTurn2Filename@{snakeTurn2Filename}!Arcade::Nibbler::Nibbler@{Arcade::Nibbler::Nibbler}}
+\doxysubsubsection{\texorpdfstring{snakeTurn2Filename}{snakeTurn2Filename}}
+{\footnotesize\ttfamily constexpr std\+::string\+\_\+view Arcade\+::\+Nibbler\+::\+Nibbler\+::snake\+Turn2\+Filename = \char`\"{}assets/nibbler/snake\+\_\+turn\+\_\+270\+\_\+90.\+png\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Resource location for the snake turn sprite. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+sources/\+Games/\+Nibbler/\mbox{\hyperlink{Nibbler_8hpp}{Nibbler.\+hpp}}\item 
+sources/\+Games/\+Nibbler/\mbox{\hyperlink{Nibbler_8cpp}{Nibbler.\+cpp}}\end{DoxyCompactItemize}

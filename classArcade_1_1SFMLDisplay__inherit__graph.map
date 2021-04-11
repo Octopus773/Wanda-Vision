@@ -1,0 +1,5 @@
+<map id="Arcade::SFMLDisplay" name="Arcade::SFMLDisplay">
+<area shape="rect" id="node1" title="Implementation of the SDL Graphic Library." alt="" coords="5,476,193,964"/>
+<area shape="rect" id="node2" href="$classArcade_1_1IDisplayModule.html" title="The interface of every display modules." alt="" coords="11,189,187,428"/>
+<area shape="rect" id="node3" href="$classArcade_1_1IModule.html" title="A base module interface." alt="" coords="36,5,163,141"/>
+</map>

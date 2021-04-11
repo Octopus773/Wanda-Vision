@@ -1,0 +1,191 @@
+\hypertarget{classArcade_1_1IGameModule}{}\doxysection{Arcade\+::I\+Game\+Module Class Reference}
+\label{classArcade_1_1IGameModule}\index{Arcade::IGameModule@{Arcade::IGameModule}}
+
+
+The interface of all games.  
+
+
+
+
+{\ttfamily \#include $<$I\+Game\+Module.\+hpp$>$}
+
+
+
+Inheritance diagram for Arcade\+::I\+Game\+Module\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classArcade_1_1IGameModule__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arcade\+::I\+Game\+Module\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{classArcade_1_1IGameModule__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classArcade_1_1IGameModule_a5318c398714f1748b26afda937ad0d50}{$\sim$\+I\+Game\+Module}} () override=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
+virtual const std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$ \& \mbox{\hyperlink{classArcade_1_1IGameModule_a8dc5ea0cec5cebe5704f293051c75f74}{get\+Resources}} () const =0
+\begin{DoxyCompactList}\small\item\em Get resources to preload. @info Only called once. \end{DoxyCompactList}\item 
+virtual const std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable}{Drawables\+::\+A\+Drawable}} $>$ $>$ \& \mbox{\hyperlink{classArcade_1_1IGameModule_a2f5b001141785fcd80197637221ca229}{get\+Drawables}} ()=0
+\begin{DoxyCompactList}\small\item\em Return a list of drawables to display. \end{DoxyCompactList}\item 
+virtual const std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Sound}{Sound}} $>$ \& \mbox{\hyperlink{classArcade_1_1IGameModule_afd5b835dfe34c61b0e45997d37e2c90b}{get\+Sounds}} ()=0
+\begin{DoxyCompactList}\small\item\em Return a list of sounds to make. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classArcade_1_1IGameModule_adec58643e22471155f5be4676c448494}{add\+Ticks}} (unsigned tick)=0
+\begin{DoxyCompactList}\small\item\em Advance the game of x seconds. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classArcade_1_1IGameModule_ae36f03337f8532a267319ef75057e741}{restart}} ()=0
+\begin{DoxyCompactList}\small\item\em Restart the game. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classArcade_1_1IGameModule_a0198c5400c7981528cbdf2db92eb903d}{handle\+Event}} (\mbox{\hyperlink{structArcade_1_1Event}{Event}} \&event)=0
+\begin{DoxyCompactList}\small\item\em Handle one event (A key press, a click, a close event...) \end{DoxyCompactList}\item 
+virtual unsigned long \mbox{\hyperlink{classArcade_1_1IGameModule_a0c82c58e99bdb889d3d85c588ed8f297}{get\+Score}} ()=0
+\begin{DoxyCompactList}\small\item\em Get the score (used for saving/displaying) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The interface of all games. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classArcade_1_1IGameModule_a5318c398714f1748b26afda937ad0d50}\label{classArcade_1_1IGameModule_a5318c398714f1748b26afda937ad0d50}} 
+\index{Arcade::IGameModule@{Arcade::IGameModule}!````~IGameModule@{$\sim$IGameModule}}
+\index{````~IGameModule@{$\sim$IGameModule}!Arcade::IGameModule@{Arcade::IGameModule}}
+\doxysubsubsection{\texorpdfstring{$\sim$IGameModule()}{~IGameModule()}}
+{\footnotesize\ttfamily Arcade\+::\+I\+Game\+Module\+::$\sim$\+I\+Game\+Module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Virtual destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArcade_1_1IGameModule_adec58643e22471155f5be4676c448494}\label{classArcade_1_1IGameModule_adec58643e22471155f5be4676c448494}} 
+\index{Arcade::IGameModule@{Arcade::IGameModule}!addTicks@{addTicks}}
+\index{addTicks@{addTicks}!Arcade::IGameModule@{Arcade::IGameModule}}
+\doxysubsubsection{\texorpdfstring{addTicks()}{addTicks()}}
+{\footnotesize\ttfamily virtual void Arcade\+::\+I\+Game\+Module\+::add\+Ticks (\begin{DoxyParamCaption}\item[{unsigned}]{tick }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Advance the game of x seconds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tick} & The number of ticks that occured since the last call. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a36ea0344d128b016a72ad930e43e1902}{Arcade\+::\+Nibbler\+::\+Nibbler}}, \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_aa071aea7d67a73cde59007ea972a5129}{Arcade\+::\+Pacman\+::\+Pacman}}, \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_aa666b0e7ada8013ecd1d0349743bf2d6}{Arcade\+::\+Qix\+::\+Qix}}, and \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_ae4f83d6fac5c3592e1262f25b149683b}{Arcade\+::\+Menu\+::\+Menu}}.
+
+\mbox{\Hypertarget{classArcade_1_1IGameModule_a2f5b001141785fcd80197637221ca229}\label{classArcade_1_1IGameModule_a2f5b001141785fcd80197637221ca229}} 
+\index{Arcade::IGameModule@{Arcade::IGameModule}!getDrawables@{getDrawables}}
+\index{getDrawables@{getDrawables}!Arcade::IGameModule@{Arcade::IGameModule}}
+\doxysubsubsection{\texorpdfstring{getDrawables()}{getDrawables()}}
+{\footnotesize\ttfamily virtual const std\+::vector$<$std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable}{Drawables\+::\+A\+Drawable}}$>$ $>$\& Arcade\+::\+I\+Game\+Module\+::get\+Drawables (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Return a list of drawables to display. 
+
+\begin{DoxyReturn}{Returns}
+The list of objects 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_ac5879a6661864cd65ab0f415f9c9a45c}{Arcade\+::\+Nibbler\+::\+Nibbler}}, \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a93fd314611e2a271af8e36c438381aba}{Arcade\+::\+Pacman\+::\+Pacman}}, \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a1eb79f2c7108f2d241e468e7240deba1}{Arcade\+::\+Qix\+::\+Qix}}, and \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_ae0e3a9eaef36609f77ef732f3e3d5c4a}{Arcade\+::\+Menu\+::\+Menu}}.
+
+\mbox{\Hypertarget{classArcade_1_1IGameModule_a8dc5ea0cec5cebe5704f293051c75f74}\label{classArcade_1_1IGameModule_a8dc5ea0cec5cebe5704f293051c75f74}} 
+\index{Arcade::IGameModule@{Arcade::IGameModule}!getResources@{getResources}}
+\index{getResources@{getResources}!Arcade::IGameModule@{Arcade::IGameModule}}
+\doxysubsubsection{\texorpdfstring{getResources()}{getResources()}}
+{\footnotesize\ttfamily virtual const std\+::vector$<$std\+::pair$<$std\+::string, std\+::string$>$ $>$\& Arcade\+::\+I\+Game\+Module\+::get\+Resources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get resources to preload. @info Only called once. 
+
+\begin{DoxyReturn}{Returns}
+A vector of tupple of (type of resource, path of the resource). 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_adc4424e248f8b62db5e8b2b5a149a937}{Arcade\+::\+Nibbler\+::\+Nibbler}}, \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_aad1412304e69a571b618992e2759187b}{Arcade\+::\+Pacman\+::\+Pacman}}, \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_aeb81cf5cfb751c1239a28ee85e5bd665}{Arcade\+::\+Qix\+::\+Qix}}, and \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_af5d40d44ca0d8421ca90e98706544778}{Arcade\+::\+Menu\+::\+Menu}}.
+
+\mbox{\Hypertarget{classArcade_1_1IGameModule_a0c82c58e99bdb889d3d85c588ed8f297}\label{classArcade_1_1IGameModule_a0c82c58e99bdb889d3d85c588ed8f297}} 
+\index{Arcade::IGameModule@{Arcade::IGameModule}!getScore@{getScore}}
+\index{getScore@{getScore}!Arcade::IGameModule@{Arcade::IGameModule}}
+\doxysubsubsection{\texorpdfstring{getScore()}{getScore()}}
+{\footnotesize\ttfamily virtual unsigned long Arcade\+::\+I\+Game\+Module\+::get\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get the score (used for saving/displaying) 
+
+
+
+Implemented in \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a38520be59ef00b270ce2f258f68594b3}{Arcade\+::\+Nibbler\+::\+Nibbler}}, \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a5a49ae6c43feb3076ec4f135ce2db184}{Arcade\+::\+Pacman\+::\+Pacman}}, \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a6b23281076d0b24fdd20803890d10eaf}{Arcade\+::\+Qix\+::\+Qix}}, and \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_a5722ba333ceb2b5b357f7b73cf4d7a8c}{Arcade\+::\+Menu\+::\+Menu}}.
+
+\mbox{\Hypertarget{classArcade_1_1IGameModule_afd5b835dfe34c61b0e45997d37e2c90b}\label{classArcade_1_1IGameModule_afd5b835dfe34c61b0e45997d37e2c90b}} 
+\index{Arcade::IGameModule@{Arcade::IGameModule}!getSounds@{getSounds}}
+\index{getSounds@{getSounds}!Arcade::IGameModule@{Arcade::IGameModule}}
+\doxysubsubsection{\texorpdfstring{getSounds()}{getSounds()}}
+{\footnotesize\ttfamily virtual const std\+::vector$<$\mbox{\hyperlink{structArcade_1_1Sound}{Sound}}$>$\& Arcade\+::\+I\+Game\+Module\+::get\+Sounds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Return a list of sounds to make. 
+
+\begin{DoxyReturn}{Returns}
+The list of sounds 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a25e7dfabb4f43452b1cf93e901f3abdc}{Arcade\+::\+Nibbler\+::\+Nibbler}}, \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a5ce29abd05c05516d3b4ce4cb4eac0ec}{Arcade\+::\+Pacman\+::\+Pacman}}, \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_ac6ceb113ffdc0e6cc56579af6a83a9ab}{Arcade\+::\+Qix\+::\+Qix}}, and \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_a9e325daa66cee96c837a3033edaead09}{Arcade\+::\+Menu\+::\+Menu}}.
+
+\mbox{\Hypertarget{classArcade_1_1IGameModule_a0198c5400c7981528cbdf2db92eb903d}\label{classArcade_1_1IGameModule_a0198c5400c7981528cbdf2db92eb903d}} 
+\index{Arcade::IGameModule@{Arcade::IGameModule}!handleEvent@{handleEvent}}
+\index{handleEvent@{handleEvent}!Arcade::IGameModule@{Arcade::IGameModule}}
+\doxysubsubsection{\texorpdfstring{handleEvent()}{handleEvent()}}
+{\footnotesize\ttfamily virtual void Arcade\+::\+I\+Game\+Module\+::handle\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArcade_1_1Event}{Event}} \&}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Handle one event (A key press, a click, a close event...) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & The event to handle. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a75d75afa68578986570ce23b924e0a79}{Arcade\+::\+Nibbler\+::\+Nibbler}}, \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a7e9b5ccedd970a41f109c9cc9b3ca2e7}{Arcade\+::\+Pacman\+::\+Pacman}}, \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a41e2cbf71d3105e2d30d9da5a04fdf59}{Arcade\+::\+Qix\+::\+Qix}}, and \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_a23351b89c936b06a1494726e93842a75}{Arcade\+::\+Menu\+::\+Menu}}.
+
+\mbox{\Hypertarget{classArcade_1_1IGameModule_ae36f03337f8532a267319ef75057e741}\label{classArcade_1_1IGameModule_ae36f03337f8532a267319ef75057e741}} 
+\index{Arcade::IGameModule@{Arcade::IGameModule}!restart@{restart}}
+\index{restart@{restart}!Arcade::IGameModule@{Arcade::IGameModule}}
+\doxysubsubsection{\texorpdfstring{restart()}{restart()}}
+{\footnotesize\ttfamily virtual void Arcade\+::\+I\+Game\+Module\+::restart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Restart the game. 
+
+
+
+Implemented in \mbox{\hyperlink{classArcade_1_1Nibbler_1_1Nibbler_a1d2579f09c8b1b57aa858e38893a2b48}{Arcade\+::\+Nibbler\+::\+Nibbler}}, \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a53b477531f07119e8d40483eb83f22d3}{Arcade\+::\+Pacman\+::\+Pacman}}, \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a46c4b462c25f75f191be0896e31a620f}{Arcade\+::\+Qix\+::\+Qix}}, and \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_a84ef440b1e081538a9df565580a8dff5}{Arcade\+::\+Menu\+::\+Menu}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+sources/\+Common/\mbox{\hyperlink{IGameModule_8hpp}{I\+Game\+Module.\+hpp}}\end{DoxyCompactItemize}

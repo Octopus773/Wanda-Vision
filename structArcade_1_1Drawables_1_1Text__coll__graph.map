@@ -1,0 +1,4 @@
+<map id="Arcade::Drawables::Text" name="Arcade::Drawables::Text">
+<area shape="rect" id="node1" title="A text object." alt="" coords="5,189,184,296"/>
+<area shape="rect" id="node2" href="$structArcade_1_1Drawables_1_1ADrawable.html" title="A base struct for every objects in the game." alt="" coords="19,5,171,141"/>
+</map>

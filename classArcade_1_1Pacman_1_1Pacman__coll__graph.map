@@ -1,0 +1,10 @@
+<map id="Arcade::Pacman::Pacman" name="Arcade::Pacman::Pacman">
+<area shape="rect" id="node1" title="!" alt="" coords="325,724,535,1359"/>
+<area shape="rect" id="node2" href="$classArcade_1_1IGameModule.html" title="The interface of all games." alt="" coords="5,481,172,661"/>
+<area shape="rect" id="node3" href="$classArcade_1_1IModule.html" title="A base module interface." alt="" coords="25,191,152,327"/>
+<area shape="rect" id="node4" href="$structArcade_1_1Pacman_1_1Pacman_1_1PendingMoves.html" title="Struct used to keep pending moves." alt="" coords="196,518,381,625"/>
+<area shape="rect" id="node5" href="$structArcade_1_1Pacman_1_1Pacman_1_1Ghost.html" title="The ghost struct." alt="" coords="575,525,760,617"/>
+<area shape="rect" id="node6" href="$structArcade_1_1Drawables_1_1Sprite.html" title="A Sprite game object." alt="" coords="561,191,713,327"/>
+<area shape="rect" id="node7" href="$structArcade_1_1Drawables_1_1ADrawable.html" title="A base struct for every objects in the game." alt="" coords="631,5,783,141"/>
+<area shape="rect" id="node8" href="$structArcade_1_1Drawables_1_1Text.html" title="A text object." alt="" coords="719,351,898,457"/>
+</map>

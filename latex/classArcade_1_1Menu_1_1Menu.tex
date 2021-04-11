@@ -1,0 +1,367 @@
+\hypertarget{classArcade_1_1Menu_1_1Menu}{}\doxysection{Arcade\+::Menu\+::Menu Class Reference}
+\label{classArcade_1_1Menu_1_1Menu}\index{Arcade::Menu::Menu@{Arcade::Menu::Menu}}
+
+
+A menu that allow the user to select a game and a display module.  
+
+
+
+
+{\ttfamily \#include $<$Menu.\+hpp$>$}
+
+
+
+Inheritance diagram for Arcade\+::Menu\+::Menu\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classArcade_1_1Menu_1_1Menu__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arcade\+::Menu\+::Menu\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classArcade_1_1Menu_1_1Menu__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_a1161a85895c3d880567c63d400aa597b}{init}} () override
+\begin{DoxyCompactList}\small\item\em Initialize this library. (Create windows \& so on) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_a1cc112611ddad9f44c81709bc9c605f3}{close}} () override
+\begin{DoxyCompactList}\small\item\em Allow to say to the library to shutdown and free it\textquotesingle{}s content. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_a51d5efab2335d2383813be422e147544}{should\+Close}} () override
+\begin{DoxyCompactList}\small\item\em Should this module be closed? \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1ModInfo_a4d7a18796fb91858a198412f8a4d4144}{Mod\+Info\+::\+Modtype}} \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_ab96b34207ec84094a9b2b452a9d05e35}{get\+Type}} () const override
+\begin{DoxyCompactList}\small\item\em Get the type of this module. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$ \& \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_af5d40d44ca0d8421ca90e98706544778}{get\+Resources}} () const override
+\begin{DoxyCompactList}\small\item\em Get resources to preload. @info Only called once. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable}{Drawables\+::\+A\+Drawable}} $>$ $>$ \& \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_ae0e3a9eaef36609f77ef732f3e3d5c4a}{get\+Drawables}} () override
+\begin{DoxyCompactList}\small\item\em Return a list of drawables to display. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Sound}{Sound}} $>$ \& \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_a9e325daa66cee96c837a3033edaead09}{get\+Sounds}} () override
+\begin{DoxyCompactList}\small\item\em Return a list of sounds to make. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_ae4f83d6fac5c3592e1262f25b149683b}{add\+Ticks}} (unsigned tick) override
+\begin{DoxyCompactList}\small\item\em Advance the game of x seconds. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_a84ef440b1e081538a9df565580a8dff5}{restart}} () override
+\begin{DoxyCompactList}\small\item\em Restart the game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_a23351b89c936b06a1494726e93842a75}{handle\+Event}} (\mbox{\hyperlink{structArcade_1_1Event}{Event}} \&event) override
+\begin{DoxyCompactList}\small\item\em Handle one event (A key press, a click, a close event...) \end{DoxyCompactList}\item 
+unsigned long \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_a5722ba333ceb2b5b357f7b73cf4d7a8c}{get\+Score}} () override
+\begin{DoxyCompactList}\small\item\em Get the score (used for saving/displaying) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_a0ba5eae29fd8e22f4b7b5d63014faf19}{Menu}} (\mbox{\hyperlink{classArcade_1_1Core_1_1Runner}{Core\+::\+Runner}} \&runner)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_a6ef4e6cf17336614a2b61bf68202c3fd}{Menu}} (const \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu}{Menu}} \&)=default
+\begin{DoxyCompactList}\small\item\em Default copy constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_ac7ab742774fa89a8286b3e9e984ab753}{$\sim$\+Menu}} () override=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArcade_1_1Menu_1_1Menu}{Menu}} \& \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_a4449d66bbf02b5fb2216131d018de4e2}{operator=}} (const \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu}{Menu}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classArcade_1_1Core_1_1Runner}{Core\+::\+Runner}} \& \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_a7bbf021efca976111c983c573e6e814c}{\+\_\+runner}}
+\begin{DoxyCompactList}\small\item\em Instance of the runner. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable}{Drawables\+::\+A\+Drawable}} $>$ $>$ \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_a630f9d811decadfa66ebdcc7a4aa56b3}{\+\_\+drawables}} = \{\}
+\begin{DoxyCompactList}\small\item\em List of drawables. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$ \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_ad42268e9fd765697ec54340f48906c84}{\+\_\+resources}} = \{\}
+\begin{DoxyCompactList}\small\item\em List of resources. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Sound}{Sound}} $>$ \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_aee7f872453fe4382af2d5da493cb1824}{\+\_\+sounds}} = \{\}
+\begin{DoxyCompactList}\small\item\em List of sounds. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu_a242917c8ff708f092f318ba9be018b2d}{\+\_\+should\+Close}} = false
+\begin{DoxyCompactList}\small\item\em Should the menu close? \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A menu that allow the user to select a game and a display module. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classArcade_1_1Menu_1_1Menu_a0ba5eae29fd8e22f4b7b5d63014faf19}\label{classArcade_1_1Menu_1_1Menu_a0ba5eae29fd8e22f4b7b5d63014faf19}} 
+\index{Arcade::Menu::Menu@{Arcade::Menu::Menu}!Menu@{Menu}}
+\index{Menu@{Menu}!Arcade::Menu::Menu@{Arcade::Menu::Menu}}
+\doxysubsubsection{\texorpdfstring{Menu()}{Menu()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Arcade\+::\+Menu\+::\+Menu\+::\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classArcade_1_1Core_1_1Runner}{Core\+::\+Runner}} \&}]{runner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor. 
+
+\mbox{\Hypertarget{classArcade_1_1Menu_1_1Menu_a6ef4e6cf17336614a2b61bf68202c3fd}\label{classArcade_1_1Menu_1_1Menu_a6ef4e6cf17336614a2b61bf68202c3fd}} 
+\index{Arcade::Menu::Menu@{Arcade::Menu::Menu}!Menu@{Menu}}
+\index{Menu@{Menu}!Arcade::Menu::Menu@{Arcade::Menu::Menu}}
+\doxysubsubsection{\texorpdfstring{Menu()}{Menu()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Arcade\+::\+Menu\+::\+Menu\+::\+Menu (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu}{Menu}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default copy constructor. 
+
+\mbox{\Hypertarget{classArcade_1_1Menu_1_1Menu_ac7ab742774fa89a8286b3e9e984ab753}\label{classArcade_1_1Menu_1_1Menu_ac7ab742774fa89a8286b3e9e984ab753}} 
+\index{Arcade::Menu::Menu@{Arcade::Menu::Menu}!````~Menu@{$\sim$Menu}}
+\index{````~Menu@{$\sim$Menu}!Arcade::Menu::Menu@{Arcade::Menu::Menu}}
+\doxysubsubsection{\texorpdfstring{$\sim$Menu()}{~Menu()}}
+{\footnotesize\ttfamily Arcade\+::\+Menu\+::\+Menu\+::$\sim$\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArcade_1_1Menu_1_1Menu_ae4f83d6fac5c3592e1262f25b149683b}\label{classArcade_1_1Menu_1_1Menu_ae4f83d6fac5c3592e1262f25b149683b}} 
+\index{Arcade::Menu::Menu@{Arcade::Menu::Menu}!addTicks@{addTicks}}
+\index{addTicks@{addTicks}!Arcade::Menu::Menu@{Arcade::Menu::Menu}}
+\doxysubsubsection{\texorpdfstring{addTicks()}{addTicks()}}
+{\footnotesize\ttfamily void Arcade\+::\+Menu\+::\+Menu\+::add\+Ticks (\begin{DoxyParamCaption}\item[{unsigned}]{tick }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Advance the game of x seconds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tick} & The number of ticks that occured since the last call. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_adec58643e22471155f5be4676c448494}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Menu_1_1Menu_a1cc112611ddad9f44c81709bc9c605f3}\label{classArcade_1_1Menu_1_1Menu_a1cc112611ddad9f44c81709bc9c605f3}} 
+\index{Arcade::Menu::Menu@{Arcade::Menu::Menu}!close@{close}}
+\index{close@{close}!Arcade::Menu::Menu@{Arcade::Menu::Menu}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily bool Arcade\+::\+Menu\+::\+Menu\+::close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Allow to say to the library to shutdown and free it\textquotesingle{}s content. 
+
+\begin{DoxyReturn}{Returns}
+True if the shutdown was successful. False otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IModule_a82aa04f751b491246adf65f40fecef04}{Arcade\+::\+I\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Menu_1_1Menu_ae0e3a9eaef36609f77ef732f3e3d5c4a}\label{classArcade_1_1Menu_1_1Menu_ae0e3a9eaef36609f77ef732f3e3d5c4a}} 
+\index{Arcade::Menu::Menu@{Arcade::Menu::Menu}!getDrawables@{getDrawables}}
+\index{getDrawables@{getDrawables}!Arcade::Menu::Menu@{Arcade::Menu::Menu}}
+\doxysubsubsection{\texorpdfstring{getDrawables()}{getDrawables()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable}{Drawables\+::\+A\+Drawable}} $>$ $>$ \& Arcade\+::\+Menu\+::\+Menu\+::get\+Drawables (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Return a list of drawables to display. 
+
+\begin{DoxyReturn}{Returns}
+The list of objects 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_a2f5b001141785fcd80197637221ca229}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Menu_1_1Menu_af5d40d44ca0d8421ca90e98706544778}\label{classArcade_1_1Menu_1_1Menu_af5d40d44ca0d8421ca90e98706544778}} 
+\index{Arcade::Menu::Menu@{Arcade::Menu::Menu}!getResources@{getResources}}
+\index{getResources@{getResources}!Arcade::Menu::Menu@{Arcade::Menu::Menu}}
+\doxysubsubsection{\texorpdfstring{getResources()}{getResources()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$ \& Arcade\+::\+Menu\+::\+Menu\+::get\+Resources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get resources to preload. @info Only called once. 
+
+\begin{DoxyReturn}{Returns}
+A vector of tupple of (type of resource, path of the resource). 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_a8dc5ea0cec5cebe5704f293051c75f74}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Menu_1_1Menu_a5722ba333ceb2b5b357f7b73cf4d7a8c}\label{classArcade_1_1Menu_1_1Menu_a5722ba333ceb2b5b357f7b73cf4d7a8c}} 
+\index{Arcade::Menu::Menu@{Arcade::Menu::Menu}!getScore@{getScore}}
+\index{getScore@{getScore}!Arcade::Menu::Menu@{Arcade::Menu::Menu}}
+\doxysubsubsection{\texorpdfstring{getScore()}{getScore()}}
+{\footnotesize\ttfamily unsigned long Arcade\+::\+Menu\+::\+Menu\+::get\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the score (used for saving/displaying) 
+
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_a0c82c58e99bdb889d3d85c588ed8f297}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Menu_1_1Menu_a9e325daa66cee96c837a3033edaead09}\label{classArcade_1_1Menu_1_1Menu_a9e325daa66cee96c837a3033edaead09}} 
+\index{Arcade::Menu::Menu@{Arcade::Menu::Menu}!getSounds@{getSounds}}
+\index{getSounds@{getSounds}!Arcade::Menu::Menu@{Arcade::Menu::Menu}}
+\doxysubsubsection{\texorpdfstring{getSounds()}{getSounds()}}
+{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Sound}{Sound}} $>$ \& Arcade\+::\+Menu\+::\+Menu\+::get\+Sounds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Return a list of sounds to make. 
+
+\begin{DoxyReturn}{Returns}
+The list of sounds 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_afd5b835dfe34c61b0e45997d37e2c90b}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Menu_1_1Menu_ab96b34207ec84094a9b2b452a9d05e35}\label{classArcade_1_1Menu_1_1Menu_ab96b34207ec84094a9b2b452a9d05e35}} 
+\index{Arcade::Menu::Menu@{Arcade::Menu::Menu}!getType@{getType}}
+\index{getType@{getType}!Arcade::Menu::Menu@{Arcade::Menu::Menu}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1ModInfo_a4d7a18796fb91858a198412f8a4d4144}{Mod\+Info\+::\+Modtype}} Arcade\+::\+Menu\+::\+Menu\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the type of this module. 
+
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IModule_a534f4e6b76c611fdf62ec3e7beb7870d}{Arcade\+::\+I\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Menu_1_1Menu_a23351b89c936b06a1494726e93842a75}\label{classArcade_1_1Menu_1_1Menu_a23351b89c936b06a1494726e93842a75}} 
+\index{Arcade::Menu::Menu@{Arcade::Menu::Menu}!handleEvent@{handleEvent}}
+\index{handleEvent@{handleEvent}!Arcade::Menu::Menu@{Arcade::Menu::Menu}}
+\doxysubsubsection{\texorpdfstring{handleEvent()}{handleEvent()}}
+{\footnotesize\ttfamily void Arcade\+::\+Menu\+::\+Menu\+::handle\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArcade_1_1Event}{Event}} \&}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handle one event (A key press, a click, a close event...) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & The event to handle. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_a0198c5400c7981528cbdf2db92eb903d}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Menu_1_1Menu_a1161a85895c3d880567c63d400aa597b}\label{classArcade_1_1Menu_1_1Menu_a1161a85895c3d880567c63d400aa597b}} 
+\index{Arcade::Menu::Menu@{Arcade::Menu::Menu}!init@{init}}
+\index{init@{init}!Arcade::Menu::Menu@{Arcade::Menu::Menu}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool Arcade\+::\+Menu\+::\+Menu\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Initialize this library. (Create windows \& so on) 
+
+\begin{DoxyReturn}{Returns}
+True if the initialization was successful. False otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IModule_a183763cc9e8fab4462004ed3e50ae93e}{Arcade\+::\+I\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Menu_1_1Menu_a4449d66bbf02b5fb2216131d018de4e2}\label{classArcade_1_1Menu_1_1Menu_a4449d66bbf02b5fb2216131d018de4e2}} 
+\index{Arcade::Menu::Menu@{Arcade::Menu::Menu}!operator=@{operator=}}
+\index{operator=@{operator=}!Arcade::Menu::Menu@{Arcade::Menu::Menu}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu}{Menu}}\& Arcade\+::\+Menu\+::\+Menu\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classArcade_1_1Menu_1_1Menu}{Menu}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Deleted assignment operator. 
+
+\mbox{\Hypertarget{classArcade_1_1Menu_1_1Menu_a84ef440b1e081538a9df565580a8dff5}\label{classArcade_1_1Menu_1_1Menu_a84ef440b1e081538a9df565580a8dff5}} 
+\index{Arcade::Menu::Menu@{Arcade::Menu::Menu}!restart@{restart}}
+\index{restart@{restart}!Arcade::Menu::Menu@{Arcade::Menu::Menu}}
+\doxysubsubsection{\texorpdfstring{restart()}{restart()}}
+{\footnotesize\ttfamily void Arcade\+::\+Menu\+::\+Menu\+::restart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Restart the game. 
+
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_ae36f03337f8532a267319ef75057e741}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Menu_1_1Menu_a51d5efab2335d2383813be422e147544}\label{classArcade_1_1Menu_1_1Menu_a51d5efab2335d2383813be422e147544}} 
+\index{Arcade::Menu::Menu@{Arcade::Menu::Menu}!shouldClose@{shouldClose}}
+\index{shouldClose@{shouldClose}!Arcade::Menu::Menu@{Arcade::Menu::Menu}}
+\doxysubsubsection{\texorpdfstring{shouldClose()}{shouldClose()}}
+{\footnotesize\ttfamily bool Arcade\+::\+Menu\+::\+Menu\+::should\+Close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should this module be closed? 
+
+\begin{DoxyReturn}{Returns}
+True if this module should be closed. False otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IModule_a7cefb3047a6c4b99ae5288138ea80ccc}{Arcade\+::\+I\+Module}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classArcade_1_1Menu_1_1Menu_a630f9d811decadfa66ebdcc7a4aa56b3}\label{classArcade_1_1Menu_1_1Menu_a630f9d811decadfa66ebdcc7a4aa56b3}} 
+\index{Arcade::Menu::Menu@{Arcade::Menu::Menu}!\_drawables@{\_drawables}}
+\index{\_drawables@{\_drawables}!Arcade::Menu::Menu@{Arcade::Menu::Menu}}
+\doxysubsubsection{\texorpdfstring{\_drawables}{\_drawables}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable}{Drawables\+::\+A\+Drawable}}$>$ $>$ Arcade\+::\+Menu\+::\+Menu\+::\+\_\+drawables = \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+List of drawables. 
+
+\mbox{\Hypertarget{classArcade_1_1Menu_1_1Menu_ad42268e9fd765697ec54340f48906c84}\label{classArcade_1_1Menu_1_1Menu_ad42268e9fd765697ec54340f48906c84}} 
+\index{Arcade::Menu::Menu@{Arcade::Menu::Menu}!\_resources@{\_resources}}
+\index{\_resources@{\_resources}!Arcade::Menu::Menu@{Arcade::Menu::Menu}}
+\doxysubsubsection{\texorpdfstring{\_resources}{\_resources}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::pair$<$std\+::string, std\+::string$>$ $>$ Arcade\+::\+Menu\+::\+Menu\+::\+\_\+resources = \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+List of resources. 
+
+\mbox{\Hypertarget{classArcade_1_1Menu_1_1Menu_a7bbf021efca976111c983c573e6e814c}\label{classArcade_1_1Menu_1_1Menu_a7bbf021efca976111c983c573e6e814c}} 
+\index{Arcade::Menu::Menu@{Arcade::Menu::Menu}!\_runner@{\_runner}}
+\index{\_runner@{\_runner}!Arcade::Menu::Menu@{Arcade::Menu::Menu}}
+\doxysubsubsection{\texorpdfstring{\_runner}{\_runner}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classArcade_1_1Core_1_1Runner}{Core\+::\+Runner}}\& Arcade\+::\+Menu\+::\+Menu\+::\+\_\+runner\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Instance of the runner. 
+
+\mbox{\Hypertarget{classArcade_1_1Menu_1_1Menu_a242917c8ff708f092f318ba9be018b2d}\label{classArcade_1_1Menu_1_1Menu_a242917c8ff708f092f318ba9be018b2d}} 
+\index{Arcade::Menu::Menu@{Arcade::Menu::Menu}!\_shouldClose@{\_shouldClose}}
+\index{\_shouldClose@{\_shouldClose}!Arcade::Menu::Menu@{Arcade::Menu::Menu}}
+\doxysubsubsection{\texorpdfstring{\_shouldClose}{\_shouldClose}}
+{\footnotesize\ttfamily bool Arcade\+::\+Menu\+::\+Menu\+::\+\_\+should\+Close = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Should the menu close? 
+
+\mbox{\Hypertarget{classArcade_1_1Menu_1_1Menu_aee7f872453fe4382af2d5da493cb1824}\label{classArcade_1_1Menu_1_1Menu_aee7f872453fe4382af2d5da493cb1824}} 
+\index{Arcade::Menu::Menu@{Arcade::Menu::Menu}!\_sounds@{\_sounds}}
+\index{\_sounds@{\_sounds}!Arcade::Menu::Menu@{Arcade::Menu::Menu}}
+\doxysubsubsection{\texorpdfstring{\_sounds}{\_sounds}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structArcade_1_1Sound}{Sound}}$>$ Arcade\+::\+Menu\+::\+Menu\+::\+\_\+sounds = \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+List of sounds. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+sources/\+Games/\+Menu/\mbox{\hyperlink{Menu_8hpp}{Menu.\+hpp}}\item 
+sources/\+Games/\+Menu/\mbox{\hyperlink{Menu_8cpp}{Menu.\+cpp}}\end{DoxyCompactItemize}

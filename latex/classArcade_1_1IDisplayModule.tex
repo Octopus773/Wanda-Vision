@@ -1,0 +1,282 @@
+\hypertarget{classArcade_1_1IDisplayModule}{}\doxysection{Arcade\+::I\+Display\+Module Class Reference}
+\label{classArcade_1_1IDisplayModule}\index{Arcade::IDisplayModule@{Arcade::IDisplayModule}}
+
+
+The interface of every display modules.  
+
+
+
+
+{\ttfamily \#include $<$I\+Display\+Module.\+hpp$>$}
+
+
+
+Inheritance diagram for Arcade\+::I\+Display\+Module\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classArcade_1_1IDisplayModule__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arcade\+::I\+Display\+Module\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{classArcade_1_1IDisplayModule__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classArcade_1_1IDisplayModule_ac4f6c83159bddedb70603c9e9a3ce2fa}{$\sim$\+I\+Display\+Module}} () override=default
+\begin{DoxyCompactList}\small\item\em Virtual destructror. \end{DoxyCompactList}\item 
+virtual std\+::list$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structArcade_1_1Event}{Event}} $>$ $>$ \mbox{\hyperlink{classArcade_1_1IDisplayModule_a25c8d9013fb6eed456341b85691f97c7}{pull\+Events}} ()=0
+\begin{DoxyCompactList}\small\item\em Pull events (Keys, Clicks, Closes...) \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classArcade_1_1IDisplayModule_a63239e506cb60623810321692c2c924d}{draw}} (\mbox{\hyperlink{structArcade_1_1Drawables_1_1Line}{Drawables\+::\+Line}} \&obj)=0
+\begin{DoxyCompactList}\small\item\em Draw a line. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classArcade_1_1IDisplayModule_a9e4edde61179334af1e018c4503117b4}{draw}} (\mbox{\hyperlink{structArcade_1_1Drawables_1_1Rectangle}{Drawables\+::\+Rectangle}} \&obj)=0
+\begin{DoxyCompactList}\small\item\em Draw a rectangle. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classArcade_1_1IDisplayModule_a3703cbc5bcd5cfc2daa6b2d28265b279}{draw}} (\mbox{\hyperlink{structArcade_1_1Drawables_1_1Circle}{Drawables\+::\+Circle}} \&obj)=0
+\begin{DoxyCompactList}\small\item\em Draw a circle. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classArcade_1_1IDisplayModule_a30fb6311ba3aa98aa97ea9b386b2846b}{draw}} (\mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} \&obj)=0
+\begin{DoxyCompactList}\small\item\em Draw a sprite. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classArcade_1_1IDisplayModule_a650e92aa57810de52391762d845d39d9}{draw}} (\mbox{\hyperlink{structArcade_1_1Drawables_1_1Text}{Drawables\+::\+Text}} \&obj)=0
+\begin{DoxyCompactList}\small\item\em Draw a text. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classArcade_1_1IDisplayModule_a4fd4b4a5b9e4ca3a1c69dfac79d1ee4f}{refresh}} ()=0
+\begin{DoxyCompactList}\small\item\em Refresh the screen, clear left-\/overs and draw requested objects. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classArcade_1_1IDisplayModule_af91d32f972408431ae5117cc63b26191}{load}} (const std\+::string \&type, const std\+::string \&path)=0
+\begin{DoxyCompactList}\small\item\em Load a resource. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classArcade_1_1IDisplayModule_af6af61745f3e54867c60d514969eff50}{unload}} (const std\+::string \&type, const std\+::string \&path)=0
+\begin{DoxyCompactList}\small\item\em Unload a resource. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classArcade_1_1IDisplayModule_a4ff89f9be3b7b7bfa8ce72d643755148}{unload\+All}} ()=0
+\begin{DoxyCompactList}\small\item\em Unload all resources loaded. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classArcade_1_1IDisplayModule_a50b3539b4cf62b35534c27a1f42b5f33}{play\+Sound}} (\mbox{\hyperlink{structArcade_1_1Sound}{Sound}} \&sound)=0
+\begin{DoxyCompactList}\small\item\em Play a sound. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The interface of every display modules. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classArcade_1_1IDisplayModule_ac4f6c83159bddedb70603c9e9a3ce2fa}\label{classArcade_1_1IDisplayModule_ac4f6c83159bddedb70603c9e9a3ce2fa}} 
+\index{Arcade::IDisplayModule@{Arcade::IDisplayModule}!````~IDisplayModule@{$\sim$IDisplayModule}}
+\index{````~IDisplayModule@{$\sim$IDisplayModule}!Arcade::IDisplayModule@{Arcade::IDisplayModule}}
+\doxysubsubsection{\texorpdfstring{$\sim$IDisplayModule()}{~IDisplayModule()}}
+{\footnotesize\ttfamily Arcade\+::\+I\+Display\+Module\+::$\sim$\+I\+Display\+Module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Virtual destructror. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArcade_1_1IDisplayModule_a3703cbc5bcd5cfc2daa6b2d28265b279}\label{classArcade_1_1IDisplayModule_a3703cbc5bcd5cfc2daa6b2d28265b279}} 
+\index{Arcade::IDisplayModule@{Arcade::IDisplayModule}!draw@{draw}}
+\index{draw@{draw}!Arcade::IDisplayModule@{Arcade::IDisplayModule}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily virtual bool Arcade\+::\+I\+Display\+Module\+::draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArcade_1_1Drawables_1_1Circle}{Drawables\+::\+Circle}} \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Draw a circle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & The circle to draw. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the circle could be drawned. False otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a0f24c6f6cdb0883bde733f634fef219d}{Arcade\+::\+S\+F\+M\+L\+Display}}, \mbox{\hyperlink{classArcade_1_1SDLDisplay_a0d627dc6779843c3467c4343b471a072}{Arcade\+::\+S\+D\+L\+Display}}, and \mbox{\hyperlink{classArcade_1_1NcursesDisplay_af509dbdd85559da0e02ff8e5496857c6}{Arcade\+::\+Ncurses\+Display}}.
+
+\mbox{\Hypertarget{classArcade_1_1IDisplayModule_a63239e506cb60623810321692c2c924d}\label{classArcade_1_1IDisplayModule_a63239e506cb60623810321692c2c924d}} 
+\index{Arcade::IDisplayModule@{Arcade::IDisplayModule}!draw@{draw}}
+\index{draw@{draw}!Arcade::IDisplayModule@{Arcade::IDisplayModule}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily virtual bool Arcade\+::\+I\+Display\+Module\+::draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArcade_1_1Drawables_1_1Line}{Drawables\+::\+Line}} \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Draw a line. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & The line to draw. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the line could be drawned. False otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a92d9eb8d50a8bdc5aa0f1478de34835f}{Arcade\+::\+S\+F\+M\+L\+Display}}, \mbox{\hyperlink{classArcade_1_1SDLDisplay_a8aad3252c7f1b9cd271c22a5de437e65}{Arcade\+::\+S\+D\+L\+Display}}, and \mbox{\hyperlink{classArcade_1_1NcursesDisplay_a4cb2c3a14dda878ffdd602921680f8ed}{Arcade\+::\+Ncurses\+Display}}.
+
+\mbox{\Hypertarget{classArcade_1_1IDisplayModule_a9e4edde61179334af1e018c4503117b4}\label{classArcade_1_1IDisplayModule_a9e4edde61179334af1e018c4503117b4}} 
+\index{Arcade::IDisplayModule@{Arcade::IDisplayModule}!draw@{draw}}
+\index{draw@{draw}!Arcade::IDisplayModule@{Arcade::IDisplayModule}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily virtual bool Arcade\+::\+I\+Display\+Module\+::draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArcade_1_1Drawables_1_1Rectangle}{Drawables\+::\+Rectangle}} \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Draw a rectangle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & The rectangle to draw. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the rectangle could be drawned. False otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classArcade_1_1SFMLDisplay_ab466af0847718db4089642257d3b085e}{Arcade\+::\+S\+F\+M\+L\+Display}}, \mbox{\hyperlink{classArcade_1_1SDLDisplay_a0b96e44d53a74f6282064de61a9728e1}{Arcade\+::\+S\+D\+L\+Display}}, and \mbox{\hyperlink{classArcade_1_1NcursesDisplay_a002cf306956769d16fbb7949ec69a176}{Arcade\+::\+Ncurses\+Display}}.
+
+\mbox{\Hypertarget{classArcade_1_1IDisplayModule_a30fb6311ba3aa98aa97ea9b386b2846b}\label{classArcade_1_1IDisplayModule_a30fb6311ba3aa98aa97ea9b386b2846b}} 
+\index{Arcade::IDisplayModule@{Arcade::IDisplayModule}!draw@{draw}}
+\index{draw@{draw}!Arcade::IDisplayModule@{Arcade::IDisplayModule}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily virtual bool Arcade\+::\+I\+Display\+Module\+::draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Draw a sprite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & The sprite to draw. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the sprite could be drawned. False otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classArcade_1_1SFMLDisplay_ac3ccc1ce2d46a5781db8422b17344455}{Arcade\+::\+S\+F\+M\+L\+Display}}, \mbox{\hyperlink{classArcade_1_1SDLDisplay_a1908b65c481bcd6f5c9ab6267912d445}{Arcade\+::\+S\+D\+L\+Display}}, and \mbox{\hyperlink{classArcade_1_1NcursesDisplay_a41b64b76fd1025f32620616a341a0c3e}{Arcade\+::\+Ncurses\+Display}}.
+
+\mbox{\Hypertarget{classArcade_1_1IDisplayModule_a650e92aa57810de52391762d845d39d9}\label{classArcade_1_1IDisplayModule_a650e92aa57810de52391762d845d39d9}} 
+\index{Arcade::IDisplayModule@{Arcade::IDisplayModule}!draw@{draw}}
+\index{draw@{draw}!Arcade::IDisplayModule@{Arcade::IDisplayModule}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily virtual bool Arcade\+::\+I\+Display\+Module\+::draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArcade_1_1Drawables_1_1Text}{Drawables\+::\+Text}} \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Draw a text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & The text to draw. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the text could be drawned. False otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a93a86fe032e51ffb784d344764f4498b}{Arcade\+::\+S\+F\+M\+L\+Display}}, \mbox{\hyperlink{classArcade_1_1SDLDisplay_a5c868acac3574eded2e99e2f0deda1b4}{Arcade\+::\+S\+D\+L\+Display}}, and \mbox{\hyperlink{classArcade_1_1NcursesDisplay_a9a98e5293e9a6c0f0f1208d6fc2b8132}{Arcade\+::\+Ncurses\+Display}}.
+
+\mbox{\Hypertarget{classArcade_1_1IDisplayModule_af91d32f972408431ae5117cc63b26191}\label{classArcade_1_1IDisplayModule_af91d32f972408431ae5117cc63b26191}} 
+\index{Arcade::IDisplayModule@{Arcade::IDisplayModule}!load@{load}}
+\index{load@{load}!Arcade::IDisplayModule@{Arcade::IDisplayModule}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily virtual bool Arcade\+::\+I\+Display\+Module\+::load (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{type,  }\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Load a resource. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the resource was successfully loaded. False otherwise 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a3e028a793f3b9b9ad8711d85dc5f32b3}{Arcade\+::\+S\+F\+M\+L\+Display}}, \mbox{\hyperlink{classArcade_1_1SDLDisplay_a292259506f733bf125d057619b48426a}{Arcade\+::\+S\+D\+L\+Display}}, and \mbox{\hyperlink{classArcade_1_1NcursesDisplay_ac1b7acf82a99f8789564e6874f77bbb3}{Arcade\+::\+Ncurses\+Display}}.
+
+\mbox{\Hypertarget{classArcade_1_1IDisplayModule_a50b3539b4cf62b35534c27a1f42b5f33}\label{classArcade_1_1IDisplayModule_a50b3539b4cf62b35534c27a1f42b5f33}} 
+\index{Arcade::IDisplayModule@{Arcade::IDisplayModule}!playSound@{playSound}}
+\index{playSound@{playSound}!Arcade::IDisplayModule@{Arcade::IDisplayModule}}
+\doxysubsubsection{\texorpdfstring{playSound()}{playSound()}}
+{\footnotesize\ttfamily virtual void Arcade\+::\+I\+Display\+Module\+::play\+Sound (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArcade_1_1Sound}{Sound}} \&}]{sound }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Play a sound. 
+
+
+
+Implemented in \mbox{\hyperlink{classArcade_1_1SFMLDisplay_aa44e8a6e8842601234067146100e9ec9}{Arcade\+::\+S\+F\+M\+L\+Display}}, \mbox{\hyperlink{classArcade_1_1SDLDisplay_a9154e9b8809c0fe0f50eea5138751b02}{Arcade\+::\+S\+D\+L\+Display}}, and \mbox{\hyperlink{classArcade_1_1NcursesDisplay_a66fc572d5af22d3af34539a702740f2d}{Arcade\+::\+Ncurses\+Display}}.
+
+\mbox{\Hypertarget{classArcade_1_1IDisplayModule_a25c8d9013fb6eed456341b85691f97c7}\label{classArcade_1_1IDisplayModule_a25c8d9013fb6eed456341b85691f97c7}} 
+\index{Arcade::IDisplayModule@{Arcade::IDisplayModule}!pullEvents@{pullEvents}}
+\index{pullEvents@{pullEvents}!Arcade::IDisplayModule@{Arcade::IDisplayModule}}
+\doxysubsubsection{\texorpdfstring{pullEvents()}{pullEvents()}}
+{\footnotesize\ttfamily virtual std\+::list$<$std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{structArcade_1_1Event}{Event}}$>$ $>$ Arcade\+::\+I\+Display\+Module\+::pull\+Events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pull events (Keys, Clicks, Closes...) 
+
+\begin{DoxyReturn}{Returns}
+The list of events that occured. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a51f1d0466228f5f8b2a7c7e40499a53c}{Arcade\+::\+S\+F\+M\+L\+Display}}, \mbox{\hyperlink{classArcade_1_1SDLDisplay_a238ddb9c57fd10223113510333950d50}{Arcade\+::\+S\+D\+L\+Display}}, and \mbox{\hyperlink{classArcade_1_1NcursesDisplay_a5a94995e09191e24bffe938933025629}{Arcade\+::\+Ncurses\+Display}}.
+
+\mbox{\Hypertarget{classArcade_1_1IDisplayModule_a4fd4b4a5b9e4ca3a1c69dfac79d1ee4f}\label{classArcade_1_1IDisplayModule_a4fd4b4a5b9e4ca3a1c69dfac79d1ee4f}} 
+\index{Arcade::IDisplayModule@{Arcade::IDisplayModule}!refresh@{refresh}}
+\index{refresh@{refresh}!Arcade::IDisplayModule@{Arcade::IDisplayModule}}
+\doxysubsubsection{\texorpdfstring{refresh()}{refresh()}}
+{\footnotesize\ttfamily virtual bool Arcade\+::\+I\+Display\+Module\+::refresh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Refresh the screen, clear left-\/overs and draw requested objects. 
+
+
+
+Implemented in \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a9427ee0e72b9b861f8b554074cdd350e}{Arcade\+::\+S\+F\+M\+L\+Display}}, \mbox{\hyperlink{classArcade_1_1SDLDisplay_a4f440517b205ce9e2fed19cd0cb78f32}{Arcade\+::\+S\+D\+L\+Display}}, and \mbox{\hyperlink{classArcade_1_1NcursesDisplay_a13601a66444a083628e72cc5d44891f3}{Arcade\+::\+Ncurses\+Display}}.
+
+\mbox{\Hypertarget{classArcade_1_1IDisplayModule_af6af61745f3e54867c60d514969eff50}\label{classArcade_1_1IDisplayModule_af6af61745f3e54867c60d514969eff50}} 
+\index{Arcade::IDisplayModule@{Arcade::IDisplayModule}!unload@{unload}}
+\index{unload@{unload}!Arcade::IDisplayModule@{Arcade::IDisplayModule}}
+\doxysubsubsection{\texorpdfstring{unload()}{unload()}}
+{\footnotesize\ttfamily virtual void Arcade\+::\+I\+Display\+Module\+::unload (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{type,  }\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Unload a resource. 
+
+
+
+Implemented in \mbox{\hyperlink{classArcade_1_1SFMLDisplay_aea6ea912edccbf3f3a6c2012b20f3b0a}{Arcade\+::\+S\+F\+M\+L\+Display}}, \mbox{\hyperlink{classArcade_1_1SDLDisplay_a46f1f9ae80c99e565c6940d3c2ff4dce}{Arcade\+::\+S\+D\+L\+Display}}, and \mbox{\hyperlink{classArcade_1_1NcursesDisplay_a49e1d8f7239b51776c6c7fa4ffb78b72}{Arcade\+::\+Ncurses\+Display}}.
+
+\mbox{\Hypertarget{classArcade_1_1IDisplayModule_a4ff89f9be3b7b7bfa8ce72d643755148}\label{classArcade_1_1IDisplayModule_a4ff89f9be3b7b7bfa8ce72d643755148}} 
+\index{Arcade::IDisplayModule@{Arcade::IDisplayModule}!unloadAll@{unloadAll}}
+\index{unloadAll@{unloadAll}!Arcade::IDisplayModule@{Arcade::IDisplayModule}}
+\doxysubsubsection{\texorpdfstring{unloadAll()}{unloadAll()}}
+{\footnotesize\ttfamily virtual void Arcade\+::\+I\+Display\+Module\+::unload\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Unload all resources loaded. 
+
+
+
+Implemented in \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a945c1ee31115d5cf11baf6de6d55937d}{Arcade\+::\+S\+F\+M\+L\+Display}}, \mbox{\hyperlink{classArcade_1_1SDLDisplay_a1fcdb49ccf2117d9db2bb8140b32f131}{Arcade\+::\+S\+D\+L\+Display}}, and \mbox{\hyperlink{classArcade_1_1NcursesDisplay_a25cb55ae181c5f43fbe487d97bffd23b}{Arcade\+::\+Ncurses\+Display}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+sources/\+Common/\mbox{\hyperlink{IDisplayModule_8hpp}{I\+Display\+Module.\+hpp}}\end{DoxyCompactItemize}

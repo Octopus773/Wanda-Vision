@@ -1,0 +1,5 @@
+<map id="Arcade::Menu::Menu" name="Arcade::Menu::Menu">
+<area shape="rect" id="node1" title="A menu that allow the user to select a game and a display module." alt="" coords="11,417,166,759"/>
+<area shape="rect" id="node2" href="$classArcade_1_1IGameModule.html" title="The interface of all games." alt="" coords="5,189,172,369"/>
+<area shape="rect" id="node3" href="$classArcade_1_1IModule.html" title="A base module interface." alt="" coords="25,5,152,141"/>
+</map>

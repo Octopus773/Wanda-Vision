@@ -1,0 +1,6 @@
+<map id="Arcade::Event" name="Arcade::Event">
+<area shape="rect" id="node1" title="An empty event used as a base class." alt="" coords="263,5,375,83"/>
+<area shape="rect" id="node2" href="$structArcade_1_1Events_1_1KeyboardEvent.html" title="Event of a keyboard interaction." alt="" coords="5,145,193,237"/>
+<area shape="rect" id="node3" href="$structArcade_1_1Events_1_1MouseClickEvent.html" title="Event called after the mouse clicked (KeyDown, Hold or KeyUp)" alt="" coords="218,131,421,252"/>
+<area shape="rect" id="node4" href="$structArcade_1_1Events_1_1MouseMoveEvent.html" title="Event called when the mouse moved." alt="" coords="445,138,652,245"/>
+</map>

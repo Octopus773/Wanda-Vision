@@ -1,0 +1,9 @@
+<map id="Arcade::Nibbler::Nibbler" name="Arcade::Nibbler::Nibbler">
+<area shape="rect" id="node1" title="!" alt="" coords="278,448,481,1244"/>
+<area shape="rect" id="node2" href="$classArcade_1_1IGameModule.html" title="The interface of all games." alt="" coords="5,191,172,371"/>
+<area shape="rect" id="node3" href="$classArcade_1_1IModule.html" title="A base module interface." alt="" coords="25,5,152,141"/>
+<area shape="rect" id="node4" href="$structArcade_1_1Drawables_1_1Text.html" title="A text object." alt="" coords="197,227,375,334"/>
+<area shape="rect" id="node5" href="$structArcade_1_1Drawables_1_1ADrawable.html" title="A base struct for every objects in the game." alt="" coords="305,5,457,141"/>
+<area shape="rect" id="node7" href="$structArcade_1_1Drawables_1_1Sprite.html" title="A Sprite game object." alt="" coords="399,213,551,349"/>
+<area shape="rect" id="node6" href="$structArcade_1_1Nibbler_1_1Nibbler_1_1PendingMoves.html" title="Struct used to keep pending moves." alt="" coords="576,227,753,334"/>
+</map>

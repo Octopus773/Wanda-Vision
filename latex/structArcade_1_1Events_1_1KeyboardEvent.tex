@@ -1,0 +1,603 @@
+\hypertarget{structArcade_1_1Events_1_1KeyboardEvent}{}\doxysection{Arcade\+::Events\+::Keyboard\+Event Struct Reference}
+\label{structArcade_1_1Events_1_1KeyboardEvent}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}
+
+
+\mbox{\hyperlink{structArcade_1_1Event}{Event}} of a keyboard interaction.  
+
+
+
+
+{\ttfamily \#include $<$Key\+Board\+Event.\+hpp$>$}
+
+
+
+Inheritance diagram for Arcade\+::Events\+::Keyboard\+Event\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{structArcade_1_1Events_1_1KeyboardEvent__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arcade\+::Events\+::Keyboard\+Event\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{structArcade_1_1Events_1_1KeyboardEvent__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154b}{Key\+Code}} \{ \newline
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baad1444ba5163b5f70ec58db49662262a}{U\+N\+D\+E\+F\+I\+N\+ED}} = 0, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba57d61b98fd1a3a4c39644477cf8f7786}{B\+A\+C\+K\+S\+P\+A\+CE}} = 8, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba7320c0d98b29576729292d235069856a}{T\+AB}} = 9, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba03b679148a8a9c040a12cb0a6cefe232}{E\+N\+T\+ER}} = 13, 
+\newline
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba041479363cb2cc021f673a1d30de790a}{S\+H\+I\+FT}} = 16, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bab8f8fc4e8d66176f62c435b17bb28362}{C\+T\+RL}} = 17, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba440b0c2585bd1fcde6f0d926dad7ccda}{A\+LT}} = 18, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154babee1980a2eeb5d77bb6d075c819f0a24}{P\+A\+U\+SE}} = 19, 
+\newline
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba0f8b8d8c62e53a7b4bc455476b297506}{C\+A\+P\+S\+\_\+\+L\+O\+CK}} = 20, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba66439822eab7dac38f157a0eaa064dc8}{E\+S\+C\+A\+PE}} = 27, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bafb6de462e099c40bd20ade285ec88800}{S\+P\+A\+CE}} = 32, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba91f0fb4985d93942dd58ee6653e7d02d}{P\+A\+G\+E\+\_\+\+UP}} = 33, 
+\newline
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bafd6fabaa4da389d46922f2f011166674}{P\+A\+G\+E\+\_\+\+D\+O\+WN}} = 34, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baa4b2d1d2a015710648f4b49fb975d925}{E\+ND}} = 35, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baff4dbdbd75cbc69f3ec659dfec38920a}{H\+O\+ME}} = 36, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bacf887e5c460887dd18bb72c5f88bea63}{L\+E\+F\+T\+\_\+\+A\+R\+R\+OW}} = 37, 
+\newline
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bab6f110ec791133e16f4945abe44cbfe2}{U\+P\+\_\+\+A\+R\+R\+OW}} = 38, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baf3a32922b3ddad1a84e7e53cf684c769}{R\+I\+G\+H\+T\+\_\+\+A\+R\+R\+OW}} = 39, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bab87e2c8ccf6117e201f55f5cb86c29d1}{D\+O\+W\+N\+\_\+\+A\+R\+R\+OW}} = 40, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bad82058cfb38fdc6860a53ffd5f736ea4}{I\+N\+S\+E\+RT}} = 45, 
+\newline
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba81ce7824ff32ec522d3488e2109ea020}{D\+E\+L\+E\+TE}} = 46, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baacd94069199ada9f595bc0f1a45b7c3a}{K\+E\+Y\+\_\+0}} = 48, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bae4e4434023227b37f0d23c9e31dbb261}{K\+E\+Y\+\_\+1}} = 49, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba35ec405332f6767bb2d4bd3a00d2cd76}{K\+E\+Y\+\_\+2}} = 50, 
+\newline
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bab7a704bfa985e7be5ba0ac08646435c1}{K\+E\+Y\+\_\+3}} = 51, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba2ceef42dc98c133a0df383a680290cbc}{K\+E\+Y\+\_\+4}} = 52, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bae11bd2a7059d1addeed96c91bfb07fb7}{K\+E\+Y\+\_\+5}} = 53, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bae4fb4790e6b363bdf6f584b3a3825eee}{K\+E\+Y\+\_\+6}} = 54, 
+\newline
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba66c2d3456d90245e724a08987ba1a8a7}{K\+E\+Y\+\_\+7}} = 55, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baab16c683c4a82b41385a1a217adc36a7}{K\+E\+Y\+\_\+8}} = 56, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba6675200f874151c1c31dd7e04572acd4}{K\+E\+Y\+\_\+9}} = 57, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba7bf22460a1dbf44666f5653ba8e97d67}{K\+E\+Y\+\_\+A}} = 65, 
+\newline
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bad873f6c5efba4ec3fa34bc2161f82a5a}{K\+E\+Y\+\_\+B}} = 66, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bae07a5d16fd4a8519d3dbf197f06ec055}{K\+E\+Y\+\_\+C}} = 67, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baefa0f8cf0931170c2d2f8d2b750a6e29}{K\+E\+Y\+\_\+D}} = 68, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba87557e937edaced511e97a528d6d2ea3}{K\+E\+Y\+\_\+E}} = 69, 
+\newline
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bac55c8896c09c0e396d77eb6466b7d000}{K\+E\+Y\+\_\+F}} = 70, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba00b4922de7208733302142b04977ac5a}{K\+E\+Y\+\_\+G}} = 71, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba1c0063a995d6563f5ca355e74c67c38a}{K\+E\+Y\+\_\+H}} = 72, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba30da4687924bcac900423f4de1019735}{K\+E\+Y\+\_\+I}} = 73, 
+\newline
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba98c40c75893a4c84f67c202a2e66e01c}{K\+E\+Y\+\_\+J}} = 74, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baeae5075b2bd0dd369b0f88ef84e42096}{K\+E\+Y\+\_\+K}} = 75, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba0572db478c650aa79bc5f5ff75fa2aad}{K\+E\+Y\+\_\+L}} = 76, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba5622bde73f273adb35abd3d6545f7dab}{K\+E\+Y\+\_\+M}} = 77, 
+\newline
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba615106efa7b0add2260e6f76343ed53b}{K\+E\+Y\+\_\+N}} = 78, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba1789b9c048c7edd881a73e98aa1b1768}{K\+E\+Y\+\_\+O}} = 79, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba713f8b4811a441c8ed32933172befd38}{K\+E\+Y\+\_\+P}} = 80, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bac149dd7adf79ebc15c1c0e40f716dae0}{K\+E\+Y\+\_\+Q}} = 81, 
+\newline
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba327e4ea0372851397728e417e30cb1bc}{K\+E\+Y\+\_\+R}} = 82, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba837d621fb7a9ba0dadd7ad644558eae0}{K\+E\+Y\+\_\+S}} = 83, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba050e763cd580822950a6387810a56dc5}{K\+E\+Y\+\_\+T}} = 84, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baee74c8325e9fc73ee95e70924c9c10ec}{K\+E\+Y\+\_\+U}} = 85, 
+\newline
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baf5c94e2b51f31f4f53259dd0cbaf1607}{K\+E\+Y\+\_\+V}} = 86, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba2a908cb0cdf407aa9bbea37c428deeeb}{K\+E\+Y\+\_\+W}} = 87, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baf2de678ed4d9e73c2da2d13e08861a07}{K\+E\+Y\+\_\+X}} = 88, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba04f1f1ca1c58f00bf70abfbd5488826a}{K\+E\+Y\+\_\+Y}} = 89, 
+\newline
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba70110d236bafd6a0e8d43d00d9d6905b}{K\+E\+Y\+\_\+Z}} = 90, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bade6f87ba7adfe1cc88107a5aca4a0be9}{L\+E\+F\+T\+\_\+\+M\+E\+TA}} = 91, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba8184fa16ee40318e820b8f9ae0c5d35f}{R\+I\+G\+H\+T\+\_\+\+M\+E\+TA}} = 92, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba85a1a4d2e7a7f1ae89d9aa0cea1ef7fd}{S\+E\+L\+E\+CT}} = 93, 
+\newline
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba2cab54a156d075c6587539eb3fb08a27}{N\+U\+M\+P\+A\+D\+\_\+0}} = 96, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba31df7b95e1ef9a158693bff017a78c44}{N\+U\+M\+P\+A\+D\+\_\+1}} = 97, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba95a064307b53aa9c8a4b8548797cab8f}{N\+U\+M\+P\+A\+D\+\_\+2}} = 98, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba1b269b175f4bb6bc934e0f1345c0a9d0}{N\+U\+M\+P\+A\+D\+\_\+3}} = 99, 
+\newline
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba4bd52f1263fc30951bb041d9e0530992}{N\+U\+M\+P\+A\+D\+\_\+4}} = 100, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba39df64f572d28185bfb6dea8277716f2}{N\+U\+M\+P\+A\+D\+\_\+5}} = 101, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154babd4836e2469b39ede31b7d6cabf10105}{N\+U\+M\+P\+A\+D\+\_\+6}} = 102, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba2b8a68dd614e9ea48ee423f1b998dd83}{N\+U\+M\+P\+A\+D\+\_\+7}} = 103, 
+\newline
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba733a0abaa1d1303bb2e628756634370c}{N\+U\+M\+P\+A\+D\+\_\+8}} = 104, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba78f91de3eaa70b236932e1b26304b467}{N\+U\+M\+P\+A\+D\+\_\+9}} = 105, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba26b34e9fbe793fda89749c92e602d636}{M\+U\+L\+T\+I\+P\+LY}} = 106, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baed0c529f12de63c312eabac6a789d69e}{A\+DD}} = 107, 
+\newline
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bad5a87220476467d8ae1d34afe02d7b4e}{S\+U\+B\+T\+R\+A\+CT}} = 109, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba01e1b570657e7c061bd0d85d5228f0c5}{D\+E\+C\+I\+M\+AL}} = 110, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baf1043507799ac72dae83f7dbe999d645}{D\+I\+V\+I\+DE}} = 111, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba34fab6c75184bb6311348ea7495aa81e}{F1}} = 112, 
+\newline
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba49fe8fd44229a57711d9ac8c9ce535d6}{F2}} = 113, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bae4b03d2f3927a791a6bbf4e6214cddde}{F3}} = 114, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba9481d726a587b17183c5ecec464ccf58}{F4}} = 115, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba4e45372938956b4471bb966d3d6eeb9f}{F5}} = 116, 
+\newline
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bae334c9b7d393c61360712855b2369c02}{F6}} = 117, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba3c45607a42070e473b9ac0a0c085d15e}{F7}} = 118, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba1435d2ee29119aefdd684d7f97bd847b}{F8}} = 119, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bab7293c4bdedd7f52baa7a8af9502d3ed}{F9}} = 120, 
+\newline
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba883a0fa2e79ca2b324027617852b54a9}{F10}} = 121, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baaf3eacf806c45f0b2a040605ed13654a}{F11}} = 122, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba3b99aa54668fdd1c868107ac58cb0d01}{F12}} = 123, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba53c634372014ba031d2df9c5e29cd659}{N\+U\+M\+\_\+\+L\+O\+CK}} = 144, 
+\newline
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba14fb2be31294273583a07cd0e9ea30d9}{S\+C\+R\+O\+L\+L\+\_\+\+L\+O\+CK}} = 145, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba745094c7583f681a4501fa6588f3f2cd}{S\+E\+M\+I\+C\+O\+L\+ON}} = 186, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba0759239356a2bcbdd12d018776161604}{E\+Q\+U\+A\+LS}} = 187, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bac2c266421eac729c9e41b09048589631}{C\+O\+M\+MA}} = 188, 
+\newline
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba1ac760f9b75dbe62b03aefa524b2b71c}{D\+A\+SH}} = 189, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba8fdf1cbe2b2dc16d8b8dee7e33c602a1}{P\+E\+R\+I\+OD}} = 190, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba69f924e37d94ec0b63a2486317b8b472}{F\+O\+R\+W\+A\+R\+D\+\_\+\+S\+L\+A\+SH}} = 191, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baba0f8e6d4ecb28539ff1afbd4f8addc1}{G\+R\+A\+V\+E\+\_\+\+A\+C\+C\+E\+NT}} = 192, 
+\newline
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba7a79b4541295253f5fbef10b23b7cbf6}{O\+P\+E\+N\+\_\+\+B\+R\+A\+C\+K\+ET}} = 219, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba06176b23e4f79211ed6c8574a0c36ee3}{B\+A\+C\+K\+\_\+\+S\+L\+A\+SH}} = 220, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba52096d91e023172fa5422cc9050095b5}{C\+L\+O\+S\+E\+\_\+\+B\+R\+A\+C\+K\+ET}} = 221, 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba9311928c52671842ef33f3901ac1761a}{S\+I\+N\+G\+L\+E\+\_\+\+Q\+U\+O\+TE}} = 222
+ \}
+\begin{DoxyCompactList}\small\item\em The enum for keyboard keys to allow standardized values between graphical libs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154b}{Key\+Code}} \mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a4ee55646b18a55e55739b1d5e86f9f7e}{key}}
+\begin{DoxyCompactList}\small\item\em The key clicked. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{structArcade_1_1Event}{Event}} of a keyboard interaction. 
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154b}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154b}} 
+\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KeyCode@{KeyCode}}
+\index{KeyCode@{KeyCode}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}
+\doxysubsubsection{\texorpdfstring{KeyCode}{KeyCode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154b}{Arcade\+::\+Events\+::\+Keyboard\+Event\+::\+Key\+Code}}}
+
+
+
+The enum for keyboard keys to allow standardized values between graphical libs. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UNDEFINED@{UNDEFINED}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!UNDEFINED@{UNDEFINED}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baad1444ba5163b5f70ec58db49662262a}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baad1444ba5163b5f70ec58db49662262a}} 
+U\+N\+D\+E\+F\+I\+N\+ED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BACKSPACE@{BACKSPACE}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!BACKSPACE@{BACKSPACE}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba57d61b98fd1a3a4c39644477cf8f7786}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba57d61b98fd1a3a4c39644477cf8f7786}} 
+B\+A\+C\+K\+S\+P\+A\+CE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TAB@{TAB}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!TAB@{TAB}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba7320c0d98b29576729292d235069856a}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba7320c0d98b29576729292d235069856a}} 
+T\+AB&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ENTER@{ENTER}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!ENTER@{ENTER}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba03b679148a8a9c040a12cb0a6cefe232}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba03b679148a8a9c040a12cb0a6cefe232}} 
+E\+N\+T\+ER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SHIFT@{SHIFT}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!SHIFT@{SHIFT}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba041479363cb2cc021f673a1d30de790a}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba041479363cb2cc021f673a1d30de790a}} 
+S\+H\+I\+FT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CTRL@{CTRL}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!CTRL@{CTRL}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bab8f8fc4e8d66176f62c435b17bb28362}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bab8f8fc4e8d66176f62c435b17bb28362}} 
+C\+T\+RL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ALT@{ALT}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!ALT@{ALT}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba440b0c2585bd1fcde6f0d926dad7ccda}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba440b0c2585bd1fcde6f0d926dad7ccda}} 
+A\+LT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAUSE@{PAUSE}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!PAUSE@{PAUSE}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154babee1980a2eeb5d77bb6d075c819f0a24}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154babee1980a2eeb5d77bb6d075c819f0a24}} 
+P\+A\+U\+SE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAPS\_LOCK@{CAPS\_LOCK}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!CAPS\_LOCK@{CAPS\_LOCK}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba0f8b8d8c62e53a7b4bc455476b297506}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba0f8b8d8c62e53a7b4bc455476b297506}} 
+C\+A\+P\+S\+\_\+\+L\+O\+CK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ESCAPE@{ESCAPE}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!ESCAPE@{ESCAPE}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba66439822eab7dac38f157a0eaa064dc8}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba66439822eab7dac38f157a0eaa064dc8}} 
+E\+S\+C\+A\+PE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPACE@{SPACE}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!SPACE@{SPACE}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bafb6de462e099c40bd20ade285ec88800}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bafb6de462e099c40bd20ade285ec88800}} 
+S\+P\+A\+CE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAGE\_UP@{PAGE\_UP}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!PAGE\_UP@{PAGE\_UP}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba91f0fb4985d93942dd58ee6653e7d02d}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba91f0fb4985d93942dd58ee6653e7d02d}} 
+P\+A\+G\+E\+\_\+\+UP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAGE\_DOWN@{PAGE\_DOWN}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!PAGE\_DOWN@{PAGE\_DOWN}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bafd6fabaa4da389d46922f2f011166674}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bafd6fabaa4da389d46922f2f011166674}} 
+P\+A\+G\+E\+\_\+\+D\+O\+WN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{END@{END}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!END@{END}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baa4b2d1d2a015710648f4b49fb975d925}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baa4b2d1d2a015710648f4b49fb975d925}} 
+E\+ND&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HOME@{HOME}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!HOME@{HOME}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baff4dbdbd75cbc69f3ec659dfec38920a}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baff4dbdbd75cbc69f3ec659dfec38920a}} 
+H\+O\+ME&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEFT\_ARROW@{LEFT\_ARROW}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!LEFT\_ARROW@{LEFT\_ARROW}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bacf887e5c460887dd18bb72c5f88bea63}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bacf887e5c460887dd18bb72c5f88bea63}} 
+L\+E\+F\+T\+\_\+\+A\+R\+R\+OW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UP\_ARROW@{UP\_ARROW}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!UP\_ARROW@{UP\_ARROW}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bab6f110ec791133e16f4945abe44cbfe2}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bab6f110ec791133e16f4945abe44cbfe2}} 
+U\+P\+\_\+\+A\+R\+R\+OW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RIGHT\_ARROW@{RIGHT\_ARROW}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!RIGHT\_ARROW@{RIGHT\_ARROW}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baf3a32922b3ddad1a84e7e53cf684c769}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baf3a32922b3ddad1a84e7e53cf684c769}} 
+R\+I\+G\+H\+T\+\_\+\+A\+R\+R\+OW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DOWN\_ARROW@{DOWN\_ARROW}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!DOWN\_ARROW@{DOWN\_ARROW}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bab87e2c8ccf6117e201f55f5cb86c29d1}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bab87e2c8ccf6117e201f55f5cb86c29d1}} 
+D\+O\+W\+N\+\_\+\+A\+R\+R\+OW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INSERT@{INSERT}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!INSERT@{INSERT}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bad82058cfb38fdc6860a53ffd5f736ea4}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bad82058cfb38fdc6860a53ffd5f736ea4}} 
+I\+N\+S\+E\+RT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DELETE@{DELETE}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!DELETE@{DELETE}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba81ce7824ff32ec522d3488e2109ea020}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba81ce7824ff32ec522d3488e2109ea020}} 
+D\+E\+L\+E\+TE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_0@{KEY\_0}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_0@{KEY\_0}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baacd94069199ada9f595bc0f1a45b7c3a}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baacd94069199ada9f595bc0f1a45b7c3a}} 
+K\+E\+Y\+\_\+0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_1@{KEY\_1}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_1@{KEY\_1}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bae4e4434023227b37f0d23c9e31dbb261}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bae4e4434023227b37f0d23c9e31dbb261}} 
+K\+E\+Y\+\_\+1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_2@{KEY\_2}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_2@{KEY\_2}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba35ec405332f6767bb2d4bd3a00d2cd76}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba35ec405332f6767bb2d4bd3a00d2cd76}} 
+K\+E\+Y\+\_\+2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_3@{KEY\_3}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_3@{KEY\_3}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bab7a704bfa985e7be5ba0ac08646435c1}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bab7a704bfa985e7be5ba0ac08646435c1}} 
+K\+E\+Y\+\_\+3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_4@{KEY\_4}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_4@{KEY\_4}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba2ceef42dc98c133a0df383a680290cbc}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba2ceef42dc98c133a0df383a680290cbc}} 
+K\+E\+Y\+\_\+4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_5@{KEY\_5}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_5@{KEY\_5}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bae11bd2a7059d1addeed96c91bfb07fb7}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bae11bd2a7059d1addeed96c91bfb07fb7}} 
+K\+E\+Y\+\_\+5&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_6@{KEY\_6}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_6@{KEY\_6}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bae4fb4790e6b363bdf6f584b3a3825eee}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bae4fb4790e6b363bdf6f584b3a3825eee}} 
+K\+E\+Y\+\_\+6&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_7@{KEY\_7}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_7@{KEY\_7}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba66c2d3456d90245e724a08987ba1a8a7}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba66c2d3456d90245e724a08987ba1a8a7}} 
+K\+E\+Y\+\_\+7&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_8@{KEY\_8}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_8@{KEY\_8}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baab16c683c4a82b41385a1a217adc36a7}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baab16c683c4a82b41385a1a217adc36a7}} 
+K\+E\+Y\+\_\+8&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_9@{KEY\_9}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_9@{KEY\_9}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba6675200f874151c1c31dd7e04572acd4}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba6675200f874151c1c31dd7e04572acd4}} 
+K\+E\+Y\+\_\+9&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_A@{KEY\_A}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_A@{KEY\_A}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba7bf22460a1dbf44666f5653ba8e97d67}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba7bf22460a1dbf44666f5653ba8e97d67}} 
+K\+E\+Y\+\_\+A&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_B@{KEY\_B}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_B@{KEY\_B}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bad873f6c5efba4ec3fa34bc2161f82a5a}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bad873f6c5efba4ec3fa34bc2161f82a5a}} 
+K\+E\+Y\+\_\+B&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_C@{KEY\_C}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_C@{KEY\_C}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bae07a5d16fd4a8519d3dbf197f06ec055}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bae07a5d16fd4a8519d3dbf197f06ec055}} 
+K\+E\+Y\+\_\+C&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_D@{KEY\_D}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_D@{KEY\_D}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baefa0f8cf0931170c2d2f8d2b750a6e29}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baefa0f8cf0931170c2d2f8d2b750a6e29}} 
+K\+E\+Y\+\_\+D&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_E@{KEY\_E}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_E@{KEY\_E}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba87557e937edaced511e97a528d6d2ea3}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba87557e937edaced511e97a528d6d2ea3}} 
+K\+E\+Y\+\_\+E&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_F@{KEY\_F}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_F@{KEY\_F}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bac55c8896c09c0e396d77eb6466b7d000}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bac55c8896c09c0e396d77eb6466b7d000}} 
+K\+E\+Y\+\_\+F&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_G@{KEY\_G}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_G@{KEY\_G}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba00b4922de7208733302142b04977ac5a}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba00b4922de7208733302142b04977ac5a}} 
+K\+E\+Y\+\_\+G&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_H@{KEY\_H}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_H@{KEY\_H}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba1c0063a995d6563f5ca355e74c67c38a}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba1c0063a995d6563f5ca355e74c67c38a}} 
+K\+E\+Y\+\_\+H&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_I@{KEY\_I}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_I@{KEY\_I}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba30da4687924bcac900423f4de1019735}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba30da4687924bcac900423f4de1019735}} 
+K\+E\+Y\+\_\+I&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_J@{KEY\_J}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_J@{KEY\_J}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba98c40c75893a4c84f67c202a2e66e01c}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba98c40c75893a4c84f67c202a2e66e01c}} 
+K\+E\+Y\+\_\+J&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_K@{KEY\_K}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_K@{KEY\_K}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baeae5075b2bd0dd369b0f88ef84e42096}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baeae5075b2bd0dd369b0f88ef84e42096}} 
+K\+E\+Y\+\_\+K&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_L@{KEY\_L}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_L@{KEY\_L}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba0572db478c650aa79bc5f5ff75fa2aad}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba0572db478c650aa79bc5f5ff75fa2aad}} 
+K\+E\+Y\+\_\+L&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_M@{KEY\_M}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_M@{KEY\_M}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba5622bde73f273adb35abd3d6545f7dab}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba5622bde73f273adb35abd3d6545f7dab}} 
+K\+E\+Y\+\_\+M&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_N@{KEY\_N}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_N@{KEY\_N}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba615106efa7b0add2260e6f76343ed53b}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba615106efa7b0add2260e6f76343ed53b}} 
+K\+E\+Y\+\_\+N&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_O@{KEY\_O}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_O@{KEY\_O}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba1789b9c048c7edd881a73e98aa1b1768}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba1789b9c048c7edd881a73e98aa1b1768}} 
+K\+E\+Y\+\_\+O&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_P@{KEY\_P}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_P@{KEY\_P}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba713f8b4811a441c8ed32933172befd38}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba713f8b4811a441c8ed32933172befd38}} 
+K\+E\+Y\+\_\+P&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_Q@{KEY\_Q}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_Q@{KEY\_Q}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bac149dd7adf79ebc15c1c0e40f716dae0}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bac149dd7adf79ebc15c1c0e40f716dae0}} 
+K\+E\+Y\+\_\+Q&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_R@{KEY\_R}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_R@{KEY\_R}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba327e4ea0372851397728e417e30cb1bc}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba327e4ea0372851397728e417e30cb1bc}} 
+K\+E\+Y\+\_\+R&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_S@{KEY\_S}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_S@{KEY\_S}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba837d621fb7a9ba0dadd7ad644558eae0}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba837d621fb7a9ba0dadd7ad644558eae0}} 
+K\+E\+Y\+\_\+S&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_T@{KEY\_T}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_T@{KEY\_T}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba050e763cd580822950a6387810a56dc5}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba050e763cd580822950a6387810a56dc5}} 
+K\+E\+Y\+\_\+T&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_U@{KEY\_U}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_U@{KEY\_U}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baee74c8325e9fc73ee95e70924c9c10ec}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baee74c8325e9fc73ee95e70924c9c10ec}} 
+K\+E\+Y\+\_\+U&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_V@{KEY\_V}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_V@{KEY\_V}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baf5c94e2b51f31f4f53259dd0cbaf1607}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baf5c94e2b51f31f4f53259dd0cbaf1607}} 
+K\+E\+Y\+\_\+V&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_W@{KEY\_W}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_W@{KEY\_W}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba2a908cb0cdf407aa9bbea37c428deeeb}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba2a908cb0cdf407aa9bbea37c428deeeb}} 
+K\+E\+Y\+\_\+W&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_X@{KEY\_X}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_X@{KEY\_X}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baf2de678ed4d9e73c2da2d13e08861a07}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baf2de678ed4d9e73c2da2d13e08861a07}} 
+K\+E\+Y\+\_\+X&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_Y@{KEY\_Y}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_Y@{KEY\_Y}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba04f1f1ca1c58f00bf70abfbd5488826a}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba04f1f1ca1c58f00bf70abfbd5488826a}} 
+K\+E\+Y\+\_\+Y&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEY\_Z@{KEY\_Z}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!KEY\_Z@{KEY\_Z}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba70110d236bafd6a0e8d43d00d9d6905b}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba70110d236bafd6a0e8d43d00d9d6905b}} 
+K\+E\+Y\+\_\+Z&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEFT\_META@{LEFT\_META}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!LEFT\_META@{LEFT\_META}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bade6f87ba7adfe1cc88107a5aca4a0be9}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bade6f87ba7adfe1cc88107a5aca4a0be9}} 
+L\+E\+F\+T\+\_\+\+M\+E\+TA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RIGHT\_META@{RIGHT\_META}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!RIGHT\_META@{RIGHT\_META}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba8184fa16ee40318e820b8f9ae0c5d35f}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba8184fa16ee40318e820b8f9ae0c5d35f}} 
+R\+I\+G\+H\+T\+\_\+\+M\+E\+TA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SELECT@{SELECT}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!SELECT@{SELECT}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba85a1a4d2e7a7f1ae89d9aa0cea1ef7fd}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba85a1a4d2e7a7f1ae89d9aa0cea1ef7fd}} 
+S\+E\+L\+E\+CT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUMPAD\_0@{NUMPAD\_0}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!NUMPAD\_0@{NUMPAD\_0}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba2cab54a156d075c6587539eb3fb08a27}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba2cab54a156d075c6587539eb3fb08a27}} 
+N\+U\+M\+P\+A\+D\+\_\+0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUMPAD\_1@{NUMPAD\_1}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!NUMPAD\_1@{NUMPAD\_1}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba31df7b95e1ef9a158693bff017a78c44}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba31df7b95e1ef9a158693bff017a78c44}} 
+N\+U\+M\+P\+A\+D\+\_\+1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUMPAD\_2@{NUMPAD\_2}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!NUMPAD\_2@{NUMPAD\_2}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba95a064307b53aa9c8a4b8548797cab8f}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba95a064307b53aa9c8a4b8548797cab8f}} 
+N\+U\+M\+P\+A\+D\+\_\+2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUMPAD\_3@{NUMPAD\_3}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!NUMPAD\_3@{NUMPAD\_3}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba1b269b175f4bb6bc934e0f1345c0a9d0}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba1b269b175f4bb6bc934e0f1345c0a9d0}} 
+N\+U\+M\+P\+A\+D\+\_\+3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUMPAD\_4@{NUMPAD\_4}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!NUMPAD\_4@{NUMPAD\_4}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba4bd52f1263fc30951bb041d9e0530992}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba4bd52f1263fc30951bb041d9e0530992}} 
+N\+U\+M\+P\+A\+D\+\_\+4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUMPAD\_5@{NUMPAD\_5}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!NUMPAD\_5@{NUMPAD\_5}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba39df64f572d28185bfb6dea8277716f2}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba39df64f572d28185bfb6dea8277716f2}} 
+N\+U\+M\+P\+A\+D\+\_\+5&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUMPAD\_6@{NUMPAD\_6}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!NUMPAD\_6@{NUMPAD\_6}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154babd4836e2469b39ede31b7d6cabf10105}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154babd4836e2469b39ede31b7d6cabf10105}} 
+N\+U\+M\+P\+A\+D\+\_\+6&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUMPAD\_7@{NUMPAD\_7}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!NUMPAD\_7@{NUMPAD\_7}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba2b8a68dd614e9ea48ee423f1b998dd83}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba2b8a68dd614e9ea48ee423f1b998dd83}} 
+N\+U\+M\+P\+A\+D\+\_\+7&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUMPAD\_8@{NUMPAD\_8}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!NUMPAD\_8@{NUMPAD\_8}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba733a0abaa1d1303bb2e628756634370c}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba733a0abaa1d1303bb2e628756634370c}} 
+N\+U\+M\+P\+A\+D\+\_\+8&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUMPAD\_9@{NUMPAD\_9}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!NUMPAD\_9@{NUMPAD\_9}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba78f91de3eaa70b236932e1b26304b467}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba78f91de3eaa70b236932e1b26304b467}} 
+N\+U\+M\+P\+A\+D\+\_\+9&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MULTIPLY@{MULTIPLY}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!MULTIPLY@{MULTIPLY}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba26b34e9fbe793fda89749c92e602d636}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba26b34e9fbe793fda89749c92e602d636}} 
+M\+U\+L\+T\+I\+P\+LY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADD@{ADD}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!ADD@{ADD}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baed0c529f12de63c312eabac6a789d69e}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baed0c529f12de63c312eabac6a789d69e}} 
+A\+DD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SUBTRACT@{SUBTRACT}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!SUBTRACT@{SUBTRACT}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bad5a87220476467d8ae1d34afe02d7b4e}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bad5a87220476467d8ae1d34afe02d7b4e}} 
+S\+U\+B\+T\+R\+A\+CT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DECIMAL@{DECIMAL}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!DECIMAL@{DECIMAL}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba01e1b570657e7c061bd0d85d5228f0c5}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba01e1b570657e7c061bd0d85d5228f0c5}} 
+D\+E\+C\+I\+M\+AL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DIVIDE@{DIVIDE}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!DIVIDE@{DIVIDE}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baf1043507799ac72dae83f7dbe999d645}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baf1043507799ac72dae83f7dbe999d645}} 
+D\+I\+V\+I\+DE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F1@{F1}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!F1@{F1}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba34fab6c75184bb6311348ea7495aa81e}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba34fab6c75184bb6311348ea7495aa81e}} 
+F1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F2@{F2}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!F2@{F2}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba49fe8fd44229a57711d9ac8c9ce535d6}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba49fe8fd44229a57711d9ac8c9ce535d6}} 
+F2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F3@{F3}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!F3@{F3}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bae4b03d2f3927a791a6bbf4e6214cddde}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bae4b03d2f3927a791a6bbf4e6214cddde}} 
+F3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F4@{F4}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!F4@{F4}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba9481d726a587b17183c5ecec464ccf58}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba9481d726a587b17183c5ecec464ccf58}} 
+F4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F5@{F5}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!F5@{F5}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba4e45372938956b4471bb966d3d6eeb9f}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba4e45372938956b4471bb966d3d6eeb9f}} 
+F5&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F6@{F6}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!F6@{F6}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bae334c9b7d393c61360712855b2369c02}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bae334c9b7d393c61360712855b2369c02}} 
+F6&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F7@{F7}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!F7@{F7}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba3c45607a42070e473b9ac0a0c085d15e}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba3c45607a42070e473b9ac0a0c085d15e}} 
+F7&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F8@{F8}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!F8@{F8}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba1435d2ee29119aefdd684d7f97bd847b}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba1435d2ee29119aefdd684d7f97bd847b}} 
+F8&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F9@{F9}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!F9@{F9}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bab7293c4bdedd7f52baa7a8af9502d3ed}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bab7293c4bdedd7f52baa7a8af9502d3ed}} 
+F9&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F10@{F10}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!F10@{F10}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba883a0fa2e79ca2b324027617852b54a9}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba883a0fa2e79ca2b324027617852b54a9}} 
+F10&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F11@{F11}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!F11@{F11}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baaf3eacf806c45f0b2a040605ed13654a}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baaf3eacf806c45f0b2a040605ed13654a}} 
+F11&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F12@{F12}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!F12@{F12}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba3b99aa54668fdd1c868107ac58cb0d01}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba3b99aa54668fdd1c868107ac58cb0d01}} 
+F12&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUM\_LOCK@{NUM\_LOCK}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!NUM\_LOCK@{NUM\_LOCK}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba53c634372014ba031d2df9c5e29cd659}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba53c634372014ba031d2df9c5e29cd659}} 
+N\+U\+M\+\_\+\+L\+O\+CK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SCROLL\_LOCK@{SCROLL\_LOCK}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!SCROLL\_LOCK@{SCROLL\_LOCK}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba14fb2be31294273583a07cd0e9ea30d9}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba14fb2be31294273583a07cd0e9ea30d9}} 
+S\+C\+R\+O\+L\+L\+\_\+\+L\+O\+CK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SEMICOLON@{SEMICOLON}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!SEMICOLON@{SEMICOLON}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba745094c7583f681a4501fa6588f3f2cd}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba745094c7583f681a4501fa6588f3f2cd}} 
+S\+E\+M\+I\+C\+O\+L\+ON&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EQUALS@{EQUALS}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!EQUALS@{EQUALS}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba0759239356a2bcbdd12d018776161604}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba0759239356a2bcbdd12d018776161604}} 
+E\+Q\+U\+A\+LS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COMMA@{COMMA}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!COMMA@{COMMA}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bac2c266421eac729c9e41b09048589631}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154bac2c266421eac729c9e41b09048589631}} 
+C\+O\+M\+MA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DASH@{DASH}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!DASH@{DASH}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba1ac760f9b75dbe62b03aefa524b2b71c}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba1ac760f9b75dbe62b03aefa524b2b71c}} 
+D\+A\+SH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PERIOD@{PERIOD}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!PERIOD@{PERIOD}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba8fdf1cbe2b2dc16d8b8dee7e33c602a1}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba8fdf1cbe2b2dc16d8b8dee7e33c602a1}} 
+P\+E\+R\+I\+OD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FORWARD\_SLASH@{FORWARD\_SLASH}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!FORWARD\_SLASH@{FORWARD\_SLASH}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba69f924e37d94ec0b63a2486317b8b472}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba69f924e37d94ec0b63a2486317b8b472}} 
+F\+O\+R\+W\+A\+R\+D\+\_\+\+S\+L\+A\+SH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GRAVE\_ACCENT@{GRAVE\_ACCENT}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!GRAVE\_ACCENT@{GRAVE\_ACCENT}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baba0f8e6d4ecb28539ff1afbd4f8addc1}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154baba0f8e6d4ecb28539ff1afbd4f8addc1}} 
+G\+R\+A\+V\+E\+\_\+\+A\+C\+C\+E\+NT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OPEN\_BRACKET@{OPEN\_BRACKET}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!OPEN\_BRACKET@{OPEN\_BRACKET}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba7a79b4541295253f5fbef10b23b7cbf6}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba7a79b4541295253f5fbef10b23b7cbf6}} 
+O\+P\+E\+N\+\_\+\+B\+R\+A\+C\+K\+ET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BACK\_SLASH@{BACK\_SLASH}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!BACK\_SLASH@{BACK\_SLASH}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba06176b23e4f79211ed6c8574a0c36ee3}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba06176b23e4f79211ed6c8574a0c36ee3}} 
+B\+A\+C\+K\+\_\+\+S\+L\+A\+SH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOSE\_BRACKET@{CLOSE\_BRACKET}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!CLOSE\_BRACKET@{CLOSE\_BRACKET}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba52096d91e023172fa5422cc9050095b5}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba52096d91e023172fa5422cc9050095b5}} 
+C\+L\+O\+S\+E\+\_\+\+B\+R\+A\+C\+K\+ET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SINGLE\_QUOTE@{SINGLE\_QUOTE}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!SINGLE\_QUOTE@{SINGLE\_QUOTE}}}\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba9311928c52671842ef33f3901ac1761a}\label{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154ba9311928c52671842ef33f3901ac1761a}} 
+S\+I\+N\+G\+L\+E\+\_\+\+Q\+U\+O\+TE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structArcade_1_1Events_1_1KeyboardEvent_a4ee55646b18a55e55739b1d5e86f9f7e}\label{structArcade_1_1Events_1_1KeyboardEvent_a4ee55646b18a55e55739b1d5e86f9f7e}} 
+\index{Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}!key@{key}}
+\index{key@{key}!Arcade::Events::KeyboardEvent@{Arcade::Events::KeyboardEvent}}
+\doxysubsubsection{\texorpdfstring{key}{key}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154b}{Key\+Code}} Arcade\+::\+Events\+::\+Keyboard\+Event\+::key}
+
+
+
+The key clicked. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+sources/\+Common/\+Events/\mbox{\hyperlink{KeyBoardEvent_8hpp}{Key\+Board\+Event.\+hpp}}\end{DoxyCompactItemize}

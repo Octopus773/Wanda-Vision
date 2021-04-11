@@ -1,0 +1,4 @@
+<map id="Arcade::Drawables::Sprite" name="Arcade::Drawables::Sprite">
+<area shape="rect" id="node1" title="A Sprite game object." alt="" coords="5,189,157,325"/>
+<area shape="rect" id="node2" href="$structArcade_1_1Drawables_1_1ADrawable.html" title="A base struct for every objects in the game." alt="" coords="5,5,157,141"/>
+</map>

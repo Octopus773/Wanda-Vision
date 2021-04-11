@@ -1,0 +1,5 @@
+<map id="Arcade::NcursesDisplay" name="Arcade::NcursesDisplay">
+<area shape="rect" id="node1" title="Implementation of the ncurses Graphic Library." alt="" coords="5,476,181,832"/>
+<area shape="rect" id="node2" href="$classArcade_1_1IDisplayModule.html" title="The interface of every display modules." alt="" coords="5,189,181,428"/>
+<area shape="rect" id="node3" href="$classArcade_1_1IModule.html" title="A base module interface." alt="" coords="30,5,157,141"/>
+</map>

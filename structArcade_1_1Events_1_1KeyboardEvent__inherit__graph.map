@@ -1,0 +1,4 @@
+<map id="Arcade::Events::KeyboardEvent" name="Arcade::Events::KeyboardEvent">
+<area shape="rect" id="node1" title="Event of a keyboard interaction." alt="" coords="5,131,193,223"/>
+<area shape="rect" id="node2" href="$structArcade_1_1Event.html" title="An empty event used as a base class." alt="" coords="43,5,155,83"/>
+</map>

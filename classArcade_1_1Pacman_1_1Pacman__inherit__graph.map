@@ -1,0 +1,5 @@
+<map id="Arcade::Pacman::Pacman" name="Arcade::Pacman::Pacman">
+<area shape="rect" id="node1" title="!" alt="" coords="5,417,215,1111"/>
+<area shape="rect" id="node2" href="$classArcade_1_1IGameModule.html" title="The interface of all games." alt="" coords="27,189,193,369"/>
+<area shape="rect" id="node3" href="$classArcade_1_1IModule.html" title="A base module interface." alt="" coords="47,5,173,141"/>
+</map>

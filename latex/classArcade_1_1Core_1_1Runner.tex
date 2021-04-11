@@ -1,0 +1,381 @@
+\hypertarget{classArcade_1_1Core_1_1Runner}{}\doxysection{Arcade\+::Core\+::Runner Class Reference}
+\label{classArcade_1_1Core_1_1Runner}\index{Arcade::Core::Runner@{Arcade::Core::Runner}}
+
+
+\mbox{\hyperlink{namespaceArcade_1_1Core}{Core}} class to run libs and games.  
+
+
+
+
+{\ttfamily \#include $<$Runner.\+hpp$>$}
+
+
+
+Collaboration diagram for Arcade\+::Core\+::Runner\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{classArcade_1_1Core_1_1Runner__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classArcade_1_1Core_1_1Runner_a2848f36973ef13bac7e726b0f35e2027}{set\+Game}} (\mbox{\hyperlink{structArcade_1_1Core_1_1Library}{Library}} \&lib)
+\begin{DoxyCompactList}\small\item\em Set this runner\textquotesingle{}s game library. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{structArcade_1_1Core_1_1Library}{Library}} \& \mbox{\hyperlink{classArcade_1_1Core_1_1Runner_af45340decc0d0ac39d48d990a42cb0c7}{get\+Renderer}} () const
+\begin{DoxyCompactList}\small\item\em Get the current renderer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Core_1_1Runner_a783a314ea49e13b79dc72bf9abef7926}{set\+Game}} (std\+::string path)
+\begin{DoxyCompactList}\small\item\em Set this runner\textquotesingle{}s game library using the path. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Core_1_1Runner_af96c9a51bbe0d9b33427f0715b861e17}{set\+Renderer}} (\mbox{\hyperlink{structArcade_1_1Core_1_1Library}{Library}} \&lib)
+\begin{DoxyCompactList}\small\item\em Set this runner\textquotesingle{}s graphical library. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Core_1_1Runner_a20bd9365fb756f5712180d963c5fa387}{set\+Renderer}} (std\+::string path)
+\begin{DoxyCompactList}\small\item\em Set this runner\textquotesingle{}s graphical library using the path. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Core_1_1Library}{Library}} $>$ \& \mbox{\hyperlink{classArcade_1_1Core_1_1Runner_af175cd9e620ea6fd086baea00d62d4ac}{get\+Games}} ()
+\begin{DoxyCompactList}\small\item\em List game libraries. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Core_1_1Library}{Library}} $>$ \& \mbox{\hyperlink{classArcade_1_1Core_1_1Runner_a82f9869a6b8df2e863089e3cfc076f77}{get\+Renderers}} ()
+\begin{DoxyCompactList}\small\item\em List renderers libraries. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classArcade_1_1Core_1_1Runner_a4944dffe8eff30546f9577f194a10108}{run\+Game}} ()
+\begin{DoxyCompactList}\small\item\em run the game. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classArcade_1_1Core_1_1Runner_a2dbd77289cbce27e3c4cfb41440d6f0c}{run\+Shell}} ()
+\begin{DoxyCompactList}\small\item\em Run the shell. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Core_1_1Runner_a644f96742326ce822ef1dc0f95743696}{set\+Shell}} ()
+\begin{DoxyCompactList}\small\item\em Remove the current game and use the menu instead. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Core_1_1Runner_a7a5b857aad00acf98c518126335491ca}{load\+Libraries}} (const std\+::string \&path)
+\begin{DoxyCompactList}\small\item\em Load available libraries from the path. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArcade_1_1Core_1_1Runner_a88bb1f08b365a85495b9e191da6c18fa}{Runner}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArcade_1_1Core_1_1Runner_ab69aa17530a805bb8afee15e76fcd705}{Runner}} (const std\+::string \&graphic\+Lib)
+\begin{DoxyCompactList}\small\item\em Constructor that sets a graphical library. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArcade_1_1Core_1_1Runner_a0757d330a4b4e496a497cdc5605a6c75}{Runner}} (const \mbox{\hyperlink{classArcade_1_1Core_1_1Runner}{Runner}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArcade_1_1Core_1_1Runner_a993da55765b2ad2b363a29c01fa3a7fa}{$\sim$\+Runner}} ()
+\begin{DoxyCompactList}\small\item\em Custom destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArcade_1_1Core_1_1Runner}{Runner}} \& \mbox{\hyperlink{classArcade_1_1Core_1_1Runner_a86c2c9f4e65e767511c146c119c0e989}{operator=}} (const \mbox{\hyperlink{classArcade_1_1Core_1_1Runner}{Runner}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::map$<$ std\+::string, std\+::map$<$ std\+::string, unsigned long $>$ $>$ \mbox{\hyperlink{classArcade_1_1Core_1_1Runner_a75f2f8a793cb3e30eaf7c61c5403c179}{scores}}
+\begin{DoxyCompactList}\small\item\em Score by game and by player. @info format\+: $<$game, $<$username, score$>$$>$. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classArcade_1_1Core_1_1Runner_a1670c542ce8181a71c125028523f3120}{username}} = \char`\"{}U\+S\+E\+R\+N\+A\+ME\char`\"{}
+\begin{DoxyCompactList}\small\item\em The name of the current user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classArcade_1_1Core_1_1Runner_a362bd8acc52174614ecf343d0b40d631}{\+\_\+draw\+Object}} (\mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable}{Drawables\+::\+A\+Drawable}} $\ast$obj)
+\begin{DoxyCompactList}\small\item\em Draw an object with the current renderer. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1Core_1_1Runner_a7db120c63a8b85e90312fe6ed8f56470}{\+\_\+handle\+Event}} (const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structArcade_1_1Event}{Event}} $>$ \&event)
+\begin{DoxyCompactList}\small\item\em Handle a single event (short handle it if this is a runner event or sent it to the game) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Core_1_1Runner_af65e21a10d25ec807daff963dd256542}{\+\_\+save\+Score}} ()
+\begin{DoxyCompactList}\small\item\em Save scores of the current game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Core_1_1Library}{Library}} $>$ \mbox{\hyperlink{classArcade_1_1Core_1_1Runner_a06cec7f30811abc86e7f277380bbd4fa}{\+\_\+games}}
+\begin{DoxyCompactList}\small\item\em A list of available games. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Core_1_1Library}{Library}} $>$ \mbox{\hyperlink{classArcade_1_1Core_1_1Runner_a71d805d25db1f641e80a1b535eeb64d5}{\+\_\+renderers}}
+\begin{DoxyCompactList}\small\item\em A list of available renderers. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classArcade_1_1IGameModule}{I\+Game\+Module}} $>$ \mbox{\hyperlink{classArcade_1_1Core_1_1Runner_a5e03ae3970a7a63f176157b5bdc22f57}{\+\_\+game}}
+\begin{DoxyCompactList}\small\item\em The current game instance. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classArcade_1_1IDisplayModule}{I\+Display\+Module}} $>$ \mbox{\hyperlink{classArcade_1_1Core_1_1Runner_aa98773ed715a16e0eaf5e10edf1eca71}{\+\_\+renderer}}
+\begin{DoxyCompactList}\small\item\em The current renderer instance. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classArcade_1_1Core_1_1Runner_a5189de7f32cbfc0c9355280ac2dd8f48}{\+\_\+game\+Index}} = 0
+\begin{DoxyCompactList}\small\item\em The currently loaded game index. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classArcade_1_1Core_1_1Runner_ade500d75c5b23d322105c1a44997e524}{\+\_\+renderer\+Index}} = 0
+\begin{DoxyCompactList}\small\item\em The currently loaded renderer index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{namespaceArcade_1_1Core}{Core}} class to run libs and games. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_a88bb1f08b365a85495b9e191da6c18fa}\label{classArcade_1_1Core_1_1Runner_a88bb1f08b365a85495b9e191da6c18fa}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!Runner@{Runner}}
+\index{Runner@{Runner}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{Runner()}{Runner()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Arcade\+::\+Core\+::\+Runner\+::\+Runner (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor. 
+
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_ab69aa17530a805bb8afee15e76fcd705}\label{classArcade_1_1Core_1_1Runner_ab69aa17530a805bb8afee15e76fcd705}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!Runner@{Runner}}
+\index{Runner@{Runner}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{Runner()}{Runner()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Arcade\+::\+Core\+::\+Runner\+::\+Runner (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{graphic\+Lib }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor that sets a graphical library. 
+
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_a0757d330a4b4e496a497cdc5605a6c75}\label{classArcade_1_1Core_1_1Runner_a0757d330a4b4e496a497cdc5605a6c75}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!Runner@{Runner}}
+\index{Runner@{Runner}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{Runner()}{Runner()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Arcade\+::\+Core\+::\+Runner\+::\+Runner (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classArcade_1_1Core_1_1Runner}{Runner}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Deleted copy constructor. 
+
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_a993da55765b2ad2b363a29c01fa3a7fa}\label{classArcade_1_1Core_1_1Runner_a993da55765b2ad2b363a29c01fa3a7fa}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!````~Runner@{$\sim$Runner}}
+\index{````~Runner@{$\sim$Runner}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{$\sim$Runner()}{~Runner()}}
+{\footnotesize\ttfamily Arcade\+::\+Core\+::\+Runner\+::$\sim$\+Runner (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Custom destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_a362bd8acc52174614ecf343d0b40d631}\label{classArcade_1_1Core_1_1Runner_a362bd8acc52174614ecf343d0b40d631}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!\_drawObject@{\_drawObject}}
+\index{\_drawObject@{\_drawObject}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{\_drawObject()}{\_drawObject()}}
+{\footnotesize\ttfamily void Arcade\+::\+Core\+::\+Runner\+::\+\_\+draw\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable}{Drawables\+::\+A\+Drawable}} $\ast$}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Draw an object with the current renderer. 
+
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_a7db120c63a8b85e90312fe6ed8f56470}\label{classArcade_1_1Core_1_1Runner_a7db120c63a8b85e90312fe6ed8f56470}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!\_handleEvent@{\_handleEvent}}
+\index{\_handleEvent@{\_handleEvent}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{\_handleEvent()}{\_handleEvent()}}
+{\footnotesize\ttfamily bool Arcade\+::\+Core\+::\+Runner\+::\+\_\+handle\+Event (\begin{DoxyParamCaption}\item[{const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structArcade_1_1Event}{Event}} $>$ \&}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Handle a single event (short handle it if this is a runner event or sent it to the game) 
+
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_af65e21a10d25ec807daff963dd256542}\label{classArcade_1_1Core_1_1Runner_af65e21a10d25ec807daff963dd256542}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!\_saveScore@{\_saveScore}}
+\index{\_saveScore@{\_saveScore}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{\_saveScore()}{\_saveScore()}}
+{\footnotesize\ttfamily void Arcade\+::\+Core\+::\+Runner\+::\+\_\+save\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Save scores of the current game. 
+
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_af175cd9e620ea6fd086baea00d62d4ac}\label{classArcade_1_1Core_1_1Runner_af175cd9e620ea6fd086baea00d62d4ac}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!getGames@{getGames}}
+\index{getGames@{getGames}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{getGames()}{getGames()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Core_1_1Library}{Library}} $>$ \& Arcade\+::\+Core\+::\+Runner\+::get\+Games (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+List game libraries. 
+
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_af45340decc0d0ac39d48d990a42cb0c7}\label{classArcade_1_1Core_1_1Runner_af45340decc0d0ac39d48d990a42cb0c7}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!getRenderer@{getRenderer}}
+\index{getRenderer@{getRenderer}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{getRenderer()}{getRenderer()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structArcade_1_1Core_1_1Library}{Library}} \& Arcade\+::\+Core\+::\+Runner\+::get\+Renderer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the current renderer. 
+
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_a82f9869a6b8df2e863089e3cfc076f77}\label{classArcade_1_1Core_1_1Runner_a82f9869a6b8df2e863089e3cfc076f77}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!getRenderers@{getRenderers}}
+\index{getRenderers@{getRenderers}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{getRenderers()}{getRenderers()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Core_1_1Library}{Library}} $>$ \& Arcade\+::\+Core\+::\+Runner\+::get\+Renderers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+List renderers libraries. 
+
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_a7a5b857aad00acf98c518126335491ca}\label{classArcade_1_1Core_1_1Runner_a7a5b857aad00acf98c518126335491ca}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!loadLibraries@{loadLibraries}}
+\index{loadLibraries@{loadLibraries}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{loadLibraries()}{loadLibraries()}}
+{\footnotesize\ttfamily void Arcade\+::\+Core\+::\+Runner\+::load\+Libraries (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})}
+
+
+
+Load available libraries from the path. 
+
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_a86c2c9f4e65e767511c146c119c0e989}\label{classArcade_1_1Core_1_1Runner_a86c2c9f4e65e767511c146c119c0e989}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!operator=@{operator=}}
+\index{operator=@{operator=}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classArcade_1_1Core_1_1Runner}{Runner}}\& Arcade\+::\+Core\+::\+Runner\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classArcade_1_1Core_1_1Runner}{Runner}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Deleted assignment operator. 
+
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_a4944dffe8eff30546f9577f194a10108}\label{classArcade_1_1Core_1_1Runner_a4944dffe8eff30546f9577f194a10108}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!runGame@{runGame}}
+\index{runGame@{runGame}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{runGame()}{runGame()}}
+{\footnotesize\ttfamily int Arcade\+::\+Core\+::\+Runner\+::run\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+run the game. 
+
+\begin{DoxyReturn}{Returns}
+The return status of the game 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_a2dbd77289cbce27e3c4cfb41440d6f0c}\label{classArcade_1_1Core_1_1Runner_a2dbd77289cbce27e3c4cfb41440d6f0c}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!runShell@{runShell}}
+\index{runShell@{runShell}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{runShell()}{runShell()}}
+{\footnotesize\ttfamily int Arcade\+::\+Core\+::\+Runner\+::run\+Shell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Run the shell. 
+
+\begin{DoxyReturn}{Returns}
+The return status of the shell. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_a2848f36973ef13bac7e726b0f35e2027}\label{classArcade_1_1Core_1_1Runner_a2848f36973ef13bac7e726b0f35e2027}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!setGame@{setGame}}
+\index{setGame@{setGame}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{setGame()}{setGame()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Arcade\+::\+Core\+::\+Runner\+::set\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArcade_1_1Core_1_1Library}{Library}} \&}]{lib }\end{DoxyParamCaption})}
+
+
+
+Set this runner\textquotesingle{}s game library. 
+
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_a783a314ea49e13b79dc72bf9abef7926}\label{classArcade_1_1Core_1_1Runner_a783a314ea49e13b79dc72bf9abef7926}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!setGame@{setGame}}
+\index{setGame@{setGame}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{setGame()}{setGame()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Arcade\+::\+Core\+::\+Runner\+::set\+Game (\begin{DoxyParamCaption}\item[{std\+::string}]{path }\end{DoxyParamCaption})}
+
+
+
+Set this runner\textquotesingle{}s game library using the path. 
+
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_af96c9a51bbe0d9b33427f0715b861e17}\label{classArcade_1_1Core_1_1Runner_af96c9a51bbe0d9b33427f0715b861e17}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!setRenderer@{setRenderer}}
+\index{setRenderer@{setRenderer}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{setRenderer()}{setRenderer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Arcade\+::\+Core\+::\+Runner\+::set\+Renderer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArcade_1_1Core_1_1Library}{Library}} \&}]{lib }\end{DoxyParamCaption})}
+
+
+
+Set this runner\textquotesingle{}s graphical library. 
+
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_a20bd9365fb756f5712180d963c5fa387}\label{classArcade_1_1Core_1_1Runner_a20bd9365fb756f5712180d963c5fa387}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!setRenderer@{setRenderer}}
+\index{setRenderer@{setRenderer}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{setRenderer()}{setRenderer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Arcade\+::\+Core\+::\+Runner\+::set\+Renderer (\begin{DoxyParamCaption}\item[{std\+::string}]{path }\end{DoxyParamCaption})}
+
+
+
+Set this runner\textquotesingle{}s graphical library using the path. 
+
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_a644f96742326ce822ef1dc0f95743696}\label{classArcade_1_1Core_1_1Runner_a644f96742326ce822ef1dc0f95743696}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!setShell@{setShell}}
+\index{setShell@{setShell}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{setShell()}{setShell()}}
+{\footnotesize\ttfamily void Arcade\+::\+Core\+::\+Runner\+::set\+Shell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Remove the current game and use the menu instead. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_a5e03ae3970a7a63f176157b5bdc22f57}\label{classArcade_1_1Core_1_1Runner_a5e03ae3970a7a63f176157b5bdc22f57}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!\_game@{\_game}}
+\index{\_game@{\_game}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{\_game}{\_game}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classArcade_1_1IGameModule}{I\+Game\+Module}}$>$ Arcade\+::\+Core\+::\+Runner\+::\+\_\+game\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The current game instance. 
+
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_a5189de7f32cbfc0c9355280ac2dd8f48}\label{classArcade_1_1Core_1_1Runner_a5189de7f32cbfc0c9355280ac2dd8f48}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!\_gameIndex@{\_gameIndex}}
+\index{\_gameIndex@{\_gameIndex}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{\_gameIndex}{\_gameIndex}}
+{\footnotesize\ttfamily int Arcade\+::\+Core\+::\+Runner\+::\+\_\+game\+Index = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The currently loaded game index. 
+
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_a06cec7f30811abc86e7f277380bbd4fa}\label{classArcade_1_1Core_1_1Runner_a06cec7f30811abc86e7f277380bbd4fa}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!\_games@{\_games}}
+\index{\_games@{\_games}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{\_games}{\_games}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structArcade_1_1Core_1_1Library}{Library}}$>$ Arcade\+::\+Core\+::\+Runner\+::\+\_\+games\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A list of available games. 
+
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_aa98773ed715a16e0eaf5e10edf1eca71}\label{classArcade_1_1Core_1_1Runner_aa98773ed715a16e0eaf5e10edf1eca71}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!\_renderer@{\_renderer}}
+\index{\_renderer@{\_renderer}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{\_renderer}{\_renderer}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classArcade_1_1IDisplayModule}{I\+Display\+Module}}$>$ Arcade\+::\+Core\+::\+Runner\+::\+\_\+renderer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The current renderer instance. 
+
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_ade500d75c5b23d322105c1a44997e524}\label{classArcade_1_1Core_1_1Runner_ade500d75c5b23d322105c1a44997e524}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!\_rendererIndex@{\_rendererIndex}}
+\index{\_rendererIndex@{\_rendererIndex}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{\_rendererIndex}{\_rendererIndex}}
+{\footnotesize\ttfamily int Arcade\+::\+Core\+::\+Runner\+::\+\_\+renderer\+Index = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The currently loaded renderer index. 
+
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_a71d805d25db1f641e80a1b535eeb64d5}\label{classArcade_1_1Core_1_1Runner_a71d805d25db1f641e80a1b535eeb64d5}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!\_renderers@{\_renderers}}
+\index{\_renderers@{\_renderers}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{\_renderers}{\_renderers}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structArcade_1_1Core_1_1Library}{Library}}$>$ Arcade\+::\+Core\+::\+Runner\+::\+\_\+renderers\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A list of available renderers. 
+
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_a75f2f8a793cb3e30eaf7c61c5403c179}\label{classArcade_1_1Core_1_1Runner_a75f2f8a793cb3e30eaf7c61c5403c179}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!scores@{scores}}
+\index{scores@{scores}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{scores}{scores}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, std\+::map$<$std\+::string, unsigned long$>$ $>$ Arcade\+::\+Core\+::\+Runner\+::scores}
+
+
+
+Score by game and by player. @info format\+: $<$game, $<$username, score$>$$>$. 
+
+\mbox{\Hypertarget{classArcade_1_1Core_1_1Runner_a1670c542ce8181a71c125028523f3120}\label{classArcade_1_1Core_1_1Runner_a1670c542ce8181a71c125028523f3120}} 
+\index{Arcade::Core::Runner@{Arcade::Core::Runner}!username@{username}}
+\index{username@{username}!Arcade::Core::Runner@{Arcade::Core::Runner}}
+\doxysubsubsection{\texorpdfstring{username}{username}}
+{\footnotesize\ttfamily std\+::string Arcade\+::\+Core\+::\+Runner\+::username = \char`\"{}U\+S\+E\+R\+N\+A\+ME\char`\"{}}
+
+
+
+The name of the current user. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+sources/\+Core/\+Runner/\mbox{\hyperlink{Runner_8hpp}{Runner.\+hpp}}\item 
+sources/\+Core/\+Runner/\mbox{\hyperlink{Runner_8cpp}{Runner.\+cpp}}\end{DoxyCompactItemize}

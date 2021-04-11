@@ -1,0 +1,833 @@
+\hypertarget{classArcade_1_1Pacman_1_1Pacman}{}\doxysection{Arcade\+::Pacman\+::Pacman Class Reference}
+\label{classArcade_1_1Pacman_1_1Pacman}\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+
+
+!  
+
+
+
+
+{\ttfamily \#include $<$Pacman.\+hpp$>$}
+
+
+
+Inheritance diagram for Arcade\+::Pacman\+::Pacman\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classArcade_1_1Pacman_1_1Pacman__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arcade\+::Pacman\+::Pacman\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classArcade_1_1Pacman_1_1Pacman__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structArcade_1_1Pacman_1_1Pacman_1_1Ghost}{Ghost}}
+\begin{DoxyCompactList}\small\item\em The ghost struct. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structArcade_1_1Pacman_1_1Pacman_1_1PendingMoves}{Pending\+Moves}}
+\begin{DoxyCompactList}\small\item\em Struct used to keep pending moves. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a3af8f09d9f75370bffcd2fbe17b94cea}{init}} () override
+\begin{DoxyCompactList}\small\item\em Initialize this library. (Create windows \& so on) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a86303dc244702a8b167e414c1de6dea0}{close}} () override
+\begin{DoxyCompactList}\small\item\em Allow to say to the library to shutdown and free it\textquotesingle{}s content. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_acd0d2b7389b0b5424a844793200f6756}{should\+Close}} () override
+\begin{DoxyCompactList}\small\item\em Should this module be closed? \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1ModInfo_a4d7a18796fb91858a198412f8a4d4144}{Mod\+Info\+::\+Modtype}} \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a0f1e05c264bef0c4ad1d9e7aa5a40fc2}{get\+Type}} () const override
+\begin{DoxyCompactList}\small\item\em Get the type of this module. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$ \& \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_aad1412304e69a571b618992e2759187b}{get\+Resources}} () const override
+\begin{DoxyCompactList}\small\item\em Get resources to preload. @info Only called once. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable}{Drawables\+::\+A\+Drawable}} $>$ $>$ \& \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a93fd314611e2a271af8e36c438381aba}{get\+Drawables}} () override
+\begin{DoxyCompactList}\small\item\em Return a list of drawables to display. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Sound}{Sound}} $>$ \& \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a5ce29abd05c05516d3b4ce4cb4eac0ec}{get\+Sounds}} () override
+\begin{DoxyCompactList}\small\item\em Return a list of sounds to make. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_aa071aea7d67a73cde59007ea972a5129}{add\+Ticks}} (unsigned tick) override
+\begin{DoxyCompactList}\small\item\em Advance the game of x seconds. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a53b477531f07119e8d40483eb83f22d3}{restart}} () override
+\begin{DoxyCompactList}\small\item\em Restart the game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a7e9b5ccedd970a41f109c9cc9b3ca2e7}{handle\+Event}} (\mbox{\hyperlink{structArcade_1_1Event}{Event}} \&event) override
+\begin{DoxyCompactList}\small\item\em Handle one event (A key press, a click, a close event...) \end{DoxyCompactList}\item 
+unsigned long \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a5a49ae6c43feb3076ec4f135ce2db184}{get\+Score}} () override
+\begin{DoxyCompactList}\small\item\em Get the score (used for saving/displaying) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a90e9f8a371971eb260b763852c0f6bd4}{Pacman}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a94f1016525921b2e0e36162c1303a413}{Pacman}} (const \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman}{Pacman}} \&)=default
+\begin{DoxyCompactList}\small\item\em Default copy constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a5029ee4d31bd9539fe626444ddd96ee7}{$\sim$\+Pacman}} () override=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman}{Pacman}} \& \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a0d20fe02b2309b48f3a02e32417a76c7}{operator=}} (const \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman}{Pacman}} \&)=default
+\begin{DoxyCompactList}\small\item\em Default assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdc}{Map\+Char}} \{ \newline
+\mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdca54a463d7ec03263396a9b3c985b5ad7a}{N\+O\+T\+H\+I\+NG}} = \textquotesingle{} \textquotesingle{}, 
+\mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdca0d4d2981a5872b22460dc28fbaba2138}{W\+A\+LL}} = \textquotesingle{}w\textquotesingle{}, 
+\mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdcaf470adb5b5b535bd2885281e50a5385d}{S\+M\+A\+L\+L\+\_\+\+P\+A\+C\+G\+UM}} = \textquotesingle{}.\textquotesingle{}, 
+\mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdcaafee5f70d0794e0a1e1ffeb878f19127}{B\+I\+G\+\_\+\+P\+A\+C\+G\+UM}} = \textquotesingle{}P\textquotesingle{}, 
+\newline
+\mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdca323ca8a6348cf3ae7ab274653a5ce2ae}{B\+L\+I\+N\+KY}} = \textquotesingle{}B\textquotesingle{}, 
+\mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdca061e72c1eb7232ace8a99afd2fa42045}{I\+N\+KY}} = \textquotesingle{}I\textquotesingle{}, 
+\mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdca2ff4fe0b8c22fd00df432c252eea9cef}{C\+L\+Y\+DE}} = \textquotesingle{}C\textquotesingle{}, 
+\mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdcad8d6934e61d348526b100503d1442f1b}{H\+I\+D\+E\+\_\+\+R\+E\+C\+T\+A\+N\+G\+LE}} = \textquotesingle{}\+\_\+\textquotesingle{}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} $>$ \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a23ba6cfdb8918caf0fefe5eacc438478}{\+\_\+create\+Map\+From\+Vector}} (const std\+::vector$<$ std\+::string $>$ \&map, int h\+Offset, int v\+Offset)
+\begin{DoxyCompactList}\small\item\em Gives the correct \mbox{\hyperlink{namespaceArcade_1_1Drawables}{Drawables}} to be able to draw the map on the screen. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1Drawables_1_1Rectangle}{Drawables\+::\+Rectangle}} \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a3711cd6abed3a329e550349d86fbb8e6}{\+\_\+get\+Rectangle\+From\+Char}} (char c, int x\+Index, int y\+Index)
+\begin{DoxyCompactList}\small\item\em Get the correct Rectangle and correctly filled from a char. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a37873508a183f9d81ec0921a869aa846}{\+\_\+collide\+With\+Wall\+Map}} (int x, int y, int w, int h)
+\begin{DoxyCompactList}\small\item\em Tells if you colliding with one of the rectangle of the \+\_\+map member. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a4175db49ab40a011a119cb79209b1d18}{\+\_\+get\+Sprite\+From\+Char}} (char c, int x\+Index, int y\+Index)
+\begin{DoxyCompactList}\small\item\em Get the correct Sprite and correctly filled from a char. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1Drawables_1_1Circle}{Drawables\+::\+Circle}} \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a8c7d682b65dd06bf723feba3df3029d4}{\+\_\+get\+Circle\+From\+Char}} (char c, int x\+Index, int y\+Index)
+\begin{DoxyCompactList}\small\item\em Get the correct Circle and correctly filled from a char. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} $>$\+::iterator \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a80ad24707d4b4d16a650defe68ca78af}{\+\_\+collide\+With\+Pacgum\+Map}} (int x, int y, int w, int h)
+\begin{DoxyCompactList}\small\item\em Tells if you colliding with one of the pacgums of the \+\_\+map member. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a29a622546cc6596fea8b2970777f27a4}{\+\_\+process\+Player\+Movement}} (unsigned int ticks)
+\begin{DoxyCompactList}\small\item\em Checks collisions and moves the player, rotate texture, etc... \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a68f02b65aca0ed907e4361dc20d27fc0}{\+\_\+process\+Score}} ()
+\begin{DoxyCompactList}\small\item\em Checks the collision with Pacgums and ghosts and update the score. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a5c20c7ac6352ef0b1692486ca0610584}{\+\_\+start\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Start the game and initialise variables to their start values. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a2cd750263442702b4e741fc38c5abc50}{\+\_\+is\+Game\+Ended}} ()
+\begin{DoxyCompactList}\small\item\em Tells if the game has ended. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::pair$<$ double, double $>$ \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_af34a251ef23c6cc6bcbceded33ff610c}{\+\_\+player\+Position}}
+\begin{DoxyCompactList}\small\item\em The position of the player. \end{DoxyCompactList}\item 
+std\+::pair$<$ int, int $>$ \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a5a46bc0099917d079cf00d061af532a8}{\+\_\+player\+Movement}}
+\begin{DoxyCompactList}\small\item\em The movement of the player. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a213c84587115c445ad375130e9b302f8}{\+\_\+player\+Drawable}}
+\begin{DoxyCompactList}\small\item\em The player\textquotesingle{}s drawable. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1Pacman_1_1Pacman_1_1Ghost}{Ghost}} \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_ac2f665f484c72c69951acaad4c37729c}{\+\_\+ghosts}}
+\begin{DoxyCompactList}\small\item\em Information of all the ghosts. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_ae0317db59ae521a43bcf45fb3824065f}{\+\_\+should\+Close}}
+\begin{DoxyCompactList}\small\item\em If the game has ended. \end{DoxyCompactList}\item 
+long \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_af4734bb1232af9ff2efd61f8f8c1a896}{\+\_\+game\+Score}} = 0
+\begin{DoxyCompactList}\small\item\em Game Score. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1Drawables_1_1Text}{Drawables\+::\+Text}} \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a558b9a777d396b6f598c9074e6e11c85}{\+\_\+score\+Drawable}}
+\begin{DoxyCompactList}\small\item\em Text element to draw the score to the screen. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$ \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_af7b54b263f0f2227f245ebe32cfc74d9}{\+\_\+resources}} = \{\}
+\begin{DoxyCompactList}\small\item\em Resources needed by this game. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable}{Drawables\+::\+A\+Drawable}} $>$ $>$ \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_aaad5e08bd34ab74ce7fdeae5a0407a37}{\+\_\+drawables}} = \{\}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{namespaceArcade_1_1Drawables}{Drawables}} that will be displayed. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Sound}{Sound}} $>$ \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a87759f572b2b5bd959ece1b294e6f437}{\+\_\+sounds}} = \{\}
+\begin{DoxyCompactList}\small\item\em Sounds that will be started in the next frame. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} $>$ \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_abdccb57d2d7616487b5fd842739ba6b2}{\+\_\+map}} = \{\}
+\begin{DoxyCompactList}\small\item\em Game map. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1Pacman_1_1Pacman_1_1PendingMoves}{Pending\+Moves}} \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_ad251d285e24df938d88a8b877144de33}{\+\_\+moves}} = \{\}
+\begin{DoxyCompactList}\small\item\em Pending moves. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr int \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a59dc0ab19cd7c172aeffb99e0945211c}{map\+Tile\+Length}} = 4
+\begin{DoxyCompactList}\small\item\em The length of a map tile. \end{DoxyCompactList}\item 
+static constexpr int \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a4994758d02935a62d1e1eebcc9f985ab}{map\+Offset\+TileX}} = 1
+\begin{DoxyCompactList}\small\item\em The offset of the map in number of map\+Tile\+Length for the X axis. \end{DoxyCompactList}\item 
+static constexpr int \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a22aeaba542645c028b7da1d543ad0958}{map\+Offset\+TileY}} = 5
+\begin{DoxyCompactList}\small\item\em The offset of the map in number of map\+Tile\+Length for the Y axis. \end{DoxyCompactList}\item 
+static constexpr int \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a55a56dcde6d062a41149a5a9d565030b}{map\+Wall\+Color}} = 0x0000\+F\+F\+FF
+\begin{DoxyCompactList}\small\item\em The color of the walls @info This color is used to check if the block is collidable or not. \end{DoxyCompactList}\item 
+static constexpr float \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a9dfa4cda202129ca71252f5496f356d4}{pacman\+Speed}} = .\+000020
+\begin{DoxyCompactList}\small\item\em The speed of pacman (the player) \end{DoxyCompactList}\item 
+static constexpr std\+::string\+\_\+view \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_a7c3c74c3e8d29a9e271e779031725f58}{large\+Pacgum\+Filename}} = \char`\"{}assets/pacman/large\+\_\+pacgum.\+png\char`\"{}
+\begin{DoxyCompactList}\small\item\em Resource location for the large pacgum sprite. \end{DoxyCompactList}\item 
+static constexpr std\+::string\+\_\+view \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_aa2197c404c4119172b49b56529577c53}{small\+Pacgum\+Filename}} = \char`\"{}assets/pacman/small\+\_\+pacgum.\+png\char`\"{}
+\begin{DoxyCompactList}\small\item\em Resource location for the small pacgum sprite. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+! 
+
+The \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman}{Pacman}} game\textquotesingle{}s module. 
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdc}\label{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdc}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!MapChar@{MapChar}}
+\index{MapChar@{MapChar}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{MapChar}{MapChar}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdc}{Arcade\+::\+Pacman\+::\+Pacman\+::\+Map\+Char}}\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NOTHING@{NOTHING}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!NOTHING@{NOTHING}}}\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdca54a463d7ec03263396a9b3c985b5ad7a}\label{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdca54a463d7ec03263396a9b3c985b5ad7a}} 
+N\+O\+T\+H\+I\+NG&Represents a space, nothing should be drawned with it @info It\textquotesingle{}s used for padding. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WALL@{WALL}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!WALL@{WALL}}}\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdca0d4d2981a5872b22460dc28fbaba2138}\label{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdca0d4d2981a5872b22460dc28fbaba2138}} 
+W\+A\+LL&Representing a wall in the map. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SMALL\_PACGUM@{SMALL\_PACGUM}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!SMALL\_PACGUM@{SMALL\_PACGUM}}}\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdcaf470adb5b5b535bd2885281e50a5385d}\label{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdcaf470adb5b5b535bd2885281e50a5385d}} 
+S\+M\+A\+L\+L\+\_\+\+P\+A\+C\+G\+UM&Representing a small pacgum in the map. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BIG\_PACGUM@{BIG\_PACGUM}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!BIG\_PACGUM@{BIG\_PACGUM}}}\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdcaafee5f70d0794e0a1e1ffeb878f19127}\label{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdcaafee5f70d0794e0a1e1ffeb878f19127}} 
+B\+I\+G\+\_\+\+P\+A\+C\+G\+UM&Representing a big pacgum in the map. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLINKY@{BLINKY}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!BLINKY@{BLINKY}}}\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdca323ca8a6348cf3ae7ab274653a5ce2ae}\label{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdca323ca8a6348cf3ae7ab274653a5ce2ae}} 
+B\+L\+I\+N\+KY&\mbox{\hyperlink{structArcade_1_1Pacman_1_1Pacman_1_1Ghost}{Ghost}} Blinky. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INKY@{INKY}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!INKY@{INKY}}}\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdca061e72c1eb7232ace8a99afd2fa42045}\label{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdca061e72c1eb7232ace8a99afd2fa42045}} 
+I\+N\+KY&\mbox{\hyperlink{structArcade_1_1Pacman_1_1Pacman_1_1Ghost}{Ghost}} Inky. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLYDE@{CLYDE}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!CLYDE@{CLYDE}}}\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdca2ff4fe0b8c22fd00df432c252eea9cef}\label{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdca2ff4fe0b8c22fd00df432c252eea9cef}} 
+C\+L\+Y\+DE&\mbox{\hyperlink{structArcade_1_1Pacman_1_1Pacman_1_1Ghost}{Ghost}} Clyde. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HIDE\_RECTANGLE@{HIDE\_RECTANGLE}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!HIDE\_RECTANGLE@{HIDE\_RECTANGLE}}}\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdcad8d6934e61d348526b100503d1442f1b}\label{classArcade_1_1Pacman_1_1Pacman_ac10e6e01442718db2db54c6741ea7fdcad8d6934e61d348526b100503d1442f1b}} 
+H\+I\+D\+E\+\_\+\+R\+E\+C\+T\+A\+N\+G\+LE&A black rectangle 1x4 (Used to hide some parts of the map) \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a90e9f8a371971eb260b763852c0f6bd4}\label{classArcade_1_1Pacman_1_1Pacman_a90e9f8a371971eb260b763852c0f6bd4}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!Pacman@{Pacman}}
+\index{Pacman@{Pacman}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{Pacman()}{Pacman()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Arcade\+::\+Pacman\+::\+Pacman\+::\+Pacman (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor. 
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a94f1016525921b2e0e36162c1303a413}\label{classArcade_1_1Pacman_1_1Pacman_a94f1016525921b2e0e36162c1303a413}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!Pacman@{Pacman}}
+\index{Pacman@{Pacman}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{Pacman()}{Pacman()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Arcade\+::\+Pacman\+::\+Pacman\+::\+Pacman (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman}{Pacman}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default copy constructor. 
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a5029ee4d31bd9539fe626444ddd96ee7}\label{classArcade_1_1Pacman_1_1Pacman_a5029ee4d31bd9539fe626444ddd96ee7}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!````~Pacman@{$\sim$Pacman}}
+\index{````~Pacman@{$\sim$Pacman}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{$\sim$Pacman()}{~Pacman()}}
+{\footnotesize\ttfamily Arcade\+::\+Pacman\+::\+Pacman\+::$\sim$\+Pacman (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a80ad24707d4b4d16a650defe68ca78af}\label{classArcade_1_1Pacman_1_1Pacman_a80ad24707d4b4d16a650defe68ca78af}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!\_collideWithPacgumMap@{\_collideWithPacgumMap}}
+\index{\_collideWithPacgumMap@{\_collideWithPacgumMap}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{\_collideWithPacgumMap()}{\_collideWithPacgumMap()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} $>$\+::iterator Arcade\+::\+Pacman\+::\+Pacman\+::\+\_\+collide\+With\+Pacgum\+Map (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{w,  }\item[{int}]{h }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tells if you colliding with one of the pacgums of the \+\_\+map member. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x percentage \\
+\hline
+{\em y} & The y percentage \\
+\hline
+{\em w} & The width in percentage \\
+\hline
+{\em h} & The the height in percentage \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pacgum you collided, otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a37873508a183f9d81ec0921a869aa846}\label{classArcade_1_1Pacman_1_1Pacman_a37873508a183f9d81ec0921a869aa846}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!\_collideWithWallMap@{\_collideWithWallMap}}
+\index{\_collideWithWallMap@{\_collideWithWallMap}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{\_collideWithWallMap()}{\_collideWithWallMap()}}
+{\footnotesize\ttfamily bool Arcade\+::\+Pacman\+::\+Pacman\+::\+\_\+collide\+With\+Wall\+Map (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{w,  }\item[{int}]{h }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tells if you colliding with one of the rectangle of the \+\_\+map member. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x percentage \\
+\hline
+{\em y} & The y percentage \\
+\hline
+{\em w} & The width in percentage \\
+\hline
+{\em h} & The the height in percentage \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the coords are colliding, otherwise false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a23ba6cfdb8918caf0fefe5eacc438478}\label{classArcade_1_1Pacman_1_1Pacman_a23ba6cfdb8918caf0fefe5eacc438478}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!\_createMapFromVector@{\_createMapFromVector}}
+\index{\_createMapFromVector@{\_createMapFromVector}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{\_createMapFromVector()}{\_createMapFromVector()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} $>$ Arcade\+::\+Pacman\+::\+Pacman\+::\+\_\+create\+Map\+From\+Vector (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{map,  }\item[{int}]{h\+Offset,  }\item[{int}]{v\+Offset }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Gives the correct \mbox{\hyperlink{namespaceArcade_1_1Drawables}{Drawables}} to be able to draw the map on the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & The vector of string to represent the actual map (one type of char represent a type/config of drawable) \\
+\hline
+{\em v\+Offset} & The vertical offset in percentage \\
+\hline
+{\em h\+Offset} & The horizontal offset in percentage @info Offset can be set to a negative value the function will simply add the offset given to the offset calculated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+Sprites are only used for a \char`\"{}base drawable\char`\"{} some sprites will be purposely ill formed, in order to call the fallback 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a8c7d682b65dd06bf723feba3df3029d4}\label{classArcade_1_1Pacman_1_1Pacman_a8c7d682b65dd06bf723feba3df3029d4}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!\_getCircleFromChar@{\_getCircleFromChar}}
+\index{\_getCircleFromChar@{\_getCircleFromChar}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{\_getCircleFromChar()}{\_getCircleFromChar()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1Drawables_1_1Circle}{Drawables\+::\+Circle}} Arcade\+::\+Pacman\+::\+Pacman\+::\+\_\+get\+Circle\+From\+Char (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{int}]{x\+Index,  }\item[{int}]{y\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get the correct Circle and correctly filled from a char. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The template type \\
+\hline
+{\em x\+Index} & The x position of the char in the map \\
+\hline
+{\em y\+Index} & The y position of the char in the map \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+This function uses hard coded templates for each char. This function should only be used with the map context in mind 
+\end{DoxyWarning}
+\begin{DoxyReturn}{Returns}
+A instance of a Circle 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classArcade_1_1Pacman_1_1WrongMapChar}{Wrong\+Map\+Char}}} & when no matching char is found \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a3711cd6abed3a329e550349d86fbb8e6}\label{classArcade_1_1Pacman_1_1Pacman_a3711cd6abed3a329e550349d86fbb8e6}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!\_getRectangleFromChar@{\_getRectangleFromChar}}
+\index{\_getRectangleFromChar@{\_getRectangleFromChar}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{\_getRectangleFromChar()}{\_getRectangleFromChar()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1Drawables_1_1Rectangle}{Drawables\+::\+Rectangle}} Arcade\+::\+Pacman\+::\+Pacman\+::\+\_\+get\+Rectangle\+From\+Char (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{int}]{x\+Index,  }\item[{int}]{y\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get the correct Rectangle and correctly filled from a char. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The template type \\
+\hline
+{\em x\+Index} & The x position of the char in the map \\
+\hline
+{\em y\+Index} & The y position of the char in the map \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+This function uses hard coded templates for each char. This function should only be used with the map context in mind 
+\end{DoxyWarning}
+\begin{DoxyReturn}{Returns}
+A instance of a Rectangle 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classArcade_1_1Pacman_1_1WrongMapChar}{Wrong\+Map\+Char}}} & when no matching char is found \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a4175db49ab40a011a119cb79209b1d18}\label{classArcade_1_1Pacman_1_1Pacman_a4175db49ab40a011a119cb79209b1d18}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!\_getSpriteFromChar@{\_getSpriteFromChar}}
+\index{\_getSpriteFromChar@{\_getSpriteFromChar}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{\_getSpriteFromChar()}{\_getSpriteFromChar()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} Arcade\+::\+Pacman\+::\+Pacman\+::\+\_\+get\+Sprite\+From\+Char (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{int}]{x\+Index,  }\item[{int}]{y\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get the correct Sprite and correctly filled from a char. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The template type \\
+\hline
+{\em x\+Index} & The x position of the char in the map \\
+\hline
+{\em y\+Index} & The y position of the char in the map \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+This function uses hard coded templates for each char. This function should only be used with the map context in mind 
+\end{DoxyWarning}
+\begin{DoxyReturn}{Returns}
+A instance of a Sprite 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{classArcade_1_1Pacman_1_1WrongMapChar}{Wrong\+Map\+Char}}} & when no matching char is found \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a2cd750263442702b4e741fc38c5abc50}\label{classArcade_1_1Pacman_1_1Pacman_a2cd750263442702b4e741fc38c5abc50}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!\_isGameEnded@{\_isGameEnded}}
+\index{\_isGameEnded@{\_isGameEnded}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{\_isGameEnded()}{\_isGameEnded()}}
+{\footnotesize\ttfamily bool Arcade\+::\+Pacman\+::\+Pacman\+::\+\_\+is\+Game\+Ended (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tells if the game has ended. 
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a29a622546cc6596fea8b2970777f27a4}\label{classArcade_1_1Pacman_1_1Pacman_a29a622546cc6596fea8b2970777f27a4}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!\_processPlayerMovement@{\_processPlayerMovement}}
+\index{\_processPlayerMovement@{\_processPlayerMovement}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{\_processPlayerMovement()}{\_processPlayerMovement()}}
+{\footnotesize\ttfamily void Arcade\+::\+Pacman\+::\+Pacman\+::\+\_\+process\+Player\+Movement (\begin{DoxyParamCaption}\item[{unsigned int}]{ticks }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Checks collisions and moves the player, rotate texture, etc... 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ticks} & Delta time (number of ticks between two functions calls) @info The movement will be kept until hitting an obstacle or a new input is detected \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a68f02b65aca0ed907e4361dc20d27fc0}\label{classArcade_1_1Pacman_1_1Pacman_a68f02b65aca0ed907e4361dc20d27fc0}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!\_processScore@{\_processScore}}
+\index{\_processScore@{\_processScore}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{\_processScore()}{\_processScore()}}
+{\footnotesize\ttfamily void Arcade\+::\+Pacman\+::\+Pacman\+::\+\_\+process\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Checks the collision with Pacgums and ghosts and update the score. 
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a5c20c7ac6352ef0b1692486ca0610584}\label{classArcade_1_1Pacman_1_1Pacman_a5c20c7ac6352ef0b1692486ca0610584}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!\_startGame@{\_startGame}}
+\index{\_startGame@{\_startGame}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{\_startGame()}{\_startGame()}}
+{\footnotesize\ttfamily void Arcade\+::\+Pacman\+::\+Pacman\+::\+\_\+start\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Start the game and initialise variables to their start values. 
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_aa071aea7d67a73cde59007ea972a5129}\label{classArcade_1_1Pacman_1_1Pacman_aa071aea7d67a73cde59007ea972a5129}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!addTicks@{addTicks}}
+\index{addTicks@{addTicks}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{addTicks()}{addTicks()}}
+{\footnotesize\ttfamily void Arcade\+::\+Pacman\+::\+Pacman\+::add\+Ticks (\begin{DoxyParamCaption}\item[{unsigned}]{tick }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Advance the game of x seconds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tick} & The number of ticks that occurred since the last call. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_adec58643e22471155f5be4676c448494}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a86303dc244702a8b167e414c1de6dea0}\label{classArcade_1_1Pacman_1_1Pacman_a86303dc244702a8b167e414c1de6dea0}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!close@{close}}
+\index{close@{close}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily bool Arcade\+::\+Pacman\+::\+Pacman\+::close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Allow to say to the library to shutdown and free it\textquotesingle{}s content. 
+
+\begin{DoxyReturn}{Returns}
+True if the shutdown was successful. False otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IModule_a82aa04f751b491246adf65f40fecef04}{Arcade\+::\+I\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a93fd314611e2a271af8e36c438381aba}\label{classArcade_1_1Pacman_1_1Pacman_a93fd314611e2a271af8e36c438381aba}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!getDrawables@{getDrawables}}
+\index{getDrawables@{getDrawables}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{getDrawables()}{getDrawables()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable}{Drawables\+::\+A\+Drawable}} $>$ $>$ \& Arcade\+::\+Pacman\+::\+Pacman\+::get\+Drawables (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Return a list of drawables to display. 
+
+\begin{DoxyReturn}{Returns}
+The list of objects 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_a2f5b001141785fcd80197637221ca229}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_aad1412304e69a571b618992e2759187b}\label{classArcade_1_1Pacman_1_1Pacman_aad1412304e69a571b618992e2759187b}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!getResources@{getResources}}
+\index{getResources@{getResources}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{getResources()}{getResources()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$ \& Arcade\+::\+Pacman\+::\+Pacman\+::get\+Resources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get resources to preload. @info Only called once. 
+
+\begin{DoxyReturn}{Returns}
+A vector of tuple of (type of resource, path of the resource). 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_a8dc5ea0cec5cebe5704f293051c75f74}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a5a49ae6c43feb3076ec4f135ce2db184}\label{classArcade_1_1Pacman_1_1Pacman_a5a49ae6c43feb3076ec4f135ce2db184}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!getScore@{getScore}}
+\index{getScore@{getScore}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{getScore()}{getScore()}}
+{\footnotesize\ttfamily unsigned long Arcade\+::\+Pacman\+::\+Pacman\+::get\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the score (used for saving/displaying) 
+
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_a0c82c58e99bdb889d3d85c588ed8f297}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a5ce29abd05c05516d3b4ce4cb4eac0ec}\label{classArcade_1_1Pacman_1_1Pacman_a5ce29abd05c05516d3b4ce4cb4eac0ec}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!getSounds@{getSounds}}
+\index{getSounds@{getSounds}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{getSounds()}{getSounds()}}
+{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Sound}{Sound}} $>$ \& Arcade\+::\+Pacman\+::\+Pacman\+::get\+Sounds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Return a list of sounds to make. 
+
+\begin{DoxyReturn}{Returns}
+The list of sounds 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_afd5b835dfe34c61b0e45997d37e2c90b}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a0f1e05c264bef0c4ad1d9e7aa5a40fc2}\label{classArcade_1_1Pacman_1_1Pacman_a0f1e05c264bef0c4ad1d9e7aa5a40fc2}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!getType@{getType}}
+\index{getType@{getType}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1ModInfo_a4d7a18796fb91858a198412f8a4d4144}{Mod\+Info\+::\+Modtype}} Arcade\+::\+Pacman\+::\+Pacman\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the type of this module. 
+
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IModule_a534f4e6b76c611fdf62ec3e7beb7870d}{Arcade\+::\+I\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a7e9b5ccedd970a41f109c9cc9b3ca2e7}\label{classArcade_1_1Pacman_1_1Pacman_a7e9b5ccedd970a41f109c9cc9b3ca2e7}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!handleEvent@{handleEvent}}
+\index{handleEvent@{handleEvent}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{handleEvent()}{handleEvent()}}
+{\footnotesize\ttfamily void Arcade\+::\+Pacman\+::\+Pacman\+::handle\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArcade_1_1Event}{Event}} \&}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handle one event (A key press, a click, a close event...) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & The event to handle. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_a0198c5400c7981528cbdf2db92eb903d}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a3af8f09d9f75370bffcd2fbe17b94cea}\label{classArcade_1_1Pacman_1_1Pacman_a3af8f09d9f75370bffcd2fbe17b94cea}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!init@{init}}
+\index{init@{init}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool Arcade\+::\+Pacman\+::\+Pacman\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Initialize this library. (Create windows \& so on) 
+
+\begin{DoxyReturn}{Returns}
+True if the initialization was successful. False otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IModule_a183763cc9e8fab4462004ed3e50ae93e}{Arcade\+::\+I\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a0d20fe02b2309b48f3a02e32417a76c7}\label{classArcade_1_1Pacman_1_1Pacman_a0d20fe02b2309b48f3a02e32417a76c7}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!operator=@{operator=}}
+\index{operator=@{operator=}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman}{Pacman}}\& Arcade\+::\+Pacman\+::\+Pacman\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classArcade_1_1Pacman_1_1Pacman}{Pacman}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default assignment operator. 
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a53b477531f07119e8d40483eb83f22d3}\label{classArcade_1_1Pacman_1_1Pacman_a53b477531f07119e8d40483eb83f22d3}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!restart@{restart}}
+\index{restart@{restart}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{restart()}{restart()}}
+{\footnotesize\ttfamily void Arcade\+::\+Pacman\+::\+Pacman\+::restart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Restart the game. 
+
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_ae36f03337f8532a267319ef75057e741}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_acd0d2b7389b0b5424a844793200f6756}\label{classArcade_1_1Pacman_1_1Pacman_acd0d2b7389b0b5424a844793200f6756}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!shouldClose@{shouldClose}}
+\index{shouldClose@{shouldClose}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{shouldClose()}{shouldClose()}}
+{\footnotesize\ttfamily bool Arcade\+::\+Pacman\+::\+Pacman\+::should\+Close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should this module be closed? 
+
+\begin{DoxyReturn}{Returns}
+True if this module should be closed. False otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IModule_a7cefb3047a6c4b99ae5288138ea80ccc}{Arcade\+::\+I\+Module}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_aaad5e08bd34ab74ce7fdeae5a0407a37}\label{classArcade_1_1Pacman_1_1Pacman_aaad5e08bd34ab74ce7fdeae5a0407a37}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!\_drawables@{\_drawables}}
+\index{\_drawables@{\_drawables}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{\_drawables}{\_drawables}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable}{Drawables\+::\+A\+Drawable}}$>$ $>$ Arcade\+::\+Pacman\+::\+Pacman\+::\+\_\+drawables = \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{namespaceArcade_1_1Drawables}{Drawables}} that will be displayed. 
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_af4734bb1232af9ff2efd61f8f8c1a896}\label{classArcade_1_1Pacman_1_1Pacman_af4734bb1232af9ff2efd61f8f8c1a896}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!\_gameScore@{\_gameScore}}
+\index{\_gameScore@{\_gameScore}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{\_gameScore}{\_gameScore}}
+{\footnotesize\ttfamily long Arcade\+::\+Pacman\+::\+Pacman\+::\+\_\+game\+Score = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game Score. 
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_ac2f665f484c72c69951acaad4c37729c}\label{classArcade_1_1Pacman_1_1Pacman_ac2f665f484c72c69951acaad4c37729c}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!\_ghosts@{\_ghosts}}
+\index{\_ghosts@{\_ghosts}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{\_ghosts}{\_ghosts}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1Pacman_1_1Pacman_1_1Ghost}{Ghost}} Arcade\+::\+Pacman\+::\+Pacman\+::\+\_\+ghosts\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Information of all the ghosts. 
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_abdccb57d2d7616487b5fd842739ba6b2}\label{classArcade_1_1Pacman_1_1Pacman_abdccb57d2d7616487b5fd842739ba6b2}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!\_map@{\_map}}
+\index{\_map@{\_map}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{\_map}{\_map}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}}$>$ Arcade\+::\+Pacman\+::\+Pacman\+::\+\_\+map = \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game map. 
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_ad251d285e24df938d88a8b877144de33}\label{classArcade_1_1Pacman_1_1Pacman_ad251d285e24df938d88a8b877144de33}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!\_moves@{\_moves}}
+\index{\_moves@{\_moves}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{\_moves}{\_moves}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1Pacman_1_1Pacman_1_1PendingMoves}{Pending\+Moves}} Arcade\+::\+Pacman\+::\+Pacman\+::\+\_\+moves = \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Pending moves. 
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a213c84587115c445ad375130e9b302f8}\label{classArcade_1_1Pacman_1_1Pacman_a213c84587115c445ad375130e9b302f8}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!\_playerDrawable@{\_playerDrawable}}
+\index{\_playerDrawable@{\_playerDrawable}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{\_playerDrawable}{\_playerDrawable}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} Arcade\+::\+Pacman\+::\+Pacman\+::\+\_\+player\+Drawable\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The player\textquotesingle{}s drawable. 
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a5a46bc0099917d079cf00d061af532a8}\label{classArcade_1_1Pacman_1_1Pacman_a5a46bc0099917d079cf00d061af532a8}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!\_playerMovement@{\_playerMovement}}
+\index{\_playerMovement@{\_playerMovement}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{\_playerMovement}{\_playerMovement}}
+{\footnotesize\ttfamily std\+::pair$<$int, int$>$ Arcade\+::\+Pacman\+::\+Pacman\+::\+\_\+player\+Movement\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The movement of the player. 
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_af34a251ef23c6cc6bcbceded33ff610c}\label{classArcade_1_1Pacman_1_1Pacman_af34a251ef23c6cc6bcbceded33ff610c}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!\_playerPosition@{\_playerPosition}}
+\index{\_playerPosition@{\_playerPosition}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{\_playerPosition}{\_playerPosition}}
+{\footnotesize\ttfamily std\+::pair$<$double, double$>$ Arcade\+::\+Pacman\+::\+Pacman\+::\+\_\+player\+Position\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The position of the player. 
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_af7b54b263f0f2227f245ebe32cfc74d9}\label{classArcade_1_1Pacman_1_1Pacman_af7b54b263f0f2227f245ebe32cfc74d9}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!\_resources@{\_resources}}
+\index{\_resources@{\_resources}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{\_resources}{\_resources}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::pair$<$std\+::string, std\+::string$>$ $>$ Arcade\+::\+Pacman\+::\+Pacman\+::\+\_\+resources = \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Resources needed by this game. 
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a558b9a777d396b6f598c9074e6e11c85}\label{classArcade_1_1Pacman_1_1Pacman_a558b9a777d396b6f598c9074e6e11c85}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!\_scoreDrawable@{\_scoreDrawable}}
+\index{\_scoreDrawable@{\_scoreDrawable}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{\_scoreDrawable}{\_scoreDrawable}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1Drawables_1_1Text}{Drawables\+::\+Text}} Arcade\+::\+Pacman\+::\+Pacman\+::\+\_\+score\+Drawable\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Text element to draw the score to the screen. 
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_ae0317db59ae521a43bcf45fb3824065f}\label{classArcade_1_1Pacman_1_1Pacman_ae0317db59ae521a43bcf45fb3824065f}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!\_shouldClose@{\_shouldClose}}
+\index{\_shouldClose@{\_shouldClose}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{\_shouldClose}{\_shouldClose}}
+{\footnotesize\ttfamily bool Arcade\+::\+Pacman\+::\+Pacman\+::\+\_\+should\+Close\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+If the game has ended. 
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a87759f572b2b5bd959ece1b294e6f437}\label{classArcade_1_1Pacman_1_1Pacman_a87759f572b2b5bd959ece1b294e6f437}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!\_sounds@{\_sounds}}
+\index{\_sounds@{\_sounds}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{\_sounds}{\_sounds}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structArcade_1_1Sound}{Sound}}$>$ Arcade\+::\+Pacman\+::\+Pacman\+::\+\_\+sounds = \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sounds that will be started in the next frame. 
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a7c3c74c3e8d29a9e271e779031725f58}\label{classArcade_1_1Pacman_1_1Pacman_a7c3c74c3e8d29a9e271e779031725f58}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!largePacgumFilename@{largePacgumFilename}}
+\index{largePacgumFilename@{largePacgumFilename}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{largePacgumFilename}{largePacgumFilename}}
+{\footnotesize\ttfamily constexpr std\+::string\+\_\+view Arcade\+::\+Pacman\+::\+Pacman\+::large\+Pacgum\+Filename = \char`\"{}assets/pacman/large\+\_\+pacgum.\+png\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Resource location for the large pacgum sprite. 
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a4994758d02935a62d1e1eebcc9f985ab}\label{classArcade_1_1Pacman_1_1Pacman_a4994758d02935a62d1e1eebcc9f985ab}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!mapOffsetTileX@{mapOffsetTileX}}
+\index{mapOffsetTileX@{mapOffsetTileX}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{mapOffsetTileX}{mapOffsetTileX}}
+{\footnotesize\ttfamily constexpr int Arcade\+::\+Pacman\+::\+Pacman\+::map\+Offset\+TileX = 1\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+The offset of the map in number of map\+Tile\+Length for the X axis. 
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a22aeaba542645c028b7da1d543ad0958}\label{classArcade_1_1Pacman_1_1Pacman_a22aeaba542645c028b7da1d543ad0958}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!mapOffsetTileY@{mapOffsetTileY}}
+\index{mapOffsetTileY@{mapOffsetTileY}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{mapOffsetTileY}{mapOffsetTileY}}
+{\footnotesize\ttfamily constexpr int Arcade\+::\+Pacman\+::\+Pacman\+::map\+Offset\+TileY = 5\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+The offset of the map in number of map\+Tile\+Length for the Y axis. 
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a59dc0ab19cd7c172aeffb99e0945211c}\label{classArcade_1_1Pacman_1_1Pacman_a59dc0ab19cd7c172aeffb99e0945211c}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!mapTileLength@{mapTileLength}}
+\index{mapTileLength@{mapTileLength}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{mapTileLength}{mapTileLength}}
+{\footnotesize\ttfamily constexpr int Arcade\+::\+Pacman\+::\+Pacman\+::map\+Tile\+Length = 4\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+The length of a map tile. 
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a55a56dcde6d062a41149a5a9d565030b}\label{classArcade_1_1Pacman_1_1Pacman_a55a56dcde6d062a41149a5a9d565030b}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!mapWallColor@{mapWallColor}}
+\index{mapWallColor@{mapWallColor}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{mapWallColor}{mapWallColor}}
+{\footnotesize\ttfamily constexpr int Arcade\+::\+Pacman\+::\+Pacman\+::map\+Wall\+Color = 0x0000\+F\+F\+FF\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+The color of the walls @info This color is used to check if the block is collidable or not. 
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_a9dfa4cda202129ca71252f5496f356d4}\label{classArcade_1_1Pacman_1_1Pacman_a9dfa4cda202129ca71252f5496f356d4}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!pacmanSpeed@{pacmanSpeed}}
+\index{pacmanSpeed@{pacmanSpeed}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{pacmanSpeed}{pacmanSpeed}}
+{\footnotesize\ttfamily constexpr float Arcade\+::\+Pacman\+::\+Pacman\+::pacman\+Speed = .\+000020\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+The speed of pacman (the player) 
+
+\mbox{\Hypertarget{classArcade_1_1Pacman_1_1Pacman_aa2197c404c4119172b49b56529577c53}\label{classArcade_1_1Pacman_1_1Pacman_aa2197c404c4119172b49b56529577c53}} 
+\index{Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}!smallPacgumFilename@{smallPacgumFilename}}
+\index{smallPacgumFilename@{smallPacgumFilename}!Arcade::Pacman::Pacman@{Arcade::Pacman::Pacman}}
+\doxysubsubsection{\texorpdfstring{smallPacgumFilename}{smallPacgumFilename}}
+{\footnotesize\ttfamily constexpr std\+::string\+\_\+view Arcade\+::\+Pacman\+::\+Pacman\+::small\+Pacgum\+Filename = \char`\"{}assets/pacman/small\+\_\+pacgum.\+png\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Resource location for the small pacgum sprite. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+sources/\+Games/\+Pacman/\mbox{\hyperlink{Pacman_8hpp}{Pacman.\+hpp}}\item 
+sources/\+Games/\+Pacman/\mbox{\hyperlink{Pacman_8cpp}{Pacman.\+cpp}}\end{DoxyCompactItemize}

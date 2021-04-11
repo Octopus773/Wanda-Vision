@@ -1,0 +1,736 @@
+\hypertarget{classArcade_1_1SFMLDisplay}{}\doxysection{Arcade\+::S\+F\+M\+L\+Display Class Reference}
+\label{classArcade_1_1SFMLDisplay}\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+
+
+Implementation of the S\+DL Graphic Library.  
+
+
+
+
+{\ttfamily \#include $<$S\+F\+M\+L\+Display.\+hpp$>$}
+
+
+
+Inheritance diagram for Arcade\+::S\+F\+M\+L\+Display\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classArcade_1_1SFMLDisplay__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arcade\+::S\+F\+M\+L\+Display\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classArcade_1_1SFMLDisplay__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structArcade_1_1SFMLDisplay_1_1InternalWindow}{Internal\+Window}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classArcade_1_1SFMLDisplay_add24d9c49eb4a06f6c1f96ebc101b83d}{S\+F\+M\+L\+Display}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArcade_1_1SFMLDisplay_aa0378d849b9040ef2b2ffb56a20a9fce}{$\sim$\+S\+F\+M\+L\+Display}} () override=default
+\begin{DoxyCompactList}\small\item\em Default copy constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArcade_1_1SFMLDisplay_a3fd08d106c9c2bf94bb43254442b7e28}{S\+F\+M\+L\+Display}} (const \mbox{\hyperlink{classArcade_1_1SFMLDisplay}{S\+F\+M\+L\+Display}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Delete copy constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArcade_1_1SFMLDisplay}{S\+F\+M\+L\+Display}} \& \mbox{\hyperlink{classArcade_1_1SFMLDisplay_acd9dec6329c3545598136f372c4ddb8d}{operator=}} (const \mbox{\hyperlink{classArcade_1_1SFMLDisplay}{S\+F\+M\+L\+Display}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Delete assignment operator. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a02b43c11c931eea7c7ab3b360467b644}{init}} () override
+\begin{DoxyCompactList}\small\item\em Initialize this library. (Create windows \& so on) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a0fccd57d316fc7768eb85930d21f62a3}{close}} () override
+\begin{DoxyCompactList}\small\item\em Allow to say to the library to shutdown and free it\textquotesingle{}s content. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1SFMLDisplay_ae15689acdc33cffc541ce32a40c229b3}{should\+Close}} () override
+\begin{DoxyCompactList}\small\item\em Should this module be closed? \end{DoxyCompactList}\item 
+std\+::list$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structArcade_1_1Event}{Event}} $>$ $>$ \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a51f1d0466228f5f8b2a7c7e40499a53c}{pull\+Events}} () override
+\begin{DoxyCompactList}\small\item\em Pull events (Keys, Clicks, Closes...) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a92d9eb8d50a8bdc5aa0f1478de34835f}{draw}} (\mbox{\hyperlink{structArcade_1_1Drawables_1_1Line}{Drawables\+::\+Line}} \&obj) override
+\begin{DoxyCompactList}\small\item\em Draw a line. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1SFMLDisplay_ab466af0847718db4089642257d3b085e}{draw}} (\mbox{\hyperlink{structArcade_1_1Drawables_1_1Rectangle}{Drawables\+::\+Rectangle}} \&obj) override
+\begin{DoxyCompactList}\small\item\em Draw a rectangle. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a0f24c6f6cdb0883bde733f634fef219d}{draw}} (\mbox{\hyperlink{structArcade_1_1Drawables_1_1Circle}{Drawables\+::\+Circle}} \&obj) override
+\begin{DoxyCompactList}\small\item\em Draw a circle. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1SFMLDisplay_ac3ccc1ce2d46a5781db8422b17344455}{draw}} (\mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} \&obj) override
+\begin{DoxyCompactList}\small\item\em Draw a sprite. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a93a86fe032e51ffb784d344764f4498b}{draw}} (\mbox{\hyperlink{structArcade_1_1Drawables_1_1Text}{Drawables\+::\+Text}} \&obj) override
+\begin{DoxyCompactList}\small\item\em Draw a text. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a9427ee0e72b9b861f8b554074cdd350e}{refresh}} () override
+\begin{DoxyCompactList}\small\item\em Refresh the screen, clear left-\/overs and draw requested objects. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1ModInfo_a4d7a18796fb91858a198412f8a4d4144}{Mod\+Info\+::\+Modtype}} \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a011604a0ad7e2919ceddee8021962c1a}{get\+Type}} () const override
+\begin{DoxyCompactList}\small\item\em Gives the library type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a3e028a793f3b9b9ad8711d85dc5f32b3}{load}} (const std\+::string \&type, const std\+::string \&path) override
+\begin{DoxyCompactList}\small\item\em Load a sprite. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1SFMLDisplay_aea6ea912edccbf3f3a6c2012b20f3b0a}{unload}} (const std\+::string \&type, const std\+::string \&path) override
+\begin{DoxyCompactList}\small\item\em Unload a sprite. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a945c1ee31115d5cf11baf6de6d55937d}{unload\+All}} () override
+\begin{DoxyCompactList}\small\item\em Unload all sprites loaded. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1SFMLDisplay_aa44e8a6e8842601234067146100e9ec9}{play\+Sound}} (\mbox{\hyperlink{structArcade_1_1Sound}{Sound}} \&sound) override
+\begin{DoxyCompactList}\small\item\em Play a sound. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classArcade_1_1SFMLDisplay_a9914e56d1ea74b1491180b9418793dbc}{Resource}} \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a41c2c7e3fe414cfb402f8a51c551e4e4}{create\+Resource}} (const std\+::string \&type, const std\+::string \&path)
+\begin{DoxyCompactList}\small\item\em Allocate the resource given as param. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a458f334b3f07442aad19338e8141b80e}{destroy\+Resource}} (const std\+::pair$<$ std\+::string, \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a9914e56d1ea74b1491180b9418793dbc}{Resource}} $>$ \&resource)
+\begin{DoxyCompactList}\small\item\em Free the resource given as param. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a56453c917d0c52c5ccd0010636d7dbbf}{update\+Internal\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Resize correctly the internal window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent}{Events\+::\+Keyboard\+Event}} \mbox{\hyperlink{classArcade_1_1SFMLDisplay_ab25b28d4646a80c2e25d60cd0a6fff01}{create\+Key\+Event}} (\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154b}{Events\+::\+Keyboard\+Event\+::\+Key\+Code}} key, \mbox{\hyperlink{structArcade_1_1Event_a5f37c0b9d05c65b4c349cafe20f091f7}{Event\+::\+Type}} key\+Type)
+\begin{DoxyCompactList}\small\item\em Binding of a constructor for Key\+Event struct. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structArcade_1_1Events_1_1MouseClickEvent}{Events\+::\+Mouse\+Click\+Event}} \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a35d38ab7b60d93bbfef162dda9f176be}{create\+Click\+Event}} (unsigned int x, unsigned int y, \mbox{\hyperlink{structArcade_1_1Events_1_1MouseClickEvent_abf84f9f4f0ae65d69124a7879b452230}{Events\+::\+Mouse\+Click\+Event\+::\+Mouse\+Button}} button, \mbox{\hyperlink{structArcade_1_1Event_a5f37c0b9d05c65b4c349cafe20f091f7}{Event\+::\+Type}} click\+Type)
+\begin{DoxyCompactList}\small\item\em Binding of a constructor for Click\+Event struct. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structArcade_1_1Events_1_1MouseMoveEvent}{Events\+::\+Mouse\+Move\+Event}} \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a7e70425f58479749e846a9d043644908}{create\+Move\+Event}} (unsigned int x, unsigned int y)
+\begin{DoxyCompactList}\small\item\em Binding of a constructor for Move\+Event struct. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154b}{Events\+::\+Keyboard\+Event\+::\+Key\+Code}} \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a2810b16cca355e4bd617ef68fd221233}{get\+Std\+Key}} (unsigned int key)
+\begin{DoxyCompactList}\small\item\em Allows to get the standard Key\+Code for a key. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structArcade_1_1Events_1_1MouseClickEvent_abf84f9f4f0ae65d69124a7879b452230}{Events\+::\+Mouse\+Click\+Event\+::\+Mouse\+Button}} \mbox{\hyperlink{classArcade_1_1SFMLDisplay_ae2e7a6226b8b81b7d41a7b7b9ba607d4}{get\+Std\+Click\+Type}} (int type)
+\begin{DoxyCompactList}\small\item\em Allows to get the standard Click type for a click. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classArcade_1_1SFMLDisplay_abc39c189f32c013e7f3088a9db43628b}{precise\+Cross\+Product}} (float percent, float total, float base=100.)
+\begin{DoxyCompactList}\small\item\em Allows to get the result of cross\+Pruduct as precise as the int can be. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::variant$<$ sf\+::\+Texture, sf\+::\+Font $>$ typedef \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a9914e56d1ea74b1491180b9418793dbc}{Resource}}
+\begin{DoxyCompactList}\small\item\em The Resource type. \end{DoxyCompactList}\item 
+sf\+::\+Render\+Window \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a5cab4fa016ff97398f6a6487f79553b1}{\+\_\+main\+Window}}
+\begin{DoxyCompactList}\small\item\em The main window. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1SFMLDisplay_1_1InternalWindow}{Internal\+Window}} \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a34c3f56bdc502724729be125fc46ff98}{\+\_\+internal\+Window}}
+\begin{DoxyCompactList}\small\item\em The window to do the best\+Fit. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classArcade_1_1SFMLDisplay_af5ddde9f3bbb0360ae25b5395319e96c}{\+\_\+window\+Title}} = \char`\"{}S\+F\+ML Display Module\char`\"{}
+\begin{DoxyCompactList}\small\item\em The window title. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154b}{Events\+::\+Keyboard\+Event\+::\+Key\+Code}} $>$ \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a238e832b12e850151ec2cb66291617a7}{\+\_\+keys\+Holded}}
+\begin{DoxyCompactList}\small\item\em A list of the keys that are currently hold @info keys are inserted in the list when an event key\+Down as occurred and pop out when a key\+Up occurred. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1SFMLDisplay_aba1a648a9bf4b8e99eb6b15e40c8a16e}{\+\_\+should\+Close}} = false
+\begin{DoxyCompactList}\small\item\em If the Display should close. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, std\+::pair$<$ std\+::string, \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a9914e56d1ea74b1491180b9418793dbc}{Resource}} $>$ $>$ \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a7c8edf1e6bca78fb001bb94806f65a51}{\+\_\+loaded\+Resources}}
+\begin{DoxyCompactList}\small\item\em A list of all the resources that are loaded and cached and then not needed to open again @info the pair is holding the type of the resource type and the resource. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr std\+::string\+\_\+view \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a08d305f6a966ba85b806406c83d62d70}{resource\+Music\+Type}} = \char`\"{}music\char`\"{}
+\begin{DoxyCompactList}\small\item\em Music type resource. \end{DoxyCompactList}\item 
+static constexpr std\+::string\+\_\+view \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a8557142b9441e515fc0bc51ec984e0fc}{resource\+Font\+Type}} = \char`\"{}font\char`\"{}
+\begin{DoxyCompactList}\small\item\em Font type resource. \end{DoxyCompactList}\item 
+static constexpr std\+::string\+\_\+view \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a60bd92b0bc6c1e5e5ae111691101d7cd}{resource\+Sprite\+Type}} = \char`\"{}sprite\char`\"{}
+\begin{DoxyCompactList}\small\item\em Sprite type resource. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the S\+DL Graphic Library. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_add24d9c49eb4a06f6c1f96ebc101b83d}\label{classArcade_1_1SFMLDisplay_add24d9c49eb4a06f6c1f96ebc101b83d}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!SFMLDisplay@{SFMLDisplay}}
+\index{SFMLDisplay@{SFMLDisplay}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{SFMLDisplay()}{SFMLDisplay()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Arcade\+::\+S\+F\+M\+L\+Display\+::\+S\+F\+M\+L\+Display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor. 
+
+\begin{DoxyWarning}{Warning}
+In order to properly use this class you must call the init member function 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_aa0378d849b9040ef2b2ffb56a20a9fce}\label{classArcade_1_1SFMLDisplay_aa0378d849b9040ef2b2ffb56a20a9fce}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!````~SFMLDisplay@{$\sim$SFMLDisplay}}
+\index{````~SFMLDisplay@{$\sim$SFMLDisplay}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{$\sim$SFMLDisplay()}{~SFMLDisplay()}}
+{\footnotesize\ttfamily Arcade\+::\+S\+F\+M\+L\+Display\+::$\sim$\+S\+F\+M\+L\+Display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Default copy constructor. 
+
+\begin{DoxyWarning}{Warning}
+You must call the close member function before the destructor if you called the init member function 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_a3fd08d106c9c2bf94bb43254442b7e28}\label{classArcade_1_1SFMLDisplay_a3fd08d106c9c2bf94bb43254442b7e28}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!SFMLDisplay@{SFMLDisplay}}
+\index{SFMLDisplay@{SFMLDisplay}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{SFMLDisplay()}{SFMLDisplay()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Arcade\+::\+S\+F\+M\+L\+Display\+::\+S\+F\+M\+L\+Display (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classArcade_1_1SFMLDisplay}{S\+F\+M\+L\+Display}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Delete copy constructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_a0fccd57d316fc7768eb85930d21f62a3}\label{classArcade_1_1SFMLDisplay_a0fccd57d316fc7768eb85930d21f62a3}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!close@{close}}
+\index{close@{close}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily bool Arcade\+::\+S\+F\+M\+L\+Display\+::close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Allow to say to the library to shutdown and free it\textquotesingle{}s content. 
+
+\begin{DoxyReturn}{Returns}
+True if the shutdown was successful. False otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IModule_a82aa04f751b491246adf65f40fecef04}{Arcade\+::\+I\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_a35d38ab7b60d93bbfef162dda9f176be}\label{classArcade_1_1SFMLDisplay_a35d38ab7b60d93bbfef162dda9f176be}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!createClickEvent@{createClickEvent}}
+\index{createClickEvent@{createClickEvent}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{createClickEvent()}{createClickEvent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1Events_1_1MouseClickEvent}{Events\+::\+Mouse\+Click\+Event}} Arcade\+::\+S\+F\+M\+L\+Display\+::create\+Click\+Event (\begin{DoxyParamCaption}\item[{unsigned int}]{x,  }\item[{unsigned int}]{y,  }\item[{\mbox{\hyperlink{structArcade_1_1Events_1_1MouseClickEvent_abf84f9f4f0ae65d69124a7879b452230}{Events\+::\+Mouse\+Click\+Event\+::\+Mouse\+Button}}}]{button,  }\item[{\mbox{\hyperlink{structArcade_1_1Event_a5f37c0b9d05c65b4c349cafe20f091f7}{Event\+::\+Type}}}]{click\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Binding of a constructor for Click\+Event struct. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x position (in percentage) \\
+\hline
+{\em y} & The y position (in percentage) \\
+\hline
+{\em id} & The ID of this click. \\
+\hline
+{\em click\+Type} & The type of the click registered (Up, Down or Hold) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Click\+Event struct with it\textquotesingle{}s values correctly filled 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_ab25b28d4646a80c2e25d60cd0a6fff01}\label{classArcade_1_1SFMLDisplay_ab25b28d4646a80c2e25d60cd0a6fff01}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!createKeyEvent@{createKeyEvent}}
+\index{createKeyEvent@{createKeyEvent}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{createKeyEvent()}{createKeyEvent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent}{Events\+::\+Keyboard\+Event}} Arcade\+::\+S\+F\+M\+L\+Display\+::create\+Key\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154b}{Events\+::\+Keyboard\+Event\+::\+Key\+Code}}}]{key,  }\item[{\mbox{\hyperlink{structArcade_1_1Event_a5f37c0b9d05c65b4c349cafe20f091f7}{Event\+::\+Type}}}]{key\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Binding of a constructor for Key\+Event struct. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Value of key attribute of struct Events\+::\+Key\+Event \\
+\hline
+{\em key\+Type} & The type of the key registered (Up, Down or Hold) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Key\+Event struct with it\textquotesingle{}s values correctly filled 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_a7e70425f58479749e846a9d043644908}\label{classArcade_1_1SFMLDisplay_a7e70425f58479749e846a9d043644908}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!createMoveEvent@{createMoveEvent}}
+\index{createMoveEvent@{createMoveEvent}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{createMoveEvent()}{createMoveEvent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1Events_1_1MouseMoveEvent}{Events\+::\+Mouse\+Move\+Event}} Arcade\+::\+S\+F\+M\+L\+Display\+::create\+Move\+Event (\begin{DoxyParamCaption}\item[{unsigned int}]{x,  }\item[{unsigned int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Binding of a constructor for Move\+Event struct. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x position (in percentage) \\
+\hline
+{\em y} & The y position (in percentage) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Move\+Event struct with it\textquotesingle{}s values correctly filled 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_a41c2c7e3fe414cfb402f8a51c551e4e4}\label{classArcade_1_1SFMLDisplay_a41c2c7e3fe414cfb402f8a51c551e4e4}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!createResource@{createResource}}
+\index{createResource@{createResource}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{createResource()}{createResource()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a9914e56d1ea74b1491180b9418793dbc}{S\+F\+M\+L\+Display\+::\+Resource}} Arcade\+::\+S\+F\+M\+L\+Display\+::create\+Resource (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{type,  }\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Allocate the resource given as param. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of the resource \\
+\hline
+{\em path} & The location of the resource file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the resource or nullptr if a problem occurred 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_a458f334b3f07442aad19338e8141b80e}\label{classArcade_1_1SFMLDisplay_a458f334b3f07442aad19338e8141b80e}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!destroyResource@{destroyResource}}
+\index{destroyResource@{destroyResource}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{destroyResource()}{destroyResource()}}
+{\footnotesize\ttfamily void Arcade\+::\+S\+F\+M\+L\+Display\+::destroy\+Resource (\begin{DoxyParamCaption}\item[{const std\+::pair$<$ std\+::string, \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a9914e56d1ea74b1491180b9418793dbc}{Resource}} $>$ \&}]{resource }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Free the resource given as param. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resource} & the pair is holding the type of the resource type and the resource @info Only used if additional steps are required to delete correctly a resource \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_a0f24c6f6cdb0883bde733f634fef219d}\label{classArcade_1_1SFMLDisplay_a0f24c6f6cdb0883bde733f634fef219d}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!draw@{draw}}
+\index{draw@{draw}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily bool Arcade\+::\+S\+F\+M\+L\+Display\+::draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArcade_1_1Drawables_1_1Circle}{Drawables\+::\+Circle}} \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Draw a circle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & The circle to draw. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the draw was successful. False otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IDisplayModule_a3703cbc5bcd5cfc2daa6b2d28265b279}{Arcade\+::\+I\+Display\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_a92d9eb8d50a8bdc5aa0f1478de34835f}\label{classArcade_1_1SFMLDisplay_a92d9eb8d50a8bdc5aa0f1478de34835f}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!draw@{draw}}
+\index{draw@{draw}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily bool Arcade\+::\+S\+F\+M\+L\+Display\+::draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArcade_1_1Drawables_1_1Line}{Drawables\+::\+Line}} \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Draw a line. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & The line to draw. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the text could be drawned. False otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IDisplayModule_a63239e506cb60623810321692c2c924d}{Arcade\+::\+I\+Display\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_ab466af0847718db4089642257d3b085e}\label{classArcade_1_1SFMLDisplay_ab466af0847718db4089642257d3b085e}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!draw@{draw}}
+\index{draw@{draw}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily bool Arcade\+::\+S\+F\+M\+L\+Display\+::draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArcade_1_1Drawables_1_1Rectangle}{Drawables\+::\+Rectangle}} \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Draw a rectangle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & The rectangle to draw. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the draw was successful. False otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IDisplayModule_a9e4edde61179334af1e018c4503117b4}{Arcade\+::\+I\+Display\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_ac3ccc1ce2d46a5781db8422b17344455}\label{classArcade_1_1SFMLDisplay_ac3ccc1ce2d46a5781db8422b17344455}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!draw@{draw}}
+\index{draw@{draw}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily bool Arcade\+::\+S\+F\+M\+L\+Display\+::draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArcade_1_1Drawables_1_1Sprite}{Drawables\+::\+Sprite}} \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Draw a sprite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & The sprite to draw. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the draw was successful. False otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IDisplayModule_a30fb6311ba3aa98aa97ea9b386b2846b}{Arcade\+::\+I\+Display\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_a93a86fe032e51ffb784d344764f4498b}\label{classArcade_1_1SFMLDisplay_a93a86fe032e51ffb784d344764f4498b}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!draw@{draw}}
+\index{draw@{draw}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily bool Arcade\+::\+S\+F\+M\+L\+Display\+::draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArcade_1_1Drawables_1_1Text}{Drawables\+::\+Text}} \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Draw a text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & The text to draw. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the draw was successful. False otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IDisplayModule_a650e92aa57810de52391762d845d39d9}{Arcade\+::\+I\+Display\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_ae2e7a6226b8b81b7d41a7b7b9ba607d4}\label{classArcade_1_1SFMLDisplay_ae2e7a6226b8b81b7d41a7b7b9ba607d4}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!getStdClickType@{getStdClickType}}
+\index{getStdClickType@{getStdClickType}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{getStdClickType()}{getStdClickType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1Events_1_1MouseClickEvent_abf84f9f4f0ae65d69124a7879b452230}{Events\+::\+Mouse\+Click\+Event\+::\+Mouse\+Button}} Arcade\+::\+S\+F\+M\+L\+Display\+::get\+Std\+Click\+Type (\begin{DoxyParamCaption}\item[{int}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Allows to get the standard Click type for a click. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of click given by the S\+D\+L2 library \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A a value for the click type in the standard enum Type of Mouse\+Click\+Event @info If no equivalence found the value Mouse\+Button\+::\+U\+N\+D\+E\+F\+I\+N\+ED is returned 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_a2810b16cca355e4bd617ef68fd221233}\label{classArcade_1_1SFMLDisplay_a2810b16cca355e4bd617ef68fd221233}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!getStdKey@{getStdKey}}
+\index{getStdKey@{getStdKey}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{getStdKey()}{getStdKey()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154b}{Events\+::\+Keyboard\+Event\+::\+Key\+Code}} Arcade\+::\+S\+F\+M\+L\+Display\+::get\+Std\+Key (\begin{DoxyParamCaption}\item[{unsigned int}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Allows to get the standard Key\+Code for a key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key given by the S\+D\+L2 library \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A a value for the key in the standard enum Key\+Code @info If no equivalence found the value Key\+Code\+::\+U\+N\+D\+E\+F\+I\+N\+ED is returned 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_a011604a0ad7e2919ceddee8021962c1a}\label{classArcade_1_1SFMLDisplay_a011604a0ad7e2919ceddee8021962c1a}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!getType@{getType}}
+\index{getType@{getType}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1ModInfo_a4d7a18796fb91858a198412f8a4d4144}{Mod\+Info\+::\+Modtype}} Arcade\+::\+S\+F\+M\+L\+Display\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gives the library type. 
+
+\begin{DoxyReturn}{Returns}
+A value of the enum Mod\+Type representing the type of the library 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IModule_a534f4e6b76c611fdf62ec3e7beb7870d}{Arcade\+::\+I\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_a02b43c11c931eea7c7ab3b360467b644}\label{classArcade_1_1SFMLDisplay_a02b43c11c931eea7c7ab3b360467b644}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!init@{init}}
+\index{init@{init}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool Arcade\+::\+S\+F\+M\+L\+Display\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Initialize this library. (Create windows \& so on) 
+
+\begin{DoxyReturn}{Returns}
+True if the initialization was successful. False otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IModule_a183763cc9e8fab4462004ed3e50ae93e}{Arcade\+::\+I\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_a3e028a793f3b9b9ad8711d85dc5f32b3}\label{classArcade_1_1SFMLDisplay_a3e028a793f3b9b9ad8711d85dc5f32b3}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!load@{load}}
+\index{load@{load}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily bool Arcade\+::\+S\+F\+M\+L\+Display\+::load (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{type,  }\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Load a sprite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & The path to the texture to load \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if the texture was successfully loaded. False otherwise 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IDisplayModule_af91d32f972408431ae5117cc63b26191}{Arcade\+::\+I\+Display\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_acd9dec6329c3545598136f372c4ddb8d}\label{classArcade_1_1SFMLDisplay_acd9dec6329c3545598136f372c4ddb8d}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!operator=@{operator=}}
+\index{operator=@{operator=}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classArcade_1_1SFMLDisplay}{S\+F\+M\+L\+Display}}\& Arcade\+::\+S\+F\+M\+L\+Display\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classArcade_1_1SFMLDisplay}{S\+F\+M\+L\+Display}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Delete assignment operator. 
+
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_aa44e8a6e8842601234067146100e9ec9}\label{classArcade_1_1SFMLDisplay_aa44e8a6e8842601234067146100e9ec9}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!playSound@{playSound}}
+\index{playSound@{playSound}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{playSound()}{playSound()}}
+{\footnotesize\ttfamily void Arcade\+::\+S\+F\+M\+L\+Display\+::play\+Sound (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArcade_1_1Sound}{Sound}} \&}]{sound }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Play a sound. 
+
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IDisplayModule_a50b3539b4cf62b35534c27a1f42b5f33}{Arcade\+::\+I\+Display\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_abc39c189f32c013e7f3088a9db43628b}\label{classArcade_1_1SFMLDisplay_abc39c189f32c013e7f3088a9db43628b}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!preciseCrossProduct@{preciseCrossProduct}}
+\index{preciseCrossProduct@{preciseCrossProduct}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{preciseCrossProduct()}{preciseCrossProduct()}}
+{\footnotesize\ttfamily int Arcade\+::\+S\+F\+M\+L\+Display\+::precise\+Cross\+Product (\begin{DoxyParamCaption}\item[{float}]{percent,  }\item[{float}]{total,  }\item[{float}]{base = {\ttfamily 100.} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Allows to get the result of cross\+Pruduct as precise as the int can be. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em percent} & The percentage \\
+\hline
+{\em total} & The total to base the percentage on \\
+\hline
+{\em base} & The number to be divided with (default 100) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the cross product 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_a51f1d0466228f5f8b2a7c7e40499a53c}\label{classArcade_1_1SFMLDisplay_a51f1d0466228f5f8b2a7c7e40499a53c}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!pullEvents@{pullEvents}}
+\index{pullEvents@{pullEvents}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{pullEvents()}{pullEvents()}}
+{\footnotesize\ttfamily std\+::list$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structArcade_1_1Event}{Event}} $>$ $>$ Arcade\+::\+S\+F\+M\+L\+Display\+::pull\+Events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Pull events (Keys, Clicks, Closes...) 
+
+\begin{DoxyReturn}{Returns}
+The list of events that occured. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IDisplayModule_a25c8d9013fb6eed456341b85691f97c7}{Arcade\+::\+I\+Display\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_a9427ee0e72b9b861f8b554074cdd350e}\label{classArcade_1_1SFMLDisplay_a9427ee0e72b9b861f8b554074cdd350e}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!refresh@{refresh}}
+\index{refresh@{refresh}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{refresh()}{refresh()}}
+{\footnotesize\ttfamily bool Arcade\+::\+S\+F\+M\+L\+Display\+::refresh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Refresh the screen, clear left-\/overs and draw requested objects. 
+
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IDisplayModule_a4fd4b4a5b9e4ca3a1c69dfac79d1ee4f}{Arcade\+::\+I\+Display\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_ae15689acdc33cffc541ce32a40c229b3}\label{classArcade_1_1SFMLDisplay_ae15689acdc33cffc541ce32a40c229b3}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!shouldClose@{shouldClose}}
+\index{shouldClose@{shouldClose}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{shouldClose()}{shouldClose()}}
+{\footnotesize\ttfamily bool Arcade\+::\+S\+F\+M\+L\+Display\+::should\+Close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should this module be closed? 
+
+\begin{DoxyReturn}{Returns}
+True if this module should be closed. False otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IModule_a7cefb3047a6c4b99ae5288138ea80ccc}{Arcade\+::\+I\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_aea6ea912edccbf3f3a6c2012b20f3b0a}\label{classArcade_1_1SFMLDisplay_aea6ea912edccbf3f3a6c2012b20f3b0a}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!unload@{unload}}
+\index{unload@{unload}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{unload()}{unload()}}
+{\footnotesize\ttfamily void Arcade\+::\+S\+F\+M\+L\+Display\+::unload (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{type,  }\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Unload a sprite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & The path to the texture to load \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IDisplayModule_af6af61745f3e54867c60d514969eff50}{Arcade\+::\+I\+Display\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_a945c1ee31115d5cf11baf6de6d55937d}\label{classArcade_1_1SFMLDisplay_a945c1ee31115d5cf11baf6de6d55937d}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!unloadAll@{unloadAll}}
+\index{unloadAll@{unloadAll}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{unloadAll()}{unloadAll()}}
+{\footnotesize\ttfamily void Arcade\+::\+S\+F\+M\+L\+Display\+::unload\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Unload all sprites loaded. 
+
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IDisplayModule_a4ff89f9be3b7b7bfa8ce72d643755148}{Arcade\+::\+I\+Display\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_a56453c917d0c52c5ccd0010636d7dbbf}\label{classArcade_1_1SFMLDisplay_a56453c917d0c52c5ccd0010636d7dbbf}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!updateInternalWindow@{updateInternalWindow}}
+\index{updateInternalWindow@{updateInternalWindow}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{updateInternalWindow()}{updateInternalWindow()}}
+{\footnotesize\ttfamily void Arcade\+::\+S\+F\+M\+L\+Display\+::update\+Internal\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Resize correctly the internal window. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_a34c3f56bdc502724729be125fc46ff98}\label{classArcade_1_1SFMLDisplay_a34c3f56bdc502724729be125fc46ff98}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!\_internalWindow@{\_internalWindow}}
+\index{\_internalWindow@{\_internalWindow}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{\_internalWindow}{\_internalWindow}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1SFMLDisplay_1_1InternalWindow}{Internal\+Window}} Arcade\+::\+S\+F\+M\+L\+Display\+::\+\_\+internal\+Window\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The window to do the best\+Fit. 
+
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_a238e832b12e850151ec2cb66291617a7}\label{classArcade_1_1SFMLDisplay_a238e832b12e850151ec2cb66291617a7}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!\_keysHolded@{\_keysHolded}}
+\index{\_keysHolded@{\_keysHolded}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{\_keysHolded}{\_keysHolded}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structArcade_1_1Events_1_1KeyboardEvent_a992be0cd5551134bfef242a9c475154b}{Events\+::\+Keyboard\+Event\+::\+Key\+Code}}$>$ Arcade\+::\+S\+F\+M\+L\+Display\+::\+\_\+keys\+Holded\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A list of the keys that are currently hold @info keys are inserted in the list when an event key\+Down as occurred and pop out when a key\+Up occurred. 
+
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_a7c8edf1e6bca78fb001bb94806f65a51}\label{classArcade_1_1SFMLDisplay_a7c8edf1e6bca78fb001bb94806f65a51}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!\_loadedResources@{\_loadedResources}}
+\index{\_loadedResources@{\_loadedResources}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{\_loadedResources}{\_loadedResources}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, std\+::pair$<$std\+::string, \mbox{\hyperlink{classArcade_1_1SFMLDisplay_a9914e56d1ea74b1491180b9418793dbc}{Resource}}$>$ $>$ Arcade\+::\+S\+F\+M\+L\+Display\+::\+\_\+loaded\+Resources\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A list of all the resources that are loaded and cached and then not needed to open again @info the pair is holding the type of the resource type and the resource. 
+
+saving string for the path (used to check if the texture is already loaded) and the Texture ptr \mbox{\Hypertarget{classArcade_1_1SFMLDisplay_a5cab4fa016ff97398f6a6487f79553b1}\label{classArcade_1_1SFMLDisplay_a5cab4fa016ff97398f6a6487f79553b1}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!\_mainWindow@{\_mainWindow}}
+\index{\_mainWindow@{\_mainWindow}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{\_mainWindow}{\_mainWindow}}
+{\footnotesize\ttfamily sf\+::\+Render\+Window Arcade\+::\+S\+F\+M\+L\+Display\+::\+\_\+main\+Window\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The main window. 
+
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_aba1a648a9bf4b8e99eb6b15e40c8a16e}\label{classArcade_1_1SFMLDisplay_aba1a648a9bf4b8e99eb6b15e40c8a16e}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!\_shouldClose@{\_shouldClose}}
+\index{\_shouldClose@{\_shouldClose}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{\_shouldClose}{\_shouldClose}}
+{\footnotesize\ttfamily bool Arcade\+::\+S\+F\+M\+L\+Display\+::\+\_\+should\+Close = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+If the Display should close. 
+
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_af5ddde9f3bbb0360ae25b5395319e96c}\label{classArcade_1_1SFMLDisplay_af5ddde9f3bbb0360ae25b5395319e96c}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!\_windowTitle@{\_windowTitle}}
+\index{\_windowTitle@{\_windowTitle}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{\_windowTitle}{\_windowTitle}}
+{\footnotesize\ttfamily std\+::string Arcade\+::\+S\+F\+M\+L\+Display\+::\+\_\+window\+Title = \char`\"{}S\+F\+ML Display Module\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The window title. 
+
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_a9914e56d1ea74b1491180b9418793dbc}\label{classArcade_1_1SFMLDisplay_a9914e56d1ea74b1491180b9418793dbc}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!Resource@{Resource}}
+\index{Resource@{Resource}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{Resource}{Resource}}
+{\footnotesize\ttfamily std\+::variant$<$sf\+::\+Texture, sf\+::\+Font$>$ typedef Arcade\+::\+S\+F\+M\+L\+Display\+::\+Resource\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The Resource type. 
+
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_a8557142b9441e515fc0bc51ec984e0fc}\label{classArcade_1_1SFMLDisplay_a8557142b9441e515fc0bc51ec984e0fc}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!resourceFontType@{resourceFontType}}
+\index{resourceFontType@{resourceFontType}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{resourceFontType}{resourceFontType}}
+{\footnotesize\ttfamily constexpr std\+::string\+\_\+view Arcade\+::\+S\+F\+M\+L\+Display\+::resource\+Font\+Type = \char`\"{}font\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Font type resource. 
+
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_a08d305f6a966ba85b806406c83d62d70}\label{classArcade_1_1SFMLDisplay_a08d305f6a966ba85b806406c83d62d70}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!resourceMusicType@{resourceMusicType}}
+\index{resourceMusicType@{resourceMusicType}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{resourceMusicType}{resourceMusicType}}
+{\footnotesize\ttfamily constexpr std\+::string\+\_\+view Arcade\+::\+S\+F\+M\+L\+Display\+::resource\+Music\+Type = \char`\"{}music\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Music type resource. 
+
+\mbox{\Hypertarget{classArcade_1_1SFMLDisplay_a60bd92b0bc6c1e5e5ae111691101d7cd}\label{classArcade_1_1SFMLDisplay_a60bd92b0bc6c1e5e5ae111691101d7cd}} 
+\index{Arcade::SFMLDisplay@{Arcade::SFMLDisplay}!resourceSpriteType@{resourceSpriteType}}
+\index{resourceSpriteType@{resourceSpriteType}!Arcade::SFMLDisplay@{Arcade::SFMLDisplay}}
+\doxysubsubsection{\texorpdfstring{resourceSpriteType}{resourceSpriteType}}
+{\footnotesize\ttfamily constexpr std\+::string\+\_\+view Arcade\+::\+S\+F\+M\+L\+Display\+::resource\+Sprite\+Type = \char`\"{}sprite\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Sprite type resource. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+sources/\+Display\+Modules/\+S\+F\+M\+L/\mbox{\hyperlink{SFMLDisplay_8hpp}{S\+F\+M\+L\+Display.\+hpp}}\item 
+sources/\+Display\+Modules/\+S\+F\+M\+L/\mbox{\hyperlink{SFMLDisplay_8cpp}{S\+F\+M\+L\+Display.\+cpp}}\end{DoxyCompactItemize}

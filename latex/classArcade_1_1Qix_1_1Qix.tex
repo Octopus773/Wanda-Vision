@@ -1,0 +1,505 @@
+\hypertarget{classArcade_1_1Qix_1_1Qix}{}\doxysection{Arcade\+::Qix\+::Qix Class Reference}
+\label{classArcade_1_1Qix_1_1Qix}\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+
+
+!  
+
+
+
+
+{\ttfamily \#include $<$Qix.\+hpp$>$}
+
+
+
+Inheritance diagram for Arcade\+::Qix\+::Qix\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classArcade_1_1Qix_1_1Qix__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arcade\+::Qix\+::Qix\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classArcade_1_1Qix_1_1Qix__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structArcade_1_1Qix_1_1Qix_1_1PendingMoves}{Pending\+Moves}}
+\begin{DoxyCompactList}\small\item\em Struct used to keep pending moves. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a8ffa459da28ec9102417274c840e9176}{init}} () override
+\begin{DoxyCompactList}\small\item\em Initialize this library. (Create windows \& so on) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_aec57aeaab01c7b1ea0904065ce27970f}{close}} () override
+\begin{DoxyCompactList}\small\item\em Allow to say to the library to shutdown and free it\textquotesingle{}s content. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_af70bbba05d6316982147fed81f8d92c3}{should\+Close}} () override
+\begin{DoxyCompactList}\small\item\em Should this module be closed? \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1ModInfo_a4d7a18796fb91858a198412f8a4d4144}{Mod\+Info\+::\+Modtype}} \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_ac2efa344c2a3e81d5cfbdf7a5d7620bb}{get\+Type}} () const override
+\begin{DoxyCompactList}\small\item\em Get the type of this module. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$ \& \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_aeb81cf5cfb751c1239a28ee85e5bd665}{get\+Resources}} () const override
+\begin{DoxyCompactList}\small\item\em Get resources to preload. @info Only called once. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable}{Drawables\+::\+A\+Drawable}} $>$ $>$ \& \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a1eb79f2c7108f2d241e468e7240deba1}{get\+Drawables}} () override
+\begin{DoxyCompactList}\small\item\em Return a list of drawables to display. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Sound}{Sound}} $>$ \& \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_ac6ceb113ffdc0e6cc56579af6a83a9ab}{get\+Sounds}} () override
+\begin{DoxyCompactList}\small\item\em Return a list of sounds to make. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_aa666b0e7ada8013ecd1d0349743bf2d6}{add\+Ticks}} (unsigned tick) override
+\begin{DoxyCompactList}\small\item\em Advance the game of x seconds. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a46c4b462c25f75f191be0896e31a620f}{restart}} () override
+\begin{DoxyCompactList}\small\item\em Restart the game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a41e2cbf71d3105e2d30d9da5a04fdf59}{handle\+Event}} (\mbox{\hyperlink{structArcade_1_1Event}{Event}} \&event) override
+\begin{DoxyCompactList}\small\item\em Handle one event (A key press, a click, a close event...) \end{DoxyCompactList}\item 
+unsigned long \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a6b23281076d0b24fdd20803890d10eaf}{get\+Score}} () override
+\begin{DoxyCompactList}\small\item\em Get the score (used for saving/displaying) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a0bccc22b2753669264cb58fa5df037c0}{Qix}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a04632cbb617bd3391a270711b6cf3081}{Qix}} (const \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix}{Qix}} \&)=default
+\begin{DoxyCompactList}\small\item\em Default copy constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_af7b170068da7806fd6441930e61a4e23}{$\sim$\+Qix}} () override=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArcade_1_1Qix_1_1Qix}{Qix}} \& \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a5c3408017e481201cf58b97def4fe168}{operator=}} (const \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix}{Qix}} \&)=default
+\begin{DoxyCompactList}\small\item\em Default assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a19eb6cb22efbebbaefa32fd5d1b7717d}{Draw\+Type}} \{ \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a19eb6cb22efbebbaefa32fd5d1b7717da6fd2870384d849e413d1752973fe9ff5}{None}}, 
+\mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a19eb6cb22efbebbaefa32fd5d1b7717da6ee74ffbf2ff76630de4478b768c2114}{Slow}}, 
+\mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a19eb6cb22efbebbaefa32fd5d1b7717daf7ab472fa442dfb5703cc51589f99ffb}{Fast}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enum of draw types. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a83a67f2a1750728658d3618572579628}{\+\_\+start\+Line}} ()
+\begin{DoxyCompactList}\small\item\em Start a new line at the current player\textquotesingle{}s position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_abbf79496b2512e41206d08dee8aa7bf7}{\+\_\+close\+Zone}} ()
+\begin{DoxyCompactList}\small\item\em Finish a draw by closing the zone (removing lines from the \+\_\+lines and adding a finished zone to \+\_\+zones). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::pair$<$ double, double $>$ \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a92aaa84c3fb912d29d541ede4149c498}{\+\_\+player\+Position}} = \{50, 95\}
+\begin{DoxyCompactList}\small\item\em The position of the player. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a19eb6cb22efbebbaefa32fd5d1b7717d}{Draw\+Type}} \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a37a375966772156d79620d836d511ab1}{\+\_\+draw\+Type}} = \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a19eb6cb22efbebbaefa32fd5d1b7717da6fd2870384d849e413d1752973fe9ff5}{None}}
+\begin{DoxyCompactList}\small\item\em Current draw type of the player. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1Qix_1_1Qix_1_1PendingMoves}{Pending\+Moves}} \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a31054d8bcf98ba52b3309a4f1f2ed71f}{\+\_\+moves}} = \{\}
+\begin{DoxyCompactList}\small\item\em Pending moves. \end{DoxyCompactList}\item 
+std\+::map$<$ \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a19eb6cb22efbebbaefa32fd5d1b7717d}{Draw\+Type}}, double $>$ \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a9c3834d2e044d1104fe128854d56e0e0}{\+\_\+move\+Speeds}}
+\begin{DoxyCompactList}\small\item\em Move speed of the player. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1Drawables_1_1Circle}{Drawables\+::\+Circle}} \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_aede009868df70c964b7f7c82fda07ebf}{\+\_\+player\+Drawable}}
+\begin{DoxyCompactList}\small\item\em The player\textquotesingle{}s drawable. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1Line}{Drawables\+::\+Line}} $>$ \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a71270cfc2ac290d53b0d7291c9fdf745}{\+\_\+lines}} = \{\}
+\begin{DoxyCompactList}\small\item\em The list of lines of the current shape. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1Line}{Drawables\+::\+Line}} $>$ \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a89c7636481d7d47c48cf15eacaae366d}{\+\_\+zones}} = \{\}
+\begin{DoxyCompactList}\small\item\em Closed shapes lines \& map borders. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$ \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_ae632f6fefbfd0fe2c575fc7ca384ffa2}{\+\_\+resources}} = \{\}
+\begin{DoxyCompactList}\small\item\em Resources needed by this game. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable}{Drawables\+::\+A\+Drawable}} $>$ $>$ \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a83fa3e6d097ec613d5a625d289a73c25}{\+\_\+drawables}} = \{\}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{namespaceArcade_1_1Drawables}{Drawables}} that will be displayed. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Sound}{Sound}} $>$ \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a90e64b9b193fce3f771354e81fd12550}{\+\_\+sounds}} = \{\}
+\begin{DoxyCompactList}\small\item\em Sounds that will be started in the next frame. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+! 
+
+The qix game\textquotesingle{}s module. 
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_a19eb6cb22efbebbaefa32fd5d1b7717d}\label{classArcade_1_1Qix_1_1Qix_a19eb6cb22efbebbaefa32fd5d1b7717d}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!DrawType@{DrawType}}
+\index{DrawType@{DrawType}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{DrawType}{DrawType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a19eb6cb22efbebbaefa32fd5d1b7717d}{Arcade\+::\+Qix\+::\+Qix\+::\+Draw\+Type}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Enum of draw types. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{None@{None}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!None@{None}}}\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_a19eb6cb22efbebbaefa32fd5d1b7717da6fd2870384d849e413d1752973fe9ff5}\label{classArcade_1_1Qix_1_1Qix_a19eb6cb22efbebbaefa32fd5d1b7717da6fd2870384d849e413d1752973fe9ff5}} 
+None&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Slow@{Slow}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!Slow@{Slow}}}\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_a19eb6cb22efbebbaefa32fd5d1b7717da6ee74ffbf2ff76630de4478b768c2114}\label{classArcade_1_1Qix_1_1Qix_a19eb6cb22efbebbaefa32fd5d1b7717da6ee74ffbf2ff76630de4478b768c2114}} 
+Slow&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Fast@{Fast}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!Fast@{Fast}}}\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_a19eb6cb22efbebbaefa32fd5d1b7717daf7ab472fa442dfb5703cc51589f99ffb}\label{classArcade_1_1Qix_1_1Qix_a19eb6cb22efbebbaefa32fd5d1b7717daf7ab472fa442dfb5703cc51589f99ffb}} 
+Fast&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_a0bccc22b2753669264cb58fa5df037c0}\label{classArcade_1_1Qix_1_1Qix_a0bccc22b2753669264cb58fa5df037c0}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!Qix@{Qix}}
+\index{Qix@{Qix}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{Qix()}{Qix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Arcade\+::\+Qix\+::\+Qix\+::\+Qix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor. 
+
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_a04632cbb617bd3391a270711b6cf3081}\label{classArcade_1_1Qix_1_1Qix_a04632cbb617bd3391a270711b6cf3081}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!Qix@{Qix}}
+\index{Qix@{Qix}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{Qix()}{Qix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Arcade\+::\+Qix\+::\+Qix\+::\+Qix (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix}{Qix}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default copy constructor. 
+
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_af7b170068da7806fd6441930e61a4e23}\label{classArcade_1_1Qix_1_1Qix_af7b170068da7806fd6441930e61a4e23}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!````~Qix@{$\sim$Qix}}
+\index{````~Qix@{$\sim$Qix}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{$\sim$Qix()}{~Qix()}}
+{\footnotesize\ttfamily Arcade\+::\+Qix\+::\+Qix\+::$\sim$\+Qix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_abbf79496b2512e41206d08dee8aa7bf7}\label{classArcade_1_1Qix_1_1Qix_abbf79496b2512e41206d08dee8aa7bf7}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!\_closeZone@{\_closeZone}}
+\index{\_closeZone@{\_closeZone}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{\_closeZone()}{\_closeZone()}}
+{\footnotesize\ttfamily void Arcade\+::\+Qix\+::\+Qix\+::\+\_\+close\+Zone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Finish a draw by closing the zone (removing lines from the \+\_\+lines and adding a finished zone to \+\_\+zones). 
+
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_a83a67f2a1750728658d3618572579628}\label{classArcade_1_1Qix_1_1Qix_a83a67f2a1750728658d3618572579628}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!\_startLine@{\_startLine}}
+\index{\_startLine@{\_startLine}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{\_startLine()}{\_startLine()}}
+{\footnotesize\ttfamily void Arcade\+::\+Qix\+::\+Qix\+::\+\_\+start\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Start a new line at the current player\textquotesingle{}s position. 
+
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_aa666b0e7ada8013ecd1d0349743bf2d6}\label{classArcade_1_1Qix_1_1Qix_aa666b0e7ada8013ecd1d0349743bf2d6}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!addTicks@{addTicks}}
+\index{addTicks@{addTicks}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{addTicks()}{addTicks()}}
+{\footnotesize\ttfamily void Arcade\+::\+Qix\+::\+Qix\+::add\+Ticks (\begin{DoxyParamCaption}\item[{unsigned}]{tick }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Advance the game of x seconds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tick} & The number of ticks that occurred since the last call. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_adec58643e22471155f5be4676c448494}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_aec57aeaab01c7b1ea0904065ce27970f}\label{classArcade_1_1Qix_1_1Qix_aec57aeaab01c7b1ea0904065ce27970f}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!close@{close}}
+\index{close@{close}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily bool Arcade\+::\+Qix\+::\+Qix\+::close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Allow to say to the library to shutdown and free it\textquotesingle{}s content. 
+
+\begin{DoxyReturn}{Returns}
+True if the shutdown was successful. False otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IModule_a82aa04f751b491246adf65f40fecef04}{Arcade\+::\+I\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_a1eb79f2c7108f2d241e468e7240deba1}\label{classArcade_1_1Qix_1_1Qix_a1eb79f2c7108f2d241e468e7240deba1}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!getDrawables@{getDrawables}}
+\index{getDrawables@{getDrawables}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{getDrawables()}{getDrawables()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable}{Drawables\+::\+A\+Drawable}} $>$ $>$ \& Arcade\+::\+Qix\+::\+Qix\+::get\+Drawables (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Return a list of drawables to display. 
+
+\begin{DoxyReturn}{Returns}
+The list of objects 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_a2f5b001141785fcd80197637221ca229}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_aeb81cf5cfb751c1239a28ee85e5bd665}\label{classArcade_1_1Qix_1_1Qix_aeb81cf5cfb751c1239a28ee85e5bd665}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!getResources@{getResources}}
+\index{getResources@{getResources}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{getResources()}{getResources()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$ \& Arcade\+::\+Qix\+::\+Qix\+::get\+Resources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get resources to preload. @info Only called once. 
+
+\begin{DoxyReturn}{Returns}
+A vector of tuple of (type of resource, path of the resource). 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_a8dc5ea0cec5cebe5704f293051c75f74}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_a6b23281076d0b24fdd20803890d10eaf}\label{classArcade_1_1Qix_1_1Qix_a6b23281076d0b24fdd20803890d10eaf}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!getScore@{getScore}}
+\index{getScore@{getScore}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{getScore()}{getScore()}}
+{\footnotesize\ttfamily unsigned long Arcade\+::\+Qix\+::\+Qix\+::get\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the score (used for saving/displaying) 
+
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_a0c82c58e99bdb889d3d85c588ed8f297}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_ac6ceb113ffdc0e6cc56579af6a83a9ab}\label{classArcade_1_1Qix_1_1Qix_ac6ceb113ffdc0e6cc56579af6a83a9ab}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!getSounds@{getSounds}}
+\index{getSounds@{getSounds}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{getSounds()}{getSounds()}}
+{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{structArcade_1_1Sound}{Sound}} $>$ \& Arcade\+::\+Qix\+::\+Qix\+::get\+Sounds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Return a list of sounds to make. 
+
+\begin{DoxyReturn}{Returns}
+The list of sounds 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_afd5b835dfe34c61b0e45997d37e2c90b}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_ac2efa344c2a3e81d5cfbdf7a5d7620bb}\label{classArcade_1_1Qix_1_1Qix_ac2efa344c2a3e81d5cfbdf7a5d7620bb}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!getType@{getType}}
+\index{getType@{getType}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1ModInfo_a4d7a18796fb91858a198412f8a4d4144}{Mod\+Info\+::\+Modtype}} Arcade\+::\+Qix\+::\+Qix\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the type of this module. 
+
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IModule_a534f4e6b76c611fdf62ec3e7beb7870d}{Arcade\+::\+I\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_a41e2cbf71d3105e2d30d9da5a04fdf59}\label{classArcade_1_1Qix_1_1Qix_a41e2cbf71d3105e2d30d9da5a04fdf59}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!handleEvent@{handleEvent}}
+\index{handleEvent@{handleEvent}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{handleEvent()}{handleEvent()}}
+{\footnotesize\ttfamily void Arcade\+::\+Qix\+::\+Qix\+::handle\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArcade_1_1Event}{Event}} \&}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handle one event (A key press, a click, a close event...) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & The event to handle. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_a0198c5400c7981528cbdf2db92eb903d}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_a8ffa459da28ec9102417274c840e9176}\label{classArcade_1_1Qix_1_1Qix_a8ffa459da28ec9102417274c840e9176}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!init@{init}}
+\index{init@{init}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool Arcade\+::\+Qix\+::\+Qix\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Initialize this library. (Create windows \& so on) 
+
+\begin{DoxyReturn}{Returns}
+True if the initialization was successful. False otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IModule_a183763cc9e8fab4462004ed3e50ae93e}{Arcade\+::\+I\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_a5c3408017e481201cf58b97def4fe168}\label{classArcade_1_1Qix_1_1Qix_a5c3408017e481201cf58b97def4fe168}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!operator=@{operator=}}
+\index{operator=@{operator=}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix}{Qix}}\& Arcade\+::\+Qix\+::\+Qix\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix}{Qix}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default assignment operator. 
+
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_a46c4b462c25f75f191be0896e31a620f}\label{classArcade_1_1Qix_1_1Qix_a46c4b462c25f75f191be0896e31a620f}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!restart@{restart}}
+\index{restart@{restart}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{restart()}{restart()}}
+{\footnotesize\ttfamily void Arcade\+::\+Qix\+::\+Qix\+::restart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Restart the game. 
+
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IGameModule_ae36f03337f8532a267319ef75057e741}{Arcade\+::\+I\+Game\+Module}}.
+
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_af70bbba05d6316982147fed81f8d92c3}\label{classArcade_1_1Qix_1_1Qix_af70bbba05d6316982147fed81f8d92c3}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!shouldClose@{shouldClose}}
+\index{shouldClose@{shouldClose}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{shouldClose()}{shouldClose()}}
+{\footnotesize\ttfamily bool Arcade\+::\+Qix\+::\+Qix\+::should\+Close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should this module be closed? 
+
+\begin{DoxyReturn}{Returns}
+True if this module should be closed. False otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classArcade_1_1IModule_a7cefb3047a6c4b99ae5288138ea80ccc}{Arcade\+::\+I\+Module}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_a83fa3e6d097ec613d5a625d289a73c25}\label{classArcade_1_1Qix_1_1Qix_a83fa3e6d097ec613d5a625d289a73c25}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!\_drawables@{\_drawables}}
+\index{\_drawables@{\_drawables}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{\_drawables}{\_drawables}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable}{Drawables\+::\+A\+Drawable}}$>$ $>$ Arcade\+::\+Qix\+::\+Qix\+::\+\_\+drawables = \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{namespaceArcade_1_1Drawables}{Drawables}} that will be displayed. 
+
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_a37a375966772156d79620d836d511ab1}\label{classArcade_1_1Qix_1_1Qix_a37a375966772156d79620d836d511ab1}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!\_drawType@{\_drawType}}
+\index{\_drawType@{\_drawType}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{\_drawType}{\_drawType}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a19eb6cb22efbebbaefa32fd5d1b7717d}{Draw\+Type}} Arcade\+::\+Qix\+::\+Qix\+::\+\_\+draw\+Type = \mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a19eb6cb22efbebbaefa32fd5d1b7717da6fd2870384d849e413d1752973fe9ff5}{None}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Current draw type of the player. 
+
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_a71270cfc2ac290d53b0d7291c9fdf745}\label{classArcade_1_1Qix_1_1Qix_a71270cfc2ac290d53b0d7291c9fdf745}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!\_lines@{\_lines}}
+\index{\_lines@{\_lines}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{\_lines}{\_lines}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structArcade_1_1Drawables_1_1Line}{Drawables\+::\+Line}}$>$ Arcade\+::\+Qix\+::\+Qix\+::\+\_\+lines = \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The list of lines of the current shape. 
+
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_a31054d8bcf98ba52b3309a4f1f2ed71f}\label{classArcade_1_1Qix_1_1Qix_a31054d8bcf98ba52b3309a4f1f2ed71f}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!\_moves@{\_moves}}
+\index{\_moves@{\_moves}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{\_moves}{\_moves}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1Qix_1_1Qix_1_1PendingMoves}{Pending\+Moves}} Arcade\+::\+Qix\+::\+Qix\+::\+\_\+moves = \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Pending moves. 
+
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_a9c3834d2e044d1104fe128854d56e0e0}\label{classArcade_1_1Qix_1_1Qix_a9c3834d2e044d1104fe128854d56e0e0}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!\_moveSpeeds@{\_moveSpeeds}}
+\index{\_moveSpeeds@{\_moveSpeeds}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{\_moveSpeeds}{\_moveSpeeds}}
+{\footnotesize\ttfamily std\+::map$<$\mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a19eb6cb22efbebbaefa32fd5d1b7717d}{Draw\+Type}}, double$>$ Arcade\+::\+Qix\+::\+Qix\+::\+\_\+move\+Speeds\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{            \{\mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a19eb6cb22efbebbaefa32fd5d1b7717da6fd2870384d849e413d1752973fe9ff5}{None}}, .00005\},}
+\DoxyCodeLine{            \{\mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a19eb6cb22efbebbaefa32fd5d1b7717daf7ab472fa442dfb5703cc51589f99ffb}{Fast}}, .00005\},}
+\DoxyCodeLine{            \{\mbox{\hyperlink{classArcade_1_1Qix_1_1Qix_a19eb6cb22efbebbaefa32fd5d1b7717da6ee74ffbf2ff76630de4478b768c2114}{Slow}}, .000025\}}
+\DoxyCodeLine{        \}}
+
+\end{DoxyCode}
+
+
+Move speed of the player. 
+
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_aede009868df70c964b7f7c82fda07ebf}\label{classArcade_1_1Qix_1_1Qix_aede009868df70c964b7f7c82fda07ebf}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!\_playerDrawable@{\_playerDrawable}}
+\index{\_playerDrawable@{\_playerDrawable}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{\_playerDrawable}{\_playerDrawable}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1Drawables_1_1Circle}{Drawables\+::\+Circle}} Arcade\+::\+Qix\+::\+Qix\+::\+\_\+player\+Drawable\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The player\textquotesingle{}s drawable. 
+
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_a92aaa84c3fb912d29d541ede4149c498}\label{classArcade_1_1Qix_1_1Qix_a92aaa84c3fb912d29d541ede4149c498}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!\_playerPosition@{\_playerPosition}}
+\index{\_playerPosition@{\_playerPosition}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{\_playerPosition}{\_playerPosition}}
+{\footnotesize\ttfamily std\+::pair$<$double, double$>$ Arcade\+::\+Qix\+::\+Qix\+::\+\_\+player\+Position = \{50, 95\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The position of the player. 
+
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_ae632f6fefbfd0fe2c575fc7ca384ffa2}\label{classArcade_1_1Qix_1_1Qix_ae632f6fefbfd0fe2c575fc7ca384ffa2}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!\_resources@{\_resources}}
+\index{\_resources@{\_resources}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{\_resources}{\_resources}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::pair$<$std\+::string, std\+::string$>$ $>$ Arcade\+::\+Qix\+::\+Qix\+::\+\_\+resources = \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Resources needed by this game. 
+
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_a90e64b9b193fce3f771354e81fd12550}\label{classArcade_1_1Qix_1_1Qix_a90e64b9b193fce3f771354e81fd12550}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!\_sounds@{\_sounds}}
+\index{\_sounds@{\_sounds}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{\_sounds}{\_sounds}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structArcade_1_1Sound}{Sound}}$>$ Arcade\+::\+Qix\+::\+Qix\+::\+\_\+sounds = \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sounds that will be started in the next frame. 
+
+\mbox{\Hypertarget{classArcade_1_1Qix_1_1Qix_a89c7636481d7d47c48cf15eacaae366d}\label{classArcade_1_1Qix_1_1Qix_a89c7636481d7d47c48cf15eacaae366d}} 
+\index{Arcade::Qix::Qix@{Arcade::Qix::Qix}!\_zones@{\_zones}}
+\index{\_zones@{\_zones}!Arcade::Qix::Qix@{Arcade::Qix::Qix}}
+\doxysubsubsection{\texorpdfstring{\_zones}{\_zones}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structArcade_1_1Drawables_1_1Line}{Drawables\+::\+Line}}$>$ Arcade\+::\+Qix\+::\+Qix\+::\+\_\+zones = \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Closed shapes lines \& map borders. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+sources/\+Games/\+Qix/\mbox{\hyperlink{Qix_8hpp}{Qix.\+hpp}}\item 
+sources/\+Games/\+Qix/\mbox{\hyperlink{Qix_8cpp}{Qix.\+cpp}}\end{DoxyCompactItemize}

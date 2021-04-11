@@ -1,0 +1,8 @@
+<map id="Arcade::IGameModule" name="Arcade::IGameModule">
+<area shape="rect" id="node1" title="The interface of all games." alt="" coords="317,189,483,369"/>
+<area shape="rect" id="node3" href="$classArcade_1_1Menu_1_1Menu.html" title="A menu that allow the user to select a game and a display module." alt="" coords="5,630,160,971"/>
+<area shape="rect" id="node4" href="$classArcade_1_1Nibbler_1_1Nibbler.html" title="!" alt="" coords="184,417,387,1184"/>
+<area shape="rect" id="node5" href="$classArcade_1_1Pacman_1_1Pacman.html" title="!" alt="" coords="411,454,621,1147"/>
+<area shape="rect" id="node6" href="$classArcade_1_1Qix_1_1Qix.html" title="!" alt="" coords="645,579,787,1023"/>
+<area shape="rect" id="node2" href="$classArcade_1_1IModule.html" title="A base module interface." alt="" coords="337,5,463,141"/>
+</map>

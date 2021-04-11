@@ -1,0 +1,4 @@
+<map id="Arcade::Drawables::Circle" name="Arcade::Drawables::Circle">
+<area shape="rect" id="node1" title="A circle game objecct." alt="" coords="5,189,157,281"/>
+<area shape="rect" id="node2" href="$structArcade_1_1Drawables_1_1ADrawable.html" title="A base struct for every objects in the game." alt="" coords="5,5,157,141"/>
+</map>

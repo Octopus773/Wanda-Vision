@@ -1,0 +1,181 @@
+\hypertarget{structArcade_1_1Core_1_1Library}{}\doxysection{Arcade\+::Core\+::Library Struct Reference}
+\label{structArcade_1_1Core_1_1Library}\index{Arcade::Core::Library@{Arcade::Core::Library}}
+
+
+A struct representing a library.  
+
+
+
+
+{\ttfamily \#include $<$Library.\+hpp$>$}
+
+
+
+Collaboration diagram for Arcade\+::Core\+::Library\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{structArcade_1_1Core_1_1Library__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::unique\+\_\+ptr$<$ T $>$ \mbox{\hyperlink{structArcade_1_1Core_1_1Library_a04f1393f3e44a45c1bd9470e8b99ed61}{start}} ()
+\begin{DoxyCompactList}\small\item\em Initialize the library and get the functions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1Core_1_1Library_a18761b6f0877a5f60f8113658edc6d27}{Library}} (const std\+::string \&\mbox{\hyperlink{structArcade_1_1Core_1_1Library_a751a243687f4c464bd45cfb2bb57d360}{path}})
+\begin{DoxyCompactList}\small\item\em Load a library from a path. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1Core_1_1Library_ac79f7a104572dfbcba6a6824da43fbdf}{Library}} (const \mbox{\hyperlink{structArcade_1_1Core_1_1Library}{Library}} \&)=delete
+\begin{DoxyCompactList}\small\item\em No copy constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1Core_1_1Library_a7ac538a1f15f7c007b74c242388a4f54}{Library}} (\mbox{\hyperlink{structArcade_1_1Core_1_1Library}{Library}} \&\&) noexcept
+\begin{DoxyCompactList}\small\item\em A move constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1Core_1_1Library_a94bb4ee71064fc1ae7440e1bc8bde603}{$\sim$\+Library}} ()
+\begin{DoxyCompactList}\small\item\em Destructor that close the library. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1Core_1_1Library}{Library}} \& \mbox{\hyperlink{structArcade_1_1Core_1_1Library_a4579adb91dd2dc4224dd38406cd0f977}{operator=}} (const \mbox{\hyperlink{structArcade_1_1Core_1_1Library}{Library}} \&)=delete
+\begin{DoxyCompactList}\small\item\em No assignment operator. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structArcade_1_1Core_1_1Library_a12dc2ca88d49c1239124e33f586dd5f5}{operator==}} (const \mbox{\hyperlink{structArcade_1_1Core_1_1Library}{Library}} \&) const
+\begin{DoxyCompactList}\small\item\em Equal operator. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structArcade_1_1Core_1_1Library_a32e87c09363fbc6d1947f8835dfebff6}{operator!=}} (const \mbox{\hyperlink{structArcade_1_1Core_1_1Library}{Library}} \&) const
+\begin{DoxyCompactList}\small\item\em Different operator;. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{structArcade_1_1Core_1_1Library_a751a243687f4c464bd45cfb2bb57d360}{path}}
+\begin{DoxyCompactList}\small\item\em The path of this library. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structArcade_1_1ModInfo}{Mod\+Info}} \mbox{\hyperlink{structArcade_1_1Core_1_1Library_afa5887ce21c71b5462764d6e542705fe}{info}}
+\begin{DoxyCompactList}\small\item\em Information about this library. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \mbox{\hyperlink{structArcade_1_1Core_1_1Library_a7516e6859043482223f1ccc2610228c9}{\+\_\+handle}}
+\begin{DoxyCompactList}\small\item\em dlopen handle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A struct representing a library. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structArcade_1_1Core_1_1Library_a18761b6f0877a5f60f8113658edc6d27}\label{structArcade_1_1Core_1_1Library_a18761b6f0877a5f60f8113658edc6d27}} 
+\index{Arcade::Core::Library@{Arcade::Core::Library}!Library@{Library}}
+\index{Library@{Library}!Arcade::Core::Library@{Arcade::Core::Library}}
+\doxysubsubsection{\texorpdfstring{Library()}{Library()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Arcade\+::\+Core\+::\+Library\+::\+Library (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Load a library from a path. 
+
+\mbox{\Hypertarget{structArcade_1_1Core_1_1Library_ac79f7a104572dfbcba6a6824da43fbdf}\label{structArcade_1_1Core_1_1Library_ac79f7a104572dfbcba6a6824da43fbdf}} 
+\index{Arcade::Core::Library@{Arcade::Core::Library}!Library@{Library}}
+\index{Library@{Library}!Arcade::Core::Library@{Arcade::Core::Library}}
+\doxysubsubsection{\texorpdfstring{Library()}{Library()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Arcade\+::\+Core\+::\+Library\+::\+Library (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structArcade_1_1Core_1_1Library}{Library}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+No copy constructor. 
+
+\mbox{\Hypertarget{structArcade_1_1Core_1_1Library_a7ac538a1f15f7c007b74c242388a4f54}\label{structArcade_1_1Core_1_1Library_a7ac538a1f15f7c007b74c242388a4f54}} 
+\index{Arcade::Core::Library@{Arcade::Core::Library}!Library@{Library}}
+\index{Library@{Library}!Arcade::Core::Library@{Arcade::Core::Library}}
+\doxysubsubsection{\texorpdfstring{Library()}{Library()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Arcade\+::\+Core\+::\+Library\+::\+Library (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArcade_1_1Core_1_1Library}{Library}} \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+A move constructor. 
+
+\mbox{\Hypertarget{structArcade_1_1Core_1_1Library_a94bb4ee71064fc1ae7440e1bc8bde603}\label{structArcade_1_1Core_1_1Library_a94bb4ee71064fc1ae7440e1bc8bde603}} 
+\index{Arcade::Core::Library@{Arcade::Core::Library}!````~Library@{$\sim$Library}}
+\index{````~Library@{$\sim$Library}!Arcade::Core::Library@{Arcade::Core::Library}}
+\doxysubsubsection{\texorpdfstring{$\sim$Library()}{~Library()}}
+{\footnotesize\ttfamily Arcade\+::\+Core\+::\+Library\+::$\sim$\+Library (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor that close the library. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structArcade_1_1Core_1_1Library_a32e87c09363fbc6d1947f8835dfebff6}\label{structArcade_1_1Core_1_1Library_a32e87c09363fbc6d1947f8835dfebff6}} 
+\index{Arcade::Core::Library@{Arcade::Core::Library}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Arcade::Core::Library@{Arcade::Core::Library}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Arcade\+::\+Core\+::\+Library\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structArcade_1_1Core_1_1Library}{Library}} \&}]{x }\end{DoxyParamCaption}) const}
+
+
+
+Different operator;. 
+
+\mbox{\Hypertarget{structArcade_1_1Core_1_1Library_a4579adb91dd2dc4224dd38406cd0f977}\label{structArcade_1_1Core_1_1Library_a4579adb91dd2dc4224dd38406cd0f977}} 
+\index{Arcade::Core::Library@{Arcade::Core::Library}!operator=@{operator=}}
+\index{operator=@{operator=}!Arcade::Core::Library@{Arcade::Core::Library}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1Core_1_1Library}{Library}}\& Arcade\+::\+Core\+::\+Library\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structArcade_1_1Core_1_1Library}{Library}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+No assignment operator. 
+
+\mbox{\Hypertarget{structArcade_1_1Core_1_1Library_a12dc2ca88d49c1239124e33f586dd5f5}\label{structArcade_1_1Core_1_1Library_a12dc2ca88d49c1239124e33f586dd5f5}} 
+\index{Arcade::Core::Library@{Arcade::Core::Library}!operator==@{operator==}}
+\index{operator==@{operator==}!Arcade::Core::Library@{Arcade::Core::Library}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Arcade\+::\+Core\+::\+Library\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structArcade_1_1Core_1_1Library}{Library}} \&}]{x }\end{DoxyParamCaption}) const}
+
+
+
+Equal operator. 
+
+\mbox{\Hypertarget{structArcade_1_1Core_1_1Library_a04f1393f3e44a45c1bd9470e8b99ed61}\label{structArcade_1_1Core_1_1Library_a04f1393f3e44a45c1bd9470e8b99ed61}} 
+\index{Arcade::Core::Library@{Arcade::Core::Library}!start@{start}}
+\index{start@{start}!Arcade::Core::Library@{Arcade::Core::Library}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::unique\+\_\+ptr$<$T$>$ Arcade\+::\+Core\+::\+Library\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initialize the library and get the functions. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structArcade_1_1Core_1_1Library_a7516e6859043482223f1ccc2610228c9}\label{structArcade_1_1Core_1_1Library_a7516e6859043482223f1ccc2610228c9}} 
+\index{Arcade::Core::Library@{Arcade::Core::Library}!\_handle@{\_handle}}
+\index{\_handle@{\_handle}!Arcade::Core::Library@{Arcade::Core::Library}}
+\doxysubsubsection{\texorpdfstring{\_handle}{\_handle}}
+{\footnotesize\ttfamily void$\ast$ Arcade\+::\+Core\+::\+Library\+::\+\_\+handle\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+dlopen handle. 
+
+\mbox{\Hypertarget{structArcade_1_1Core_1_1Library_afa5887ce21c71b5462764d6e542705fe}\label{structArcade_1_1Core_1_1Library_afa5887ce21c71b5462764d6e542705fe}} 
+\index{Arcade::Core::Library@{Arcade::Core::Library}!info@{info}}
+\index{info@{info}!Arcade::Core::Library@{Arcade::Core::Library}}
+\doxysubsubsection{\texorpdfstring{info}{info}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArcade_1_1ModInfo}{Mod\+Info}} Arcade\+::\+Core\+::\+Library\+::info}
+
+
+
+Information about this library. 
+
+\mbox{\Hypertarget{structArcade_1_1Core_1_1Library_a751a243687f4c464bd45cfb2bb57d360}\label{structArcade_1_1Core_1_1Library_a751a243687f4c464bd45cfb2bb57d360}} 
+\index{Arcade::Core::Library@{Arcade::Core::Library}!path@{path}}
+\index{path@{path}!Arcade::Core::Library@{Arcade::Core::Library}}
+\doxysubsubsection{\texorpdfstring{path}{path}}
+{\footnotesize\ttfamily std\+::string Arcade\+::\+Core\+::\+Library\+::path}
+
+
+
+The path of this library. 
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+sources/\+Core/\mbox{\hyperlink{Library_8hpp}{Library.\+hpp}}\item 
+sources/\+Core/\mbox{\hyperlink{sources_2Core_2Library_8cpp}{Library.\+cpp}}\end{DoxyCompactItemize}

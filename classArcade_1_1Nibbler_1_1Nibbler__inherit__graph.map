@@ -1,0 +1,5 @@
+<map id="Arcade::Nibbler::Nibbler" name="Arcade::Nibbler::Nibbler">
+<area shape="rect" id="node1" title="!" alt="" coords="5,417,208,1184"/>
+<area shape="rect" id="node2" href="$classArcade_1_1IGameModule.html" title="The interface of all games." alt="" coords="23,189,190,369"/>
+<area shape="rect" id="node3" href="$classArcade_1_1IModule.html" title="A base module interface." alt="" coords="43,5,170,141"/>
+</map>

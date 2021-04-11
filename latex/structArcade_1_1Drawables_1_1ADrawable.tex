@@ -1,0 +1,111 @@
+\hypertarget{structArcade_1_1Drawables_1_1ADrawable}{}\doxysection{Arcade\+::Drawables\+::A\+Drawable Struct Reference}
+\label{structArcade_1_1Drawables_1_1ADrawable}\index{Arcade::Drawables::ADrawable@{Arcade::Drawables::ADrawable}}
+
+
+A base struct for every objects in the game.  
+
+
+
+
+{\ttfamily \#include $<$A\+Drawable.\+hpp$>$}
+
+
+
+Inheritance diagram for Arcade\+::Drawables\+::A\+Drawable\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structArcade_1_1Drawables_1_1ADrawable__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arcade\+::Drawables\+::A\+Drawable\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{structArcade_1_1Drawables_1_1ADrawable__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable_aac7da4707ab42ce6ceb28fc44a3bfa17}{$\sim$\+A\+Drawable}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable_acac9324686b12dd5fd592d2c89cbb085}{x}}
+\begin{DoxyCompactList}\small\item\em Get the X position of this object @info A percentage representing the position. 0 is left, 100 right. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable_a587087f1c4ea2b75496c7b6c7cbe5247}{y}}
+\begin{DoxyCompactList}\small\item\em Get the Y position of this object @info A percentage representing the position. 0 is top, 100 bottom. \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable_a066fdbd117bfd3ee68c91ef8d3faff01}{color}}
+\begin{DoxyCompactList}\small\item\em The color of this object. @info color format is R\+R\+G\+G\+B\+B\+AA, 1 byte for each. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable}{A\+Drawable}} $>$ \mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable_ad8fd14413cb87e32f1a8390660d036a3}{fallback}}
+\begin{DoxyCompactList}\small\item\em Drawable to use if the renderer can\textquotesingle{}t display the current object (can be nullptr). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A base struct for every objects in the game. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structArcade_1_1Drawables_1_1ADrawable_aac7da4707ab42ce6ceb28fc44a3bfa17}\label{structArcade_1_1Drawables_1_1ADrawable_aac7da4707ab42ce6ceb28fc44a3bfa17}} 
+\index{Arcade::Drawables::ADrawable@{Arcade::Drawables::ADrawable}!````~ADrawable@{$\sim$ADrawable}}
+\index{````~ADrawable@{$\sim$ADrawable}!Arcade::Drawables::ADrawable@{Arcade::Drawables::ADrawable}}
+\doxysubsubsection{\texorpdfstring{$\sim$ADrawable()}{~ADrawable()}}
+{\footnotesize\ttfamily virtual Arcade\+::\+Drawables\+::\+A\+Drawable\+::$\sim$\+A\+Drawable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structArcade_1_1Drawables_1_1ADrawable_a066fdbd117bfd3ee68c91ef8d3faff01}\label{structArcade_1_1Drawables_1_1ADrawable_a066fdbd117bfd3ee68c91ef8d3faff01}} 
+\index{Arcade::Drawables::ADrawable@{Arcade::Drawables::ADrawable}!color@{color}}
+\index{color@{color}!Arcade::Drawables::ADrawable@{Arcade::Drawables::ADrawable}}
+\doxysubsubsection{\texorpdfstring{color}{color}}
+{\footnotesize\ttfamily unsigned Arcade\+::\+Drawables\+::\+A\+Drawable\+::color}
+
+
+
+The color of this object. @info color format is R\+R\+G\+G\+B\+B\+AA, 1 byte for each. 
+
+\mbox{\Hypertarget{structArcade_1_1Drawables_1_1ADrawable_ad8fd14413cb87e32f1a8390660d036a3}\label{structArcade_1_1Drawables_1_1ADrawable_ad8fd14413cb87e32f1a8390660d036a3}} 
+\index{Arcade::Drawables::ADrawable@{Arcade::Drawables::ADrawable}!fallback@{fallback}}
+\index{fallback@{fallback}!Arcade::Drawables::ADrawable@{Arcade::Drawables::ADrawable}}
+\doxysubsubsection{\texorpdfstring{fallback}{fallback}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{structArcade_1_1Drawables_1_1ADrawable}{A\+Drawable}}$>$ Arcade\+::\+Drawables\+::\+A\+Drawable\+::fallback}
+
+
+
+Drawable to use if the renderer can\textquotesingle{}t display the current object (can be nullptr). 
+
+\mbox{\Hypertarget{structArcade_1_1Drawables_1_1ADrawable_acac9324686b12dd5fd592d2c89cbb085}\label{structArcade_1_1Drawables_1_1ADrawable_acac9324686b12dd5fd592d2c89cbb085}} 
+\index{Arcade::Drawables::ADrawable@{Arcade::Drawables::ADrawable}!x@{x}}
+\index{x@{x}!Arcade::Drawables::ADrawable@{Arcade::Drawables::ADrawable}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily int Arcade\+::\+Drawables\+::\+A\+Drawable\+::x}
+
+
+
+Get the X position of this object @info A percentage representing the position. 0 is left, 100 right. 
+
+\mbox{\Hypertarget{structArcade_1_1Drawables_1_1ADrawable_a587087f1c4ea2b75496c7b6c7cbe5247}\label{structArcade_1_1Drawables_1_1ADrawable_a587087f1c4ea2b75496c7b6c7cbe5247}} 
+\index{Arcade::Drawables::ADrawable@{Arcade::Drawables::ADrawable}!y@{y}}
+\index{y@{y}!Arcade::Drawables::ADrawable@{Arcade::Drawables::ADrawable}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily int Arcade\+::\+Drawables\+::\+A\+Drawable\+::y}
+
+
+
+Get the Y position of this object @info A percentage representing the position. 0 is top, 100 bottom. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+sources/\+Common/\+Drawables/\mbox{\hyperlink{ADrawable_8hpp}{A\+Drawable.\+hpp}}\end{DoxyCompactItemize}
