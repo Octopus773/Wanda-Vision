@@ -6,6 +6,7 @@
 #include <iostream>
 #include <Games/Menu/Menu.hpp>
 #include <regex>
+#include <unistd.h>
 #include "Exceptions/InvalidLibraryException.hpp"
 #include "Exceptions/InvalidArgumentException.hpp"
 #include "Common/Events/KeyBoardEvent.hpp"
@@ -217,7 +218,9 @@ namespace Arcade::Core
 	int Runner::runShell()
 	{
 		this->setShell();
-		return this->runGame();
+		this->runGame();
+		_exit(0);
+		return 0;
 	}
 
 	int Runner::runGame()
@@ -240,7 +243,8 @@ namespace Arcade::Core
 			timer = newTimer;
 		}
 		this->_saveScore();
-		this->runShell();
+		if (dynamic_cast<Menu::Menu *>(this->_game.get()) == nullptr)
+			this->runShell();
 		return 0;
 	}
 
