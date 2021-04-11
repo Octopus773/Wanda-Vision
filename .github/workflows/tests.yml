@@ -35,6 +35,6 @@ jobs:
       - name: Build Makefile with CMake
         run: mkdir -p build && cd build && cmake ..
       - name: Build with Makefile
-        run: make -C build
+        run: make -C build unit_tests arcade_pacman
       - name: Execute tests
         run: ./unit_tests
