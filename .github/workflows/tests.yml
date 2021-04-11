@@ -1,0 +1,40 @@
+name: Testing current commit
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  Testing:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.x'
+      - name: Install the SFML.
+        run: sudo apt-get update &&
+          sudo apt-get install --yes libsfml-dev qt5-default
+      - name: Install Criterion
+        run: git clone --recursive https://github.com/Snaipe/Criterion &&
+          cd Criterion &&
+          sudo apt install --yes ninja-build &&
+          pip3 install meson &&
+          meson build &&
+          ninja -C build &&
+          sudo ninja -C build install &&
+          sudo cp -r /usr/local/lib/x86_64-linux-gnu/libcriterion* /usr/lib
+      - name: Update G++
+        run: sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 100
+      - name: Build Makefile with CMake
+        run: mkdir -p build && cd build && cmake ..
+      - name: Build with Makefile
+        run: make -C build unit_tests arcade_pacman
+      - name: Execute tests
+        run: ./unit_tests
