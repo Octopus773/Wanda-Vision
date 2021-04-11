@@ -2,8 +2,14 @@ How to create a display Library
 ###############################################
 
 To create a display module, you will need to create a shared library with 3 differents things.
+    - An header
+    - A getter of your Module
+    - The implementation of your :term:`Display Module`
 
-The two first things are C style functions that will be used to determine the type of module you create and to start your module.
+The getHeader function
+------------------------
+
+The two first things are C style functions that will be used by the arcade :term:`Core` to determine the type of your module.
 
 The first one is the get header. It should have this signature:
 ```extern "C" Arcade::ModInfo getHeader()```
@@ -13,31 +19,54 @@ It must return theses informations about your module:
 
  - it's name
  - it's type (a game or a display)
- - and a magic number (used to check if this module is for an arcade or not)
+ - and a magic number (used to check if this module is compatible with our arcade)
 
-Here is the getHeader of the Pacman's game for an exemple:
-
-.. code-block:: cpp
-   :linenos:
-
-   extern "C" Arcade::ModInfo getHeader()
-   {
-     Arcade::ModInfo info;
-     info.name = "Pacman";
-     info.type = Arcade::ModInfo::GAME;
-     info.magicNumber = Arcade::MagicNumber;
-     return info;
-   }
-
-You must also implement the getModule function that should return the third's needed thing: a IDisplayModule implementation. Here is the sfml implementation:
+Definition in Module.hpp
 
 .. code-block:: c++
-   :linenos:
+
+    //! @brief Get the library's header.
+    //! @info Used to verify the integrity of the lib.
+    extern "C" Arcade::ModInfo getHeader();
+
+Here is the getHeader of the SFML's implementation for an example:
+
+.. code-block:: c++
+
+    extern "C" ModInfo getHeader()
+    {
+        ModInfo m;
+
+        m.magicNumber = MagicNumber;
+        m.name = "SFML";
+        m.type = ModInfo::Modtype::GRAPHIC;
+        return m;
+    }
+
+The getModule function
+-----------------------
+
+You have to implement the getModule function that should return the third's needed thing: a IDisplayModule implementation.
+
+Definition in Module.hpp
+
+.. code-block:: c++
+
+    //! @brief Get the module class.
+    //! @return A new instance of a IDisplayModule or IGameModule.
+    extern "C" Arcade::IModule *getModule();
+
+Here is the SFML implementation:
+
+.. code-block:: c++
 
    extern "C" Arcade::IModule *getModule()
    {
       return new SFMLDisplay;
    }
+
+IDisplayModule implementation
+-------------------------------
 
 And the last thing you need is a IDisplayModule implementation. Here is the IDIsplayModule's header:
 
@@ -70,11 +99,11 @@ And the last thing you need is a IDisplayModule implementation. Here is the IDIs
       class IDisplayModule : public IModule
       {
       public:
-        //! @brief Virtual destructror
+        //! @brief Virtual destructor
         ~IDisplayModule() override = default;
 
         //! @brief Pull events (Keys, Clicks, Closes...)
-        //! @return The list of events that occured.
+        //! @return The list of events that occurred.
         virtual std::list<std::unique_ptr<Event>> pullEvents() = 0;
 
         //! @brief Draw a line.
@@ -120,9 +149,15 @@ And the last thing you need is a IDisplayModule implementation. Here is the IDIs
       };
     }
 
-You need to implement every methods to make a display work. The draw functions are called every frame for each objects and should allow you to put objects on your internal buffer or on the screen and the refresh function is called after every draw to clear your buffer, update the screen with your internal buffer or any other things that you must do every frame.
+Additional information
+------------------------
+
+You need to implement every method to make a display work. The draw functions are called every frame for each objects and should allow you to put objects on your internal buffer or on the screen and the refresh function is called after every draw to clear your buffer, update the screen with your internal buffer or any other things that you must do every frame.
 
 The pullEvent method should return keyboard, mouse and close events that occurs from your display. Theses events are then handled by the core or the game depending on the type of event.
+
+.. note::
+    Refer to the Event page to see more
 
 The load method allow you to load and cache resources that the game will use (3D objects, sprites, fonts, musics...) The most used types are: "font" and "sprite". The unloads methods allow you to clear your cache.
 

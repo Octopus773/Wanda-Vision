@@ -12,8 +12,7 @@ Welcome to Wanda Vision's documentation!
    :caption: Contents:
 
    glossaryTerms
-   graphicLibraries
-   gameLibraries
+   exemples
    tutoCreateGame
    tutoCreateDisplay
 
@@ -46,13 +45,13 @@ Group: Bad Nintendo
 
 - `Arthur Jamet <https://github.com/Arthi-chaud>`_
 - `Louis Auzuret <https://github.com/GitBluub>`_
-- Ugo Généreau
+- `Ugo Généreau <https://github.com/ugenereau/>`_
 
 Group: Capcom will learn from us (losers of the dice)
 
-- Baptiste Moulard
+- `Baptiste Moulard <https://github.com/Arbarne>`_
 - `Romain Lucas <https://github.com/roromainlcs>`_
-- Simon Thibaut
+- `Simon Thibaut <https://github.com/SimonTHD>`_
 
 
 Contribute
@@ -70,4 +69,4 @@ Contact me via the mail on my Github profile
 License
 =======
 
-none
+MIT
